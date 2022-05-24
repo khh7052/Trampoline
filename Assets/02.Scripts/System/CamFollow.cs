@@ -7,23 +7,21 @@ public class CamFollow : MonoBehaviour
 {
     public Transform target;
     private float maxHeight; // 최대 높이
+    Vector3 pos;
 
     private void Start()
     {
-        maxHeight = target.position.y;
+        pos = transform.position;
     }
 
     void LateUpdate()
     {
-        float height = target.position.y;
-
-        if (height > maxHeight)
+        if(target.position.y > transform.position.y)
         {
-            Vector3 pos = transform.position;
-            pos.y = height;
+            pos.y = target.position.y;
             transform.position = pos;
-            maxHeight = height;
         }
+
 
 
     }

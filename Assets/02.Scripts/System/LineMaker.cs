@@ -9,6 +9,31 @@ public class LineMaker : MonoBehaviour
     EdgeCollider2D edgeCollider;
     Vector2[] points;
 
+    public Color stopColor;
+    public Color moveColor;
+
+    public float dashOffsetSpeed = 0.1f;
+    private bool isCreating;
+
+    public bool IsCreating
+    {
+        get { return isCreating; }
+        set { 
+            isCreating = value;
+
+            line.Dashed = value;
+            edgeCollider.enabled = !value;
+            LineColor = value ? moveColor : stopColor;
+        }
+    }
+
+    public Color LineColor
+    {
+        get { return line.Color; }
+        set { 
+            line.Color = value; 
+        }
+    }
 
     public Vector2 Start
     {
@@ -48,6 +73,8 @@ public class LineMaker : MonoBehaviour
     {
         if(Input.touchCount > 0)
         {
+            if(isCreating) line.DashOffset += Time.deltaTime + dashOffsetSpeed;
+
             Touch touch = Input.GetTouch(0);
 
             Vector2 pos = ScreenToWorld(touch.position);
@@ -56,6 +83,8 @@ public class LineMaker : MonoBehaviour
             {
                 Start = pos;
                 End = pos;
+
+                IsCreating = true;
             }
             if (touch.phase == TouchPhase.Moved)
             {
@@ -64,6 +93,8 @@ public class LineMaker : MonoBehaviour
             if (touch.phase == TouchPhase.Ended)
             {
                 End = pos;
+
+                IsCreating = false;
             }
         }
     }
@@ -79,6 +110,7 @@ public class LineMaker : MonoBehaviour
         edgeCollider = GetComponent<EdgeCollider2D>();
 
         points = edgeCollider.points;
+        LineColor = stopColor;
     }
 
     void Init()
