@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    float sideOffset = 0.1f;
-    float upOffset = 0.5f;
+    readonly float sideOffset = 0.1f;
+    readonly float upOffset = 0.5f;
     Vector2 pos;
-    bool spawnOn = false;
 
     public float spawnDistance = 20f;
 

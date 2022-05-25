@@ -9,8 +9,8 @@ public class Ball : InitObject
     Camera cam;
 
     Coroutine heightCoroutine;
-    WaitForSeconds heightCheckDelay = new WaitForSeconds(1f);
-    WaitForSeconds heightCheckRate = new WaitForSeconds(0.02f);
+    readonly WaitForSeconds heightCheckDelay = new(1f);
+    readonly WaitForSeconds heightCheckRate = new(0.02f);
 
     public float Height
     {
