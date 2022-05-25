@@ -1,20 +1,37 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    void Die()
+    float bottomOffset = 0;
+    Camera cam;
+
+
+    private void Start()
     {
-        gameObject.SetActive(false);
+        cam = Camera.main;
+        bottomOffset = cam.transform.position.y - GetBottomPos();
     }
 
-    private void OnBecameInvisible()
+    void Die()
     {
-        print("!!");
-        Die();
+        GameManager.Instance.GameOver();
     }
+
+    private void Update()
+    {
+        Vector2 camPos = cam.transform.position;
+
+        if (transform.position.y < camPos.y - bottomOffset)
+        {
+            Die();
+        }
+    }
+
+    public float GetBottomPos()
+    {
+        return cam.ViewportToWorldPoint(Vector3.zero).y;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -19,9 +19,10 @@ public class CamFollow : MonoBehaviour
         if(target.position.y > transform.position.y)
         {
             pos.y = target.position.y;
-            transform.position = pos;
         }
 
+        pos.x = target.position.x;
+        transform.position = pos;
 
 
     }

@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Shapes;
+using UnityEngine.EventSystems;
 
-public class LineMaker : MonoBehaviour
+public class LineMaker : InitObject
 {
+
     Line line;
     EdgeCollider2D edgeCollider;
     Vector2[] points;
+    Vector2[] initPoints;
 
     public Color stopColor;
     public Color moveColor;
@@ -58,21 +61,15 @@ public class LineMaker : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        OneInit();
-    }
-
-    private void OnEnable()
-    {
-        Init();
-    }
 
 
     void Update()
     {
+        if (GameManager.Instance.state != GameState.PLAY) return;
+
         if(Input.touchCount > 0)
         {
+
             if(isCreating) line.DashOffset += Time.deltaTime + dashOffsetSpeed;
 
             Touch touch = Input.GetTouch(0);
@@ -104,21 +101,29 @@ public class LineMaker : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 0));
     }
 
-    void OneInit()
+    public override void OneInit()
     {
+        base.OneInit();
+
         line = GetComponent<Line>();
         edgeCollider = GetComponent<EdgeCollider2D>();
 
         points = edgeCollider.points;
         LineColor = stopColor;
-    }
 
-    void Init()
-    {
         points[0] = line.Start;
         points[1] = line.End;
+        initPoints = (Vector2[])points.Clone();
 
         edgeCollider.points = points;
+    }
+
+    public override void Init()
+    {
+        base.Init();
+
+        Start = initPoints[0];
+        End = initPoints[1];
     }
 
 }
