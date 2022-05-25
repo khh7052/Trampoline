@@ -3,27 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamFollow : MonoBehaviour
+public class CamFollow : InitObject
 {
     public Transform target;
-    private float maxHeight; // 최대 높이
-    Vector3 pos;
+    
 
-    private void Start()
-    {
-        pos = transform.position;
-    }
 
     void LateUpdate()
     {
-        if(target.position.y > transform.position.y)
+        if (GameManager.Instance.state != GameState.PLAY) return;
+
+        Vector3 pos = transform.position;
+
+        if (target.position.y > transform.position.y)
         {
             pos.y = target.position.y;
+            GameManager.Instance.Height = (int)pos.y;
         }
 
         pos.x = target.position.x;
         transform.position = pos;
-
-
     }
 }

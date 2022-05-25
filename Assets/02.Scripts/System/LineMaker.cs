@@ -15,7 +15,7 @@ public class LineMaker : InitObject
     public Color stopColor;
     public Color moveColor;
 
-    public float dashOffsetSpeed = 0.1f;
+    public float dashOffsetSpeed = 1.2f;
     private bool isCreating;
 
     public bool IsCreating
@@ -70,7 +70,7 @@ public class LineMaker : InitObject
         if(Input.touchCount > 0)
         {
 
-            if(isCreating) line.DashOffset += Time.deltaTime + dashOffsetSpeed;
+            if(isCreating) line.DashOffset += Time.deltaTime * dashOffsetSpeed;
 
             Touch touch = Input.GetTouch(0);
 

@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class InitObject : MonoBehaviour
 {
-    public Vector2 originPos;
+    public bool originInitOn = true;
+    public Vector3 originPos;
     public Quaternion originRot;
     public Rigidbody2D rigd;
+    public bool startActive = true;
+    public bool overActive = false;
 
     private void Awake()
     {
         OneInit();
     }
 
+    
 
     public virtual void OneInit()
     {
@@ -21,7 +25,10 @@ public class InitObject : MonoBehaviour
         originPos = transform.position;
         originRot = transform.rotation;
 
-        GameManager.OnGameOver.AddListener(Init);
+        GameManager.OnGameStart.AddListener(Init);
+        GameManager.OnGameOver.AddListener(ActiveUpdate);
+
+        gameObject.SetActive(overActive);
     }
 
     public virtual void Init()
@@ -31,8 +38,20 @@ public class InitObject : MonoBehaviour
             rigd.velocity = Vector2.zero;
         }
 
-        transform.position = originPos;
-        transform.rotation = originRot;
+        if (originInitOn)
+        {
+            transform.position = originPos;
+            transform.rotation = originRot;
+        }
+        
+
+        ActiveUpdate();
+    }
+
+    public virtual void ActiveUpdate()
+    {
+        bool active = GameManager.Instance.state == GameState.PLAY ? startActive : overActive;
+        gameObject.SetActive(active);
     }
 
 }

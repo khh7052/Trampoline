@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public enum GameState
 {
@@ -12,29 +13,50 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
+    public int frame = 100;
+
     public static UnityEvent OnGameStart = new();
     public static UnityEvent OnGameOver = new();
 
     public static GameManager Instance = null;
 
-    public GameObject lobbyUI;
+    public GameObject overUI;
+    public TextMeshProUGUI heightText;
 
     public GameState state = GameState.STOP;
 
+    private int maxHeight = 0;
+    private int currentHeight = 0;
+
+    public int Height
+    {
+        get { return currentHeight; }
+        set { 
+            currentHeight = value;
+
+            if(currentHeight > maxHeight)
+            {
+                maxHeight = currentHeight;
+                heightText.text = maxHeight.ToString();
+            }
+        }
+    }
+
     private void Awake()
     {
-        Application.targetFrameRate = 100;
+        Application.targetFrameRate = frame;
 
         Instance = this;
 
         TimeTrigger();
 
-        OnGameStart.AddListener(LobbyUI_ActiveTrigger);
-        OnGameOver.AddListener(LobbyUI_ActiveTrigger);
+        OnGameOver.AddListener(OverUI_ActiveUpdate);
 
         OnGameStart.AddListener(TimeTrigger);
         OnGameOver.AddListener(TimeTrigger);
     }
+
+
 
     public void GameStart()
     {
@@ -55,9 +77,11 @@ public class GameManager : MonoBehaviour
         OnGameOver.Invoke();
     }
 
-    public void LobbyUI_ActiveTrigger()
+
+
+    public void OverUI_ActiveUpdate()
     {
-        lobbyUI.SetActive(!lobbyUI.activeInHierarchy);
+        overUI.SetActive(!overUI.activeInHierarchy);
     }
 
     public void TimeTrigger()

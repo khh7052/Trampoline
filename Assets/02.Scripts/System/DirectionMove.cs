@@ -16,10 +16,6 @@ public class DirectionMove : MonoBehaviour
     public float moveSpeed = 0.1f;
 
 
-    void Start()
-    {
-
-    }
 
     void Update()
     {
