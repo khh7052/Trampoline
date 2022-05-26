@@ -9,8 +9,12 @@ public class Ball : InitObject
     Camera cam;
 
     Coroutine heightCoroutine;
-    readonly WaitForSeconds heightCheckDelay = new(1f);
-    readonly WaitForSeconds heightCheckRate = new(0.02f);
+    readonly WaitForSeconds heightCheckDelay = new(1f); // 재시작할때 카메라 버그막는용
+    readonly WaitForSeconds heightCheckRate = new(0.1f);
+
+    int myLayer;
+    int jumpLayer;
+    LayerMask obstacleLayerMask;
 
     public float Height
     {
@@ -25,6 +29,12 @@ public class Ball : InitObject
         cam = Camera.main;
         bottomOffset = cam.transform.position.y - GetBottomPos();
 
+        myLayer = gameObject.layer;
+        jumpLayer = LayerMask.NameToLayer("Jumping");
+        obstacleLayerMask = LayerMask.GetMask("Obstacle");
+
+        print(obstacleLayerMask);
+
         GameManager.OnGameOver.AddListener(StopHeightCheck);
     }
 
@@ -35,10 +45,30 @@ public class Ball : InitObject
     }
 
 
-    void Die()
+    public void Die()
     {
         gameObject.SetActive(false);
         GameManager.Instance.GameOver();
+    }
+
+    private void Update()
+    {
+        VelocityCheck();
+    }
+
+    void VelocityCheck()
+    {
+        if (rigd.velocity.y > 0)
+        {
+            gameObject.layer = jumpLayer;
+        }
+        else
+        {
+            // 발판과 충돌중이면 레이어 안바꿈
+            if (Physics2D.OverlapCircle(transform.position, 1f, obstacleLayerMask)) return;
+
+            gameObject.layer = myLayer;
+        }
     }
 
     void StartHeightCheck()
@@ -77,11 +107,4 @@ public class Ball : InitObject
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag(("Enemy")))
-        {
-            Die();
-        }
-    }
 }

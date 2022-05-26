@@ -7,14 +7,15 @@ TagManager:
   - Line
   - Enemy
   - Ball
+  - Obstacle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Jumping
   - Water
   - UI
-  - 
+  - Obstacle
   - 
   - 
   - 

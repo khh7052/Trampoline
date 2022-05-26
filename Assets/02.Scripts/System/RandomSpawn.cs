@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RandomSpawn : MonoBehaviour
 {
+    public UnityEvent OnSpawn = new();
+
     public readonly float sideOffset = 0.1f;
     public readonly float upOffset = 0.5f;
     Vector2 pos;
@@ -26,6 +29,8 @@ public class RandomSpawn : MonoBehaviour
         pos.y = randY;
         pos = Camera.main.ViewportToWorldPoint(pos);
         transform.position = pos;
+
+        OnSpawn.Invoke();
     }
 
 

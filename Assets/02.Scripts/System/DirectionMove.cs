@@ -12,10 +12,28 @@ public enum Direction
 
 public class DirectionMove : MonoBehaviour
 {
+    public RandomSpawn spawn;
+
     public Direction moveDirection;
     public float moveSpeed = 0.1f;
 
+    private void Start()
+    {
+        spawn.OnSpawn.AddListener(DirectionUpdate);
+        DirectionUpdate();
+    }
 
+    void DirectionUpdate()
+    {
+        if(Ball.Instance.transform.position.x > transform.position.x)
+        {
+            moveDirection = Direction.RIGHT;
+        }
+        else
+        {
+            moveDirection = Direction.LEFT;
+        }
+    }
 
     void Update()
     {
