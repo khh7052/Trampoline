@@ -18,7 +18,6 @@ public class CamFollow : InitObject
         if (target.position.y > transform.position.y)
         {
             pos.y = target.position.y;
-            GameManager.Instance.Height = (int)pos.y;
         }
 
         pos.x = target.position.x;

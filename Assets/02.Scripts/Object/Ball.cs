@@ -33,8 +33,6 @@ public class Ball : InitObject
         jumpLayer = LayerMask.NameToLayer("Jumping");
         obstacleLayerMask = LayerMask.GetMask("Obstacle");
 
-        print(obstacleLayerMask);
-
         GameManager.OnGameOver.AddListener(StopHeightCheck);
     }
 

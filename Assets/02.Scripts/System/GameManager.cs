@@ -21,12 +21,19 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
 
     public GameObject overUI;
+    public TextMeshProUGUI maxHeightText;
     public TextMeshProUGUI heightText;
+    
 
     public GameState state = GameState.STOP;
 
     private int maxHeight = 0;
     private int currentHeight = 0;
+
+    public int MaxHeight
+    {
+        get { return maxHeight; }
+    }
 
     public int Height
     {
@@ -37,8 +44,9 @@ public class GameManager : MonoBehaviour
             if(currentHeight > maxHeight)
             {
                 maxHeight = currentHeight;
-                heightText.text = maxHeight.ToString();
             }
+
+            heightText.text = currentHeight.ToString();
         }
     }
 
@@ -50,12 +58,22 @@ public class GameManager : MonoBehaviour
 
         TimeTrigger();
 
-        OnGameOver.AddListener(OverUI_ActiveUpdate);
+        OnGameStart.AddListener(MainUI_Init);
+        OnGameOver.AddListener(OverUI_Update);
 
         OnGameStart.AddListener(TimeTrigger);
         OnGameOver.AddListener(TimeTrigger);
     }
 
+    private void Update()
+    {
+        HeightUpdate();
+    }
+
+    void HeightUpdate()
+    {
+        Height = (int)Ball.Instance.Height;
+    }
 
 
     public void GameStart()
@@ -77,11 +95,20 @@ public class GameManager : MonoBehaviour
         OnGameOver.Invoke();
     }
 
-
-
-    public void OverUI_ActiveUpdate()
+    public void MainUI_Init()
     {
-        overUI.SetActive(!overUI.activeInHierarchy);
+        Height = 0;
+    }
+
+    public void OverUI_Update()
+    {
+        bool active = state == GameState.OVER;
+        overUI.SetActive(active);
+
+        if (active)
+        {
+            maxHeightText.text = maxHeight.ToString();
+        }
     }
 
     public void TimeTrigger()

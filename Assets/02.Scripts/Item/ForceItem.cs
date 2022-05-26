@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ForceItem : Item
 {
-    public float force = 10f;
+    public float force = 30f;
 
     public override void Use()
     {
