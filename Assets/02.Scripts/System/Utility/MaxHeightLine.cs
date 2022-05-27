@@ -44,6 +44,8 @@ public class MaxHeightLine : InitObject
     {
         pos.x = Ball.Instance.transform.position.x;
         transform.position = pos;
+
+        // line.DashOffset += Time.deltaTime * 2f;
         line.DashOffset = -pos.x * 0.2f;
     }
 
