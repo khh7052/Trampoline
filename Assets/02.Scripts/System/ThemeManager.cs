@@ -37,6 +37,8 @@ public class ThemeManager : MonoBehaviour
             }
 
             min = max - data[index].range;
+
+            SoundManager.Instance.PlayBGM(data[index].bgm);
         }
     }
 

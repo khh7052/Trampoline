@@ -4,6 +4,7 @@ using UnityEngine;
 public class Ball : InitObject
 {
     public static Ball Instance;
+    public AudioClip hitSound;
 
     float bottomOffset = 0;
     Camera cam;
@@ -104,5 +105,10 @@ public class Ball : InitObject
         return cam.ViewportToWorldPoint(Vector3.zero).y;
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        SoundManager.Instance.PlaySFX(hitSound);
+    }
 
 }
