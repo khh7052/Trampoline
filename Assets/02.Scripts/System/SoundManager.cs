@@ -16,7 +16,6 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
     }
 
     public void PlayBGM(AudioClip clip)

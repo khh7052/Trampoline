@@ -7,7 +7,6 @@ public class Ball : InitObject
     public AudioClip hitSound;
 
     float bottomOffset = 0;
-    Camera cam;
 
     Coroutine heightCoroutine;
     readonly WaitForSeconds heightCheckDelay = new(1f); // 재시작할때 카메라 버그막는용
@@ -27,8 +26,7 @@ public class Ball : InitObject
         base.OneInit();
         Instance = this;
 
-        cam = Camera.main;
-        bottomOffset = cam.transform.position.y - GetBottomPos();
+        bottomOffset = CameraManager.Height - CameraManager.GetScreenBottomPos();
 
         myLayer = gameObject.layer;
         jumpLayer = LayerMask.NameToLayer("Jumping");
@@ -88,21 +86,13 @@ public class Ball : InitObject
         {
             if (GameManager.Instance.state != GameState.PLAY) continue;
 
-            Vector2 camPos = cam.transform.position;
-
-            if (transform.position.y < camPos.y - bottomOffset)
+            if (transform.position.y < CameraManager.Height - bottomOffset)
             {
                 Die();
             }
 
             yield return heightCheckRate;
         }
-    }
-    
-
-    public float GetBottomPos()
-    {
-        return cam.ViewportToWorldPoint(Vector3.zero).y;
     }
 
 

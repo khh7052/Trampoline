@@ -15,9 +15,7 @@ public class InitObject : MonoBehaviour
     {
         OneInit();
     }
-
     
-
     public virtual void OneInit()
     {
         rigd = GetComponent<Rigidbody2D>();
@@ -44,7 +42,6 @@ public class InitObject : MonoBehaviour
             transform.rotation = originRot;
         }
         
-
         ActiveUpdate();
     }
 

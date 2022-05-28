@@ -7,8 +7,6 @@ public class CamFollow : InitObject
 {
     public Transform target;
     
-
-
     void LateUpdate()
     {
         if (GameManager.Instance.state != GameState.PLAY) return;

@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class LineMaker : InitObject
 {
-
     Line line;
     EdgeCollider2D edgeCollider;
     Vector2[] points;
@@ -60,8 +59,6 @@ public class LineMaker : InitObject
             edgeCollider.points = points;
         }
     }
-
-
 
     void Update()
     {
@@ -124,6 +121,7 @@ public class LineMaker : InitObject
 
         Start = initPoints[0];
         End = initPoints[1];
+        IsCreating = false;
     }
 
 }
