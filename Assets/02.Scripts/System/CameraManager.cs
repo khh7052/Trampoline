@@ -9,7 +9,10 @@ public class CameraManager : MonoBehaviour
 
     public static float Height
     {
-        get { return cam.transform.position.y; }
+        get {
+            if (cam == null) cam = Camera.main;
+            return cam.transform.position.y;
+        }
     }
 
     private void Awake()
