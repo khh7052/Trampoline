@@ -16,9 +16,17 @@ public class DirectionMove : MonoBehaviour
 
     public Direction moveDirection;
     public float moveSpeed = 0.1f;
+    public bool directionFixed;
+
+    private void Awake()
+    {
+        if (spawn == null)
+            spawn = GetComponent<RandomSpawn>();
+    }
 
     private void Start()
     {
+        if (directionFixed == false) return;
         spawn.OnSpawn.AddListener(DirectionUpdate);
         DirectionUpdate();
     }

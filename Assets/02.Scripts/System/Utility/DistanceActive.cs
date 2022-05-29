@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DistanceActive : MonoBehaviour
 {
+    public Theme theme;
     public bool active = true;
     public GameObject activeObject;
     public float activeDistance = 50f;
+    public bool startTheme = true;
 
 
     void Awake()

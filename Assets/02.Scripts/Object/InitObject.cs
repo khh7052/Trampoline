@@ -7,6 +7,8 @@ public class InitObject : MonoBehaviour
     public bool originInitOn = true;
     public Vector3 originPos;
     public Quaternion originRot;
+    public Vector3 originScale;
+
     public Rigidbody2D rigd;
     public bool startActive = true;
     public bool overActive = false;
@@ -22,6 +24,7 @@ public class InitObject : MonoBehaviour
 
         originPos = transform.position;
         originRot = transform.rotation;
+        originScale = transform.localScale;
 
         GameManager.OnGameStart.AddListener(Init);
         GameManager.OnGameOver.AddListener(ActiveUpdate);
@@ -40,6 +43,7 @@ public class InitObject : MonoBehaviour
         {
             transform.position = originPos;
             transform.rotation = originRot;
+            transform.localScale = originScale;
         }
         
         ActiveUpdate();

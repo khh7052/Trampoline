@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public enum SpawnType
 {
     UP,
-    SIDE
+    SIDE,
+    ALL
 }
 
 public class RandomSpawn : MonoBehaviour
@@ -20,9 +21,18 @@ public class RandomSpawn : MonoBehaviour
     Vector2 pos;
 
     public bool fixedY;
+    public bool randomDir; // ¹æÇâ ·£´ý
+    public float minRot = -45;
+    public float maxRot = 45;
 
     public SpawnType spawnType;
     public float spawnDistance = 20f;
+
+    private void Awake()
+    {
+        GameManager.OnGameStart.AddListener(RandomDir);
+        RandomDir();
+    }
 
     private void Update()
     {
@@ -32,35 +42,57 @@ public class RandomSpawn : MonoBehaviour
         }
     }
 
+    float RandomSide_Up()
+    {
+        return Random.Range(minSideOffset, maxSideOffset);
+    }
 
+    float RandomSide_Side()
+    {
+        float rand = Random.Range(0, 2);
+
+        if (rand == 0)
+        {
+            rand = Random.Range(-minSideOffset, -maxSideOffset);
+        }
+        else
+        {
+            rand = Random.Range(1 + minSideOffset, 1 + maxSideOffset);
+        }
+
+        return rand;
+    }
 
     public void Spawn()
     {
         float randX = 0;
         float randY = 0;
 
-        if(spawnType == SpawnType.UP)
+        if(spawnType == SpawnType.ALL)
         {
-            randX = Random.Range(-maxSideOffset, 1 + maxSideOffset);
-        }
-        else if (spawnType == SpawnType.SIDE)
-        {
-            randX = Random.Range(0, 2);
+            int type = Random.Range(0, 2);
 
-            if(randX == 0)
+            if(type == 0)
             {
-                randX = Random.Range(-minSideOffset, -maxSideOffset);
+                randX = RandomSide_Up();
             }
             else
             {
-                randX = Random.Range(1 + minSideOffset, 1 + maxSideOffset);
+                randX = RandomSide_Side();
             }
+        }
+        else if(spawnType == SpawnType.UP)
+        {
+            randX = RandomSide_Up();
+        }
+        else if (spawnType == SpawnType.SIDE)
+        {
+            randX = RandomSide_Side();
 
             // print(name + " : " + randX);
         }
 
         randY = fixedY == true ? maxUpOffset : Random.Range(minUpOffset, maxUpOffset);
-
 
         pos.x = randX;
         pos.y = randY;
@@ -68,8 +100,19 @@ public class RandomSpawn : MonoBehaviour
         pos = Camera.main.ViewportToWorldPoint(pos);
         transform.position = pos;
 
+        RandomDir();
+
         OnSpawn.Invoke();
     }
 
+
+    void RandomDir()
+    {
+        if (randomDir)
+        {
+            float rot = Random.Range(minRot, maxRot);
+            transform.rotation = Quaternion.Euler(0, 0, rot);
+        }
+    }
 
 }

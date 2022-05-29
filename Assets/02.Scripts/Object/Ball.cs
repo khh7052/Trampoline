@@ -4,7 +4,9 @@ using UnityEngine;
 public class Ball : InitObject
 {
     public static Ball Instance;
-    public AudioClip hitSound;
+    public AudioClip dieSound;
+    public AudioClip bounceSound;
+    public float maxForce = 100f;
 
     float bottomOffset = 0;
 
@@ -95,10 +97,41 @@ public class Ball : InitObject
         }
     }
 
+    void ForceLimit()
+    {
+        Vector2 velocity = rigd.velocity;
+
+        if(velocity.sqrMagnitude > maxForce * maxForce)
+        {
+            velocity = Vector2.ClampMagnitude(velocity, maxForce);
+        }
+
+        rigd.velocity = velocity;
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        SoundManager.Instance.PlaySFX(hitSound);
+        if (collision.gameObject.CompareTag("Damage"))
+        {
+            Die();
+        }
+        else
+        {
+            SoundManager.Instance.PlaySFX(bounceSound);
+        }
+
+        ForceLimit();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Damage"))
+        {
+            Die();
+        }
+
+        ForceLimit();
     }
 
 }
