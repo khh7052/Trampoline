@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     public GameObject overUI;
     public TextMeshProUGUI maxHeightText;
     public TextMeshProUGUI heightText;
-    
 
     public GameState state = GameState.STOP;
 

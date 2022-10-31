@@ -159,7 +159,8 @@ MonoBehaviour:
   rigd: {fileID: 0}
   startActive: 0
   overActive: 0
-  spawn: {fileID: 0}
+  myTheme: {fileID: 11400000, guid: 2024512361cd9f1438761aafb5b3fcd6, type: 2}
+  spawn: {fileID: 5661846133827186521}
   reduceScale: {x: 0.2, y: 0.2, z: 0.2}
 --- !u!114 &5661846133827186525
 MonoBehaviour:

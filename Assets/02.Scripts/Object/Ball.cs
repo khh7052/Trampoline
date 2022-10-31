@@ -18,6 +18,11 @@ public class Ball : InitObject
     int jumpLayer;
     LayerMask obstacleLayerMask;
 
+    public float Width
+    {
+        get { return transform.position.x; }
+    }
+
     public float Height
     {
         get { return transform.position.y; }
@@ -112,14 +117,7 @@ public class Ball : InitObject
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Damage"))
-        {
-            Die();
-        }
-        else
-        {
-            SoundManager.Instance.PlaySFX(bounceSound);
-        }
+        SoundManager.Instance.PlaySFX(bounceSound);
 
         ForceLimit();
     }

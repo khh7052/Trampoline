@@ -8,7 +8,6 @@ public class DistanceActive : MonoBehaviour
     public bool active = true;
     public GameObject activeObject;
     public float activeDistance = 50f;
-    public bool startTheme = true;
 
 
     void Awake()
@@ -25,7 +24,9 @@ public class DistanceActive : MonoBehaviour
 
     void Update()
     {
-        if(Ball.Instance.Height >= activeDistance)
+        if (!ThemeManager.Instance.Theme.Equals(theme)) return;
+
+        if(ThemeManager.Instance.Height >= activeDistance)
         {
             activeObject.SetActive(active);
             gameObject.SetActive(false);

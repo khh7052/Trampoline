@@ -1,24 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-
-[System.Serializable]
-public class Theme
-{
-    public string name;
-    public Color backgroundColor; // 배경
-    public int range = 200; // 범위
-    public AudioClip bgm;
-}
 
 public class ThemeManager : MonoBehaviour
 {
+    public static UnityEvent OnThemeUpdate = new();
+    public static ThemeManager Instance;
+
     Camera cam;
     public List<Theme> data = new();
     int index;
     int min, max;
     float height;
+
+    public List<GameObject> objects = new();
+
+    public float Height
+    {
+        get
+        {
+            return Ball.Instance.Height - min;
+        }
+    }
+
+    public Theme Theme
+    {
+        get { return data[index]; }
+    }
 
     public int Index
     {
@@ -26,6 +36,7 @@ public class ThemeManager : MonoBehaviour
         set
         {
             if (value < 0 || value >= data.Count) return;
+            if (index == value) return;
 
             index = value;
 
@@ -38,12 +49,15 @@ public class ThemeManager : MonoBehaviour
 
             min = max - data[index].range;
 
+
+            ThemeUpdate();
             SoundManager.Instance.PlayBGM(data[index].bgm);
         }
     }
 
     private void Awake()
     {
+        Instance = this;
         GameManager.OnGameStart.AddListener(Init);
     }
 
@@ -55,10 +69,7 @@ public class ThemeManager : MonoBehaviour
 
     private void Update()
     {
-        // 2 <= 0 + 1
         if (data.Count <= index + 1) return;
-
-        height = Ball.Instance.Height;
 
         IndexUpdate();
         BackgroundUpdate();
@@ -71,6 +82,8 @@ public class ThemeManager : MonoBehaviour
 
     void IndexUpdate()
     {
+        height = Ball.Instance.Height;
+
         if (height >= max)
         {
             Index++;
@@ -86,6 +99,11 @@ public class ThemeManager : MonoBehaviour
         if (data.Count <= index + 1) return;
 
         cam.backgroundColor = Color.Lerp(data[index].backgroundColor, data[index + 1].backgroundColor, (height - min) / data[index].range);
+    }
+
+    public void ThemeUpdate()
+    {
+        OnThemeUpdate.Invoke();
     }
 
 }

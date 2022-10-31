@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4582891103694864008}
   - component: {fileID: 4582891103694860663}
   - component: {fileID: 4582891103694860662}
-  - component: {fileID: 4582891103694864010}
   - component: {fileID: 4582891103694864009}
+  - component: {fileID: 4764699231375081503}
   m_Layer: 6
   m_Name: Cloud
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4582891103694860661}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
@@ -109,24 +109,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &4582891103694864010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582891103694860661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d5f629e6a3923458669cbb5ae785d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originInitOn: 1
-  originPos: {x: 0, y: 0, z: 0}
-  originRot: {x: 0, y: 0, z: 0, w: 0}
-  rigd: {fileID: 0}
-  startActive: 1
-  overActive: 1
 --- !u!114 &4582891103694864009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,5 +129,28 @@ MonoBehaviour:
   minUpOffset: 1.4
   maxUpOffset: 1.6
   fixedY: 0
+  randomDir: 0
+  minRot: -45
+  maxRot: 45
   spawnType: 0
   spawnDistance: 80
+--- !u!114 &4764699231375081503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582891103694860661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89be1e0508a2b974e9ebc8c70feff7c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originInitOn: 1
+  originPos: {x: 0, y: 0, z: 0}
+  originRot: {x: 0, y: 0, z: 0, w: 0}
+  originScale: {x: 0, y: 0, z: 0}
+  rigd: {fileID: 0}
+  startActive: 1
+  overActive: 1
+  myTheme: {fileID: 11400000, guid: d7ea5be1fc5a1e24b91bd22f0c23985a, type: 2}

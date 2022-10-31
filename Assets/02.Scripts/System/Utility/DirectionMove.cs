@@ -14,9 +14,9 @@ public class DirectionMove : MonoBehaviour
 {
     public RandomSpawn spawn;
 
+    public bool isChasing; // 공한테 방향 향하는지
     public Direction moveDirection;
-    public float moveSpeed = 0.1f;
-    public bool directionFixed;
+    public float moveSpeed = 1f;
 
     private void Awake()
     {
@@ -26,9 +26,12 @@ public class DirectionMove : MonoBehaviour
 
     private void Start()
     {
-        if (directionFixed == false) return;
-        spawn.OnSpawn.AddListener(DirectionUpdate);
-        DirectionUpdate();
+        if (isChasing)
+        {
+            spawn.OnSpawn.AddListener(DirectionUpdate);
+            DirectionUpdate();
+        }
+        
     }
 
     void DirectionUpdate()
