@@ -42,7 +42,7 @@ public class LineMaker : InitObject
         get { return line.Start; }
         set {
             line.Start = value;
-            points[0] = value;
+            points[0] = line.Start;
 
             edgeCollider.points = points;
         }
@@ -54,7 +54,7 @@ public class LineMaker : InitObject
         set
         {
             line.End = value;
-            points[1] = value;
+            points[1] = line.End;
 
             edgeCollider.points = points;
         }

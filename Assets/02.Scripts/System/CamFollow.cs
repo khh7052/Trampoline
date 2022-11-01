@@ -15,7 +15,8 @@ public class CamFollow : InitObject
 
         if (target.position.y > transform.position.y)
         {
-            pos.y = target.position.y;
+            pos.y = Mathf.Lerp(pos.y, target.position.y, Time.deltaTime * 5f);
+            // pos.y = target.position.y;
         }
 
         pos.x = target.position.x;
