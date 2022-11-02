@@ -25,6 +25,12 @@ public class RandomSpawn : MonoBehaviour
     public float minRot = -45;
     public float maxRot = 45;
 
+    public bool randomScale; // Å©±â ·£´ý
+    public float minScaleX = 0.1f;
+    public float maxScaleX = 1;
+    public float minScaleY = 0.1f;
+    public float maxScaleY = 1;
+
     public SpawnType spawnType;
     public float spawnDistance = 20f;
 
@@ -101,6 +107,7 @@ public class RandomSpawn : MonoBehaviour
         transform.position = pos;
 
         RandomDir();
+        RandomScale();
 
         OnSpawn.Invoke();
     }
@@ -114,5 +121,22 @@ public class RandomSpawn : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, rot);
         }
     }
+
+    void RandomScale()
+    {
+        if (randomScale)
+        {
+            Vector2 scale = transform.localScale;
+
+            scale.x = Random.Range(minScaleX, maxScaleX);
+            scale.y = Random.Range(minScaleY, maxScaleY);
+
+            transform.localScale = scale;
+        }
+       
+
+        
+    }
+    
 
 }

@@ -141,7 +141,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 167887337738232881, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
       propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 167887337738232881, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
+      propertyPath: m_LocalScale.x
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 167887337738232881, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 167887337738232881, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2909,7 +2917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 167887337738232881, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 167887337738232881, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3880,7 +3888,7 @@ Transform:
   m_GameObject: {fileID: 1551950687}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1051655817}
@@ -3902,8 +3910,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -32768, y: 0}
-  - {x: 32768, y: 0}
+  - {x: -50, y: 0}
+  - {x: 50, y: 0}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -4988,9 +4996,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1222615227
+  m_SortingLayer: 1
+  m_SortingOrder: 100
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1809613060
 MeshFilter:
@@ -6273,7 +6281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 167887337738232881, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 167887337738232881, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6314,6 +6322,22 @@ PrefabInstance:
     - target: {fileID: 167887337738232881, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 167887337738232886, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269001952737704954, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269001952737704954, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269001952737704954, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1222615227
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
@@ -6425,14 +6449,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5190720105835814444, guid: 9652348e59f957f449fe23e89316ea58, type: 3}
-      propertyPath: originPos.y
+    - target: {fileID: 5190720105835814441, guid: 9652348e59f957f449fe23e89316ea58, type: 3}
+      propertyPath: type
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5190720105835814445, guid: 9652348e59f957f449fe23e89316ea58, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 5190720105835814443, guid: 9652348e59f957f449fe23e89316ea58, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 35eb9f982684e7745b8ef050ccf0604b, type: 2}
     - target: {fileID: 5190720105835814447, guid: 9652348e59f957f449fe23e89316ea58, type: 3}
       propertyPath: m_Name
       value: Ball

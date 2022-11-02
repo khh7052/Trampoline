@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4582891103694864008}
   - component: {fileID: 4582891103694860663}
-  - component: {fileID: 4582891103694860662}
   - component: {fileID: 4582891103694864009}
   - component: {fileID: 4764699231375081503}
+  - component: {fileID: 4185995769732376927}
   m_Layer: 6
   m_Name: Cloud
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4582891103694860661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,10 +73,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1222615227
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b7f5ad2457b85d04f89bb8a2657eb9f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5308e72825f333c44a484514ca1c848e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,28 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &4582891103694860662
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582891103694860661}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -7.5, y: 0}
-  - {x: 7.5, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!114 &4582891103694864009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +110,11 @@ MonoBehaviour:
   randomDir: 0
   minRot: -45
   maxRot: 45
+  randomScale: 1
+  minScaleX: 0.6
+  maxScaleX: 1
+  minScaleY: 0.8
+  maxScaleY: 1
   spawnType: 0
   spawnDistance: 80
 --- !u!114 &4764699231375081503
@@ -154,3 +137,25 @@ MonoBehaviour:
   startActive: 1
   overActive: 1
   myTheme: {fileID: 11400000, guid: d7ea5be1fc5a1e24b91bd22f0c23985a, type: 2}
+--- !u!68 &4185995769732376927
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582891103694860661}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -5.3333335, y: 0}
+  - {x: 5.3333335, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
