@@ -51,6 +51,7 @@ public class Ball : InitObject
 
     public void Die()
     {
+        SoundManager.Instance.PlaySFX(dieSound);
         gameObject.SetActive(false);
         GameManager.Instance.GameOver();
     }
@@ -102,6 +103,16 @@ public class Ball : InitObject
         }
     }
 
+    void Spin()
+    {
+        int rand = Random.Range(-1, 2);
+        if (rand > 0) rand = 1;
+        else rand = -1;
+
+
+        rigd.angularVelocity += rigd.velocity.magnitude * rand;
+    }
+
     void ForceLimit()
     {
         Vector2 velocity = rigd.velocity;
@@ -119,6 +130,7 @@ public class Ball : InitObject
     {
         SoundManager.Instance.PlaySFX(bounceSound);
 
+        Spin();
         ForceLimit();
     }
 
@@ -129,6 +141,7 @@ public class Ball : InitObject
             Die();
         }
 
+        Spin();
         ForceLimit();
     }
 
