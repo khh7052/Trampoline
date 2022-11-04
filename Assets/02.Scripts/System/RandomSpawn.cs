@@ -133,10 +133,6 @@ public class RandomSpawn : MonoBehaviour
 
             transform.localScale = scale;
         }
-       
-
-        
     }
-    
 
 }

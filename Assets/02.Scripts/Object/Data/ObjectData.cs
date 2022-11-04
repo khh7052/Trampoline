@@ -6,5 +6,5 @@ using UnityEngine;
 public class ObjectData : ScriptableObject
 {
     public List<Color> colors = new List<Color>();
-
+    public Theme spawnTheme;
 }

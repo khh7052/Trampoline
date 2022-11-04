@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     private int maxHeight = 0;
     private int currentHeight = 0;
 
+
     public int MaxHeight
     {
         get { return maxHeight; }
@@ -51,22 +52,29 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Application.targetFrameRate = frame;
-
-        Instance = this;
-
-        TimeTrigger();
-
-        OnGameStart.AddListener(MainUI_Init);
-        OnGameOver.AddListener(OverUI_Update);
-
-        OnGameStart.AddListener(TimeTrigger);
-        OnGameOver.AddListener(TimeTrigger);
+        OneInit();
     }
 
     private void Update()
     {
-        HeightUpdate();
+        if(state == GameState.PLAY)
+        {
+            HeightUpdate();
+        }
+        
+    }
+
+    void OneInit()
+    {
+        Instance = this;
+
+        Application.targetFrameRate = frame;
+        HeightTextInit();
+
+        OnGameStart.AddListener(TimeScaleUpdate);
+        OnGameOver.AddListener(TimeScaleUpdate);
+
+        OnGameOver.AddListener(OverUI_Update);
     }
 
     void HeightUpdate()
@@ -74,29 +82,26 @@ public class GameManager : MonoBehaviour
         Height = (int)Ball.Instance.Height;
     }
 
-
     public void GameStart()
     {
         state = GameState.PLAY;
 
         OnGameStart.Invoke();
     }
-
-    public void Exit()
-    {
-        Application.Quit();
-    }
-
     public void GameOver()
     {
         state = GameState.OVER;
 
         OnGameOver.Invoke();
     }
-
-    public void MainUI_Init()
+    public void Exit()
     {
-        Height = 0;
+        Application.Quit();
+    }
+
+    void HeightTextInit()
+    {
+        heightText.text = "0";
     }
 
     public void OverUI_Update()
@@ -104,16 +109,30 @@ public class GameManager : MonoBehaviour
         bool active = state == GameState.OVER;
         overUI.SetActive(active);
 
-        if (active)
+        maxHeightText.text = maxHeight.ToString();
+    }
+
+    public void TimeScaleUpdate()
+    {
+        switch (state)
         {
-            maxHeightText.text = maxHeight.ToString();
+            case GameState.PLAY:
+                Time.timeScale = 1;
+                break;
+            case GameState.OVER:
+                Time.timeScale = 0;
+                break;
+            case GameState.STOP:
+                Time.timeScale = 0;
+                break;
+            default:
+                break;
         }
     }
 
     public void TimeTrigger()
     {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
-
     }
 
 }

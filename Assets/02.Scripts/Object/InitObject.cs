@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class InitObject : MonoBehaviour
 {
-    public bool originInitOn = true;
     public Vector3 originPos;
     public Quaternion originRot;
     public Vector3 originScale;
 
     public Rigidbody2D rigd;
+
+    public bool initActive = true;
     public bool startActive = true;
     public bool overActive = false;
 
@@ -27,9 +28,26 @@ public class InitObject : MonoBehaviour
         originScale = transform.localScale;
 
         GameManager.OnGameStart.AddListener(Init);
-        GameManager.OnGameOver.AddListener(ActiveUpdate);
 
-        gameObject.SetActive(overActive);
+        gameObject.SetActive(initActive);
+    }
+
+    public void ActiveUpdate()
+    {
+        switch (GameManager.Instance.state)
+        {
+            case GameState.PLAY:
+                gameObject.SetActive(startActive);
+                break;
+            case GameState.OVER:
+                gameObject.SetActive(overActive);
+                break;
+            case GameState.STOP:
+                break;
+            default:
+                break;
+        }
+
     }
 
     public virtual void Init()
@@ -39,20 +57,11 @@ public class InitObject : MonoBehaviour
             rigd.velocity = Vector2.zero;
         }
 
-        if (originInitOn)
-        {
-            transform.position = originPos;
-            transform.rotation = originRot;
-            transform.localScale = originScale;
-        }
-        
-        ActiveUpdate();
-    }
+        transform.position = originPos;
+        transform.rotation = originRot;
+        transform.localScale = originScale;
 
-    public virtual void ActiveUpdate()
-    {
-        bool active = GameManager.Instance.state == GameState.PLAY ? startActive : overActive;
-        gameObject.SetActive(active);
+        ActiveUpdate();
     }
 
 }

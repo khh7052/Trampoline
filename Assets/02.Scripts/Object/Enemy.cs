@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : ThemeObject
+public class Enemy : InitObject
 {
     public RandomSpawn spawn;
 

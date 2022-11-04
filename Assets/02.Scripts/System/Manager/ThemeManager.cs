@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class ThemeManager : MonoBehaviour
 {
+    // 공 위치에 따라서 배경색깔, 배경음, 현재 테마 정보 변경
+
     public static UnityEvent OnThemeUpdate = new();
     public static ThemeManager Instance;
 
@@ -15,7 +17,6 @@ public class ThemeManager : MonoBehaviour
     int min, max;
     float height;
 
-    public List<GameObject> objects = new();
 
     public float Height
     {
@@ -57,25 +58,29 @@ public class ThemeManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
-        GameManager.OnGameStart.AddListener(Init);
+        OneInit();
     }
 
-    private void Start()
-    {
-        cam = Camera.main;
-        max = data[index].range;
-    }
 
     private void Update()
     {
+        if (GameManager.Instance.state != GameState.PLAY) return;
         if (data.Count <= index + 1) return;
 
         IndexUpdate();
         BackgroundUpdate();
     }
 
-    void Init()
+    void OneInit()
+    {
+        Instance = this;
+        cam = Camera.main;
+        max = data[index].range;
+
+        GameManager.OnGameStart.AddListener(Init);
+    }
+
+    public void Init()
     {
         Index = 0;
     }

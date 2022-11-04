@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 167887337738232881}
   - component: {fileID: 167887337738232886}
   - component: {fileID: 167887337738232885}
-  - component: {fileID: 9003983032674412371}
   - component: {fileID: 6257706531502381954}
   - component: {fileID: 3445443020750643667}
   m_Layer: 6
@@ -131,26 +130,6 @@ MonoBehaviour:
   maxScaleY: 2
   spawnType: 1
   spawnDistance: 80
---- !u!114 &9003983032674412371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167887337738232874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89be1e0508a2b974e9ebc8c70feff7c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originInitOn: 1
-  originPos: {x: 0, y: 0, z: 0}
-  originRot: {x: 0, y: 0, z: 0, w: 0}
-  originScale: {x: 0, y: 0, z: 0}
-  rigd: {fileID: 0}
-  startActive: 0
-  overActive: 1
-  myTheme: {fileID: 11400000, guid: bdd4bbae16f04bb46af2a4497889eb01, type: 2}
 --- !u!114 &6257706531502381954
 MonoBehaviour:
   m_ObjectHideFlags: 0

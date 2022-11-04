@@ -12,7 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12aafcc8091e60e479613db918c3d9c5, type: 3}
   m_Name: Theme_03
   m_EditorClassIdentifier: 
+  themeManagerData: {fileID: 11400000, guid: 33c38408195fc9546b4d0a1dafe8ae7c, type: 2}
   _name: Atmosphere
   backgroundColor: {r: 0.6431373, g: 0.7411765, b: 0.882353, a: 1}
   range: 500
   bgm: {fileID: 8300000, guid: 03ee2e22c4ccafd4d9cb17ec12e2cfcb, type: 3}
+  obstacles:
+  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
+    spawnHeightPercent: 10
+    spawnHeight: 1050
+  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
+    spawnHeightPercent: 10
+    spawnHeight: 1050
+  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
+    spawnHeightPercent: 30
+    spawnHeight: 1150
+  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
+    spawnHeightPercent: 50
+    spawnHeight: 1250
+  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
+    spawnHeightPercent: 70
+    spawnHeight: 1350
+  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
+    spawnHeightPercent: 80
+    spawnHeight: 1400
+  enemies: []
+  items: []

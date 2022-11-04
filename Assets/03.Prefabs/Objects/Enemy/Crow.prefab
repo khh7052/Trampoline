@@ -82,6 +82,11 @@ MonoBehaviour:
   randomDir: 0
   minRot: -45
   maxRot: 45
+  randomScale: 0
+  minScaleX: 0.1
+  maxScaleX: 1
+  minScaleY: 0.1
+  maxScaleY: 1
   spawnType: 1
   spawnDistance: 50
 --- !u!114 &7279942823016442887
@@ -96,14 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf731f1f7af2157419f2a592868513eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originInitOn: 1
   originPos: {x: 0, y: 0, z: 0}
   originRot: {x: 0, y: 0, z: 0, w: 0}
   originScale: {x: 0, y: 0, z: 0}
   rigd: {fileID: 7279942823016442881}
-  startActive: 0
+  initActive: 1
+  startActive: 1
   overActive: 1
-  myTheme: {fileID: 11400000, guid: bdd4bbae16f04bb46af2a4497889eb01, type: 2}
   spawn: {fileID: 0}
 --- !u!114 &7279942823016442886
 MonoBehaviour:

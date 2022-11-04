@@ -7,6 +7,7 @@ public class Ball : InitObject
     public AudioClip dieSound;
     public AudioClip bounceSound;
     public float maxForce = 100f;
+    public bool invincibility = false; // ¹«Àû
 
     float bottomOffset = 0;
 
@@ -39,6 +40,8 @@ public class Ball : InitObject
         jumpLayer = LayerMask.NameToLayer("Jumping");
         obstacleLayerMask = LayerMask.GetMask("Obstacle");
 
+
+        GameManager.OnGameStart.AddListener(StartHeightCheck);
         GameManager.OnGameOver.AddListener(StopHeightCheck);
     }
 
@@ -138,7 +141,7 @@ public class Ball : InitObject
     {
         if (collision.gameObject.CompareTag("Damage"))
         {
-            Die();
+            if (!invincibility) Die();
         }
 
         Spin();
