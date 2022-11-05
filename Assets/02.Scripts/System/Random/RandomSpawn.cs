@@ -21,24 +21,10 @@ public class RandomSpawn : MonoBehaviour
     Vector2 pos;
 
     public bool fixedY;
-    public bool randomDir; // ¹æÇâ ·£´ý
-    public float minRot = -45;
-    public float maxRot = 45;
-
-    public bool randomScale; // Å©±â ·£´ý
-    public float minScaleX = 0.1f;
-    public float maxScaleX = 1;
-    public float minScaleY = 0.1f;
-    public float maxScaleY = 1;
+    public float fixedUpOffset = 0.1f;
 
     public SpawnType spawnType;
     public float spawnDistance = 20f;
-
-    private void Awake()
-    {
-        GameManager.OnGameStart.AddListener(RandomDir);
-        RandomDir();
-    }
 
     private void Update()
     {
@@ -81,24 +67,28 @@ public class RandomSpawn : MonoBehaviour
             if(type == 0)
             {
                 randX = RandomSide_Up();
+                randY = Random.Range(minUpOffset, maxUpOffset);
             }
             else
             {
                 randX = RandomSide_Side();
+                randY = Random.Range(0f, 1f);
             }
         }
         else if(spawnType == SpawnType.UP)
         {
             randX = RandomSide_Up();
+            randY = Random.Range(minUpOffset, maxUpOffset);
         }
         else if (spawnType == SpawnType.SIDE)
         {
             randX = RandomSide_Side();
-
+            randY = Random.Range(0f, 1f);
             // print(name + " : " + randX);
         }
 
-        randY = fixedY == true ? maxUpOffset : Random.Range(minUpOffset, maxUpOffset);
+        randY = fixedY == true ? fixedUpOffset : randY;
+         // randY = fixedY == true ? fixedUpOffset : Random.Range(minUpOffset, maxUpOffset);
 
         pos.x = randX;
         pos.y = randY;
@@ -106,33 +96,7 @@ public class RandomSpawn : MonoBehaviour
         pos = Camera.main.ViewportToWorldPoint(pos);
         transform.position = pos;
 
-        RandomDir();
-        RandomScale();
-
         OnSpawn.Invoke();
-    }
-
-
-    void RandomDir()
-    {
-        if (randomDir)
-        {
-            float rot = Random.Range(minRot, maxRot);
-            transform.rotation = Quaternion.Euler(0, 0, rot);
-        }
-    }
-
-    void RandomScale()
-    {
-        if (randomScale)
-        {
-            Vector2 scale = transform.localScale;
-
-            scale.x = Random.Range(minScaleX, maxScaleX);
-            scale.y = Random.Range(minScaleY, maxScaleY);
-
-            transform.localScale = scale;
-        }
     }
 
 }

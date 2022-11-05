@@ -17,6 +17,21 @@ MonoBehaviour:
   backgroundColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
   range: 500
   bgm: {fileID: 8300000, guid: 4661fd01d5c739b4a9e87a2b58ac4721, type: 3}
-  obstacles: []
+  obstacles:
+  - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
+    spawnHeightPercent: 0
+    spawnHeight: 2000
+  - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
+    spawnHeightPercent: 0
+    spawnHeight: 2000
+  - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
+    spawnHeightPercent: 10
+    spawnHeight: 2050
+  - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
+    spawnHeightPercent: 20
+    spawnHeight: 2100
+  - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
+    spawnHeightPercent: 30
+    spawnHeight: 2150
   enemies: []
   items: []

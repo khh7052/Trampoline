@@ -12,29 +12,21 @@ public enum Direction
 
 public class DirectionMove : MonoBehaviour
 {
-    public RandomSpawn spawn;
-
     public bool isChasing; // 공한테 방향 향하는지
     public Direction moveDirection;
     public float moveSpeed = 1f;
 
-    private void Awake()
-    {
-        if (spawn == null)
-            spawn = GetComponent<RandomSpawn>();
-    }
 
     private void Start()
     {
         if (isChasing)
         {
-            spawn.OnSpawn.AddListener(DirectionUpdate);
             DirectionUpdate();
         }
         
     }
 
-    void DirectionUpdate()
+    public void DirectionUpdate()
     {
         if(Ball.Instance.transform.position.x > transform.position.x)
         {

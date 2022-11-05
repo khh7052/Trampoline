@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4582891103694864008}
   - component: {fileID: 4582891103694860663}
-  - component: {fileID: 4582891103694864009}
-  - component: {fileID: 4764699231375081503}
   - component: {fileID: 4185995769732376927}
+  - component: {fileID: 4582891103694864009}
+  - component: {fileID: 4252729653220203906}
+  - component: {fileID: 1744207510982061699}
   m_Layer: 6
   m_Name: Cloud
   m_TagString: Untagged
@@ -87,56 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4582891103694864009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582891103694860661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 784bffd56a858564db83b39ce433f182, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnSpawn:
-    m_PersistentCalls:
-      m_Calls: []
-  minSideOffset: -1
-  maxSideOffset: 2
-  minUpOffset: 1.4
-  maxUpOffset: 1.6
-  fixedY: 0
-  randomDir: 0
-  minRot: -45
-  maxRot: 45
-  randomScale: 1
-  minScaleX: 0.6
-  maxScaleX: 1
-  minScaleY: 0.8
-  maxScaleY: 1
-  spawnType: 0
-  spawnDistance: 80
---- !u!114 &4764699231375081503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582891103694860661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89be1e0508a2b974e9ebc8c70feff7c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originInitOn: 1
-  originPos: {x: 0, y: 0, z: 0}
-  originRot: {x: 0, y: 0, z: 0, w: 0}
-  originScale: {x: 0, y: 0, z: 0}
-  rigd: {fileID: 0}
-  startActive: 1
-  overActive: 1
-  myTheme: {fileID: 11400000, guid: d7ea5be1fc5a1e24b91bd22f0c23985a, type: 2}
 --- !u!68 &4185995769732376927
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -159,3 +110,82 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &4582891103694864009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582891103694860661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784bffd56a858564db83b39ce433f182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4252729653220203906}
+        m_TargetAssemblyTypeName: RandomScale, Assembly-CSharp
+        m_MethodName: RandomSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1744207510982061699}
+        m_TargetAssemblyTypeName: DirectionMove, Assembly-CSharp
+        m_MethodName: DirectionUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  minSideOffset: -1
+  maxSideOffset: 2
+  minUpOffset: 1.4
+  maxUpOffset: 1.6
+  fixedY: 0
+  fixedUpOffset: 1
+  spawnType: 0
+  spawnDistance: 80
+--- !u!114 &4252729653220203906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582891103694860661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc72869bfe7e7dc438cb19179dee3a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  on: 1
+  minScaleX: 0.8
+  maxScaleX: 1
+  minScaleY: 0.8
+  maxScaleY: 1
+--- !u!114 &1744207510982061699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582891103694860661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cb617d56a5eec4fb221eccc798d385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isChasing: 1
+  moveDirection: 0
+  moveSpeed: 1

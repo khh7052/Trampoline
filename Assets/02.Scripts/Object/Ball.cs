@@ -4,10 +4,16 @@ using UnityEngine;
 public class Ball : InitObject
 {
     public static Ball Instance;
+    [Header("사운드")]
     public AudioClip dieSound;
     public AudioClip bounceSound;
+    [Space]
+    [Header("최대 속도")]
     public float maxForce = 100f;
+    [Header("무적")]
     public bool invincibility = false; // 무적
+
+    private CircleCollider2D circleCollider;
 
     float bottomOffset = 0;
 
@@ -19,6 +25,11 @@ public class Ball : InitObject
     int jumpLayer;
     LayerMask obstacleLayerMask;
 
+    public float Radius
+    {
+        get { return circleCollider.radius * Scale; }
+    }
+
     public float Width
     {
         get { return transform.position.x; }
@@ -28,6 +39,18 @@ public class Ball : InitObject
     {
         get { return transform.position.y; }
     }
+
+    public float Scale
+    {
+        get { return transform.localScale.x; }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if(circleCollider != null)
+            Gizmos.DrawWireSphere(transform.position, Radius);
+    }
+
 
     public override void OneInit()
     {
@@ -40,6 +63,7 @@ public class Ball : InitObject
         jumpLayer = LayerMask.NameToLayer("Jumping");
         obstacleLayerMask = LayerMask.GetMask("Obstacle");
 
+        circleCollider = GetComponent<CircleCollider2D>();
 
         GameManager.OnGameStart.AddListener(StartHeightCheck);
         GameManager.OnGameOver.AddListener(StopHeightCheck);
@@ -66,6 +90,7 @@ public class Ball : InitObject
 
     void VelocityCheck()
     {
+
         if (rigd.velocity.y > 0)
         {
             gameObject.layer = jumpLayer;
@@ -73,7 +98,7 @@ public class Ball : InitObject
         else
         {
             // 발판과 충돌중이면 레이어 안바꿈
-            if (Physics2D.OverlapCircle(transform.position, 1f, obstacleLayerMask)) return;
+            if (Physics2D.OverlapCircle(transform.position, Radius, obstacleLayerMask)) return;
 
             gameObject.layer = myLayer;
         }

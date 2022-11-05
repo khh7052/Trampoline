@@ -10,15 +10,18 @@ GameObject:
   m_Component:
   - component: {fileID: 5950097706073763291}
   - component: {fileID: 5950097706073763290}
-  - component: {fileID: 5950097706073763293}
   - component: {fileID: 5950097706073763295}
+  - component: {fileID: 8516843445483496987}
+  - component: {fileID: 5950097706073763293}
+  - component: {fileID: 5896114874832806614}
+  - component: {fileID: 9028817386360437412}
   m_Layer: 6
   m_Name: Astronaut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5950097706073763291
 Transform:
   m_ObjectHideFlags: 0
@@ -86,36 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5950097706073763293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5950097706073763294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 784bffd56a858564db83b39ce433f182, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnSpawn:
-    m_PersistentCalls:
-      m_Calls: []
-  minSideOffset: -1
-  maxSideOffset: 2
-  minUpOffset: 1.4
-  maxUpOffset: 1.6
-  fixedY: 0
-  randomDir: 0
-  minRot: -45
-  maxRot: 45
-  randomScale: 1
-  minScaleX: 0.6
-  maxScaleX: 1
-  minScaleY: 0.8
-  maxScaleY: 1
-  spawnType: 2
-  spawnDistance: 80
 --- !u!61 &5950097706073763295
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -142,3 +115,104 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 16}
   m_EdgeRadius: 0
+--- !u!50 &8516843445483496987
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5950097706073763294}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 4
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &5950097706073763293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5950097706073763294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784bffd56a858564db83b39ce433f182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5896114874832806614}
+        m_TargetAssemblyTypeName: RandomVelocity, Assembly-CSharp
+        m_MethodName: RandomSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9028817386360437412}
+        m_TargetAssemblyTypeName: RandomDirection, Assembly-CSharp
+        m_MethodName: RandomSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  minSideOffset: 0.4
+  maxSideOffset: 0.5
+  minUpOffset: 1.2
+  maxUpOffset: 1.4
+  fixedY: 0
+  fixedUpOffset: 0.4
+  spawnType: 2
+  spawnDistance: 100
+--- !u!114 &5896114874832806614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5950097706073763294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a96d95639dfe3a4e8b926df6a29f79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceOn: 1
+  rotOn: 1
+  minSpeed: 0
+  maxSpeed: 1
+  minRot: 0
+  maxRot: 10
+--- !u!114 &9028817386360437412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5950097706073763294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caea7ece9f7e430419c4b134cc2cf2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  on: 1
+  minRot: 0
+  maxRot: 360
