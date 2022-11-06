@@ -7,11 +7,10 @@ public class RandomVelocity : MonoBehaviour
 {
     Rigidbody2D rigd;
     public bool forceOn = true;
-    public bool rotOn = false;
-
     public float minSpeed = 0f;
     public float maxSpeed = 1f;
-
+    [Space]
+    public bool rotOn = false;
     public float minRot = 0f;
     public float maxRot = 5f;
 

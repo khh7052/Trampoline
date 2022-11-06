@@ -15,32 +15,26 @@ MonoBehaviour:
   themeManagerData: {fileID: 11400000, guid: 33c38408195fc9546b4d0a1dafe8ae7c, type: 2}
   _name: Space
   backgroundColor: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 1}
-  range: 500
+  range: 1000
   bgm: {fileID: 8300000, guid: 4661fd01d5c739b4a9e87a2b58ac4721, type: 3}
   obstacles:
   - spawnObject: {fileID: 5950097706073763294, guid: 9e2b20b8bf0d7564da339fe523931ef3, type: 3}
     spawnHeightPercent: 25
-    spawnHeight: 1625
-  - spawnObject: {fileID: 5950097706073763294, guid: 9e2b20b8bf0d7564da339fe523931ef3, type: 3}
-    spawnHeightPercent: 50
-    spawnHeight: 1750
+    spawnHeight: 2250
   - spawnObject: {fileID: 5950097706073763294, guid: 9e2b20b8bf0d7564da339fe523931ef3, type: 3}
     spawnHeightPercent: 75
-    spawnHeight: 1875
+    spawnHeight: 2750
   - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
     spawnHeightPercent: 50
-    spawnHeight: 1750
+    spawnHeight: 2500
   - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
     spawnHeightPercent: 50
-    spawnHeight: 1750
+    spawnHeight: 2500
   - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
     spawnHeightPercent: 75
-    spawnHeight: 1875
+    spawnHeight: 2750
   - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
     spawnHeightPercent: 75
-    spawnHeight: 1875
-  - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
-    spawnHeightPercent: 75
-    spawnHeight: 1875
+    spawnHeight: 2750
   enemies: []
   items: []

@@ -40,7 +40,7 @@ public class DirectionMove : MonoBehaviour
 
     void Update()
     {
-        float move = moveSpeed * Time.deltaTime;
+        float move = moveSpeed * Time.smoothDeltaTime;
 
         switch (moveDirection)
         {

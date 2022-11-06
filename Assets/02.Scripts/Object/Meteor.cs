@@ -15,7 +15,6 @@ public class Meteor : Enemy
         spawn.OnSpawn.AddListener(()=> transform.localScale = originScale);
     }
 
-
     private void Update()
     {
         if (GameManager.Instance.state != GameState.PLAY) return;
