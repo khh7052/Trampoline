@@ -4,8 +4,9 @@ using UnityEngine;
 using Shapes;
 using UnityEngine.EventSystems;
 
-public class LineMaker : InitObject
+public class LineMaker : BaseInit
 {
+    public static LineMaker Instance;
     Line line;
     EdgeCollider2D edgeCollider;
     Vector2[] points;
@@ -14,8 +15,37 @@ public class LineMaker : InitObject
     public Color stopColor;
     public Color moveColor;
 
+    public LayerMask damageableLayer;
+
     public float dashOffsetSpeed = 1.2f;
     private bool isCreating;
+
+    public bool Active
+    {
+        set
+        {
+            LineActive = value;
+            ColliderActive = value;
+        }
+    }
+
+    public bool LineActive
+    {
+        get { return line.enabled; }
+        set
+        {
+            line.enabled = value;
+        }
+    }
+
+    public bool ColliderActive
+    {
+        get { return edgeCollider.enabled; }
+        set
+        {
+            edgeCollider.enabled = value;
+        }
+    }
 
     public bool IsCreating
     {
@@ -24,7 +54,6 @@ public class LineMaker : InitObject
             isCreating = value;
 
             line.Dashed = value;
-            edgeCollider.enabled = !value;
             LineColor = value ? moveColor : stopColor;
         }
     }
@@ -66,7 +95,6 @@ public class LineMaker : InitObject
 
         if(Input.touchCount > 0)
         {
-
             if(isCreating) line.DashOffset += Time.deltaTime * dashOffsetSpeed;
 
             Touch touch = Input.GetTouch(0);
@@ -78,6 +106,8 @@ public class LineMaker : InitObject
                 Start = pos;
                 End = pos;
 
+                LineActive = true;
+                ColliderActive = false;
                 IsCreating = true;
             }
             if (touch.phase == TouchPhase.Moved)
@@ -88,9 +118,28 @@ public class LineMaker : InitObject
             {
                 End = pos;
 
+                Active = !EnemyCheck();
                 IsCreating = false;
             }
         }
+    }
+
+
+    bool EnemyCheck()
+    {
+        Vector2 dir = line.End - line.Start;
+        float length = dir.magnitude;
+        dir = dir.normalized;
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(line.Start, dir, length, damageableLayer);
+        HP hp;
+        foreach (var item in hits)
+        {
+            hp = item.transform.GetComponent<HP>();
+            hp.Damage();
+        }
+
+        return hits.Length > 0;
     }
 
     Vector2 ScreenToWorld(Vector2 pos)
@@ -102,6 +151,7 @@ public class LineMaker : InitObject
     {
         base.OneInit();
 
+        Instance = this;
         line = GetComponent<Line>();
         edgeCollider = GetComponent<EdgeCollider2D>();
 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7279942823016442887}
   - component: {fileID: 7279942823016442886}
   - component: {fileID: 7871829926425507102}
+  - component: {fileID: 91740071170913158}
   m_Layer: 7
   m_Name: Crow
   m_TagString: Untagged
@@ -73,7 +74,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnSpawn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 91740071170913158}
+        m_TargetAssemblyTypeName: HP, Assembly-CSharp
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7279942823016442886}
+        m_TargetAssemblyTypeName: DirectionMove, Assembly-CSharp
+        m_MethodName: DirectionUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   minSideOffset: 0.1
   maxSideOffset: 0.5
   minUpOffset: 0.2
@@ -94,14 +119,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf731f1f7af2157419f2a592868513eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPos: {x: 0, y: 0, z: 0}
-  originRot: {x: 0, y: 0, z: 0, w: 0}
-  originScale: {x: 0, y: 0, z: 0}
-  rigd: {fileID: 7279942823016442881}
-  initActive: 1
-  startActive: 1
-  overActive: 1
+  onStart: 1
+  onOver: 0
   spawn: {fileID: 0}
+  hp: {fileID: 91740071170913158}
+  attackSound: {fileID: 0}
+  attackRate: 3
 --- !u!114 &7279942823016442886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChasing: 1
   moveDirection: 0
-  moveSpeed: 5
+  moveSpeed: 8
 --- !u!114 &7871829926425507102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +154,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn: {fileID: 7279942823016442880}
   isLeft: 1
+--- !u!114 &91740071170913158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7279942823016442885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02cbb927f012f0746b2717764f9d352b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart: 1
+  onOver: 0
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7279942823016442880}
+        m_TargetAssemblyTypeName: RandomSpawn, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxHp: 1
 --- !u!1 &7279942823157729491
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,8 +255,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2021882603
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fdd8aeca074d7e24fbe672887a783fb2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -313,8 +366,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2021882603
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 50d226d5abea1bf47bbcb3805cbe68c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

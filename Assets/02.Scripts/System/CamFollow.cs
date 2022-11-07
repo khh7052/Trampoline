@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamFollow : InitObject
+public class CamFollow : MonoBehaviour
 {
     public Transform target;
     
@@ -18,7 +18,7 @@ public class CamFollow : InitObject
             pos.y = Mathf.Lerp(pos.y, target.position.y, Time.deltaTime * 5f);
             // pos.y = target.position.y;
         }
-
+        
         pos.x = target.position.x;
         transform.position = pos;
     }

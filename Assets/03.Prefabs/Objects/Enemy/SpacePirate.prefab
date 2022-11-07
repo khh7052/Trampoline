@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 8877406441509623480}
   - component: {fileID: 5595718585053801833}
   - component: {fileID: 7375385570078192778}
-  m_Layer: 6
+  - component: {fileID: -8217747684633237626}
+  m_Layer: 7
   m_Name: SpacePirate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1222615227
-  m_SortingLayer: 1
+  m_SortingLayerID: -2021882603
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a414a702739d56e41ad1b084cc176c72, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -177,6 +178,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -8217747684633237626}
+        m_TargetAssemblyTypeName: HP, Assembly-CSharp
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   minSideOffset: 0.4
   maxSideOffset: 0.5
   minUpOffset: 1.2
@@ -230,17 +243,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb744fc5d68e86a4ea574275586459ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPos: {x: 0, y: 0, z: 0}
-  originRot: {x: 0, y: 0, z: 0, w: 0}
-  originScale: {x: 0, y: 0, z: 0}
-  rigd: {fileID: 0}
-  initActive: 1
-  startActive: 1
-  overActive: 1
+  onStart: 1
+  onOver: 0
   spawn: {fileID: 8525158974198438331}
+  hp: {fileID: -8217747684633237626}
+  attackSound: {fileID: 0}
   attackRate: 3
   gunPoint: {fileID: 4054469128592494147}
   laser: {fileID: 6578684277434227920, guid: 0e735d868053c3d40b30c724e0365c24, type: 3}
+--- !u!114 &-8217747684633237626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831551851284699038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02cbb927f012f0746b2717764f9d352b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart: 1
+  onOver: 0
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8525158974198438331}
+        m_TargetAssemblyTypeName: RandomSpawn, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxHp: 3
 --- !u!1 &9093236016612936321
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4054469128592494147}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: GunPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}

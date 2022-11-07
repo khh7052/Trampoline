@@ -11,8 +11,6 @@ public class Meteor : Enemy
         base.OneInit();
 
         if(spawn == null) spawn = GetComponent<RandomSpawn>();
-
-        spawn.OnSpawn.AddListener(()=> transform.localScale = originScale);
     }
 
     private void Update()

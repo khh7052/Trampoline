@@ -1,9 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class Ball : InitObject
+public class Ball : BaseInit
 {
     public static Ball Instance;
+    public Rigidbody2D rigd;
+
     [Header("»ç¿îµå")]
     public AudioClip dieSound;
     public AudioClip bounceSound;
@@ -24,6 +26,7 @@ public class Ball : InitObject
     int myLayer;
     int jumpLayer;
     LayerMask obstacleLayerMask;
+
 
     public float Radius
     {
@@ -55,6 +58,7 @@ public class Ball : InitObject
     public override void OneInit()
     {
         base.OneInit();
+        rigd = GetComponent<Rigidbody2D>();
         Instance = this;
 
         bottomOffset = CameraManager.Height - CameraManager.GetScreenBottomPos();

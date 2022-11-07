@@ -188,4 +188,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChasing: 1
   moveDirection: 0
-  moveSpeed: 1
+  moveSpeed: 2

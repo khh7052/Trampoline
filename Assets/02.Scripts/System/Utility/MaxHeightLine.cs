@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Shapes;
 
-public class MaxHeightLine : InitObject
+public class MaxHeightLine : BaseInit
 {
     Line line;
     Vector2 pos = Vector2.zero;

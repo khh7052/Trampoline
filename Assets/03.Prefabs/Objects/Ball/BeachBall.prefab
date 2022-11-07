@@ -10,9 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1614610639635176119}
   - component: {fileID: 1978649287273989594}
-  - component: {fileID: 6756962027619604032}
   - component: {fileID: 3117761766834357486}
   - component: {fileID: 2144275251390965880}
+  - component: {fileID: 6756962027619604032}
+  - component: {fileID: 3386586194689842425}
+  - component: {fileID: 3386586194689842426}
+  - component: {fileID: 3386586194689842421}
   m_Layer: 0
   m_Name: BeachBall
   m_TagString: Ball
@@ -73,9 +76,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1222615227
-  m_SortingLayer: 1
-  m_SortingOrder: 99
+  m_SortingLayerID: 663861473
+  m_SortingLayer: 4
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8ade128b20cff0846b31bd1685a57e7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -87,28 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6756962027619604032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5095338848473785781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9bda1d598806834589df7c3b31fd21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originInitOn: 1
-  originPos: {x: 0, y: 0, z: 0}
-  originRot: {x: 0, y: 0, z: 0, w: 0}
-  originScale: {x: 0, y: 0, z: 0}
-  rigd: {fileID: 0}
-  startActive: 1
-  overActive: 0
-  dieSound: {fileID: 8300000, guid: 20a11e93bc3ad9442b7fd262635ad24e, type: 3}
-  bounceSound: {fileID: 8300000, guid: 1e25e74b48cf56c4ba52d9266589c1b1, type: 3}
-  maxForce: 100
 --- !u!50 &3117761766834357486
 Rigidbody2D:
   serializedVersion: 4
@@ -146,3 +127,67 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.8
+--- !u!114 &6756962027619604032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5095338848473785781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9bda1d598806834589df7c3b31fd21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart: 1
+  onOver: 0
+  rigd: {fileID: 0}
+  dieSound: {fileID: 8300000, guid: 20a11e93bc3ad9442b7fd262635ad24e, type: 3}
+  bounceSound: {fileID: 8300000, guid: 1e25e74b48cf56c4ba52d9266589c1b1, type: 3}
+  maxForce: 100
+  invincibility: 0
+--- !u!114 &3386586194689842425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5095338848473785781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25611915078c86e4b90a5452b03c907c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart: 1
+  onOver: 0
+  active: 1
+--- !u!114 &3386586194689842426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5095338848473785781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d81da1bd971fc41a669cc8d853f119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart: 1
+  onOver: 0
+--- !u!114 &3386586194689842421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5095338848473785781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff65539c75e6e248b2893386dbc408b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart: 1
+  onOver: 0
+  velocity: {x: 0, y: 0}
+  angularVelocity: 0
