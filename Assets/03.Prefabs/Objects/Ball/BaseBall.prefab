@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bda1d598806834589df7c3b31fd21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAwake: 0
   onStart: 1
   onOver: 0
   rigd: {fileID: 0}

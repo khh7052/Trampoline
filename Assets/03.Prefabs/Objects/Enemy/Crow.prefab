@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChasing: 1
   moveDirection: 0
-  moveSpeed: 8
+  moveSpeed: 5
 --- !u!114 &7871829926425507102
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bda1d598806834589df7c3b31fd21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAwake: 0
   onStart: 1
   onOver: 0
   rigd: {fileID: 0}
@@ -158,7 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25611915078c86e4b90a5452b03c907c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onStart: 1
+  onAwake: 1
+  onStart: 0
   onOver: 0
   active: 1
 --- !u!114 &3386586194689842426
@@ -173,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d81da1bd971fc41a669cc8d853f119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAwake: 0
   onStart: 1
   onOver: 0
 --- !u!114 &3386586194689842421
@@ -187,6 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff65539c75e6e248b2893386dbc408b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAwake: 0
   onStart: 1
   onOver: 0
   velocity: {x: 0, y: 0}

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 {
     public int frame = 100;
 
+    public static UnityEvent OnGameAwake = new();
     public static UnityEvent OnGameStart = new();
     public static UnityEvent OnGameOver = new();
 
@@ -70,10 +71,10 @@ public class GameManager : MonoBehaviour
 
         Application.targetFrameRate = frame;
         HeightTextInit();
-
+        /*
         OnGameStart.AddListener(TimeScaleUpdate);
         OnGameOver.AddListener(TimeScaleUpdate);
-
+        */
         OnGameOver.AddListener(OverUI_Update);
     }
 
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         state = GameState.PLAY;
 
+        OnGameAwake.Invoke();
         OnGameStart.Invoke();
     }
     public void GameOver()

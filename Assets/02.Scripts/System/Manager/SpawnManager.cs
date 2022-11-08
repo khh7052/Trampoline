@@ -2,44 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : BaseInit
 {
     // 테마가 변경될 때마다 장애물, 적, 아이템을 스폰 or 활성화
     // 이전 테마의 장애물, 적, 아이템은 스폰하지않도록 조치
 
     Coroutine heightCheck;
-    readonly WaitForSeconds waitSeconds = new WaitForSeconds(0.1f);
+    readonly WaitForSeconds waitSeconds = new(0.1f);
+    private List<GameObject> spawnedObjects = new();
+    private List<SpawnData> spawnDatas = new();
 
-    List<GameObject> spawnedObjects = new List<GameObject>();
-    List<SpawnData> spawnDatas = new List<SpawnData>();
 
-    public void Awake()
+    public override void OneInit()
     {
-        OneInit();
-    }
-
-    void OneInit()
-    {
-        GameManager.OnGameStart.AddListener(Init);
-        ThemeManager.OnThemeUpdate.AddListener(SpawnedObjectDate);
+        base.OneInit();
+        GameManager.OnGameOver.AddListener(StopCheck);
+        ThemeManager.OnThemeUpdate.AddListener(SpawnedObjectUpdate);
         ThemeManager.OnThemeUpdate.AddListener(SpawnDataUpdate);
     }
 
-    public void Init()
+    public override void Init()
     {
-        if(heightCheck != null)
+        base.Init();
+
+        SpawnedObjectUpdate();
+        SpawnDataUpdate();
+
+        StartCheck();
+    }
+
+    public void StopCheck()
+    {
+        if (heightCheck != null)
         {
             StopCoroutine(heightCheck);
         }
+    }
 
-        SpawnedObjectDate();
-        SpawnDataUpdate();
-
-        heightCheck =  StartCoroutine(HeightCheck());
+    public void StartCheck()
+    {
+        heightCheck = StartCoroutine(HeightCheck());
     }
 
     IEnumerator HeightCheck()
     {
+        yield return waitSeconds;
+
         while (true)
         {
             for (int i = spawnDatas.Count-1; i >= 0; i--)
@@ -52,12 +60,11 @@ public class SpawnManager : MonoBehaviour
                 }
             }
 
-
             yield return waitSeconds;
         }
     }
 
-    public void SpawnedObjectDate()
+    public void SpawnedObjectUpdate()
     {
         foreach (var obj in spawnedObjects)
         {

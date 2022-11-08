@@ -167,6 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425529644e448f44fb930f081851b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAwake: 0
+  onStart: 1
+  onOver: 0
 --- !u!1001 &142704489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -481,6 +484,10 @@ PrefabInstance:
       value: ExitBtn
       objectReference: {fileID: 0}
     - target: {fileID: 170387839961709721, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 170387839961709721, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -555,6 +562,14 @@ PrefabInstance:
     - target: {fileID: 170387839961709726, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 170387839961709727, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 170387840124410768, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 170387840124410774, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
       propertyPath: m_text
@@ -1589,6 +1604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a9ea82c559d6d4cbc0cdb82fb08ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAwake: 0
   onStart: 1
   onOver: 0
 --- !u!1001 &649140091
@@ -3391,8 +3407,16 @@ PrefabInstance:
       value: StartBtn
       objectReference: {fileID: 0}
     - target: {fileID: 170387839961709721, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 170387839961709721, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 170387839961709725, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 170387839961709726, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
       propertyPath: m_TargetGraphic
@@ -3489,6 +3513,10 @@ PrefabInstance:
     - target: {fileID: 170387839961709726, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 170387840124410768, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 170387840124410774, guid: 4da7da69628294dd5a315c5eecc224a4, type: 3}
       propertyPath: m_text
@@ -4090,6 +4118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034190d642fa0f0478cad241e1a9c770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAwake: 0
   onStart: 1
   onOver: 0
 --- !u!1 &1795714437
@@ -4140,7 +4169,6 @@ GameObject:
   - component: {fileID: 1809613060}
   - component: {fileID: 1809613059}
   - component: {fileID: 1809613062}
-  - component: {fileID: 1809613063}
   m_Layer: 0
   m_Name: LineMaker
   m_TagString: Line
@@ -4290,6 +4318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201049a8db31be5488fd19f80cee3b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAwake: 0
   onStart: 1
   onOver: 0
   stopColor: {r: 1, g: 1, b: 1, a: 1}
@@ -4298,20 +4327,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   dashOffsetSpeed: 2
---- !u!114 &1809613063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809613056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47a9ea82c559d6d4cbc0cdb82fb08ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onStart: 1
-  onOver: 0
 --- !u!1 &1875175179
 GameObject:
   m_ObjectHideFlags: 0

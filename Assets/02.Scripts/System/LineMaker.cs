@@ -19,6 +19,7 @@ public class LineMaker : BaseInit
 
     public float dashOffsetSpeed = 1.2f;
     private bool isCreating;
+    private bool makeOn = true;
 
     public bool Active
     {
@@ -92,32 +93,35 @@ public class LineMaker : BaseInit
     void Update()
     {
         if (GameManager.Instance.state != GameState.PLAY) return;
+        LineMake();
+    }
 
-        if(Input.touchCount > 0)
+    void LineMake()
+    {
+        if (makeOn == false) return;
+
+        if (Input.touchCount > 0)
         {
-            if(isCreating) line.DashOffset += Time.deltaTime * dashOffsetSpeed;
+            if (isCreating) line.DashOffset += Time.deltaTime * dashOffsetSpeed;
 
             Touch touch = Input.GetTouch(0);
-
             Vector2 pos = ScreenToWorld(touch.position);
 
             if (touch.phase == TouchPhase.Began)
             {
                 Start = pos;
                 End = pos;
-
                 LineActive = true;
                 ColliderActive = false;
                 IsCreating = true;
             }
-            if (touch.phase == TouchPhase.Moved)
+            else if (touch.phase == TouchPhase.Moved)
             {
                 End = pos;
             }
-            if (touch.phase == TouchPhase.Ended)
+            else if (touch.phase == TouchPhase.Ended)
             {
                 End = pos;
-
                 Active = !EnemyCheck();
                 IsCreating = false;
             }
@@ -161,8 +165,10 @@ public class LineMaker : BaseInit
         points[0] = line.Start;
         points[1] = line.End;
         initPoints = (Vector2[])points.Clone();
-
+        makeOn = false;
         edgeCollider.points = points;
+
+        enabled = false;
     }
 
     public override void Init()
@@ -172,6 +178,16 @@ public class LineMaker : BaseInit
         Start = initPoints[0];
         End = initPoints[1];
         IsCreating = false;
+
+        enabled = true;
+
+        makeOn = false;
+        Invoke("MakeOnTrue", 0.01f);
+    }
+
+    void MakeOnTrue()
+    {
+        makeOn = true;
     }
 
 }
