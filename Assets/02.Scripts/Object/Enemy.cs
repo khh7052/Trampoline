@@ -23,7 +23,7 @@ public class Enemy : BaseInit
         if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("Line"))
         {
             hp.Damage();
-            LineMaker.Instance.Active = false;
+            LineManager.Instance.Active = false;
         }
     }
 }

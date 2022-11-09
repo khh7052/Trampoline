@@ -6,6 +6,7 @@ using TMPro;
 
 public enum GameState
 {
+    READY,
     PLAY,
     OVER,
     STOP
@@ -17,9 +18,13 @@ public class GameManager : MonoBehaviour
 
     public static UnityEvent OnGameAwake = new();
     public static UnityEvent OnGameStart = new();
+    public static UnityEvent OnGameStop = new();
     public static UnityEvent OnGameOver = new();
 
     public static GameManager Instance = null;
+
+    public GameObject inGameUI;
+    public GameObject stopPanel;
 
     public GameObject overUI;
     public TextMeshProUGUI maxHeightText;
@@ -62,7 +67,6 @@ public class GameManager : MonoBehaviour
         {
             HeightUpdate();
         }
-        
     }
 
     void OneInit()
@@ -71,10 +75,6 @@ public class GameManager : MonoBehaviour
 
         Application.targetFrameRate = frame;
         HeightTextInit();
-        /*
-        OnGameStart.AddListener(TimeScaleUpdate);
-        OnGameOver.AddListener(TimeScaleUpdate);
-        */
         OnGameOver.AddListener(OverUI_Update);
     }
 
@@ -90,6 +90,32 @@ public class GameManager : MonoBehaviour
         OnGameAwake.Invoke();
         OnGameStart.Invoke();
     }
+
+    public void StopTrigger()
+    {
+        if(state == GameState.PLAY)
+        {
+            state = GameState.STOP;
+            Time.timeScale = 0;
+            stopPanel.SetActive(true);
+            GameStop();
+        }
+        else if (state == GameState.STOP)
+        {
+            Time.timeScale = 1;
+            stopPanel.SetActive(false);
+
+            state = GameState.PLAY;
+        }
+    }
+
+    public void GameStop()
+    {
+        state = GameState.STOP;
+
+        OnGameStop.Invoke();
+    }
+
     public void GameOver()
     {
         state = GameState.OVER;
@@ -106,11 +132,12 @@ public class GameManager : MonoBehaviour
         heightText.text = "0";
     }
 
+
     public void OverUI_Update()
     {
         bool active = state == GameState.OVER;
         overUI.SetActive(active);
-
+        inGameUI.SetActive(false);
         maxHeightText.text = maxHeight.ToString();
     }
 
