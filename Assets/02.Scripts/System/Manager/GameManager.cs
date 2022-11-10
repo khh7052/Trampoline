@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
 
         Application.targetFrameRate = frame;
         HeightTextInit();
+        OnGameStop.AddListener(TimeTrigger);
         OnGameOver.AddListener(OverUI_Update);
     }
 
@@ -90,25 +91,6 @@ public class GameManager : MonoBehaviour
         OnGameAwake.Invoke();
         OnGameStart.Invoke();
     }
-
-    public void StopTrigger()
-    {
-        if(state == GameState.PLAY)
-        {
-            state = GameState.STOP;
-            Time.timeScale = 0;
-            stopPanel.SetActive(true);
-            GameStop();
-        }
-        else if (state == GameState.STOP)
-        {
-            Time.timeScale = 1;
-            stopPanel.SetActive(false);
-
-            state = GameState.PLAY;
-        }
-    }
-
     public void GameStop()
     {
         state = GameState.STOP;
@@ -132,6 +114,21 @@ public class GameManager : MonoBehaviour
         heightText.text = "0";
     }
 
+    public void OnStopBtn()
+    {
+        if(state == GameState.PLAY)
+        {
+            stopPanel.SetActive(true);
+            GameStop();
+        }
+        else if (state == GameState.STOP)
+        {
+            state = GameState.PLAY;
+            stopPanel.SetActive(false);
+        }
+
+        TimeScaleUpdate();
+    }
 
     public void OverUI_Update()
     {
@@ -149,7 +146,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
                 break;
             case GameState.OVER:
-                Time.timeScale = 0;
+                Time.timeScale = 1;
                 break;
             case GameState.STOP:
                 Time.timeScale = 0;

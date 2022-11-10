@@ -20,10 +20,13 @@ public class Enemy : BaseInit
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("Line"))
+        if (collision.gameObject.CompareTag("Ball"))
         {
             hp.Damage();
-            LineManager.Instance.Active = false;
+        }
+        else if (collision.gameObject.CompareTag("Line"))
+        {
+            hp.Die();
         }
     }
 }

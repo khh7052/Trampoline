@@ -16,7 +16,6 @@ public class LineManager : MonoBehaviour
         GameManager.OnGameOver.AddListener(LineEnableUpdate);
     }
 
-
     private void Update()
     {
         if (GameManager.Instance.state != GameState.PLAY) return;
@@ -31,10 +30,10 @@ public class LineManager : MonoBehaviour
         Touch touch = Input.GetTouch(0);
         Vector2 pos = ScreenToWorld(touch.position);
 
+        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
+
         if (touch.phase == TouchPhase.Began)
         {
-            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
-
             line.State = LineState.CREATING;
             line.Start = pos;
             line.End = pos;
@@ -61,24 +60,25 @@ public class LineManager : MonoBehaviour
         if (GameManager.Instance.state == GameState.PLAY) line.enabled = true;
         else if (GameManager.Instance.state == GameState.OVER) line.enabled = false;
     }
+
     /*
-    private bool IsOverUi()
-    {
-        var pointerData = new PointerEventData(EventSystem.current);
-        var average = Input.GetTouch(0); //Replace with your own Finger Position.
-        if (average == null)
-            return false;
-        pointerData.position = average.Value;
+private bool IsOverUi()
+{
+var pointerData = new PointerEventData(EventSystem.current);
+var average = Input.GetTouch(0); //Replace with your own Finger Position.
+if (average == null)
+return false;
+pointerData.position = average.Value;
 
-        var results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerData, results);
+var results = new List<RaycastResult>();
+EventSystem.current.RaycastAll(pointerData, results);
 
-        if (results.Count > 0)
-        {
-            if (results[0].gameObject.layer == LayerMask.NameToLayer("UI"))
-                 return true;
-        }
-        return false;
-    }
-    */
+if (results.Count > 0)
+{
+if (results[0].gameObject.layer == LayerMask.NameToLayer("UI"))
+  return true;
+}
+return false;
+}
+*/
 }

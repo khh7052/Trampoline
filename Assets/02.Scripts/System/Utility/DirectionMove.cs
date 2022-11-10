@@ -15,8 +15,6 @@ public class DirectionMove : MonoBehaviour
     public bool isChasing; // 공한테 방향 향하는지
     public Direction moveDirection;
     public float moveSpeed = 1f;
-
-
     private void Start()
     {
         if (isChasing)

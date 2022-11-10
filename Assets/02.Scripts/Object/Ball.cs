@@ -17,16 +17,9 @@ public class Ball : BaseInit
 
     private CircleCollider2D circleCollider;
 
-    float bottomOffset = 0;
-
-    Coroutine heightCoroutine;
-    readonly WaitForSeconds heightCheckDelay = new(1f); // 재시작할때 카메라 버그막는용
-    readonly WaitForSeconds heightCheckRate = new(0.1f);
-
     int myLayer;
     int jumpLayer;
     LayerMask obstacleLayerMask;
-
 
     public float Radius
     {
@@ -61,27 +54,19 @@ public class Ball : BaseInit
         rigd = GetComponent<Rigidbody2D>();
         Instance = this;
 
-        bottomOffset = CameraManager.Height - CameraManager.GetScreenBottomPos();
-
         myLayer = gameObject.layer;
         jumpLayer = LayerMask.NameToLayer("Jumping");
         obstacleLayerMask = LayerMask.GetMask("Obstacle");
 
         circleCollider = GetComponent<CircleCollider2D>();
-
-        GameManager.OnGameStart.AddListener(StartHeightCheck);
-        GameManager.OnGameOver.AddListener(StopHeightCheck);
     }
 
-    public override void Init()
-    {
-        base.Init();
-        StartHeightCheck();
-    }
 
 
     public void Die()
     {
+        if (invincibility) return;
+
         SoundManager.Instance.PlaySFX(dieSound);
         gameObject.SetActive(false);
         GameManager.Instance.GameOver();
@@ -108,31 +93,11 @@ public class Ball : BaseInit
         }
     }
 
-    void StartHeightCheck()
+    private void OnBecameInvisible() // 화면밖으로 나가면 사망
     {
-        heightCoroutine = StartCoroutine(HeightCoroutine());
-    }
+        if (GameManager.Instance.state != GameState.PLAY) return;
 
-    void StopHeightCheck()
-    {
-        StopCoroutine(heightCoroutine);
-    }
-
-    IEnumerator HeightCoroutine()
-    {
-        yield return heightCheckDelay;
-
-        while (true)
-        {
-            if (GameManager.Instance.state != GameState.PLAY) continue;
-
-            if (transform.position.y < CameraManager.Height - bottomOffset)
-            {
-                Die();
-            }
-
-            yield return heightCheckRate;
-        }
+        Die();
     }
 
     void Spin()
@@ -170,7 +135,7 @@ public class Ball : BaseInit
     {
         if (collision.gameObject.CompareTag("Damage"))
         {
-            if (!invincibility) Die();
+            Die();
         }
 
         Spin();

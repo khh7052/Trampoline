@@ -19,22 +19,13 @@ MonoBehaviour:
   bgm: {fileID: 8300000, guid: 03ee2e22c4ccafd4d9cb17ec12e2cfcb, type: 3}
   obstacles:
   - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
-    spawnHeightPercent: 10
-    spawnHeight: 1100
-  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
-    spawnHeightPercent: 10
-    spawnHeight: 1100
-  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
-    spawnHeightPercent: 30
-    spawnHeight: 1300
-  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
     spawnHeightPercent: 50
     spawnHeight: 1500
   - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
+    spawnHeightPercent: 60
+    spawnHeight: 1600
+  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
     spawnHeightPercent: 70
     spawnHeight: 1700
-  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
-    spawnHeightPercent: 80
-    spawnHeight: 1800
   enemies: []
   items: []
