@@ -14,7 +14,8 @@ public class Enemy : BaseInit
 
     public virtual void Attack()
     {
-        
+        if(attackSound != null) SoundManager.Instance.PlaySFX(attackSound);
+        nextAttackTime = Time.time + attackRate;
     }
 
 

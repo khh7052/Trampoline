@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12aafcc8091e60e479613db918c3d9c5, type: 3}
-  m_Name: Theme_06
+  m_Name: Theme_07
   m_EditorClassIdentifier: 
   themeManagerData: {fileID: 11400000, guid: 33c38408195fc9546b4d0a1dafe8ae7c, type: 2}
-  _name: BlackHole
-  backgroundColor: {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
-  range: 1000
+  _name: Empty
+  backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  range: 500
   bgm: {fileID: 0}
   obstacles: []
   enemies: []

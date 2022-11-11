@@ -45,8 +45,9 @@ public class LineManager : MonoBehaviour
         }
         else if (touch.phase == TouchPhase.Ended)
         {
-            line.Active = !line.EnemyCheck();
             line.State = LineState.CREATED;
+            line.Active = !line.EnemyCheck();
+            
         }
     }
 

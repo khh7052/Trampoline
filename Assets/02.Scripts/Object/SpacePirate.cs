@@ -11,8 +11,8 @@ public class SpacePirate : Enemy
 
     public override void Attack()
     {
+        base.Attack();
         Instantiate(laser, gunPoint.position, gunPoint.rotation);
-        nextAttackTime = Time.time + attackRate;
     }
 
     private void Update()
