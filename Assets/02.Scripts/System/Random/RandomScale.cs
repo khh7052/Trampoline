@@ -22,7 +22,7 @@ public class RandomScale : MonoBehaviour
     {
         if (on)
         {
-            Vector2 scale = Vector2.one;
+            Vector3 scale = Vector3.one;
 
             if (proportion)
             {

@@ -26,6 +26,24 @@ public class SoundManager : MonoBehaviour
         bgmCoroutine = StartCoroutine(BgmFade(clip, 2f));
     }
 
+    public void PlaySFX(AudioClip clip)
+    {
+        if (clip == null) return;
+
+        sfxSpeaker.PlayOneShot(clip);
+    }
+
+    public void PlaySFX(List<AudioClip> clips)
+    {
+        if (clips == null) return;
+
+        int idx;
+        if(clips.Count == 1) idx = 0;
+        else idx = Random.Range(0, clips.Count);
+
+        sfxSpeaker.PlayOneShot(clips[idx]);
+    }
+
     void StopBgmFade()
     {
         isFading = false;
@@ -71,12 +89,4 @@ public class SoundManager : MonoBehaviour
 
         yield break;
     }
-
-    public void PlaySFX(AudioClip clip)
-    {
-        if (clip == null) return;
-
-        sfxSpeaker.PlayOneShot(clip);
-    }
-
 }

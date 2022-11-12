@@ -1321,7 +1321,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 991
+    m_Bits: 2015
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -4342,7 +4342,7 @@ MonoBehaviour:
   attackColor: {r: 1, g: 0.019366156, b: 0, a: 0.5882353}
   checkLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1152
   dashOffsetSpeed: 2
 --- !u!1 &1875175179
 GameObject:
@@ -5027,6 +5027,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1614610639635176119, guid: 83521983b946fe443b00701dfd0a2ba6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117761766834357486, guid: 83521983b946fe443b00701dfd0a2ba6, type: 3}
+      propertyPath: m_Simulated
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5095338848473785781, guid: 83521983b946fe443b00701dfd0a2ba6, type: 3}

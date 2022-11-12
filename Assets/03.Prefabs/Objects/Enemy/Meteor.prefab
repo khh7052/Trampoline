@@ -355,6 +355,8 @@ MonoBehaviour:
   fixedUpOffset: 0.1
   spawnType: 0
   spawnDistance: 60
+  spawnDealy: 10
+  isSpowning: 0
 --- !u!114 &5661846133827186520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,8 +374,11 @@ MonoBehaviour:
   onOver: 0
   spawn: {fileID: 5661846133827186521}
   hp: {fileID: -6102448745156204287}
-  attackSound: {fileID: 0}
-  attackRate: 3
+  hitSounds: []
+  dieSound:
+  - {fileID: 8300000, guid: ef879e3baba10354993a3d3feb130e4a, type: 3}
+  - {fileID: 8300000, guid: 113a0e259e3d7cd4e9e4edac55ee9e7a, type: 3}
+  - {fileID: 8300000, guid: 0f27b6c7b47d65b478282f369055396f, type: 3}
   reduceScale: {x: 0.15, y: 0.15, z: 0.15}
 --- !u!114 &5661846133827186525
 MonoBehaviour:
@@ -443,6 +448,18 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 5661846133827186520}
+        m_TargetAssemblyTypeName: DamageableObject, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 5661846133827186521}
         m_TargetAssemblyTypeName: RandomSpawn, Assembly-CSharp
         m_MethodName: Spawn

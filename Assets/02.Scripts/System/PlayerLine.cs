@@ -160,7 +160,7 @@ public class PlayerLine : BaseInit
     {
         if (state != LineState.CREATING) return;
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if ((checkLayer.value & (1 << collision.gameObject.layer)) > 0)
             LineColor = attackColor;
     }
 
@@ -168,7 +168,7 @@ public class PlayerLine : BaseInit
     {
         if (state != LineState.CREATING) return;
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if ((checkLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
             if (!LineHitCheck())
                 LineColor = creatingColor;

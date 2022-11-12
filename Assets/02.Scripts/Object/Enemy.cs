@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : BaseInit
+public class Enemy : DamageableObject
 {
-    public RandomSpawn spawn;
-
-    public HP hp;
-
     public AudioClip attackSound;
     public float attackRate = 3f;
     protected float nextAttackTime = 0;
@@ -19,15 +15,4 @@ public class Enemy : BaseInit
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ball"))
-        {
-            hp.Damage();
-        }
-        else if (collision.gameObject.CompareTag("Line"))
-        {
-            hp.Die();
-        }
-    }
 }

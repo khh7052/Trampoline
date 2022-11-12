@@ -46,4 +46,7 @@ MonoBehaviour:
   - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
     spawnHeightPercent: 50
     spawnHeight: 750
-  items: []
+  items:
+  - spawnObject: {fileID: 9031822537721832165, guid: 6f1a6d4be3b804141a96fc0ad929ea23, type: 3}
+    spawnHeightPercent: 20
+    spawnHeight: 600

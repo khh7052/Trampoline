@@ -25,12 +25,22 @@ public class RandomSpawn : MonoBehaviour
 
     public SpawnType spawnType;
     public float spawnDistance = 20f;
+    public float spawnDealy = 1f;
+    public bool isSpowning;
+
+    private void Start()
+    {
+        NoDealySpawn();
+    }
 
     private void Update()
     {
+        if (GameManager.Instance.state != GameState.PLAY) return;
+
         if (Ball.Instance.Height > transform.position.y + spawnDistance)
         {
-            Spawn();
+            if(isSpowning == false)
+                Spawn();
         }
     }
 
@@ -57,14 +67,19 @@ public class RandomSpawn : MonoBehaviour
 
     public void Spawn()
     {
+        isSpowning = true;
+        Invoke("DealySpawn", spawnDealy);
+    }
+    public void NoDealySpawn()
+    {
         float randX = 0;
         float randY = 0;
 
-        if(spawnType == SpawnType.ALL)
+        if (spawnType == SpawnType.ALL)
         {
             int type = Random.Range(0, 2);
 
-            if(type == 0)
+            if (type == 0)
             {
                 randX = RandomSide_Up();
                 randY = Random.Range(minUpOffset, maxUpOffset);
@@ -75,7 +90,7 @@ public class RandomSpawn : MonoBehaviour
                 randY = Random.Range(0f, 1f);
             }
         }
-        else if(spawnType == SpawnType.UP)
+        else if (spawnType == SpawnType.UP)
         {
             randX = RandomSide_Up();
             randY = Random.Range(minUpOffset, maxUpOffset);
@@ -84,11 +99,9 @@ public class RandomSpawn : MonoBehaviour
         {
             randX = RandomSide_Side();
             randY = Random.Range(0f, 1f);
-            // print(name + " : " + randX);
         }
 
         randY = fixedY == true ? fixedUpOffset : randY;
-         // randY = fixedY == true ? fixedUpOffset : Random.Range(minUpOffset, maxUpOffset);
 
         pos.x = randX;
         pos.y = randY;
@@ -98,5 +111,19 @@ public class RandomSpawn : MonoBehaviour
 
         OnSpawn.Invoke();
     }
+
+    public void DealySpawn()
+    {
+        if (GameManager.Instance.state != GameState.PLAY)
+        {
+            isSpowning = false;
+            return;
+        }
+
+        gameObject.SetActive(true);
+        NoDealySpawn();
+        isSpowning = false;
+    }
+
 
 }

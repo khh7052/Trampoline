@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Meteor : Enemy
+public class Meteor : DamageableObject
 {
     public Vector3 reduceScale = Vector3.one * 0.1f;
 
@@ -21,7 +21,7 @@ public class Meteor : Enemy
 
         if(transform.localScale.x <= 0)
         {
-            spawn.Spawn();
+            hp.Die();
         }
     }
 

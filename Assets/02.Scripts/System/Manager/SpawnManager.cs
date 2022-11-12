@@ -12,7 +12,6 @@ public class SpawnManager : BaseInit
     private List<GameObject> spawnedObjects = new();
     private List<SpawnData> spawnDatas = new();
 
-
     public override void OneInit()
     {
         base.OneInit();

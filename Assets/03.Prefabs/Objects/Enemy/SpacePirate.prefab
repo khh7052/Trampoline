@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 6680873071596854689}
   - component: {fileID: 2337708572284711544}
   - component: {fileID: 3106594136899815489}
+  - component: {fileID: 2789366744043765473}
   - component: {fileID: 8525158974198438331}
   - component: {fileID: 8877406441509623480}
   - component: {fileID: 5595718585053801833}
   - component: {fileID: 7375385570078192778}
   - component: {fileID: -8217747684633237626}
-  - component: {fileID: 2789366744043765473}
   m_Layer: 7
   m_Name: SpacePirate
   m_TagString: Untagged
@@ -81,12 +81,12 @@ SpriteRenderer:
   m_SortingLayerID: -2021882603
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 001745122f58bea488ecbbfe75df7c40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a37905475e9bac04aa683c09349eeb9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 5.12}
+  m_Size: {x: 8, y: 16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -113,6 +113,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &2789366744043765473
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831551851284699038}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2, y: 0}
+  m_Size: {x: 5, y: 14}
+  m_Direction: 0
 --- !u!114 &8525158974198438331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,22 +273,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   maxHp: 3
---- !u!70 &2789366744043765473
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831551851284699038}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.2, y: 0}
-  m_Size: {x: 5, y: 14}
-  m_Direction: 0
 --- !u!1 &3373616182254630572
 GameObject:
   m_ObjectHideFlags: 0

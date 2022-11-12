@@ -34,6 +34,7 @@ public class HP : BaseInit
     public void Die()
     {
         OnDie.Invoke();
+        gameObject.SetActive(false);
     }
 
 }
