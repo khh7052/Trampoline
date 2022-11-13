@@ -6,11 +6,17 @@ public class SpawnManager : BaseInit
 {
     // 테마가 변경될 때마다 장애물, 적, 아이템을 스폰 or 활성화
     // 이전 테마의 장애물, 적, 아이템은 스폰하지않도록 조치
-
+    private ThemeManager tm;
     Coroutine heightCheck;
     readonly WaitForSeconds waitSeconds = new(0.1f);
-    private List<GameObject> spawnedObjects = new();
+    private List<RandomSpawn> spawnedObjects = new();
     private List<SpawnData> spawnDatas = new();
+    private int lastThemeIndex = -1;
+
+    private void Start()
+    {
+        tm = ThemeManager.Instance;
+    }
 
     public override void OneInit()
     {
@@ -23,11 +29,17 @@ public class SpawnManager : BaseInit
     public override void Init()
     {
         base.Init();
-
-        SpawnedObjectUpdate();
+        
+        IndexInit();
+        SpawnedObjectClear();
+        SpawnDataClear();
         SpawnDataUpdate();
-
         StartCheck();
+    }
+
+    public void IndexInit()
+    {
+        lastThemeIndex = -1;
     }
 
     public void StopCheck()
@@ -42,7 +54,6 @@ public class SpawnManager : BaseInit
     {
         heightCheck = StartCoroutine(HeightCheck());
     }
-
     IEnumerator HeightCheck()
     {
         yield return waitSeconds;
@@ -62,12 +73,21 @@ public class SpawnManager : BaseInit
             yield return waitSeconds;
         }
     }
-
     public void SpawnedObjectUpdate()
     {
-        foreach (var obj in spawnedObjects)
+        if (tm.Index <= lastThemeIndex) return;
+
+        for(int i = spawnedObjects.Count - 1; i >= 0; i--)
         {
-            Destroy(obj);
+            spawnedObjects[i].onRemove = true;
+        }
+    }
+
+    public void SpawnedObjectClear()
+    {
+        for (int i = spawnedObjects.Count - 1; i >= 0; i--)
+        {
+            if(spawnedObjects[i] != null) Destroy(spawnedObjects[i].gameObject);
         }
 
         spawnedObjects.Clear();
@@ -75,19 +95,24 @@ public class SpawnManager : BaseInit
 
     public void SpawnDataUpdate()
     {
-        spawnDatas.Clear();
+        if (tm.Index <= lastThemeIndex) return;
+        spawnDatas.AddRange(tm.Theme.obstacles);
+        spawnDatas.AddRange(tm.Theme.enemies);
+        spawnDatas.AddRange(tm.Theme.items);
 
-        spawnDatas.AddRange(ThemeManager.Instance.Theme.obstacles);
-        spawnDatas.AddRange(ThemeManager.Instance.Theme.enemies);
-        spawnDatas.AddRange(ThemeManager.Instance.Theme.items);
+        lastThemeIndex = tm.Index;
+    }
+    public void SpawnDataClear()
+    {
+        spawnDatas.Clear();
     }
 
     public void Spawn(SpawnData data)
     {
         Vector2 spawnPos = Vector2.zero;
         spawnPos.y = -1000;
-        GameObject spawned = Instantiate(data.spawnObject, spawnPos, Quaternion.identity);
-
+        RandomSpawn spawned = Instantiate(data.spawnObject, spawnPos, Quaternion.identity).GetComponent<RandomSpawn>();
+        spawned.gameObject.name = tm.Theme.name + "_" + data.spawnObject.name;
         spawnedObjects.Add(spawned);
         spawnDatas.Remove(data);
     }

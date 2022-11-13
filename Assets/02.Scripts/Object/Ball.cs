@@ -1,13 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-public class Ball : BaseInit
+public class Ball : DamageableObject
 {
     public static Ball Instance;
     public Rigidbody2D rigd;
 
     [Header("사운드")]
-    public AudioClip dieSound;
     public AudioClip bounceSound;
     [Space]
     [Header("최대 속도")]
@@ -41,13 +40,6 @@ public class Ball : BaseInit
         get { return transform.localScale.x; }
     }
 
-    private void OnDrawGizmos()
-    {
-        if(circleCollider != null)
-            Gizmos.DrawWireSphere(transform.position, Radius);
-    }
-
-
     public override void OneInit()
     {
         base.OneInit();
@@ -62,8 +54,7 @@ public class Ball : BaseInit
     }
 
 
-
-    public void Die()
+    public override void Die()
     {
         if (invincibility) return;
 
@@ -79,7 +70,6 @@ public class Ball : BaseInit
 
     void VelocityCheck()
     {
-
         if (rigd.velocity.y > 0)
         {
             gameObject.layer = jumpLayer;
@@ -96,8 +86,7 @@ public class Ball : BaseInit
     private void OnBecameInvisible() // 화면밖으로 나가면 사망
     {
         if (GameManager.Instance.state != GameState.PLAY) return;
-
-        Die();
+        if(Height < Camera.main.transform.position.y) Die();
     }
 
     void Spin()
@@ -105,7 +94,6 @@ public class Ball : BaseInit
         int rand = Random.Range(-1, 2);
         if (rand > 0) rand = 1;
         else rand = -1;
-
 
         rigd.angularVelocity += rigd.velocity.magnitude * rand;
     }
@@ -123,23 +111,27 @@ public class Ball : BaseInit
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        SoundManager.Instance.PlaySFX(bounceSound);
+        if (collision.gameObject.CompareTag("Damage"))
+        {
+            hp.Damage();
+        }
 
-        Spin();
-        ForceLimit();
+        if (hp.IsDead == false)
+        {
+            SoundManager.Instance.PlaySFX(bounceSound);
+            Spin();
+            ForceLimit();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Damage"))
         {
-            Die();
+            hp.Damage();
         }
-
-        Spin();
-        ForceLimit();
     }
 
 }

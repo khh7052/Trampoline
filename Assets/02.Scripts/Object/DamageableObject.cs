@@ -24,17 +24,7 @@ public class DamageableObject : BaseInit
     public virtual void Die()
     {
         SoundManager.Instance.PlaySFX(dieSound);
+        gameObject.SetActive(false);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ball"))
-        {
-            hp.Damage();
-        }
-        else if (collision.gameObject.CompareTag("Line"))
-        {
-            hp.Die();
-        }
-    }
 }

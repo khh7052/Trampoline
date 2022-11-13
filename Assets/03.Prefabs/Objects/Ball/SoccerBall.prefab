@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9128530496363182230}
   - component: {fileID: 589409683335883320}
   - component: {fileID: 4515841383403882158}
+  - component: {fileID: 4271431773025149707}
   m_Layer: 0
   m_Name: SoccerBall
   m_TagString: Ball
@@ -102,8 +103,12 @@ MonoBehaviour:
   onAwake: 0
   onStart: 1
   onOver: 0
+  spawn: {fileID: 0}
+  hp: {fileID: 0}
+  hitSounds: []
+  dieSound:
+  - {fileID: 0}
   rigd: {fileID: 0}
-  dieSound: {fileID: 0}
   bounceSound: {fileID: 8300000, guid: 1e25e74b48cf56c4ba52d9266589c1b1, type: 3}
   maxForce: 100
   invincibility: 0
@@ -144,3 +149,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &4271431773025149707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339957661189458787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02cbb927f012f0746b2717764f9d352b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onAwake: 0
+  onStart: 1
+  onOver: 0
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9128530496363182230}
+        m_TargetAssemblyTypeName: Ball, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxHp: 1

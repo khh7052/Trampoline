@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: BlackHole
   backgroundColor: {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
   range: 1000
-  bgm: {fileID: 0}
+  bgm: {fileID: 8300000, guid: d20430f6f23535e44a6ae02a94259879, type: 3}
   obstacles: []
   enemies: []
   items: []

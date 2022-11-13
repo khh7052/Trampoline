@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5595718585053801833}
   - component: {fileID: 7375385570078192778}
   - component: {fileID: -8217747684633237626}
+  - component: {fileID: 2635667376072806254}
   m_Layer: 7
   m_Name: SpacePirate
   m_TagString: Untagged
@@ -188,6 +189,10 @@ MonoBehaviour:
   fixedUpOffset: 0.4
   spawnType: 2
   spawnDistance: 100
+  removeDistance: 50
+  spawnDealy: 1
+  isSpowning: 0
+  onRemove: 0
 --- !u!114 &8877406441509623480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +243,8 @@ MonoBehaviour:
   onOver: 0
   spawn: {fileID: 8525158974198438331}
   hp: {fileID: -8217747684633237626}
+  hitSounds: []
+  dieSound: []
   attackSound: {fileID: 8300000, guid: 5b04a5d8bc39471469a3067442797fcb, type: 3}
   attackRate: 5
   gunPoint: {fileID: 4054469128592494147}
@@ -273,6 +280,40 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   maxHp: 3
+--- !u!114 &2635667376072806254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831551851284699038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400e0b489b2c30a46af4717a3e159c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCollisionHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -8217747684633237626}
+        m_TargetAssemblyTypeName: HP, Assembly-CSharp
+        m_MethodName: Damage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTriggerHit:
+    m_PersistentCalls:
+      m_Calls: []
+  checkTags:
+  - Ball
+  checkCollision: 1
+  checkTrigger: 0
 --- !u!1 &3373616182254630572
 GameObject:
   m_ObjectHideFlags: 0

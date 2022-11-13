@@ -36,6 +36,7 @@ public class SoundManager : MonoBehaviour
     public void PlaySFX(List<AudioClip> clips)
     {
         if (clips == null) return;
+        if(clips.Count == 0) return;
 
         int idx;
         if(clips.Count == 1) idx = 0;

@@ -24,9 +24,11 @@ public class RandomSpawn : MonoBehaviour
     public float fixedUpOffset = 0.1f;
 
     public SpawnType spawnType;
-    public float spawnDistance = 20f;
+    public float spawnDistance = 100f;
+    public float removeDistance = 100f;
     public float spawnDealy = 1f;
     public bool isSpowning;
+    public bool onRemove = false;
 
     private void Start()
     {
@@ -37,13 +39,18 @@ public class RandomSpawn : MonoBehaviour
     {
         if (GameManager.Instance.state != GameState.PLAY) return;
 
-        if (Ball.Instance.Height > transform.position.y + spawnDistance)
+        if (onRemove == false)
         {
-            if(isSpowning == false)
-                Spawn();
+            if (Mathf.Abs(Ball.Instance.Height - transform.position.y) >= spawnDistance)
+                if (isSpowning == false) Spawn();
+        }
+        else
+        {
+            if (Mathf.Abs(Ball.Instance.Height - transform.position.y) >= removeDistance)
+                if (onRemove) Destroy(gameObject);
         }
     }
-
+     
     float RandomSide_Up()
     {
         return Random.Range(minSideOffset, maxSideOffset);
@@ -67,11 +74,14 @@ public class RandomSpawn : MonoBehaviour
 
     public void Spawn()
     {
+        if (onRemove) return;
         isSpowning = true;
         Invoke("DealySpawn", spawnDealy);
     }
+
     public void NoDealySpawn()
     {
+        if (onRemove) return;
         float randX = 0;
         float randY = 0;
 
@@ -114,6 +124,7 @@ public class RandomSpawn : MonoBehaviour
 
     public void DealySpawn()
     {
+        if (onRemove) return;
         if (GameManager.Instance.state != GameState.PLAY)
         {
             isSpowning = false;

@@ -163,7 +163,6 @@ public class PlayerLine : BaseInit
         if ((checkLayer.value & (1 << collision.gameObject.layer)) > 0)
             LineColor = attackColor;
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (state != LineState.CREATING) return;

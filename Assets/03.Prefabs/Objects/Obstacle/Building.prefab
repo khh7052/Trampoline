@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1222615227
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8c9e3c46d7513a04ca854961b6b97769, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -155,8 +155,11 @@ MonoBehaviour:
   minUpOffset: 0.4
   maxUpOffset: 0.8
   fixedY: 0
+  fixedUpOffset: 0.1
   spawnType: 1
   spawnDistance: 80
+  spawnDealy: 1
+  isSpowning: 0
 --- !u!114 &6257706531502381954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +190,9 @@ MonoBehaviour:
   maxScaleX: 4.5
   minScaleY: 2
   maxScaleY: 2.5
+  proportion: 0
+  propotionMinScale: 1
+  propotionMaxScale: 1
 --- !u!1 &4279490031542797648
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +264,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1222615227
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 900b31b5f91f4eb4d9b9651fc2cd71da, type: 3}
   m_Color: {r: 0.86226416, g: 0.94542545, b: 1, a: 1}

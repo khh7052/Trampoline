@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Space
   backgroundColor: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 1}
   range: 1000
-  bgm: {fileID: 8300000, guid: 4661fd01d5c739b4a9e87a2b58ac4721, type: 3}
+  bgm: {fileID: 8300000, guid: d20430f6f23535e44a6ae02a94259879, type: 3}
   obstacles:
   - spawnObject: {fileID: 5950097706073763294, guid: 9e2b20b8bf0d7564da339fe523931ef3, type: 3}
     spawnHeightPercent: 25

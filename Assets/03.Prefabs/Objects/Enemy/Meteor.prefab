@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 103784121237098116}
   - component: {fileID: 3311076236184955690}
   - component: {fileID: -6102448745156204287}
+  - component: {fileID: 1351621303366410837}
   m_Layer: 7
   m_Name: Meteor
   m_TagString: Damage
@@ -355,8 +356,10 @@ MonoBehaviour:
   fixedUpOffset: 0.1
   spawnType: 0
   spawnDistance: 60
+  removeDistance: 50
   spawnDealy: 10
   isSpowning: 0
+  onRemove: 0
 --- !u!114 &5661846133827186520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChasing: 0
   moveDirection: 3
-  moveSpeed: 15
+  moveSpeed: 10
 --- !u!114 &103784121237098116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,3 +476,37 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   maxHp: 1
+--- !u!114 &1351621303366410837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5661846133827186523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400e0b489b2c30a46af4717a3e159c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCollisionHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6102448745156204287}
+        m_TargetAssemblyTypeName: HP, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTriggerHit:
+    m_PersistentCalls:
+      m_Calls: []
+  checkTags:
+  - Line
+  checkCollision: 1
+  checkTrigger: 0

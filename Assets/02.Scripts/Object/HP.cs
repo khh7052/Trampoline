@@ -10,9 +10,18 @@ public class HP : BaseInit
     public int maxHp = 1;
     int currentHp;
 
+    public bool IsDead
+    {
+        get
+        {
+            return currentHp <= 0;
+        }
+    }
+
     public override void OneInit()
     {
         base.OneInit();
+        Init();
     }
 
     public override void Init()
@@ -25,7 +34,7 @@ public class HP : BaseInit
     {
         currentHp--;
 
-        if (currentHp <= 0)
+        if (IsDead)
         {
             Die();
         }
@@ -34,7 +43,6 @@ public class HP : BaseInit
     public void Die()
     {
         OnDie.Invoke();
-        gameObject.SetActive(false);
     }
 
 }

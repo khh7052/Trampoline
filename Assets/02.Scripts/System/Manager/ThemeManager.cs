@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class ThemeManager : MonoBehaviour
+public class ThemeManager : BaseInit
 {
     // 공 위치에 따라서 배경색깔, 배경음, 현재 테마 정보 변경
 
@@ -16,7 +16,6 @@ public class ThemeManager : MonoBehaviour
     int index;
     int min, max;
     float height;
-
 
     public float Height
     {
@@ -50,17 +49,10 @@ public class ThemeManager : MonoBehaviour
 
             min = max - data[index].range;
 
-
             ThemeUpdate();
             SoundManager.Instance.PlayBGM(data[index].bgm);
         }
     }
-
-    private void Awake()
-    {
-        OneInit();
-    }
-
 
     private void Update()
     {
@@ -71,16 +63,15 @@ public class ThemeManager : MonoBehaviour
         BackgroundUpdate();
     }
 
-    void OneInit()
+    public override void OneInit()
     {
+        base.OneInit();
         Instance = this;
         cam = Camera.main;
         max = data[index].range;
-
-        GameManager.OnGameStart.AddListener(Init);
     }
 
-    public void Init()
+    public override void Init()
     {
         Index = 0;
     }

@@ -2971,6 +2971,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bb9183edc49a14cb8aa77616494cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAwake: 1
+  onStart: 0
+  onOver: 0
   data:
   - {fileID: 11400000, guid: bdd4bbae16f04bb46af2a4497889eb01, type: 2}
   - {fileID: 11400000, guid: d7ea5be1fc5a1e24b91bd22f0c23985a, type: 2}
@@ -4338,7 +4341,7 @@ MonoBehaviour:
   onStart: 1
   onOver: 0
   createdColor: {r: 1, g: 1, b: 1, a: 1}
-  creatingColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 0.39215687}
+  creatingColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 0.78431374}
   attackColor: {r: 1, g: 0.019366156, b: 0, a: 0.5882353}
   checkLayer:
     serializedVersion: 2
@@ -4967,10 +4970,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4271431773025149707, guid: 5c3cafbc62950844aa49720ac74a1313, type: 3}
+      propertyPath: onAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271431773025149707, guid: 5c3cafbc62950844aa49720ac74a1313, type: 3}
+      propertyPath: onStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7339957661189458787, guid: 5c3cafbc62950844aa49720ac74a1313, type: 3}
       propertyPath: m_Name
       value: SoccerBall
       objectReference: {fileID: 0}
+    - target: {fileID: 9128530496363182230, guid: 5c3cafbc62950844aa49720ac74a1313, type: 3}
+      propertyPath: dieSound.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 20a11e93bc3ad9442b7fd262635ad24e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c3cafbc62950844aa49720ac74a1313, type: 3}
 --- !u!4 &3386586194689842416 stripped
@@ -5029,10 +5044,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3117761766834357486, guid: 83521983b946fe443b00701dfd0a2ba6, type: 3}
-      propertyPath: m_Simulated
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5095338848473785781, guid: 83521983b946fe443b00701dfd0a2ba6, type: 3}
       propertyPath: m_Name
       value: BeachBall
@@ -5051,6 +5062,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1414401796}
     m_Modifications:
+    - target: {fileID: 1344937136, guid: 917a3bce961dcba4eb90a6b22a0e06fb, type: 3}
+      propertyPath: onAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1344937136, guid: 917a3bce961dcba4eb90a6b22a0e06fb, type: 3}
+      propertyPath: onStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7097777386584230683, guid: 917a3bce961dcba4eb90a6b22a0e06fb, type: 3}
+      propertyPath: dieSound.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 20a11e93bc3ad9442b7fd262635ad24e, type: 3}
     - target: {fileID: 7097777386584230686, guid: 917a3bce961dcba4eb90a6b22a0e06fb, type: 3}
       propertyPath: m_RootOrder
       value: 0

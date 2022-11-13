@@ -22,11 +22,8 @@ MonoBehaviour:
     spawnHeightPercent: 50
     spawnHeight: 1500
   - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
-    spawnHeightPercent: 60
+    spawnHeightPercent: 75
     spawnHeight: 1600
-  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
-    spawnHeightPercent: 70
-    spawnHeight: 1700
   enemies: []
   items:
   - spawnObject: {fileID: 9031822537721832165, guid: 6f1a6d4be3b804141a96fc0ad929ea23, type: 3}
