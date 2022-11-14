@@ -21,23 +21,37 @@ MonoBehaviour:
   - spawnObject: {fileID: 5950097706073763294, guid: 9e2b20b8bf0d7564da339fe523931ef3, type: 3}
     spawnHeightPercent: 25
     spawnHeight: 2250
+    limitHeightPercent: 100
+    limitHeight: 3000
   - spawnObject: {fileID: 5950097706073763294, guid: 9e2b20b8bf0d7564da339fe523931ef3, type: 3}
     spawnHeightPercent: 75
     spawnHeight: 2750
+    limitHeightPercent: 100
+    limitHeight: 3000
   - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
     spawnHeightPercent: 50
     spawnHeight: 2500
+    limitHeightPercent: 100
+    limitHeight: 3000
   - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
     spawnHeightPercent: 50
     spawnHeight: 2500
+    limitHeightPercent: 100
+    limitHeight: 3000
   - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
     spawnHeightPercent: 75
     spawnHeight: 2750
+    limitHeightPercent: 100
+    limitHeight: 3000
   - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
     spawnHeightPercent: 75
     spawnHeight: 2750
+    limitHeightPercent: 100
+    limitHeight: 3000
   enemies: []
   items:
   - spawnObject: {fileID: 9031822537721832165, guid: 6f1a6d4be3b804141a96fc0ad929ea23, type: 3}
     spawnHeightPercent: 50
     spawnHeight: 2500
+    limitHeightPercent: 100
+    limitHeight: 3000

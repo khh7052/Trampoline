@@ -257,9 +257,10 @@ MonoBehaviour:
   fixedY: 0
   fixedUpOffset: 0.1
   spawnType: 2
-  spawnDistance: 50
+  spawnDistance: 100
   removeDistance: 50
-  spawnDealy: 1
+  limitHeight: 50
+  spawnDealy: 10
   isSpowning: 0
   onRemove: 0
 --- !u!114 &2133709588803045321

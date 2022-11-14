@@ -26,6 +26,7 @@ public class RandomSpawn : MonoBehaviour
     public SpawnType spawnType;
     public float spawnDistance = 100f;
     public float removeDistance = 100f;
+    public float limitHeight = 50f;
     public float spawnDealy = 1f;
     public bool isSpowning;
     public bool onRemove = false;
@@ -41,12 +42,14 @@ public class RandomSpawn : MonoBehaviour
 
         if (onRemove == false)
         {
-            if (Mathf.Abs(Ball.Instance.Height - transform.position.y) >= spawnDistance)
+            if (limitHeight <= transform.position.y) onRemove = true; // 고도제한
+
+            if (Mathf.Abs(Ball.Instance.Height - transform.position.y) >= spawnDistance) // 멀어지면 리스폰
                 if (isSpowning == false) Spawn();
         }
         else
         {
-            if (Mathf.Abs(Ball.Instance.Height - transform.position.y) >= removeDistance)
+            if (Mathf.Abs(Ball.Instance.Height - transform.position.y) >= removeDistance) // 멀어지면 삭제
                 if (onRemove) Destroy(gameObject);
         }
     }

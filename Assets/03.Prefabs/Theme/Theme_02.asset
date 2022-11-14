@@ -18,35 +18,50 @@ MonoBehaviour:
   range: 500
   bgm: {fileID: 8300000, guid: 95a1e63016b35d54db3d5cc3d814ea9d, type: 3}
   obstacles:
-  - spawnObject: {fileID: 167887337738232874, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
-    spawnHeightPercent: 0
-    spawnHeight: 500
-  - spawnObject: {fileID: 167887337738232874, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
-    spawnHeightPercent: 20
-    spawnHeight: 600
   - spawnObject: {fileID: 4582891103694860661, guid: 706982d09e94f404b8903d957bf29d47, type: 3}
     spawnHeightPercent: 20
     spawnHeight: 600
+    limitHeightPercent: 100
+    limitHeight: 1000
   - spawnObject: {fileID: 4582891103694860661, guid: 706982d09e94f404b8903d957bf29d47, type: 3}
     spawnHeightPercent: 25
     spawnHeight: 625
+    limitHeightPercent: 100
+    limitHeight: 1000
   - spawnObject: {fileID: 4582891103694860661, guid: 706982d09e94f404b8903d957bf29d47, type: 3}
     spawnHeightPercent: 30
     spawnHeight: 650
+    limitHeightPercent: 100
+    limitHeight: 1000
   - spawnObject: {fileID: 4582891103694860661, guid: 706982d09e94f404b8903d957bf29d47, type: 3}
     spawnHeightPercent: 50
     spawnHeight: 750
+    limitHeightPercent: 100
+    limitHeight: 1000
+  - spawnObject: {fileID: 6388033186199439523, guid: a59cd4c96cfecd840b003d4bcbb5aa81, type: 3}
+    spawnHeightPercent: 50
+    spawnHeight: 750
+    limitHeightPercent: 100
+    limitHeight: 1000
   enemies:
-  - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
-    spawnHeightPercent: 0
-    spawnHeight: 500
-  - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
-    spawnHeightPercent: 25
-    spawnHeight: 625
   - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
     spawnHeightPercent: 50
     spawnHeight: 750
+    limitHeightPercent: 100
+    limitHeight: 1000
+  - spawnObject: {fileID: 8533228464220580260, guid: 824ca04825bb3534fa5a4da43a8a6ac0, type: 3}
+    spawnHeightPercent: 0
+    spawnHeight: 500
+    limitHeightPercent: 50
+    limitHeight: 750
+  - spawnObject: {fileID: 8533228464220580260, guid: 824ca04825bb3534fa5a4da43a8a6ac0, type: 3}
+    spawnHeightPercent: 25
+    spawnHeight: 625
+    limitHeightPercent: 50
+    limitHeight: 750
   items:
   - spawnObject: {fileID: 9031822537721832165, guid: 6f1a6d4be3b804141a96fc0ad929ea23, type: 3}
     spawnHeightPercent: 20
     spawnHeight: 600
+    limitHeightPercent: 100
+    limitHeight: 1000

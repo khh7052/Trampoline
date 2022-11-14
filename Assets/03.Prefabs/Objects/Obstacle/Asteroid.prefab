@@ -187,7 +187,8 @@ MonoBehaviour:
   spawnType: 2
   spawnDistance: 80
   removeDistance: 50
-  spawnDealy: 1
+  limitHeight: 50
+  spawnDealy: 10
   isSpowning: 0
   onRemove: 0
 --- !u!114 &3424751604778610471

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
 public class ThemeManager : BaseInit
 {
     // 공 위치에 따라서 배경색깔, 배경음, 현재 테마 정보 변경
 
     public static UnityEvent OnThemeUpdate = new();
     public static ThemeManager Instance;
+    public ThemeManagerData t_data;
 
     Camera cam;
     public List<Theme> data = new();
@@ -19,10 +19,7 @@ public class ThemeManager : BaseInit
 
     public float Height
     {
-        get
-        {
-            return Ball.Instance.Height - min;
-        }
+        get { return Ball.Instance.Height - min; }
     }
 
     public Theme Theme

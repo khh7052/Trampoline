@@ -113,6 +113,8 @@ public class SpawnManager : BaseInit
         spawnPos.y = -1000;
         RandomSpawn spawned = Instantiate(data.spawnObject, spawnPos, Quaternion.identity).GetComponent<RandomSpawn>();
         spawned.gameObject.name = tm.Theme.name + "_" + data.spawnObject.name;
+        spawned.limitHeight = data.limitHeight;
+        
         spawnedObjects.Add(spawned);
         spawnDatas.Remove(data);
     }

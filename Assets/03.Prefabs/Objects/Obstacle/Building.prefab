@@ -158,8 +158,11 @@ MonoBehaviour:
   fixedUpOffset: 0.1
   spawnType: 1
   spawnDistance: 80
+  removeDistance: 50
+  limitHeight: 50
   spawnDealy: 1
   isSpowning: 0
+  onRemove: 0
 --- !u!114 &6257706531502381954
 MonoBehaviour:
   m_ObjectHideFlags: 0

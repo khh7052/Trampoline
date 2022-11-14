@@ -476,7 +476,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -543,7 +543,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1021,7 +1021,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -1088,7 +1088,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2974,6 +2974,7 @@ MonoBehaviour:
   onAwake: 1
   onStart: 0
   onOver: 0
+  t_data: {fileID: 11400000, guid: 33c38408195fc9546b4d0a1dafe8ae7c, type: 2}
   data:
   - {fileID: 11400000, guid: bdd4bbae16f04bb46af2a4497889eb01, type: 2}
   - {fileID: 11400000, guid: d7ea5be1fc5a1e24b91bd22f0c23985a, type: 2}

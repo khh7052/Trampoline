@@ -8,6 +8,7 @@ public class DamageableObject : BaseInit
     public HP hp;
     public List<AudioClip> hitSounds;
     public List<AudioClip> dieSound;
+    public bool isInvisible = true;
 
     public override void OneInit()
     {
@@ -23,8 +24,18 @@ public class DamageableObject : BaseInit
 
     public virtual void Die()
     {
-        SoundManager.Instance.PlaySFX(dieSound);
+        if(isInvisible == false) SoundManager.Instance.PlaySFX(dieSound);
         gameObject.SetActive(false);
+    }
+
+    protected virtual void OnBecameInvisible()
+    {
+        isInvisible = true;
+    }
+
+    protected virtual void OnBecameVisible()
+    {
+        isInvisible = false;
     }
 
 }

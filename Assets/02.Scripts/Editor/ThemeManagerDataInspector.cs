@@ -1,0 +1,60 @@
+using UnityEngine;
+using UnityEditor;
+
+[CustomEditor(typeof(ThemeManagerData))]
+public class ThemeManagerDataInspector : Editor
+{
+    ThemeManagerData data;
+    float height = 0;
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        data = (ThemeManagerData)target;
+
+        if (GUILayout.Button("StartHeight Update"))
+        {
+            data.StartHeightUpdate();
+        }
+
+        if (GUILayout.Button("SpawnDataHeight Update"))
+        {
+            SpawnDataHeightUpdate();
+        }
+    }
+
+    public void SpawnDataHeightUpdate()
+    {
+        for (int i = 0; i < data.themes.Count; i++)
+        {
+            Theme theme = data.themes[i];
+            height = theme.themeManagerData.GetStartHeight(theme);
+
+            foreach (SpawnData data in theme.obstacles)
+            {
+                HeightUpdate(data, theme);
+            }
+
+            foreach (SpawnData data in theme.enemies)
+            {
+                HeightUpdate(data, theme);
+            }
+
+            foreach (SpawnData data in theme.items)
+            {
+                HeightUpdate(data, theme);
+            }
+        }
+    }
+
+    void HeightUpdate(SpawnData data, Theme theme)
+    {
+        float percent = data.spawnHeightPercent;
+        data.spawnHeight = height + ((theme.range * 0.01f) * percent);
+
+        percent = data.limitHeightPercent;
+        data.limitHeight = height + ((theme.range * 0.01f) * percent);
+    }
+
+}
