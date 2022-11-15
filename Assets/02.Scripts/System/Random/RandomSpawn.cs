@@ -44,12 +44,12 @@ public class RandomSpawn : MonoBehaviour
         {
             if (limitHeight <= transform.position.y) onRemove = true; // 고도제한
 
-            if (Mathf.Abs(Ball.Instance.Height - transform.position.y) >= spawnDistance) // 멀어지면 리스폰
+            if (Mathf.Abs(GameManager.BallHeight - transform.position.y) >= spawnDistance) // 멀어지면 리스폰
                 if (isSpowning == false) Spawn();
         }
         else
         {
-            if (Mathf.Abs(Ball.Instance.Height - transform.position.y) >= removeDistance) // 멀어지면 삭제
+            if (Mathf.Abs(GameManager.BallHeight - transform.position.y) >= removeDistance) // 멀어지면 삭제
                 if (onRemove) Destroy(gameObject);
         }
     }
@@ -79,7 +79,7 @@ public class RandomSpawn : MonoBehaviour
     {
         if (onRemove) return;
         isSpowning = true;
-        Invoke("DealySpawn", spawnDealy);
+        Invoke(nameof(DealySpawn), spawnDealy);
     }
 
     public void NoDealySpawn()

@@ -14,7 +14,9 @@ public class PlayerLine : BaseInit
 {
     private Line line;
     EdgeCollider2D edgeCollider;
+    [SerializeField]
     private Vector2[] points;
+    [SerializeField]
     private Vector2[] initPoints;
 
     private LineState state;
@@ -113,8 +115,8 @@ public class PlayerLine : BaseInit
 
     public override void Init()
     {
-        line.Start = initPoints[0];
-        line.End = initPoints[1];
+        Start = initPoints[0];
+        End = initPoints[1];
         state = LineState.CREATED;
     }
 

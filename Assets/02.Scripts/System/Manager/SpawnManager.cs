@@ -28,13 +28,19 @@ public class SpawnManager : BaseInit
 
     public override void Init()
     {
-        base.Init();
-        
-        IndexInit();
-        SpawnedObjectClear();
-        SpawnDataClear();
-        SpawnDataUpdate();
-        StartCheck();
+        if(GameManager.Instance.state == GameState.LOBBY)
+        {
+            SpawnedObjectClear();
+            SpawnDataClear();
+        }
+        else
+        {
+            IndexInit();
+            SpawnedObjectClear();
+            SpawnDataClear();
+            SpawnDataUpdate();
+            StartCheck();
+        }
     }
 
     public void IndexInit()
@@ -49,7 +55,6 @@ public class SpawnManager : BaseInit
             StopCoroutine(heightCheck);
         }
     }
-
     public void StartCheck()
     {
         heightCheck = StartCoroutine(HeightCheck());
@@ -64,7 +69,7 @@ public class SpawnManager : BaseInit
             {
                 var data = spawnDatas[i];
 
-                if (Ball.Instance.Height >= data.spawnHeight)
+                if (GameManager.MainBall.transform.position.y >= data.spawnHeight)
                 {
                     Spawn(data);
                 }

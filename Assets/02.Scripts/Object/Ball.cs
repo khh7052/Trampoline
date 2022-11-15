@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Ball : DamageableObject
 {
-    public static Ball Instance;
     public Rigidbody2D rigd;
 
     [Header("사운드")]
@@ -11,10 +10,13 @@ public class Ball : DamageableObject
     [Space]
     [Header("최대 속도")]
     public float maxForce = 100f;
+    [Header("튕김")]
+    public float bounciness = 1.5f;
     [Header("무적")]
     public bool invincibility = false; // 무적
 
     private CircleCollider2D circleCollider;
+    private PhysicsMaterial2D physicMaterial;
 
     int myLayer;
     int jumpLayer;
@@ -40,17 +42,28 @@ public class Ball : DamageableObject
         get { return transform.localScale.x; }
     }
 
+    public float Bounciness
+    {
+        get { return bounciness; }
+        set
+        {
+            bounciness = value;
+            physicMaterial.bounciness = bounciness;
+        }
+    }
+
     public override void OneInit()
     {
         base.OneInit();
         rigd = GetComponent<Rigidbody2D>();
-        Instance = this;
 
         myLayer = gameObject.layer;
         jumpLayer = LayerMask.NameToLayer("Jumping");
         obstacleLayerMask = LayerMask.GetMask("Obstacle");
 
         circleCollider = GetComponent<CircleCollider2D>();
+        physicMaterial = circleCollider.sharedMaterial;
+        Bounciness = bounciness;
     }
 
 
@@ -83,8 +96,9 @@ public class Ball : DamageableObject
         }
     }
 
-    private void OnBecameInvisible() // 화면밖으로 나가면 사망
+    protected override void OnBecameInvisible() // 화면밖으로 나가면 사망
     {
+        base.OnBecameInvisible();
         if (GameManager.Instance.state != GameState.PLAY) return;
         if(Height < Camera.main.transform.position.y) Die();
     }

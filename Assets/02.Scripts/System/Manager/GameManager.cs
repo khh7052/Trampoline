@@ -6,42 +6,50 @@ using TMPro;
 
 public enum GameState
 {
-    READY,
+    LOBBY,
+    AWAKE,
     PLAY,
-    OVER,
-    STOP
+    PAUSE,
+    OVER
 }
 
 public class GameManager : MonoBehaviour
 {
     public int frame = 100;
 
+    public static UnityEvent OnGameLobby = new();
     public static UnityEvent OnGameAwake = new();
     public static UnityEvent OnGameStart = new();
-    public static UnityEvent OnGameStop = new();
+    public static UnityEvent OnGamePause = new();
+    public static UnityEvent OnGameContinue = new();
     public static UnityEvent OnGameOver = new();
 
     public static GameManager Instance = null;
+    public static GameObject MainBall;
 
+    [Header("UI")]
     public GameObject inGameUI;
-    public GameObject stopPanel;
-
     public GameObject overUI;
     public TextMeshProUGUI maxHeightText;
     public TextMeshProUGUI heightText;
+    private int selectNum = 0;
 
-    public GameState state = GameState.STOP;
+    [Header("Game")]
+    public GameState state = GameState.LOBBY;
+    private GameObject mainBall;
 
-    private int maxHeight = 0;
-    private int currentHeight = 0;
+    [Header("Other")]
+    public List<GameObject> balls;
+    
+    private static int maxHeight = 0;
+    private static int currentHeight = 0;
 
-
-    public int MaxHeight
+    public static int MaxHeight
     {
         get { return maxHeight; }
     }
 
-    public int Height
+    public static int BallHeight
     {
         get { return currentHeight; }
         set { 
@@ -51,8 +59,6 @@ public class GameManager : MonoBehaviour
             {
                 maxHeight = currentHeight;
             }
-
-            heightText.text = currentHeight.ToString();
         }
     }
 
@@ -61,9 +67,16 @@ public class GameManager : MonoBehaviour
         OneInit();
     }
 
+    private void Start()
+    {
+        GameLobby();
+    }
+
     private void Update()
     {
-        if(state == GameState.PLAY)
+        print("State : " + state + " Time : " + Time.timeScale);
+
+        if (state == GameState.PLAY)
         {
             HeightUpdate();
         }
@@ -75,33 +88,91 @@ public class GameManager : MonoBehaviour
 
         Application.targetFrameRate = frame;
         HeightTextInit();
-        OnGameStop.AddListener(TimeTrigger);
-        OnGameOver.AddListener(OverUI_Update);
+
+        inGameUI.SetActive(true);
+        overUI.SetActive(true);
+        
+        OnGameLobby.AddListener(TimeScaleUpdate);
+        OnGameAwake.AddListener(TimeScaleUpdate);
+        OnGameStart.AddListener(TimeScaleUpdate);
+        OnGamePause.AddListener(TimeScaleUpdate);
+        OnGameContinue.AddListener(TimeScaleUpdate);
+        OnGameOver.AddListener(TimeScaleUpdate);
+
+        OnGameAwake.AddListener(MainBallUpdate);
+        OnGamePause.AddListener(MaxHeightTextUpdate);
+        OnGameOver.AddListener(MaxHeightTextUpdate);
+    }
+
+    void MainBallUpdate()
+    {
+        mainBall = balls[selectNum].gameObject;
+        MainBall = mainBall;
     }
 
     void HeightUpdate()
     {
-        Height = (int)Ball.Instance.Height;
+        BallHeight = (int)mainBall.transform.position.y;
+        heightText.text = currentHeight.ToString();
     }
 
+    public void MaxHeightTextUpdate()
+    {
+        maxHeightText.text = maxHeight.ToString();
+    }
+
+    public void SelectBall_Left()
+    {
+        balls[selectNum].gameObject.SetActive(false);
+
+        if(++selectNum >= balls.Count)
+        {
+            selectNum = 0;
+        }
+
+        balls[selectNum].gameObject.SetActive(true);
+    }
+
+    public void SelectBall_Right()
+    {
+        balls[selectNum].gameObject.SetActive(false);
+
+        if (--selectNum < 0)
+        {
+            selectNum = balls.Count-1;
+        }
+
+        balls[selectNum].gameObject.SetActive(true);
+    }
+
+
+    public void GameLobby()
+    {
+        state = GameState.LOBBY;
+        OnGameLobby.Invoke();
+    }
     public void GameStart()
     {
-        state = GameState.PLAY;
-
+        state = GameState.AWAKE;
         OnGameAwake.Invoke();
+        state = GameState.PLAY;
         OnGameStart.Invoke();
     }
-    public void GameStop()
+    public void GamePause()
     {
-        state = GameState.STOP;
+        state = GameState.PAUSE;
+        OnGamePause.Invoke();
+    }
 
-        OnGameStop.Invoke();
+    public void GameContinue()
+    {
+        state = GameState.PLAY;
+        OnGameContinue.Invoke();
     }
 
     public void GameOver()
     {
         state = GameState.OVER;
-
         OnGameOver.Invoke();
     }
     public void Exit()
@@ -114,41 +185,17 @@ public class GameManager : MonoBehaviour
         heightText.text = "0";
     }
 
-    public void OnStopBtn()
-    {
-        if(state == GameState.PLAY)
-        {
-            stopPanel.SetActive(true);
-            GameStop();
-        }
-        else if (state == GameState.STOP)
-        {
-            state = GameState.PLAY;
-            stopPanel.SetActive(false);
-        }
-
-        TimeScaleUpdate();
-    }
-
-    public void OverUI_Update()
-    {
-        bool active = state == GameState.OVER;
-        overUI.SetActive(active);
-        inGameUI.SetActive(false);
-        maxHeightText.text = maxHeight.ToString();
-    }
-
     public void TimeScaleUpdate()
     {
         switch (state)
         {
+            case GameState.LOBBY:
+            case GameState.AWAKE:
             case GameState.PLAY:
-                Time.timeScale = 1;
-                break;
             case GameState.OVER:
                 Time.timeScale = 1;
                 break;
-            case GameState.STOP:
+            case GameState.PAUSE:
                 Time.timeScale = 0;
                 break;
             default:

@@ -9,6 +9,6 @@ public class ForceItem : Item
     public override void Use()
     {
         base.Use();
-        Ball.Instance.rigd.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+        // Ball.Instance.rigd.AddForce(Vector2.up * force, ForceMode2D.Impulse);
     }
 }

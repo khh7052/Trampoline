@@ -6,8 +6,6 @@ public class SpacePirate : Enemy
 {
     public Transform gunPoint;
     public GameObject laser;
-    private bool isVisible = false;
-    
 
     public override void Attack()
     {
@@ -17,20 +15,10 @@ public class SpacePirate : Enemy
 
     private void Update()
     {
-        if(nextAttackTime <= Time.time && isVisible)
+        if(nextAttackTime <= Time.time && isInvisible == false)
         {
             Attack();
         }
-    }
-
-    private void OnBecameVisible()
-    {
-        isVisible = true;
-    }
-
-    private void OnBecameInvisible()
-    {
-        isVisible = false;
     }
 
 }

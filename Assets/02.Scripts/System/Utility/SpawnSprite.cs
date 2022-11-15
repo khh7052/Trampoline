@@ -8,6 +8,7 @@ public class SpawnSprite : MonoBehaviour
     Vector2 scale;
 
     public bool isLeft = true; // 처음 방향이 왼쪽인지
+    float width;
 
     private void Awake()
     {
@@ -24,16 +25,18 @@ public class SpawnSprite : MonoBehaviour
 
         scale.x = Mathf.Abs(scale.x);
 
+        width = GameManager.MainBall.transform.position.y;
+
         if (isLeft)
         {
-            if(Ball.Instance.Width > transform.position.x)
+            if(width > transform.position.x)
             {
                 scale.x *= -1;
             }
         }
         else
         {
-            if (Ball.Instance.Width < transform.position.x)
+            if (width < transform.position.x)
             {
                 scale.x *= -1;
             }

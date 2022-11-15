@@ -36,11 +36,7 @@ public class AutoRemove : MonoBehaviour
         {
             yield return wait;
             if (GameManager.Instance.state != GameState.PLAY) continue;
-
-            if(Ball.Instance.Height > transform.position.y + removeDistance)
-            {
-                break;
-            }
+            if (GameManager.BallHeight > transform.position.y + removeDistance) break;
         }
 
         Destroy(gameObject);

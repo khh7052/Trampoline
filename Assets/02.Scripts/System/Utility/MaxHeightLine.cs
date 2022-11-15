@@ -18,7 +18,7 @@ public class MaxHeightLine : BaseInit
     {
         base.Init();
 
-        float maxHeight = GameManager.Instance.MaxHeight;
+        float maxHeight = GameManager.MaxHeight;
 
         if(maxHeight > 0)
         {
@@ -41,7 +41,7 @@ public class MaxHeightLine : BaseInit
 
     void OffsetUpdate()
     {
-        pos.x = Ball.Instance.transform.position.x;
+        pos.x = GameManager.MainBall.transform.position.x;
         transform.position = pos;
         // line.DashOffset += Time.deltaTime * 2f;
         line.DashOffset = -pos.x * 0.2f;

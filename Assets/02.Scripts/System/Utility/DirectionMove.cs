@@ -21,12 +21,11 @@ public class DirectionMove : MonoBehaviour
         {
             DirectionUpdate();
         }
-        
     }
 
     public void DirectionUpdate()
     {
-        if(Ball.Instance.transform.position.x > transform.position.x)
+        if(GameManager.MainBall.transform.position.x > transform.position.x)
         {
             moveDirection = Direction.RIGHT;
         }
