@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public GameObject inGameUI;
     public GameObject overUI;
+    public GameObject settingUI;
     public TextMeshProUGUI maxHeightText;
     public TextMeshProUGUI heightText;
     private int selectNum = 0;
@@ -74,8 +75,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        print("State : " + state + " Time : " + Time.timeScale);
-
         if (state == GameState.PLAY)
         {
             HeightUpdate();
@@ -91,6 +90,7 @@ public class GameManager : MonoBehaviour
 
         inGameUI.SetActive(true);
         overUI.SetActive(true);
+        settingUI.SetActive(true);
         
         OnGameLobby.AddListener(TimeScaleUpdate);
         OnGameAwake.AddListener(TimeScaleUpdate);

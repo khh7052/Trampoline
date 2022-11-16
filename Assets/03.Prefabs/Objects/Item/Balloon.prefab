@@ -141,14 +141,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67e371b32d37534c882006f93c01d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLobby: 0
   onAwake: 0
   onStart: 1
+  onPause: 0
+  onContinue: 0
   onOver: 0
+  onActive: 0
   spawn: {fileID: 0}
   hp: {fileID: 0}
   hitSounds: []
   dieSound:
   - {fileID: 8300000, guid: 20a11e93bc3ad9442b7fd262635ad24e, type: 3}
+  isInvisible: 1
 --- !u!114 &5745142118758387953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,9 +166,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cbb927f012f0746b2717764f9d352b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLobby: 0
   onAwake: 0
   onStart: 1
+  onPause: 0
+  onContinue: 0
   onOver: 0
+  onActive: 0
   OnDie:
     m_PersistentCalls:
       m_Calls:
@@ -240,7 +249,8 @@ MonoBehaviour:
   spawnType: 0
   spawnDistance: 100
   removeDistance: 50
-  spawnDealy: 10
+  limitHeight: 50
+  spawnDealy: 5
   isSpowning: 0
   onRemove: 0
 --- !u!114 &1479242325
@@ -270,9 +280,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff65539c75e6e248b2893386dbc408b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLobby: 0
   onAwake: 0
   onStart: 1
+  onPause: 0
+  onContinue: 0
   onOver: 0
+  onActive: 0
   velocity: {x: 0, y: 0}
   angularVelocity: 0
 --- !u!114 &8468488960866097865

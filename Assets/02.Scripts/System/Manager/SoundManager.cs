@@ -14,36 +14,33 @@ public class SoundManager : MonoBehaviour
     public AudioMixer bgm;
 
     [Header("UI")]
-    public Slider bgmSlider;
-    public Slider sfxSlider;
-    public Image bgmSliderHandle;
-    public Image sfxSliderHandle;
-    public Sprite onHandle;
-    public Sprite offHandle;
+    private float perivousVolume_Bgm = 1;
+    private float perivousVolume_Sfx = 1;
 
     Coroutine bgmCoroutine;
     bool isFading;
 
+    public float PerivousVolume_Bgm
+    {
+        set { perivousVolume_Bgm = value; }
+    }
+
+    public float PerivousVolume_Sfx
+    {
+        set { perivousVolume_Sfx = value; }
+    }
+
     public float BgmVolume
     {
-        set
-        {
-            bgmSpeaker.volume = value;
-            bgmSlider.value = value;
-            bgmSliderHandle.sprite = value > 0 ? onHandle : offHandle;
-        }
+        get { return bgmSpeaker.volume; }
+        set { bgmSpeaker.volume = value; }
     }
 
     public float SfxVolume
     {
-        set
-        {
-            sfxSpeaker.volume = value;
-            sfxSlider.value = value;
-            sfxSliderHandle.sprite = value > 0 ? onHandle : offHandle;
-        }
+        get { return sfxSpeaker.volume; }
+        set { sfxSpeaker.volume = value; }
     }
-
 
     private void Awake()
     {
@@ -51,16 +48,20 @@ public class SoundManager : MonoBehaviour
 
         BgmVolume = bgmSpeaker.volume;
         SfxVolume = sfxSpeaker.volume;
+        perivousVolume_Bgm = BgmVolume;
+        perivousVolume_Sfx = SfxVolume;
     }
 
-    public void OnBgmVolumeSlider()
+    public void OnApplyBtn()
     {
-        BgmVolume = bgmSlider.value;
+        perivousVolume_Bgm = BgmVolume;
+        perivousVolume_Sfx = SfxVolume;
     }
 
-    public void OnSfxVolumeSlider()
+    public void OnCancelBtn()
     {
-        SfxVolume = sfxSlider.value;
+        BgmVolume = perivousVolume_Bgm;
+        SfxVolume = perivousVolume_Sfx;
     }
 
     public void PlayBGM(AudioClip clip)

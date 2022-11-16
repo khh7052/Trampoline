@@ -156,9 +156,9 @@ MonoBehaviour:
   maxSideOffset: 2
   minUpOffset: 0
   maxUpOffset: 0.5
-  fixedY: 0
-  fixedUpOffset: 0.1
-  spawnType: 2
+  fixedY: 1
+  fixedUpOffset: 1.4
+  spawnType: 0
   spawnDistance: 200
   removeDistance: 50
   limitHeight: 50
