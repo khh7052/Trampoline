@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     public GameObject inGameUI;
     public GameObject overUI;
     public GameObject settingUI;
-    public TextMeshProUGUI maxHeightText;
     public TextMeshProUGUI heightText;
     private int selectNum = 0;
 
@@ -100,8 +99,6 @@ public class GameManager : MonoBehaviour
         OnGameOver.AddListener(TimeScaleUpdate);
 
         OnGameAwake.AddListener(MainBallUpdate);
-        OnGamePause.AddListener(MaxHeightTextUpdate);
-        OnGameOver.AddListener(MaxHeightTextUpdate);
     }
 
     void MainBallUpdate()
@@ -114,11 +111,6 @@ public class GameManager : MonoBehaviour
     {
         BallHeight = (int)mainBall.transform.position.y;
         heightText.text = currentHeight.ToString();
-    }
-
-    public void MaxHeightTextUpdate()
-    {
-        maxHeightText.text = maxHeight.ToString();
     }
 
     public void SelectBall_Left()

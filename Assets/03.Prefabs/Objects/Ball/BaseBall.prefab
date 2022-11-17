@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 663861473
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 73a065766006e414682da8a28718fc79, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cce74fd0653ceac41ad8646ff9e454da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -143,6 +143,8 @@ MonoBehaviour:
   onLobby: 0
   onAwake: 0
   onStart: 1
+  onPause: 0
+  onContinue: 0
   onOver: 0
   onActive: 0
   spawn: {fileID: 0}
@@ -171,6 +173,8 @@ MonoBehaviour:
   onLobby: 1
   onAwake: 1
   onStart: 0
+  onPause: 0
+  onContinue: 0
   onOver: 0
   onActive: 1
 --- !u!114 &6765577185619062608
@@ -188,6 +192,8 @@ MonoBehaviour:
   onLobby: 1
   onAwake: 1
   onStart: 0
+  onPause: 0
+  onContinue: 0
   onOver: 0
   onActive: 1
   velocity: {x: 0, y: 0}
@@ -207,6 +213,8 @@ MonoBehaviour:
   onLobby: 1
   onAwake: 1
   onStart: 0
+  onPause: 0
+  onContinue: 0
   onOver: 0
   onActive: 0
   OnDie:
@@ -240,6 +248,8 @@ MonoBehaviour:
   onLobby: 1
   onAwake: 0
   onStart: 1
+  onPause: 0
+  onContinue: 0
   onOver: 0
   onActive: 0
   active: 1

@@ -16,11 +16,6 @@ public class ThemeManager : BaseInit
     int index;
     int min, max;
 
-    public float Height
-    {
-        get { return GameManager.BallHeight - min; }
-    }
-
     public Theme Theme
     {
         get { return data[index]; }
@@ -74,11 +69,11 @@ public class ThemeManager : BaseInit
 
     void IndexUpdate()
     {
-        if (Height >= max)
+        if (GameManager.BallHeight >= max)
         {
             Index++;
         }
-        else if (Height < min)
+        else if (GameManager.BallHeight < min)
         {
             Index--;
         }
@@ -88,7 +83,7 @@ public class ThemeManager : BaseInit
     {
         if (data.Count <= index + 1) return;
 
-        cam.backgroundColor = Color.Lerp(data[index].backgroundColor, data[index + 1].backgroundColor, (Height - min) / data[index].range);
+        cam.backgroundColor = Color.Lerp(data[index].backgroundColor, data[index + 1].backgroundColor, (GameManager.BallHeight - min) / data[index].range);
     }
 
     public void ThemeUpdate()
