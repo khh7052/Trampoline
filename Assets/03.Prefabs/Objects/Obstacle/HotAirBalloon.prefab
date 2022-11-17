@@ -103,7 +103,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 32, y: 47.5}
     newSize: {x: 10.24, y: 15.2}
     adaptiveTilingThreshold: 0.5
@@ -160,7 +160,7 @@ MonoBehaviour:
   fixedUpOffset: 1.4
   spawnType: 0
   spawnDistance: 200
-  removeDistance: 50
+  removeDistance: 150
   limitHeight: 50
   spawnDealy: 10
   isSpowning: 0

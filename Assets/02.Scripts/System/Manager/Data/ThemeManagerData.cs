@@ -6,25 +6,17 @@ using UnityEngine;
 public class ThemeManagerData : ScriptableObject
 {
     public List<Theme> themes;
-    public Dictionary<Theme, float> themeStartHeights = new();
 
-    public float GetStartHeight(Theme theme)
+
+    public void HeightUpdate()
     {
-        if(themeStartHeights.Count == 0) StartHeightUpdate();
-
-        return themeStartHeights[theme];
-    }
-
-    public void StartHeightUpdate()
-    {
-        if(themeStartHeights != null) themeStartHeights.Clear();
-
-        float height = 0;
+        int height = 0;
         for (int i = 0; i < themes.Count; i++)
         {
-            themeStartHeights.Add(themes[i], height);
+            themes[i].StartHeight = height;
             height += themes[i].range;
-            Debug.Log(themes[i].name + "ÀÇ StartHeight : " + themeStartHeights[themes[i]]);
+            themes[i].EndHeight = height;
+            Debug.Log(themes[i].name + "ÀÇ StartHeight : " + themes[i].StartHeight);
         }
 
         Debug.Log("StartHeight Update Complete");

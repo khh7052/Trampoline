@@ -5,7 +5,6 @@ using UnityEngine;
 public class ThemeInspector : Editor
 {
     Theme theme;
-    float height = 0;
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
@@ -14,8 +13,6 @@ public class ThemeInspector : Editor
 
         if(GUILayout.Button("Height Update"))
         {
-            height = theme.themeManagerData.GetStartHeight(theme);
-
             foreach (SpawnData data in theme.obstacles)
             {
                 HeightUpdate(data, theme);
@@ -36,7 +33,7 @@ public class ThemeInspector : Editor
     void HeightUpdate(SpawnData data, Theme theme)
     {
         float percent = data.spawnHeightPercent;
-        data.spawnHeight = height + ((theme.range * 0.01f) * percent);
+        data.spawnHeight = theme.StartHeight + ((theme.range * 0.01f) * percent);
 
         if(data.spawnHeightPercent >= data.limitHeightPercent)
         {
@@ -46,7 +43,7 @@ public class ThemeInspector : Editor
         else
         {
             percent = data.limitHeightPercent;
-            data.limitHeight = height + ((theme.range * 0.01f) * percent);
+            data.limitHeight = theme.StartHeight + ((theme.range * 0.01f) * percent);
         }
     }
 }

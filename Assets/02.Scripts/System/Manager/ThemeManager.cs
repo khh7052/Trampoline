@@ -14,7 +14,6 @@ public class ThemeManager : BaseInit
     Camera cam;
     public List<Theme> data = new();
     int index;
-    int min, max;
 
     public Theme Theme
     {
@@ -30,15 +29,6 @@ public class ThemeManager : BaseInit
             if (index == value) return;
 
             index = value;
-
-            min = max = 0;
-
-            for (int i = 0; i <= index; i++)
-            {
-                max += data[i].range;
-            }
-
-            min = max - data[index].range;
 
             ThemeUpdate();
             SoundManager.Instance.PlayBGM(data[index].bgm);
@@ -59,7 +49,6 @@ public class ThemeManager : BaseInit
         base.OneInit();
         Instance = this;
         cam = Camera.main;
-        max = data[index].range;
     }
 
     public override void Init()
@@ -69,11 +58,11 @@ public class ThemeManager : BaseInit
 
     void IndexUpdate()
     {
-        if (GameManager.BallHeight >= max)
+        if (GameManager.BallHeight >= Theme.EndHeight)
         {
             Index++;
         }
-        else if (GameManager.BallHeight < min)
+        else if (GameManager.BallHeight < Theme.StartHeight)
         {
             Index--;
         }
@@ -82,8 +71,7 @@ public class ThemeManager : BaseInit
     void BackgroundUpdate()
     {
         if (data.Count <= index + 1) return;
-
-        cam.backgroundColor = Color.Lerp(data[index].backgroundColor, data[index + 1].backgroundColor, (GameManager.BallHeight - min) / data[index].range);
+        cam.backgroundColor = Color.Lerp(data[index].backgroundColor, data[index + 1].backgroundColor, (float)(GameManager.BallHeight - Theme.StartHeight) / Theme.range);
     }
 
     public void ThemeUpdate()

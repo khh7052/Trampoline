@@ -9,6 +9,23 @@ public class Theme : ScriptableObject
     public string _name;
     public Color backgroundColor; // 배경
     public int range = 500; // 범위
+    [SerializeField]
+    private int startHeight = 0;
+    [SerializeField]
+    private int endHeight = 0;
+
+    public int StartHeight
+    {
+        get { return startHeight; }
+        set { startHeight = value; }
+    }
+
+    public int EndHeight
+    {
+        get { return endHeight; }
+        set { endHeight = value; }
+    }
+
     public AudioClip bgm;
 
     public List<SpawnData> obstacles;

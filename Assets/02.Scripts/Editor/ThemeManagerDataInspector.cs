@@ -5,7 +5,6 @@ using UnityEditor;
 public class ThemeManagerDataInspector : Editor
 {
     ThemeManagerData data;
-    float height = 0;
 
     public override void OnInspectorGUI()
     {
@@ -13,23 +12,22 @@ public class ThemeManagerDataInspector : Editor
 
         data = (ThemeManagerData)target;
 
-        if (GUILayout.Button("StartHeight Update"))
+        if (GUILayout.Button("Height Update"))
         {
-            data.StartHeightUpdate();
+            data.HeightUpdate();
         }
 
-        if (GUILayout.Button("SpawnDataHeight Update"))
+        if (GUILayout.Button("SpawnData Update"))
         {
-            SpawnDataHeightUpdate();
+            SpawnDataUpdate();
         }
     }
 
-    public void SpawnDataHeightUpdate()
+    public void SpawnDataUpdate()
     {
         for (int i = 0; i < data.themes.Count; i++)
         {
             Theme theme = data.themes[i];
-            height = theme.themeManagerData.GetStartHeight(theme);
 
             foreach (SpawnData data in theme.obstacles)
             {
@@ -51,10 +49,10 @@ public class ThemeManagerDataInspector : Editor
     void HeightUpdate(SpawnData data, Theme theme)
     {
         float percent = data.spawnHeightPercent;
-        data.spawnHeight = height + ((theme.range * 0.01f) * percent);
+        data.spawnHeight = theme.StartHeight + ((theme.range * 0.01f) * percent);
 
         percent = data.limitHeightPercent;
-        data.limitHeight = height + ((theme.range * 0.01f) * percent);
+        data.limitHeight = theme.StartHeight + ((theme.range * 0.01f) * percent);
     }
 
 }
