@@ -17,14 +17,10 @@ public class SoundSlider : BaseInit
     public Sprite onHandle;
     public Sprite offHandle;
 
-    private void Start()
-    {
-        
-    }
-
     public override void Init()
     {
         soundManager = SoundManager.Instance;
+        if (soundManager == null) return;
 
         slider.value = type == SoundType.BGM ? soundManager.BgmVolume : soundManager.SfxVolume;
         if(type == SoundType.BGM) soundManager.PerivousVolume_Bgm = slider.value;

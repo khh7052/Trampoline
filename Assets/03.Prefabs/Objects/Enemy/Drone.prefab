@@ -173,7 +173,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -246,9 +246,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf731f1f7af2157419f2a592868513eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLobby: 0
   onAwake: 0
   onStart: 1
+  onPause: 0
+  onContinue: 0
   onOver: 0
+  onActive: 0
   spawn: {fileID: 5069206475287934250}
   hp: {fileID: 4873603956497409345}
   hitSounds: []
@@ -268,9 +272,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cbb927f012f0746b2717764f9d352b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLobby: 0
   onAwake: 0
   onStart: 1
+  onPause: 0
+  onContinue: 0
   onOver: 0
+  onActive: 0
   OnDie:
     m_PersistentCalls:
       m_Calls:

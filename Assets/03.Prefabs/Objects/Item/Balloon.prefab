@@ -154,6 +154,8 @@ MonoBehaviour:
   dieSound:
   - {fileID: 8300000, guid: 20a11e93bc3ad9442b7fd262635ad24e, type: 3}
   isInvisible: 1
+  items:
+  - {fileID: 2701653890161845560, guid: a95725eabe200a0479bf667919acff3c, type: 3}
 --- !u!114 &5745142118758387953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,9 +178,9 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1479242326}
-        m_TargetAssemblyTypeName: RandomSpawn, Assembly-CSharp
-        m_MethodName: Spawn
+      - m_Target: {fileID: 1479242327}
+        m_TargetAssemblyTypeName: DamageableObject, Assembly-CSharp
+        m_MethodName: Die
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -188,9 +190,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1479242327}
-        m_TargetAssemblyTypeName: DamageableObject, Assembly-CSharp
-        m_MethodName: Die
+      - m_Target: {fileID: 1479242326}
+        m_TargetAssemblyTypeName: RandomSpawn, Assembly-CSharp
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -250,7 +252,7 @@ MonoBehaviour:
   spawnDistance: 100
   removeDistance: 50
   limitHeight: 50
-  spawnDealy: 5
+  spawnDealy: 10
   isSpowning: 0
   onRemove: 0
 --- !u!114 &1479242325

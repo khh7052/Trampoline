@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public static UnityEvent OnGameOver = new();
 
     public static GameManager Instance = null;
-    public static GameObject MainBall;
+    public static Ball MainBall;
 
     [Header("UI")]
     public GameObject inGameUI;
@@ -36,10 +36,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Game")]
     public GameState state = GameState.LOBBY;
-    private GameObject mainBall;
+    private Ball mainBall;
 
     [Header("Other")]
-    public List<GameObject> balls;
+    public List<Ball> balls;
     
     private static int maxHeight = 0;
     private static int currentHeight = 0;
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
 
     void MainBallUpdate()
     {
-        mainBall = balls[selectNum].gameObject;
+        mainBall = balls[selectNum];
         MainBall = mainBall;
     }
 

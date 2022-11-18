@@ -5,12 +5,12 @@ using UnityEngine.EventSystems;
 
 public class LineManager : MonoBehaviour
 {
-    public static PlayerLine Instance;
+    public static PlayerLine Line;
     public PlayerLine line;
 
     private void Awake()
     {
-        Instance = line;
+        Line = line;
 
         GameManager.OnGameAwake.AddListener(LineEnableUpdate);
         GameManager.OnGameOver.AddListener(LineEnableUpdate);
@@ -47,7 +47,6 @@ public class LineManager : MonoBehaviour
         {
             line.State = LineState.CREATED;
             line.Active = !line.EnemyCheck();
-            
         }
     }
 
