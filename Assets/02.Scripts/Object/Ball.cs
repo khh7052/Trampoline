@@ -15,12 +15,43 @@ public class Ball : DamageableObject
     [Header("公利")]
     public bool invincibility = false; // 公利
 
+    private SpriteRenderer spriteRenderer;
     private CircleCollider2D circleCollider;
     private PhysicsMaterial2D physicMaterial;
+    public Color paintingColor;
 
     int myLayer;
     int jumpLayer;
     LayerMask obstacleLayerMask;
+
+    private bool isPainting = false;
+
+    public bool IsPainting
+    {
+        get { return isPainting; }
+        set
+        {
+            isPainting = value;
+            invincibility = value;
+
+            if (invincibility)
+            {
+                spriteRenderer.color = paintingColor;
+            }
+            else
+            {
+                spriteRenderer.color = Color.white;
+            }
+        }
+    }
+
+    public bool IsTrigger
+    {
+        set
+        {
+            circleCollider.isTrigger = value;
+        }
+    }
 
     public float Radius
     {
@@ -61,6 +92,7 @@ public class Ball : DamageableObject
         jumpLayer = LayerMask.NameToLayer("Jumping");
         obstacleLayerMask = LayerMask.GetMask("Obstacle");
 
+        spriteRenderer = GetComponent<SpriteRenderer>();
         circleCollider = GetComponent<CircleCollider2D>();
         physicMaterial = circleCollider.sharedMaterial;
         Bounciness = bounciness;
@@ -129,7 +161,14 @@ public class Ball : DamageableObject
     {
         if (collision.gameObject.CompareTag("Damage"))
         {
-            hp.Damage();
+            if(IsPainting == true)
+            {
+                IsPainting = false;
+            }
+            else
+            {
+                hp.Damage();
+            }
         }
 
         if (hp.IsDead == false)
@@ -144,7 +183,14 @@ public class Ball : DamageableObject
     {
         if (collision.gameObject.CompareTag("Damage"))
         {
-            hp.Damage();
+            if (IsPainting == true)
+            {
+                IsPainting = false;
+            }
+            else
+            {
+                hp.Damage();
+            }
         }
     }
 

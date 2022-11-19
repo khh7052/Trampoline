@@ -49,6 +49,7 @@ public class ThemeManager : BaseInit
         base.OneInit();
         Instance = this;
         cam = Camera.main;
+        t_data.HeightUpdate();
     }
 
     public override void Init()

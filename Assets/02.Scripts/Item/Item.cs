@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     public UnityEvent OnUse = new();
     protected Ball playerBall;
     public AudioClip useSound;
+    public AudioClip removeSound;
 
     public virtual void Init()
     {
@@ -15,7 +16,13 @@ public class Item : MonoBehaviour
     }
     public virtual void Use()
     {
+        SoundManager.Instance.PlaySFX(useSound);
         OnUse.Invoke();
+    }
+
+    public virtual void Remove()
+    {
+        Destroy(gameObject);
     }
 
     public virtual void OnTriggerEnter2D(Collider2D collision)

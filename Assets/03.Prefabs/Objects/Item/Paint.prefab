@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6190982630516860395
+--- !u!1 &8166112070701683116
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6190982630516860392}
-  - component: {fileID: 6190982630516860393}
-  - component: {fileID: 6190982630516860394}
-  - component: {fileID: 8818793380290629218}
-  - component: {fileID: 1536716005971602401}
-  m_Layer: 6
-  m_Name: HotAirBalloon
-  m_TagString: Obstacle
+  - component: {fileID: 8166112070701683088}
+  - component: {fileID: 8166112070701683089}
+  - component: {fileID: 8166112070701683118}
+  - component: {fileID: 8166112070701683119}
+  - component: {fileID: 3889611139312588223}
+  m_Layer: 0
+  m_Name: Paint
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6190982630516860392
+--- !u!4 &8166112070701683088
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6190982630516860395}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 32.2, z: 0}
+  m_GameObject: {fileID: 8166112070701683116}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6190982630516860393
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!212 &8166112070701683089
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6190982630516860395}
+  m_GameObject: {fileID: 8166112070701683116}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,110 +73,99 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1222615227
-  m_SortingLayer: 2
+  m_SortingLayerID: -697346629
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6fb47b997f4c6794abb9ef4307407f49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dfdba7272b08ab442b6d0da25b78948b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.24, y: 15.2}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &6190982630516860394
-PolygonCollider2D:
+--- !u!61 &8166112070701683118
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6190982630516860395}
+  m_GameObject: {fileID: 8166112070701683116}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 32, y: 47.5}
-    newSize: {x: 10.24, y: 15.2}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 8.61, y: 21.8}
-      - {x: 5, y: 23}
-      - {x: 0.584, y: 23.7}
-      - {x: -5, y: 23}
-      - {x: -9.1, y: 21.6}
-      - {x: -12, y: 19.5}
-      - {x: -14.2, y: 16.32}
-      - {x: -15.6, y: 11.82}
-      - {x: -15.8, y: 7.18}
-      - {x: 15.8, y: 7.26}
-      - {x: 15.5, y: 12.6}
-      - {x: 14.3, y: 16.4}
-      - {x: 11.5, y: 20}
---- !u!114 &8818793380290629218
+  serializedVersion: 2
+  m_Size: {x: 4, y: 4.8}
+  m_EdgeRadius: 0
+--- !u!114 &8166112070701683119
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6190982630516860395}
+  m_GameObject: {fileID: 8166112070701683116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 784bffd56a858564db83b39ce433f182, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a528019517dc284980b8fce727943e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnSpawn:
+  type: 1
+  removeTime: 5
+  removeDistance: 50
+--- !u!114 &3889611139312588223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166112070701683116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6164341898936444b02768b6ad22211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnUse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6190982630516860395}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 3889611139312588223}
+        m_TargetAssemblyTypeName: Paint, Assembly-CSharp
+        m_MethodName: BallUpdate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  minSideOffset: 1
-  maxSideOffset: 2
-  minUpOffset: 0
-  maxUpOffset: 0.5
-  fixedY: 1
-  fixedUpOffset: 1.4
-  spawnType: 0
-  spawnDistance: 200
-  removeDistance: 150
-  limitHeight: 50
-  spawnDealy: 10
-  isSpowning: 0
-  onRemove: 0
---- !u!114 &1536716005971602401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6190982630516860395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cb617d56a5eec4fb221eccc798d385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isChasing: 1
-  moveDirection: 0
-  moveSpeed: 4
+      - m_Target: {fileID: 3889611139312588223}
+        m_TargetAssemblyTypeName: Item, Assembly-CSharp
+        m_MethodName: Remove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  useSound: {fileID: 0}
+  removeSound: {fileID: 0}

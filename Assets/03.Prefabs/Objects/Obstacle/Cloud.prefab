@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1744207510982061699}
   m_Layer: 6
   m_Name: Cloud
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   spawnType: 0
   spawnDistance: 80
   removeDistance: 50
+  limitHeight: 50
   spawnDealy: 1
   isSpowning: 0
   onRemove: 0

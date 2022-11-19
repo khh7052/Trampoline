@@ -156,6 +156,7 @@ MonoBehaviour:
   isInvisible: 1
   items:
   - {fileID: 2701653890161845560, guid: a95725eabe200a0479bf667919acff3c, type: 3}
+  - {fileID: 3889611139312588223, guid: 5143315f95f97844e84681ca8a65ef0b, type: 3}
 --- !u!114 &5745142118758387953
 MonoBehaviour:
   m_ObjectHideFlags: 0

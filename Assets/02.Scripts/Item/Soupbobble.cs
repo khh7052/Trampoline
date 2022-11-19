@@ -7,10 +7,10 @@ public class Soupbobble : Item
     public Rigidbody2D rigd;
     public Vector2 scaleOffset;
     private Transform previousParent;
+    
 
     public override void Init()
     {
-        print("Spawn Bobble");
         ScaleUpdate();
         BallUpdate();
     }
@@ -25,24 +25,27 @@ public class Soupbobble : Item
         previousParent = playerBall.transform.parent;
         rigd.velocity = playerBall.rigd.velocity;
         playerBall.rigd.velocity = Vector2.zero;
-        playerBall.rigd.isKinematic = true;
+        playerBall.rigd.simulated = false;
         playerBall.transform.position = transform.position;
         playerBall.transform.parent = transform;
     }
 
-    public void Remove()
+    public override void Remove()
     {
         if(playerBall != null)
         {
             playerBall.transform.parent = previousParent;
-            playerBall.rigd.isKinematic = false;
+            playerBall.rigd.simulated = true;
         }
-        
+        SoundManager.Instance.PlaySFX(removeSound);
+
         Destroy(gameObject);
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Obstacle") || collision.CompareTag("Item")) return;
+
         if (collision.CompareTag("Ball"))
         {
             playerBall = GameManager.MainBall;

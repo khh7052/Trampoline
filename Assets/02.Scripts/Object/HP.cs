@@ -32,6 +32,7 @@ public class HP : BaseInit
 
     public void Damage()
     {
+        print(gameObject.name + " Damaged");
         currentHp--;
 
         if (IsDead)

@@ -9,6 +9,7 @@ TagManager:
   - Ball
   - Obstacle
   - Damage
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -57,6 +58,9 @@ TagManager:
     locked: 0
   - name: Ball
     uniqueID: 663861473
+    locked: 0
+  - name: Item
+    uniqueID: 3597620667
     locked: 0
   - name: Bullet
     uniqueID: 3314609755
