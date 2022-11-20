@@ -16,6 +16,8 @@ MonoBehaviour:
   _name: Empty
   backgroundColor: {r: 1, g: 1, b: 1, a: 1}
   range: 500
+  startHeight: 6000
+  endHeight: 6500
   bgm: {fileID: 0}
   obstacles: []
   enemies: []

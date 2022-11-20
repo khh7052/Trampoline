@@ -15,48 +15,50 @@ MonoBehaviour:
   themeManagerData: {fileID: 11400000, guid: 33c38408195fc9546b4d0a1dafe8ae7c, type: 2}
   _name: Ground
   backgroundColor: {r: 0.68235296, g: 0.86666673, b: 0.9490197, a: 1}
-  range: 500
+  range: 1000
+  startHeight: 0
+  endHeight: 1000
   bgm: {fileID: 8300000, guid: 95a1e63016b35d54db3d5cc3d814ea9d, type: 3}
   obstacles:
   - spawnObject: {fileID: 167887337738232874, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
     spawnHeightPercent: 0
     spawnHeight: 0
     limitHeightPercent: 50
-    limitHeight: 250
+    limitHeight: 500
   - spawnObject: {fileID: 167887337738232874, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
     spawnHeightPercent: 0
     spawnHeight: 0
     limitHeightPercent: 50
-    limitHeight: 250
+    limitHeight: 500
   - spawnObject: {fileID: 167887337738232874, guid: 859a22d31b3cf4e45b1856d56217f1c2, type: 3}
     spawnHeightPercent: 0
     spawnHeight: 0
     limitHeightPercent: 50
-    limitHeight: 250
+    limitHeight: 500
   - spawnObject: {fileID: 6190982630516860395, guid: 513c103ac2e54674c9109e6e2e2d40fc, type: 3}
     spawnHeightPercent: 80
-    spawnHeight: 400
+    spawnHeight: 800
     limitHeightPercent: 100
-    limitHeight: 500
+    limitHeight: 1000
   enemies:
   - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
     spawnHeightPercent: 50
-    spawnHeight: 250
+    spawnHeight: 500
     limitHeightPercent: 100
-    limitHeight: 500
+    limitHeight: 1000
   - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
     spawnHeightPercent: 60
-    spawnHeight: 300
+    spawnHeight: 600
     limitHeightPercent: 100
-    limitHeight: 500
+    limitHeight: 1000
   - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
     spawnHeightPercent: 70
-    spawnHeight: 350
+    spawnHeight: 700
     limitHeightPercent: 100
-    limitHeight: 500
+    limitHeight: 1000
   items:
   - spawnObject: {fileID: 9031822537721832165, guid: 6f1a6d4be3b804141a96fc0ad929ea23, type: 3}
     spawnHeightPercent: 50
-    spawnHeight: 250
+    spawnHeight: 500
     limitHeightPercent: 100
-    limitHeight: 500
+    limitHeight: 1000

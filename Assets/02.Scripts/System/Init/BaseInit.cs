@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseInit : MonoBehaviour
 {
     public bool onLobby = false;
-    public bool onAwake = false;
+    public bool onReady = false;
     public bool onStart = true;
     public bool onPause = false;
     public bool onContinue = false;
@@ -20,7 +20,7 @@ public class BaseInit : MonoBehaviour
     public virtual void OneInit()
     {
         if (onLobby) GameManager.OnGameLobby.AddListener(Init);
-        if (onAwake) GameManager.OnGameAwake.AddListener(Init);
+        if (onReady) GameManager.OnGameReady.AddListener(Init);
         if (onStart) GameManager.OnGameStart.AddListener(Init);
         if(onPause) GameManager.OnGamePause.AddListener(Init);
         if (onContinue) GameManager.OnGameContinue.AddListener(Init);

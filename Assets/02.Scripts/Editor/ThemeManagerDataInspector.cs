@@ -4,30 +4,43 @@ using UnityEditor;
 [CustomEditor(typeof(ThemeManagerData))]
 public class ThemeManagerDataInspector : Editor
 {
-    ThemeManagerData data;
 
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        data = (ThemeManagerData)target;
+        ThemeManagerData tmData = (ThemeManagerData)target;
 
         if (GUILayout.Button("Height Update"))
         {
-            data.HeightUpdate();
+            tmData.HeightUpdate();
+            SaveData(tmData);
         }
 
         if (GUILayout.Button("SpawnData Update"))
         {
-            SpawnDataUpdate();
+            SpawnDataUpdate(tmData);
+            SaveData(tmData);
+        }
+
+        if (GUILayout.Button("Save"))
+        {
+            SaveData(tmData);
         }
     }
 
-    public void SpawnDataUpdate()
+    void SaveData(ThemeManagerData data)
     {
-        for (int i = 0; i < data.themes.Count; i++)
+        EditorUtility.SetDirty(data);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+    }
+
+    public void SpawnDataUpdate(ThemeManagerData tm)
+    {
+        for (int i = 0; i < tm.themes.Count; i++)
         {
-            Theme theme = data.themes[i];
+            Theme theme = tm.themes[i];
 
             foreach (SpawnData data in theme.obstacles)
             {

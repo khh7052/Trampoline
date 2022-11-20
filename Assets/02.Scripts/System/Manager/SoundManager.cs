@@ -4,14 +4,12 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
-    public static SoundManager Instance;
-
     [Header("»ç¿îµå")]
-    public AudioSource bgmSpeaker;
-    public AudioSource sfxSpeaker;
-    public AudioMixer bgm;
+    [SerializeField] private AudioSource bgmSpeaker;
+    [SerializeField] private AudioSource sfxSpeaker;
+    [SerializeField] private AudioMixer bgm;
 
     [Header("UI")]
     private float perivousVolume_Bgm = 1;
@@ -44,8 +42,6 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
-
         BgmVolume = bgmSpeaker.volume;
         SfxVolume = sfxSpeaker.volume;
         perivousVolume_Bgm = BgmVolume;
@@ -91,7 +87,7 @@ public class SoundManager : MonoBehaviour
         sfxSpeaker.PlayOneShot(clips[idx]);
     }
 
-    void StopBgmFade()
+    private void StopBgmFade()
     {
         isFading = false;
         StopCoroutine(bgmCoroutine);

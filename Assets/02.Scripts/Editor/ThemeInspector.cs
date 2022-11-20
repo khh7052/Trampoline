@@ -4,12 +4,10 @@ using UnityEngine;
 [CustomEditor(typeof(Theme))]
 public class ThemeInspector : Editor
 {
-    Theme theme;
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-
-        theme = (Theme)target;
+        Theme theme = (Theme)target;
 
         if(GUILayout.Button("Height Update"))
         {
@@ -27,7 +25,21 @@ public class ThemeInspector : Editor
             {
                 HeightUpdate(data, theme);
             }
+
+            SaveData(theme);
         }
+
+        if (GUILayout.Button("Save"))
+        {
+            SaveData(theme);
+        }
+    }
+
+    void SaveData(Theme data)
+    {
+        EditorUtility.SetDirty(data);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 
     void HeightUpdate(SpawnData data, Theme theme)

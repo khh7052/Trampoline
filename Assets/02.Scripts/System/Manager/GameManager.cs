@@ -7,31 +7,30 @@ using TMPro;
 public enum GameState
 {
     LOBBY,
-    AWAKE,
+    READY,
     PLAY,
     PAUSE,
     OVER
 }
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public int frame = 100;
+    [SerializeField] private int frame = 90;
 
     public static UnityEvent OnGameLobby = new();
-    public static UnityEvent OnGameAwake = new();
+    public static UnityEvent OnGameReady = new();
     public static UnityEvent OnGameStart = new();
     public static UnityEvent OnGamePause = new();
     public static UnityEvent OnGameContinue = new();
     public static UnityEvent OnGameOver = new();
 
-    public static GameManager Instance = null;
     public static Ball MainBall;
 
     [Header("UI")]
-    public GameObject inGameUI;
-    public GameObject overUI;
-    public GameObject settingUI;
-    public TextMeshProUGUI heightText;
+    [SerializeField] private GameObject inGameUI;
+    [SerializeField] private GameObject overUI;
+    [SerializeField] private GameObject settingUI;
+    [SerializeField] private TextMeshProUGUI heightText;
     private int selectNum = 0;
 
     [Header("Game")]
@@ -39,7 +38,7 @@ public class GameManager : MonoBehaviour
     private Ball mainBall;
 
     [Header("Other")]
-    public List<Ball> balls;
+    [SerializeField] private List<Ball> balls;
     
     private static int maxHeight = 0;
     private static int currentHeight = 0;
@@ -80,10 +79,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OneInit()
+     void OneInit()
     {
-        Instance = this;
-
         Application.targetFrameRate = frame;
         HeightTextInit();
 
@@ -92,22 +89,23 @@ public class GameManager : MonoBehaviour
         settingUI.SetActive(true);
         
         OnGameLobby.AddListener(TimeScaleUpdate);
-        OnGameAwake.AddListener(TimeScaleUpdate);
+        OnGameReady.AddListener(TimeScaleUpdate);
         OnGameStart.AddListener(TimeScaleUpdate);
         OnGamePause.AddListener(TimeScaleUpdate);
         OnGameContinue.AddListener(TimeScaleUpdate);
         OnGameOver.AddListener(TimeScaleUpdate);
 
-        OnGameAwake.AddListener(MainBallUpdate);
+        OnGameReady.AddListener(HeightTextInit);
+        OnGameReady.AddListener(MainBallUpdate);
     }
 
-    void MainBallUpdate()
+    private void MainBallUpdate()
     {
         mainBall = balls[selectNum];
         MainBall = mainBall;
     }
 
-    void HeightUpdate()
+    private void HeightUpdate()
     {
         BallHeight = (int)mainBall.transform.position.y;
         heightText.text = currentHeight.ToString();
@@ -143,10 +141,15 @@ public class GameManager : MonoBehaviour
         state = GameState.LOBBY;
         OnGameLobby.Invoke();
     }
+
+    public void GameReady()
+    {
+        state = GameState.READY;
+        OnGameReady.Invoke();
+    }
+
     public void GameStart()
     {
-        state = GameState.AWAKE;
-        OnGameAwake.Invoke();
         state = GameState.PLAY;
         OnGameStart.Invoke();
     }
@@ -172,7 +175,7 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    void HeightTextInit()
+    private void HeightTextInit()
     {
         heightText.text = "0";
     }
@@ -182,7 +185,7 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case GameState.LOBBY:
-            case GameState.AWAKE:
+            case GameState.READY:
             case GameState.PLAY:
             case GameState.OVER:
                 Time.timeScale = 1;

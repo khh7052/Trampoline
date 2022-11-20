@@ -6,18 +6,34 @@ using UnityEngine.Events;
 public class ThemeManager : BaseInit
 {
     // 공 위치에 따라서 배경색깔, 배경음, 현재 테마 정보 변경
-
     public static UnityEvent OnThemeUpdate = new();
-    public static ThemeManager Instance;
-    public ThemeManagerData t_data;
+    private static ThemeManager instance;
+    [SerializeField] private ThemeManagerData data;
 
-    Camera cam;
-    public List<Theme> data = new();
-    int index;
+    public static ThemeManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<ThemeManager>();
+            }
+
+            return instance;
+        }
+    }
+
+    private Camera cam;
+    private int index;
+
+    public List<Theme> Themes
+    {
+        get { return data.themes; }
+    }
 
     public Theme Theme
     {
-        get { return data[index]; }
+        get { return Themes[index]; }
     }
 
     public int Index
@@ -25,20 +41,22 @@ public class ThemeManager : BaseInit
         get { return index; }
         set
         {
-            if (value < 0 || value >= data.Count) return;
+            if (value < 0 || value >= Themes.Count) return;
             if (index == value) return;
 
             index = value;
 
             ThemeUpdate();
-            SoundManager.Instance.PlayBGM(data[index].bgm);
+            BackgroundUpdate();
+            SoundManager.Instance.PlayBGM(Theme.bgm);
+            print(Theme.name);
         }
     }
 
     private void Update()
     {
         if (GameManager.Instance.state != GameState.PLAY) return;
-        if (data.Count <= index + 1) return;
+        if (Themes.Count <= index + 1) return;
 
         IndexUpdate();
         BackgroundUpdate();
@@ -47,9 +65,8 @@ public class ThemeManager : BaseInit
     public override void OneInit()
     {
         base.OneInit();
-        Instance = this;
+        instance = this;
         cam = Camera.main;
-        t_data.HeightUpdate();
     }
 
     public override void Init()
@@ -71,8 +88,8 @@ public class ThemeManager : BaseInit
 
     void BackgroundUpdate()
     {
-        if (data.Count <= index + 1) return;
-        cam.backgroundColor = Color.Lerp(data[index].backgroundColor, data[index + 1].backgroundColor, (float)(GameManager.BallHeight - Theme.StartHeight) / Theme.range);
+        if (Themes.Count <= index + 1) return;
+        cam.backgroundColor = Color.Lerp(Themes[index].backgroundColor, Themes[index + 1].backgroundColor, (float)(GameManager.BallHeight - Theme.StartHeight) / Theme.range);
     }
 
     public void ThemeUpdate()
