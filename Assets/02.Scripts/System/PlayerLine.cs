@@ -12,21 +12,19 @@ public enum LineState
 
 public class PlayerLine : BaseInit
 {
-    private Line line;
-    EdgeCollider2D edgeCollider;
-    [SerializeField]
-    private Vector2[] points;
-    [SerializeField]
-    private Vector2[] initPoints;
+    [SerializeField] private Line line;
+    [SerializeField] private EdgeCollider2D edgeCollider;
+    [SerializeField] private Vector2[] points;
+    [SerializeField] private Vector2[] initPoints;
 
-    private LineState state;
+    [SerializeField] private LineState state;
 
-    public Color createdColor;
-    public Color creatingColor;
-    public Color attackColor;
+    [SerializeField] private Color createdColor;
+    [SerializeField] private Color creatingColor;
+    [SerializeField] private Color attackColor;
 
-    public LayerMask checkLayer;
-
+    [SerializeField] private LayerMask checkLayer;
+    
     public float dashOffsetSpeed = 1.2f;
 
     public LineState State
@@ -99,9 +97,6 @@ public class PlayerLine : BaseInit
     public override void OneInit()
     {
         base.OneInit();
-
-        line = GetComponent<Line>();
-        edgeCollider = GetComponent<EdgeCollider2D>();
 
         points = edgeCollider.points;
         points[0] = line.Start;

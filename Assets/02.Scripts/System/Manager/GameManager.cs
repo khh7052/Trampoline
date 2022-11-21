@@ -43,6 +43,11 @@ public class GameManager : Singleton<GameManager>
     private static int maxHeight = 0;
     private static int currentHeight = 0;
 
+    public static Vector2 BallPos
+    {
+        get { return MainBall.transform.position; }
+    }
+
     public static int MaxHeight
     {
         get { return maxHeight; }

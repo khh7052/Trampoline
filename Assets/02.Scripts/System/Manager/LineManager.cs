@@ -7,17 +7,13 @@ using UnityEngine.EventSystems;
 public class LineManager : BaseInit
 {
     public static PlayerLine Line;
-    public PlayerLine line;
-    private bool imReady = false;
+    [SerializeField] private PlayerLine line;
+    private Vector2 startOffset;
+    private Vector2 centerViewport = new(0.5f, 0.5f);
 
     private void Awake()
     {
         Line = line;
-    }
-
-    public override void Init()
-    {
-        imReady = false;
     }
 
     private void Update()
@@ -34,6 +30,12 @@ public class LineManager : BaseInit
         }
     }
 
+    void StartUpdate()
+    {
+        line.Start = GetCenterPos() + startOffset;
+        
+    }
+
     void ReadyLineMake()
     {
         Touch touch = Input.GetTouch(0);
@@ -43,14 +45,20 @@ public class LineManager : BaseInit
 
         if (touch.phase == TouchPhase.Began)
         {
-            imReady = true;
             line.State = LineState.CREATING;
             line.Start = pos;
             line.End = pos;
             line.LineActive = true;
+            startOffset = pos - GetCenterPos();
+        }
+        else if (touch.phase == TouchPhase.Stationary)
+        {
+            StartUpdate();
+            line.End = pos;
         }
         else if (touch.phase == TouchPhase.Moved)
         {
+            StartUpdate();
             line.End = pos;
         }
         else if (touch.phase == TouchPhase.Ended)
@@ -75,9 +83,16 @@ public class LineManager : BaseInit
             line.Start = pos;
             line.End = pos;
             line.LineActive = true;
+            startOffset = pos - GetCenterPos();
+        }
+        else if(touch.phase == TouchPhase.Stationary)
+        {
+            StartUpdate();
+            line.End = pos;
         }
         else if (touch.phase == TouchPhase.Moved)
         {
+            StartUpdate();
             line.End = pos;
         }
         else if (touch.phase == TouchPhase.Ended)
@@ -86,6 +101,11 @@ public class LineManager : BaseInit
             line.End = pos;
             line.Active = !line.EnemyCheck();
         }
+    }
+
+    Vector2 GetCenterPos()
+    {
+        return Camera.main.ViewportToWorldPoint(centerViewport);
     }
 
     Vector2 ScreenToWorld(Vector2 pos)

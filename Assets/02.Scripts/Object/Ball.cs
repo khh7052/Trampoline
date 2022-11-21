@@ -19,6 +19,7 @@ public class Ball : DamageableObject
     private CircleCollider2D circleCollider;
     private PhysicsMaterial2D physicMaterial;
     public Color paintingColor;
+    private bool isQuiting = false;
 
     int myLayer;
     int jumpLayer;
@@ -113,7 +114,12 @@ public class Ball : DamageableObject
         VelocityCheck();
     }
 
-    void VelocityCheck()
+    private void OnApplicationQuit()
+    {
+        isQuiting = true;
+    }
+
+    private void VelocityCheck()
     {
         if (rigd.velocity.y > 0)
         {
@@ -130,12 +136,13 @@ public class Ball : DamageableObject
 
     protected override void OnBecameInvisible() // 화면밖으로 나가면 사망
     {
+        if (isQuiting) return;
         base.OnBecameInvisible();
         if (GameManager.Instance.state != GameState.PLAY) return;
         if(Height < Camera.main.transform.position.y) Die();
     }
 
-    void Spin()
+    private void Spin()
     {
         int rand = Random.Range(-1, 2);
         if (rand > 0) rand = 1;
@@ -144,7 +151,7 @@ public class Ball : DamageableObject
         rigd.angularVelocity += rigd.velocity.magnitude * rand;
     }
 
-    void ForceLimit()
+    private void ForceLimit()
     {
         Vector2 velocity = rigd.velocity;
 
@@ -155,7 +162,6 @@ public class Ball : DamageableObject
 
         rigd.velocity = velocity;
     }
-
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
