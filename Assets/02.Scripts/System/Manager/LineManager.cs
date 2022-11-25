@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-[DefaultExecutionOrder(-10000)]
 public class LineManager : BaseInit
 {
     public static PlayerLine Line;
@@ -18,64 +17,17 @@ public class LineManager : BaseInit
 
     private void Update()
     {
-        if (Input.touchCount == 0) return;
-
-        if (GameManager.Instance.state == GameState.READY)
-        {
-            ReadyLineMake();
-        }
-        else if (GameManager.Instance.state == GameState.PLAY)
-        {
-            LineMake();
-        }
-    }
-
-    void StartUpdate()
-    {
-        line.Start = GetCenterPos() + startOffset;
-        
-    }
-
-    void ReadyLineMake()
-    {
-        Touch touch = Input.GetTouch(0);
-        Vector2 pos = ScreenToWorld(touch.position);
-
-        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
-
-        if (touch.phase == TouchPhase.Began)
-        {
-            line.State = LineState.CREATING;
-            line.Start = pos;
-            line.End = pos;
-            line.LineActive = true;
-            startOffset = pos - GetCenterPos();
-        }
-        else if (touch.phase == TouchPhase.Stationary)
-        {
-            StartUpdate();
-            line.End = pos;
-        }
-        else if (touch.phase == TouchPhase.Moved)
-        {
-            StartUpdate();
-            line.End = pos;
-        }
-        else if (touch.phase == TouchPhase.Ended)
-        {
-            line.State = LineState.CREATED;
-            line.End = pos;
-            line.Active = !line.EnemyCheck();
-            GameManager.Instance.GameStart();
-        }
+        LineMake();
     }
 
     void LineMake()
     {
+        if (Input.touchCount == 0) return;
+        if (EventSystem.current.currentSelectedGameObject != null) return;
+        // if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
+
         Touch touch = Input.GetTouch(0);
         Vector2 pos = ScreenToWorld(touch.position);
-
-        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
 
         if (touch.phase == TouchPhase.Began)
         {
@@ -87,19 +39,25 @@ public class LineManager : BaseInit
         }
         else if(touch.phase == TouchPhase.Stationary)
         {
-            StartUpdate();
+            line.Start = GetCenterPos() + startOffset;
             line.End = pos;
         }
         else if (touch.phase == TouchPhase.Moved)
         {
-            StartUpdate();
+            line.Start = GetCenterPos() + startOffset;
             line.End = pos;
         }
         else if (touch.phase == TouchPhase.Ended)
         {
             line.State = LineState.CREATED;
+            line.Start = GetCenterPos() + startOffset;
             line.End = pos;
             line.Active = !line.EnemyCheck();
+
+            if(GameManager.Instance.state == GameState.READY)
+            {
+                GameManager.Instance.GameStart();
+            }
         }
     }
 
@@ -113,25 +71,4 @@ public class LineManager : BaseInit
         return Camera.main.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 0));
     }
 
-
-    /*
-private bool IsOverUi()
-{
-var pointerData = new PointerEventData(EventSystem.current);
-var average = Input.GetTouch(0); //Replace with your own Finger Position.
-if (average == null)
-return false;
-pointerData.position = average.Value;
-
-var results = new List<RaycastResult>();
-EventSystem.current.RaycastAll(pointerData, results);
-
-if (results.Count > 0)
-{
-if (results[0].gameObject.layer == LayerMask.NameToLayer("UI"))
-  return true;
-}
-return false;
-}
-*/
 }

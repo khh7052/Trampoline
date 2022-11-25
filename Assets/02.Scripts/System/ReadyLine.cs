@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Shapes;
 
-[DefaultExecutionOrder(-10000)]
 public class ReadyLine : MonoBehaviour
 {
     [SerializeField] private Line line;
@@ -17,8 +16,8 @@ public class ReadyLine : MonoBehaviour
         if (Input.touchCount == 0) return;
 
         Touch touch = Input.GetTouch(0);
-        if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
-        
+        if (EventSystem.current.currentSelectedGameObject != null) return;
+        // if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
         if (touch.phase == TouchPhase.Began)
         {
             touchImage.SetActive(false);

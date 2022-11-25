@@ -8,7 +8,6 @@ public class InitBallActive : InitActive
     {
         if (GameManager.MainBall == null) return;
         if(gameObject != GameManager.MainBall.gameObject) return;
-
         base.Init();
     }
 

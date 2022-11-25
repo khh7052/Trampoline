@@ -9,11 +9,11 @@ public class Ball : DamageableObject
     public AudioClip bounceSound;
     [Space]
     [Header("弥措 加档")]
-    public float maxForce = 100f;
+    [SerializeField] private float maxForce = 100f;
     [Header("屁辫")]
-    public float bounciness = 1.5f;
+    [SerializeField] private float bounciness = 1.5f;
     [Header("公利")]
-    public bool invincibility = false; // 公利
+    [SerializeField] private bool invincibility = false; // 公利
 
     private SpriteRenderer spriteRenderer;
     private CircleCollider2D circleCollider;
@@ -74,15 +74,6 @@ public class Ball : DamageableObject
         get { return transform.localScale.x; }
     }
 
-    public float Bounciness
-    {
-        get { return bounciness; }
-        set
-        {
-            bounciness = value;
-            physicMaterial.bounciness = bounciness;
-        }
-    }
 
     public override void OneInit()
     {
@@ -96,7 +87,7 @@ public class Ball : DamageableObject
         spriteRenderer = GetComponent<SpriteRenderer>();
         circleCollider = GetComponent<CircleCollider2D>();
         physicMaterial = circleCollider.sharedMaterial;
-        Bounciness = bounciness;
+        BouncinessUpdate();
     }
 
 
@@ -117,6 +108,11 @@ public class Ball : DamageableObject
     private void OnApplicationQuit()
     {
         isQuiting = true;
+    }
+
+    public void BouncinessUpdate()
+    {
+        physicMaterial.bounciness = bounciness;
     }
 
     private void VelocityCheck()
