@@ -35,6 +35,7 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Game")]
     public GameState state = GameState.LOBBY;
+    private GameState previousState;
     private Ball mainBall;
 
     [Header("Other")]
@@ -160,13 +161,14 @@ public class GameManager : Singleton<GameManager>
     }
     public void GamePause()
     {
+        previousState = state;
         state = GameState.PAUSE;
         OnGamePause.Invoke();
     }
 
     public void GameContinue()
     {
-        state = GameState.PLAY;
+        state = previousState;
         OnGameContinue.Invoke();
     }
 

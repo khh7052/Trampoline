@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Shapes;
 
+[DefaultExecutionOrder(-10000)]
 public class ReadyLine : MonoBehaviour
 {
     [SerializeField] private Line line;
@@ -12,8 +14,12 @@ public class ReadyLine : MonoBehaviour
     void Update()
     {
         DashOffsetUpdate();
+        if (Input.touchCount == 0) return;
 
-        if(Input.touchCount > 0)
+        Touch touch = Input.GetTouch(0);
+        if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
+        
+        if (touch.phase == TouchPhase.Began)
         {
             touchImage.SetActive(false);
             gameObject.SetActive(false);

@@ -15,7 +15,6 @@ public class Ball : DamageableObject
     [Header("公利")]
     public bool invincibility = false; // 公利
 
-    private TrailRenderer trailRenderer;
     private SpriteRenderer spriteRenderer;
     private CircleCollider2D circleCollider;
     private PhysicsMaterial2D physicMaterial;
@@ -94,7 +93,6 @@ public class Ball : DamageableObject
         jumpLayer = LayerMask.NameToLayer("Jumping");
         obstacleLayerMask = LayerMask.GetMask("Obstacle");
 
-        trailRenderer = GetComponent<TrailRenderer>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         circleCollider = GetComponent<CircleCollider2D>();
         physicMaterial = circleCollider.sharedMaterial;
