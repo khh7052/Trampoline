@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLobby: 0
-  onAwake: 0
+  onReady: 0
   onStart: 1
   onPause: 0
   onContinue: 0
@@ -256,7 +256,10 @@ MonoBehaviour:
   spawn: {fileID: 5069206475287934250}
   hp: {fileID: 4873603956497409345}
   hitSounds: []
-  dieSound: []
+  dieSound:
+  - {fileID: 8300000, guid: 9f5163ffb0f5cb1409b6feb18a9d5b51, type: 3}
+  - {fileID: 8300000, guid: f2f25ed8864f6d447aac76e66a91ca4f, type: 3}
+  - {fileID: 8300000, guid: aba18b83fc0ba6e4cb5bde299b980ad9, type: 3}
   isInvisible: 1
   attackSound: {fileID: 0}
   attackRate: 3
@@ -273,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLobby: 0
-  onAwake: 0
+  onReady: 0
   onStart: 1
   onPause: 0
   onContinue: 0
