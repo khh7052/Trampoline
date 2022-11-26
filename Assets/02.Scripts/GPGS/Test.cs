@@ -7,10 +7,7 @@ public class Test : MonoBehaviour
 {
     string log;
 
-    private void Start()
-    {
-        GPGSBinder.Inst.Login();
-    }
+    
 
     /*
     void OnGUI()

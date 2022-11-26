@@ -316,13 +316,13 @@ struct TMP_ObjectPool_1_t4EAAF1D3A64E74D8EA8643C3116E7BACEA88A911;
 // System.Collections.Concurrent.ConcurrentDictionary`2/Tables<System.Object,System.Object>
 struct Tables_t14D3B197594232ACFA76B87EB205EB3661F6EAA6;
 // GooglePlayGames.Android.AndroidTaskUtils/TaskOnCompleteProxy`1<System.Object>
-struct TaskOnCompleteProxy_1_t22522DC7EE470609A4E4BE8E707A8F94F58FBC48;
+struct TaskOnCompleteProxy_1_t1F0B2A7592F100802CF9CB201AA281BDCE41A9E0;
 // GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Boolean>
-struct TaskOnSuccessProxy_1_tF6561E7DBD2D2E52FEACA452A7CF3232B1BDC016;
+struct TaskOnSuccessProxy_1_tEB90D2F901ADB5BB245CAAE60DD86ADA84200B61;
 // GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Int32>
-struct TaskOnSuccessProxy_1_tA05713557EAF24ED31C8AB5FA285B83E8E071285;
+struct TaskOnSuccessProxy_1_t7FC1E7EE14A0E19C1D92BD46A00A0025EDC7804A;
 // GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Object>
-struct TaskOnSuccessProxy_1_tE23E4562B3EB01179C19DDE30E2EEC5A30C46743;
+struct TaskOnSuccessProxy_1_t909298F3B41CE0A883F2052378C54123AED29E5D;
 // System.Threading.Tasks.Task`1<System.Boolean>
 struct Task_1_t824317F4B958F7512E8F7300511752937A6C6043;
 // System.Threading.Tasks.Task`1<System.Int32>
@@ -3939,14 +3939,14 @@ struct TMP_TextProcessingStack_1_t57AECDCC936A7FF1D6CF66CA11560B28A675648D
 };
 
 // GooglePlayGames.Android.AndroidTaskUtils/TaskOnCompleteProxy`1<System.Object>
-struct TaskOnCompleteProxy_1_t22522DC7EE470609A4E4BE8E707A8F94F58FBC48  : public AndroidJavaProxy_tE5521F9761F7B95444B9C39FB15FDFC23F80A78D
+struct TaskOnCompleteProxy_1_t1F0B2A7592F100802CF9CB201AA281BDCE41A9E0  : public AndroidJavaProxy_tE5521F9761F7B95444B9C39FB15FDFC23F80A78D
 {
 	// System.Action`1<T> GooglePlayGames.Android.AndroidTaskUtils/TaskOnCompleteProxy`1::mCallback
 	Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___mCallback_4;
 };
 
 // GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Boolean>
-struct TaskOnSuccessProxy_1_tF6561E7DBD2D2E52FEACA452A7CF3232B1BDC016  : public AndroidJavaProxy_tE5521F9761F7B95444B9C39FB15FDFC23F80A78D
+struct TaskOnSuccessProxy_1_tEB90D2F901ADB5BB245CAAE60DD86ADA84200B61  : public AndroidJavaProxy_tE5521F9761F7B95444B9C39FB15FDFC23F80A78D
 {
 	// System.Action`1<T> GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1::mCallback
 	Action_1_t10DCB0C07D0D3C565CEACADC80D1152B35A45F6C* ___mCallback_4;
@@ -3955,7 +3955,7 @@ struct TaskOnSuccessProxy_1_tF6561E7DBD2D2E52FEACA452A7CF3232B1BDC016  : public 
 };
 
 // GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Int32>
-struct TaskOnSuccessProxy_1_tA05713557EAF24ED31C8AB5FA285B83E8E071285  : public AndroidJavaProxy_tE5521F9761F7B95444B9C39FB15FDFC23F80A78D
+struct TaskOnSuccessProxy_1_t7FC1E7EE14A0E19C1D92BD46A00A0025EDC7804A  : public AndroidJavaProxy_tE5521F9761F7B95444B9C39FB15FDFC23F80A78D
 {
 	// System.Action`1<T> GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1::mCallback
 	Action_1_tD69A6DC9FBE94131E52F5A73B2A9D4AB51EEC404* ___mCallback_4;
@@ -3964,7 +3964,7 @@ struct TaskOnSuccessProxy_1_tA05713557EAF24ED31C8AB5FA285B83E8E071285  : public 
 };
 
 // GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Object>
-struct TaskOnSuccessProxy_1_tE23E4562B3EB01179C19DDE30E2EEC5A30C46743  : public AndroidJavaProxy_tE5521F9761F7B95444B9C39FB15FDFC23F80A78D
+struct TaskOnSuccessProxy_1_t909298F3B41CE0A883F2052378C54123AED29E5D  : public AndroidJavaProxy_tE5521F9761F7B95444B9C39FB15FDFC23F80A78D
 {
 	// System.Action`1<T> GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1::mCallback
 	Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___mCallback_4;
@@ -21961,7 +21961,7 @@ IL2CPP_EXTERN_C  VoidTaskResult_t73B628B764C6668DAAAE2D37BD6FC07BCA27A5AC TaskAw
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 // System.Void GooglePlayGames.Android.AndroidTaskUtils/TaskOnCompleteProxy`1<System.Object>::.ctor(System.Action`1<T>)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnCompleteProxy_1__ctor_mFE6569C215EF040DBBB18FD12EF5BB0B7102E62D_gshared (TaskOnCompleteProxy_1_t22522DC7EE470609A4E4BE8E707A8F94F58FBC48* __this, Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___callback0, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnCompleteProxy_1__ctor_mC8C63AD5C7070EB17485E80A0D27A639F510FB7D_gshared (TaskOnCompleteProxy_1_t1F0B2A7592F100802CF9CB201AA281BDCE41A9E0* __this, Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___callback0, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -21983,7 +21983,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnCompleteProxy_1__ctor_mFE6569C215E
 	}
 }
 // System.Void GooglePlayGames.Android.AndroidTaskUtils/TaskOnCompleteProxy`1<System.Object>::onComplete(T)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnCompleteProxy_1_onComplete_m69DF1F329741D22A696720902F8D34F61B8F0FC0_gshared (TaskOnCompleteProxy_1_t22522DC7EE470609A4E4BE8E707A8F94F58FBC48* __this, RuntimeObject* ___result0, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnCompleteProxy_1_onComplete_m5F5846C8300CDDDC5CD12F5F7BBDF3064D777E4E_gshared (TaskOnCompleteProxy_1_t1F0B2A7592F100802CF9CB201AA281BDCE41A9E0* __this, RuntimeObject* ___result0, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -22070,7 +22070,7 @@ IL_003d:
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 // System.Void GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Boolean>::.ctor(System.Action`1<T>,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1__ctor_m4553889B24B945CC287155D641C2A9A5BE84F9D2_gshared (TaskOnSuccessProxy_1_tF6561E7DBD2D2E52FEACA452A7CF3232B1BDC016* __this, Action_1_t10DCB0C07D0D3C565CEACADC80D1152B35A45F6C* ___callback0, bool ___disposeResult1, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1__ctor_m46EC8B81A6DCC621D87E80B0D84EBAC7B1948FA2_gshared (TaskOnSuccessProxy_1_tEB90D2F901ADB5BB245CAAE60DD86ADA84200B61* __this, Action_1_t10DCB0C07D0D3C565CEACADC80D1152B35A45F6C* ___callback0, bool ___disposeResult1, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -22095,7 +22095,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1__ctor_m4553889B24B9
 	}
 }
 // System.Void GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Boolean>::onSuccess(T)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1_onSuccess_mECEAB4B4969DEDB93860A8114E44BCA1DCDE56FF_gshared (TaskOnSuccessProxy_1_tF6561E7DBD2D2E52FEACA452A7CF3232B1BDC016* __this, bool ___result0, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1_onSuccess_m3B3E2D3CE31CAFB6DA64B9B1E45432475C970225_gshared (TaskOnSuccessProxy_1_tEB90D2F901ADB5BB245CAAE60DD86ADA84200B61* __this, bool ___result0, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -22193,7 +22193,7 @@ IL_0045:
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 // System.Void GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Int32>::.ctor(System.Action`1<T>,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1__ctor_m80405A3A8E70C542F5CCF2BA511F984543E7AF36_gshared (TaskOnSuccessProxy_1_tA05713557EAF24ED31C8AB5FA285B83E8E071285* __this, Action_1_tD69A6DC9FBE94131E52F5A73B2A9D4AB51EEC404* ___callback0, bool ___disposeResult1, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1__ctor_m98064C09F386B23104E8F38A6CF196B95CE6C8EC_gshared (TaskOnSuccessProxy_1_t7FC1E7EE14A0E19C1D92BD46A00A0025EDC7804A* __this, Action_1_tD69A6DC9FBE94131E52F5A73B2A9D4AB51EEC404* ___callback0, bool ___disposeResult1, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -22218,7 +22218,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1__ctor_m80405A3A8E70
 	}
 }
 // System.Void GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Int32>::onSuccess(T)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1_onSuccess_m844562DE1E37D8672C2B55A8D49CAFC065BC08EC_gshared (TaskOnSuccessProxy_1_tA05713557EAF24ED31C8AB5FA285B83E8E071285* __this, int32_t ___result0, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1_onSuccess_m0B79835A02C7149F538A696359B14588F75AA72B_gshared (TaskOnSuccessProxy_1_t7FC1E7EE14A0E19C1D92BD46A00A0025EDC7804A* __this, int32_t ___result0, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -22316,7 +22316,7 @@ IL_0045:
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 // System.Void GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Object>::.ctor(System.Action`1<T>,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1__ctor_mA57ECBC1F5710555D0F647B6F9C5C987CA85D51A_gshared (TaskOnSuccessProxy_1_tE23E4562B3EB01179C19DDE30E2EEC5A30C46743* __this, Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___callback0, bool ___disposeResult1, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1__ctor_m4CC8D7A1AC9F67B2EA0402429C53CEC17CD94B89_gshared (TaskOnSuccessProxy_1_t909298F3B41CE0A883F2052378C54123AED29E5D* __this, Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___callback0, bool ___disposeResult1, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -22341,7 +22341,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1__ctor_mA57ECBC1F571
 	}
 }
 // System.Void GooglePlayGames.Android.AndroidTaskUtils/TaskOnSuccessProxy`1<System.Object>::onSuccess(T)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1_onSuccess_m9027743EF3987F3DF5321E0EA00832A6C64349B2_gshared (TaskOnSuccessProxy_1_tE23E4562B3EB01179C19DDE30E2EEC5A30C46743* __this, RuntimeObject* ___result0, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskOnSuccessProxy_1_onSuccess_m083ACC46EA7C096F4E91DBE50CA50E02890CBA33_gshared (TaskOnSuccessProxy_1_t909298F3B41CE0A883F2052378C54123AED29E5D* __this, RuntimeObject* ___result0, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)

@@ -68,88 +68,83 @@ extern void ActivePlatform_SelectSocialPlatform_m1EABC12AC72AE55E283EA6A934A5AA9
 // 0x0000001E System.Void UnityEngine.SocialPlatforms.ISocialPlatform::ShowLeaderboardUI()
 // 0x0000001F System.Boolean UnityEngine.SocialPlatforms.ISocialPlatform::GetLoading(UnityEngine.SocialPlatforms.ILeaderboard)
 // 0x00000020 System.Boolean UnityEngine.SocialPlatforms.ILocalUser::get_authenticated()
-// 0x00000021 System.Boolean UnityEngine.SocialPlatforms.ILocalUser::get_underage()
-// 0x00000022 System.String UnityEngine.SocialPlatforms.IUserProfile::get_userName()
-// 0x00000023 System.String UnityEngine.SocialPlatforms.IUserProfile::get_id()
-// 0x00000024 UnityEngine.SocialPlatforms.UserState UnityEngine.SocialPlatforms.IUserProfile::get_state()
-// 0x00000025 System.Boolean UnityEngine.SocialPlatforms.ILeaderboard::get_loading()
-// 0x00000026 System.String UnityEngine.SocialPlatforms.ILeaderboard::get_id()
-// 0x00000027 UnityEngine.SocialPlatforms.UserScope UnityEngine.SocialPlatforms.ILeaderboard::get_userScope()
-// 0x00000028 UnityEngine.SocialPlatforms.Range UnityEngine.SocialPlatforms.ILeaderboard::get_range()
-// 0x00000029 UnityEngine.SocialPlatforms.TimeScope UnityEngine.SocialPlatforms.ILeaderboard::get_timeScope()
-// 0x0000002A System.Void UnityEngine.SocialPlatforms.Impl.LocalUser::.ctor()
+// 0x00000021 System.String UnityEngine.SocialPlatforms.IUserProfile::get_id()
+// 0x00000022 System.Boolean UnityEngine.SocialPlatforms.ILeaderboard::get_loading()
+// 0x00000023 System.String UnityEngine.SocialPlatforms.ILeaderboard::get_id()
+// 0x00000024 UnityEngine.SocialPlatforms.UserScope UnityEngine.SocialPlatforms.ILeaderboard::get_userScope()
+// 0x00000025 UnityEngine.SocialPlatforms.Range UnityEngine.SocialPlatforms.ILeaderboard::get_range()
+// 0x00000026 UnityEngine.SocialPlatforms.TimeScope UnityEngine.SocialPlatforms.ILeaderboard::get_timeScope()
+// 0x00000027 System.Void UnityEngine.SocialPlatforms.Impl.LocalUser::.ctor()
 extern void LocalUser__ctor_m6D2AE6DFC61CEC39842944D970E2B2B5547CBE97 (void);
-// 0x0000002B System.Boolean UnityEngine.SocialPlatforms.Impl.LocalUser::get_authenticated()
+// 0x00000028 System.Boolean UnityEngine.SocialPlatforms.Impl.LocalUser::get_authenticated()
 extern void LocalUser_get_authenticated_m3121DA81FF48CFFB4024ADECEE98F8E686497C54 (void);
-// 0x0000002C System.Boolean UnityEngine.SocialPlatforms.Impl.LocalUser::get_underage()
-extern void LocalUser_get_underage_m04B290B0CC667F31E8A5BB6D3B6B788717F51F55 (void);
-// 0x0000002D System.Void UnityEngine.SocialPlatforms.Impl.UserProfile::.ctor()
+// 0x00000029 System.Void UnityEngine.SocialPlatforms.Impl.UserProfile::.ctor()
 extern void UserProfile__ctor_m12A26F8BDE41F4B55A645BB1D4038E81A877E680 (void);
-// 0x0000002E System.String UnityEngine.SocialPlatforms.Impl.UserProfile::ToString()
+// 0x0000002A System.String UnityEngine.SocialPlatforms.Impl.UserProfile::ToString()
 extern void UserProfile_ToString_mEB091241EC114F4F42D2CE15F127B83556EBE45D (void);
-// 0x0000002F System.String UnityEngine.SocialPlatforms.Impl.UserProfile::get_userName()
+// 0x0000002B System.String UnityEngine.SocialPlatforms.Impl.UserProfile::get_userName()
 extern void UserProfile_get_userName_mDAAF12B06B939DDAAB6F10E8CB40B21C48A94F30 (void);
-// 0x00000030 System.String UnityEngine.SocialPlatforms.Impl.UserProfile::get_id()
+// 0x0000002C System.String UnityEngine.SocialPlatforms.Impl.UserProfile::get_id()
 extern void UserProfile_get_id_m16A4060A0C7E4480F68D6915E6FAB15EAE973336 (void);
-// 0x00000031 System.Boolean UnityEngine.SocialPlatforms.Impl.UserProfile::get_isFriend()
+// 0x0000002D System.Boolean UnityEngine.SocialPlatforms.Impl.UserProfile::get_isFriend()
 extern void UserProfile_get_isFriend_m353D113C22BFA80F0E9A1DBEC40E4EF4984AC4EC (void);
-// 0x00000032 UnityEngine.SocialPlatforms.UserState UnityEngine.SocialPlatforms.Impl.UserProfile::get_state()
+// 0x0000002E UnityEngine.SocialPlatforms.UserState UnityEngine.SocialPlatforms.Impl.UserProfile::get_state()
 extern void UserProfile_get_state_mF5F8CF4E71CD46ADBCC58E5A3AFA715B3E5F9D4A (void);
-// 0x00000033 System.Void UnityEngine.SocialPlatforms.Impl.Achievement::.ctor(System.String,System.Double,System.Boolean,System.Boolean,System.DateTime)
+// 0x0000002F System.Void UnityEngine.SocialPlatforms.Impl.Achievement::.ctor(System.String,System.Double,System.Boolean,System.Boolean,System.DateTime)
 extern void Achievement__ctor_mE4B26ACD8E4220F645864036B7F9AD2E7D746B85 (void);
-// 0x00000034 System.String UnityEngine.SocialPlatforms.Impl.Achievement::ToString()
+// 0x00000030 System.String UnityEngine.SocialPlatforms.Impl.Achievement::ToString()
 extern void Achievement_ToString_m15B103F95C549FCED0D581FBACD73E47310C9EAC (void);
-// 0x00000035 System.Void UnityEngine.SocialPlatforms.Impl.Achievement::SetCompleted(System.Boolean)
+// 0x00000031 System.Void UnityEngine.SocialPlatforms.Impl.Achievement::SetCompleted(System.Boolean)
 extern void Achievement_SetCompleted_mE342B402331E79D656CBC5E7FE881F69641D1E88 (void);
-// 0x00000036 System.Void UnityEngine.SocialPlatforms.Impl.Achievement::SetHidden(System.Boolean)
+// 0x00000032 System.Void UnityEngine.SocialPlatforms.Impl.Achievement::SetHidden(System.Boolean)
 extern void Achievement_SetHidden_m9D0CA6D3F8539818DB88E3174AB57D4746B9CDCE (void);
-// 0x00000037 System.Void UnityEngine.SocialPlatforms.Impl.Achievement::SetLastReportedDate(System.DateTime)
+// 0x00000033 System.Void UnityEngine.SocialPlatforms.Impl.Achievement::SetLastReportedDate(System.DateTime)
 extern void Achievement_SetLastReportedDate_m0235AF958908983C7B025090C5A4061D27F7B3F3 (void);
-// 0x00000038 System.String UnityEngine.SocialPlatforms.Impl.Achievement::get_id()
+// 0x00000034 System.String UnityEngine.SocialPlatforms.Impl.Achievement::get_id()
 extern void Achievement_get_id_m0BDCED7ECE8BA170E619212CB2D23BD28322A0A6 (void);
-// 0x00000039 System.Void UnityEngine.SocialPlatforms.Impl.Achievement::set_id(System.String)
+// 0x00000035 System.Void UnityEngine.SocialPlatforms.Impl.Achievement::set_id(System.String)
 extern void Achievement_set_id_mF2FB90F3D2F1F38DBDB449C956B8B35BAF6108EE (void);
-// 0x0000003A System.Double UnityEngine.SocialPlatforms.Impl.Achievement::get_percentCompleted()
+// 0x00000036 System.Double UnityEngine.SocialPlatforms.Impl.Achievement::get_percentCompleted()
 extern void Achievement_get_percentCompleted_mC0BFB768F39C110F2A851B5089C300E1C879D860 (void);
-// 0x0000003B System.Void UnityEngine.SocialPlatforms.Impl.Achievement::set_percentCompleted(System.Double)
+// 0x00000037 System.Void UnityEngine.SocialPlatforms.Impl.Achievement::set_percentCompleted(System.Double)
 extern void Achievement_set_percentCompleted_mFB33E191E8D7557E178EEC6DB80B616C268824BD (void);
-// 0x0000003C System.Boolean UnityEngine.SocialPlatforms.Impl.Achievement::get_completed()
+// 0x00000038 System.Boolean UnityEngine.SocialPlatforms.Impl.Achievement::get_completed()
 extern void Achievement_get_completed_m5A625BD69E129E468D83A98CF4CAA4AA28E0B2BF (void);
-// 0x0000003D System.Boolean UnityEngine.SocialPlatforms.Impl.Achievement::get_hidden()
+// 0x00000039 System.Boolean UnityEngine.SocialPlatforms.Impl.Achievement::get_hidden()
 extern void Achievement_get_hidden_m343030FB2BE6636313A09DEDCB02BE0ADB5E3A8E (void);
-// 0x0000003E System.DateTime UnityEngine.SocialPlatforms.Impl.Achievement::get_lastReportedDate()
+// 0x0000003A System.DateTime UnityEngine.SocialPlatforms.Impl.Achievement::get_lastReportedDate()
 extern void Achievement_get_lastReportedDate_mEACB3BADB0996AF967B26378FA48BC964E68F091 (void);
-// 0x0000003F System.String UnityEngine.SocialPlatforms.Impl.AchievementDescription::get_id()
+// 0x0000003B System.String UnityEngine.SocialPlatforms.Impl.AchievementDescription::get_id()
 extern void AchievementDescription_get_id_mC954988F8344E3B7E316D15EBD240A85D06A77C7 (void);
-// 0x00000040 System.Void UnityEngine.SocialPlatforms.Impl.Score::.ctor(System.String,System.Int64,System.String,System.DateTime,System.String,System.Int32)
+// 0x0000003C System.Void UnityEngine.SocialPlatforms.Impl.Score::.ctor(System.String,System.Int64,System.String,System.DateTime,System.String,System.Int32)
 extern void Score__ctor_mD90E3983F2E8AF6001AB7C5E54497752F21E0F31 (void);
-// 0x00000041 System.String UnityEngine.SocialPlatforms.Impl.Score::ToString()
+// 0x0000003D System.String UnityEngine.SocialPlatforms.Impl.Score::ToString()
 extern void Score_ToString_m497A4E6B7AA8D2B8433137127949781736A16037 (void);
-// 0x00000042 System.Void UnityEngine.SocialPlatforms.Impl.Score::SetRank(System.Int32)
+// 0x0000003E System.Void UnityEngine.SocialPlatforms.Impl.Score::SetRank(System.Int32)
 extern void Score_SetRank_mDDF8867E9170BA843759EBBA108C07D3CF258099 (void);
-// 0x00000043 System.String UnityEngine.SocialPlatforms.Impl.Score::get_leaderboardID()
+// 0x0000003F System.String UnityEngine.SocialPlatforms.Impl.Score::get_leaderboardID()
 extern void Score_get_leaderboardID_m46C97C5AFC37C00BFBEE51457BD6149B874E114A (void);
-// 0x00000044 System.Void UnityEngine.SocialPlatforms.Impl.Score::set_leaderboardID(System.String)
+// 0x00000040 System.Void UnityEngine.SocialPlatforms.Impl.Score::set_leaderboardID(System.String)
 extern void Score_set_leaderboardID_m6F297139EFA0D2AA106B58FA267AFF7A147A85DB (void);
-// 0x00000045 System.Int64 UnityEngine.SocialPlatforms.Impl.Score::get_value()
+// 0x00000041 System.Int64 UnityEngine.SocialPlatforms.Impl.Score::get_value()
 extern void Score_get_value_m2978563520D7392815E60349F89A5A1B5516DE5E (void);
-// 0x00000046 System.Void UnityEngine.SocialPlatforms.Impl.Score::set_value(System.Int64)
+// 0x00000042 System.Void UnityEngine.SocialPlatforms.Impl.Score::set_value(System.Int64)
 extern void Score_set_value_m7332E2AAE1792ECEA5016FA51F4E4403CDA120C3 (void);
-// 0x00000047 System.Boolean UnityEngine.SocialPlatforms.Impl.Leaderboard::get_loading()
+// 0x00000043 System.Boolean UnityEngine.SocialPlatforms.Impl.Leaderboard::get_loading()
 extern void Leaderboard_get_loading_mE6CC3F9AE66A0909F02F3EE8BBCD8DA9B4BB8A39 (void);
-// 0x00000048 System.Void UnityEngine.SocialPlatforms.Impl.Leaderboard::SetScores(UnityEngine.SocialPlatforms.IScore[])
+// 0x00000044 System.Void UnityEngine.SocialPlatforms.Impl.Leaderboard::SetScores(UnityEngine.SocialPlatforms.IScore[])
 extern void Leaderboard_SetScores_m0ACEEFFAD67AE7F7DC644DD034F5F2C431265943 (void);
-// 0x00000049 System.String UnityEngine.SocialPlatforms.Impl.Leaderboard::get_id()
+// 0x00000045 System.String UnityEngine.SocialPlatforms.Impl.Leaderboard::get_id()
 extern void Leaderboard_get_id_mA5577E5D07BEE409EF2CDE6177AEB90547554770 (void);
-// 0x0000004A UnityEngine.SocialPlatforms.UserScope UnityEngine.SocialPlatforms.Impl.Leaderboard::get_userScope()
+// 0x00000046 UnityEngine.SocialPlatforms.UserScope UnityEngine.SocialPlatforms.Impl.Leaderboard::get_userScope()
 extern void Leaderboard_get_userScope_m84E19D835910E26104D25567BA0B1C6A518FC5C1 (void);
-// 0x0000004B UnityEngine.SocialPlatforms.Range UnityEngine.SocialPlatforms.Impl.Leaderboard::get_range()
+// 0x00000047 UnityEngine.SocialPlatforms.Range UnityEngine.SocialPlatforms.Impl.Leaderboard::get_range()
 extern void Leaderboard_get_range_m98008ADA839E76C8D69D152F7FC6EDBF2F6985DB (void);
-// 0x0000004C UnityEngine.SocialPlatforms.TimeScope UnityEngine.SocialPlatforms.Impl.Leaderboard::get_timeScope()
+// 0x00000048 UnityEngine.SocialPlatforms.TimeScope UnityEngine.SocialPlatforms.Impl.Leaderboard::get_timeScope()
 extern void Leaderboard_get_timeScope_mB7893524B11F9CF2C739B269C6CA34F19B1FC95E (void);
-// 0x0000004D UnityEngine.SocialPlatforms.IScore[] UnityEngine.SocialPlatforms.Impl.Leaderboard::get_scores()
+// 0x00000049 UnityEngine.SocialPlatforms.IScore[] UnityEngine.SocialPlatforms.Impl.Leaderboard::get_scores()
 extern void Leaderboard_get_scores_m7AFF98E30BEA3C889BB84504FDAAA11B33770FE2 (void);
-static Il2CppMethodPointer s_methodPointers[77] = 
+static Il2CppMethodPointer s_methodPointers[73] = 
 {
 	Social_get_Active_m917F0BBA300F5DC846291DA71D6084AAB720EB30,
 	Social_set_Active_mD1C8963D5C6AEB4A2E73AB9D9AD96FA2F51E093D,
@@ -189,12 +184,8 @@ static Il2CppMethodPointer s_methodPointers[77] =
 	NULL,
 	NULL,
 	NULL,
-	NULL,
-	NULL,
-	NULL,
 	LocalUser__ctor_m6D2AE6DFC61CEC39842944D970E2B2B5547CBE97,
 	LocalUser_get_authenticated_m3121DA81FF48CFFB4024ADECEE98F8E686497C54,
-	LocalUser_get_underage_m04B290B0CC667F31E8A5BB6D3B6B788717F51F55,
 	UserProfile__ctor_m12A26F8BDE41F4B55A645BB1D4038E81A877E680,
 	UserProfile_ToString_mEB091241EC114F4F42D2CE15F127B83556EBE45D,
 	UserProfile_get_userName_mDAAF12B06B939DDAAB6F10E8CB40B21C48A94F30,
@@ -229,32 +220,32 @@ static Il2CppMethodPointer s_methodPointers[77] =
 	Leaderboard_get_timeScope_mB7893524B11F9CF2C739B269C6CA34F19B1FC95E,
 	Leaderboard_get_scores_m7AFF98E30BEA3C889BB84504FDAAA11B33770FE2,
 };
-static const int32_t s_InvokerIndices[77] = 
+static const int32_t s_InvokerIndices[73] = 
 {
-	6697,
-	6610,
-	6697,
-	5663,
-	5630,
-	6176,
-	6729,
-	6729,
-	3790,
-	976,
-	964,
-	1799,
-	2270,
-	3165,
-	3890,
-	3890,
-	3723,
-	3890,
-	6729,
-	3890,
-	1286,
-	6697,
-	6610,
-	6697,
+	6690,
+	6603,
+	6690,
+	5657,
+	5624,
+	6169,
+	6722,
+	6722,
+	3788,
+	975,
+	963,
+	1797,
+	2268,
+	3163,
+	3888,
+	3888,
+	3721,
+	3888,
+	6722,
+	3888,
+	1285,
+	6690,
+	6603,
+	6690,
 	0,
 	0,
 	0,
@@ -269,51 +260,47 @@ static const int32_t s_InvokerIndices[77] =
 	0,
 	0,
 	0,
-	0,
-	0,
-	0,
-	3890,
-	3723,
-	3723,
-	3890,
-	3790,
-	3790,
-	3790,
-	3723,
-	3769,
-	344,
-	3790,
-	3093,
-	3093,
-	3113,
-	3790,
-	3165,
-	3741,
-	3117,
-	3723,
-	3723,
-	3737,
-	3790,
+	3888,
+	3721,
+	3888,
+	3788,
+	3788,
+	3788,
+	3721,
+	3767,
+	343,
+	3788,
+	3091,
+	3091,
+	3111,
+	3788,
+	3163,
+	3739,
+	3115,
+	3721,
+	3721,
+	3735,
+	3788,
 	192,
-	3790,
-	3146,
-	3790,
-	3165,
-	3770,
-	3147,
-	3723,
-	3165,
-	3790,
-	3769,
-	3804,
-	3769,
-	3790,
+	3788,
+	3144,
+	3788,
+	3163,
+	3768,
+	3145,
+	3721,
+	3163,
+	3788,
+	3767,
+	3802,
+	3767,
+	3788,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_GameCenterModule_CodeGenModule;
 const Il2CppCodeGenModule g_UnityEngine_GameCenterModule_CodeGenModule = 
 {
 	"UnityEngine.GameCenterModule.dll",
-	77,
+	73,
 	s_methodPointers,
 	0,
 	NULL,

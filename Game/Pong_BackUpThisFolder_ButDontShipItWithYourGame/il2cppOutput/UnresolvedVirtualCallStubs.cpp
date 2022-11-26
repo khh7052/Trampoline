@@ -724,7 +724,7 @@ struct ValueTuple_3_tFD2ADB3DA89E958885034AAFEF1ABDA8C814D987
 };
 
 // GooglePlayGames.BasicApi.Nearby.AdvertisingResult
-struct AdvertisingResult_tC2A0D13DAF5903AFA04349C2874575FC621D1E2C 
+struct AdvertisingResult_t2F2AC397C9B13D4CB235212DDED875C8BE5E7CFC 
 {
 	// GooglePlayGames.BasicApi.ResponseStatus GooglePlayGames.BasicApi.Nearby.AdvertisingResult::mStatus
 	int32_t ___mStatus_0;
@@ -732,13 +732,13 @@ struct AdvertisingResult_tC2A0D13DAF5903AFA04349C2874575FC621D1E2C
 	String_t* ___mLocalEndpointName_1;
 };
 // Native definition for P/Invoke marshalling of GooglePlayGames.BasicApi.Nearby.AdvertisingResult
-struct AdvertisingResult_tC2A0D13DAF5903AFA04349C2874575FC621D1E2C_marshaled_pinvoke
+struct AdvertisingResult_t2F2AC397C9B13D4CB235212DDED875C8BE5E7CFC_marshaled_pinvoke
 {
 	int32_t ___mStatus_0;
 	char* ___mLocalEndpointName_1;
 };
 // Native definition for COM marshalling of GooglePlayGames.BasicApi.Nearby.AdvertisingResult
-struct AdvertisingResult_tC2A0D13DAF5903AFA04349C2874575FC621D1E2C_marshaled_com
+struct AdvertisingResult_t2F2AC397C9B13D4CB235212DDED875C8BE5E7CFC_marshaled_com
 {
 	int32_t ___mStatus_0;
 	Il2CppChar* ___mLocalEndpointName_1;
@@ -942,7 +942,7 @@ struct ComputedTransitionProperty_tD8E4D8EB5DD69E063944F27A48D9263F4F1354E1_mars
 };
 
 // GooglePlayGames.BasicApi.Nearby.ConnectionResponse
-struct ConnectionResponse_tD4B45BF8C81F4514392521939BA9A60D4C175A71 
+struct ConnectionResponse_tD71C6B7BCC0F006C141722E2EE7FD7ACEBC252BA 
 {
 	// System.Int64 GooglePlayGames.BasicApi.Nearby.ConnectionResponse::mLocalClientId
 	int64_t ___mLocalClientId_1;
@@ -954,13 +954,13 @@ struct ConnectionResponse_tD4B45BF8C81F4514392521939BA9A60D4C175A71
 	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___mPayload_4;
 };
 
-struct ConnectionResponse_tD4B45BF8C81F4514392521939BA9A60D4C175A71_StaticFields
+struct ConnectionResponse_tD71C6B7BCC0F006C141722E2EE7FD7ACEBC252BA_StaticFields
 {
 	// System.Byte[] GooglePlayGames.BasicApi.Nearby.ConnectionResponse::EmptyPayload
 	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___EmptyPayload_0;
 };
 // Native definition for P/Invoke marshalling of GooglePlayGames.BasicApi.Nearby.ConnectionResponse
-struct ConnectionResponse_tD4B45BF8C81F4514392521939BA9A60D4C175A71_marshaled_pinvoke
+struct ConnectionResponse_tD71C6B7BCC0F006C141722E2EE7FD7ACEBC252BA_marshaled_pinvoke
 {
 	int64_t ___mLocalClientId_1;
 	char* ___mRemoteEndpointId_2;
@@ -968,7 +968,7 @@ struct ConnectionResponse_tD4B45BF8C81F4514392521939BA9A60D4C175A71_marshaled_pi
 	Il2CppSafeArray/*NONE*/* ___mPayload_4;
 };
 // Native definition for COM marshalling of GooglePlayGames.BasicApi.Nearby.ConnectionResponse
-struct ConnectionResponse_tD4B45BF8C81F4514392521939BA9A60D4C175A71_marshaled_com
+struct ConnectionResponse_tD71C6B7BCC0F006C141722E2EE7FD7ACEBC252BA_marshaled_com
 {
 	int64_t ___mLocalClientId_1;
 	Il2CppChar* ___mRemoteEndpointId_2;
@@ -1232,7 +1232,7 @@ struct EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4
 };
 
 // GooglePlayGames.BasicApi.Nearby.EndpointDetails
-struct EndpointDetails_t95EEA60E16EE0F4CD6834AF29B6BCDE20C10520C 
+struct EndpointDetails_tA093040A72AD2063F89847C6CC686E7EA67F12E0 
 {
 	// System.String GooglePlayGames.BasicApi.Nearby.EndpointDetails::mEndpointId
 	String_t* ___mEndpointId_0;
@@ -1242,14 +1242,14 @@ struct EndpointDetails_t95EEA60E16EE0F4CD6834AF29B6BCDE20C10520C
 	String_t* ___mServiceId_2;
 };
 // Native definition for P/Invoke marshalling of GooglePlayGames.BasicApi.Nearby.EndpointDetails
-struct EndpointDetails_t95EEA60E16EE0F4CD6834AF29B6BCDE20C10520C_marshaled_pinvoke
+struct EndpointDetails_tA093040A72AD2063F89847C6CC686E7EA67F12E0_marshaled_pinvoke
 {
 	char* ___mEndpointId_0;
 	char* ___mName_1;
 	char* ___mServiceId_2;
 };
 // Native definition for COM marshalling of GooglePlayGames.BasicApi.Nearby.EndpointDetails
-struct EndpointDetails_t95EEA60E16EE0F4CD6834AF29B6BCDE20C10520C_marshaled_com
+struct EndpointDetails_tA093040A72AD2063F89847C6CC686E7EA67F12E0_marshaled_com
 {
 	Il2CppChar* ___mEndpointId_0;
 	Il2CppChar* ___mName_1;
@@ -3018,23 +3018,23 @@ struct ComputedStyle_t8B08CCCEE20525528B3FFDAC6D3F58F101AAF54C_marshaled_com
 };
 
 // GooglePlayGames.BasicApi.Nearby.ConnectionRequest
-struct ConnectionRequest_t91E30890E727FF25CC25A9DBB5CF83894E4F4EFF 
+struct ConnectionRequest_t4EA9B003366D32C2178CD48CD3954D22E5E56391 
 {
 	// GooglePlayGames.BasicApi.Nearby.EndpointDetails GooglePlayGames.BasicApi.Nearby.ConnectionRequest::mRemoteEndpoint
-	EndpointDetails_t95EEA60E16EE0F4CD6834AF29B6BCDE20C10520C ___mRemoteEndpoint_0;
+	EndpointDetails_tA093040A72AD2063F89847C6CC686E7EA67F12E0 ___mRemoteEndpoint_0;
 	// System.Byte[] GooglePlayGames.BasicApi.Nearby.ConnectionRequest::mPayload
 	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___mPayload_1;
 };
 // Native definition for P/Invoke marshalling of GooglePlayGames.BasicApi.Nearby.ConnectionRequest
-struct ConnectionRequest_t91E30890E727FF25CC25A9DBB5CF83894E4F4EFF_marshaled_pinvoke
+struct ConnectionRequest_t4EA9B003366D32C2178CD48CD3954D22E5E56391_marshaled_pinvoke
 {
-	EndpointDetails_t95EEA60E16EE0F4CD6834AF29B6BCDE20C10520C_marshaled_pinvoke ___mRemoteEndpoint_0;
+	EndpointDetails_tA093040A72AD2063F89847C6CC686E7EA67F12E0_marshaled_pinvoke ___mRemoteEndpoint_0;
 	Il2CppSafeArray/*NONE*/* ___mPayload_1;
 };
 // Native definition for COM marshalling of GooglePlayGames.BasicApi.Nearby.ConnectionRequest
-struct ConnectionRequest_t91E30890E727FF25CC25A9DBB5CF83894E4F4EFF_marshaled_com
+struct ConnectionRequest_t4EA9B003366D32C2178CD48CD3954D22E5E56391_marshaled_com
 {
-	EndpointDetails_t95EEA60E16EE0F4CD6834AF29B6BCDE20C10520C_marshaled_com ___mRemoteEndpoint_0;
+	EndpointDetails_tA093040A72AD2063F89847C6CC686E7EA67F12E0_marshaled_com ___mRemoteEndpoint_0;
 	Il2CppSafeArray/*NONE*/* ___mPayload_1;
 };
 
@@ -4405,7 +4405,7 @@ struct PlayableOutput_t2F7C45A58DA3E788EEDDB439549E21CF3FCF3680_StaticFields
 };
 
 // GooglePlayGames.BasicApi.SavedGame.SavedGameMetadataUpdate
-struct SavedGameMetadataUpdate_t20A9D002EF0A6174E7C7B6B52EFA6AFA2E5775E0 
+struct SavedGameMetadataUpdate_tC9E6CAB51B9AF869DB28DFAC4563F8EBC73E0F1B 
 {
 	// System.Boolean GooglePlayGames.BasicApi.SavedGame.SavedGameMetadataUpdate::mDescriptionUpdated
 	bool ___mDescriptionUpdated_0;
@@ -4419,7 +4419,7 @@ struct SavedGameMetadataUpdate_t20A9D002EF0A6174E7C7B6B52EFA6AFA2E5775E0
 	Nullable_1_tE151CE1F6892804B41C4004C95CB57020ABB3272 ___mNewPlayedTime_4;
 };
 // Native definition for P/Invoke marshalling of GooglePlayGames.BasicApi.SavedGame.SavedGameMetadataUpdate
-struct SavedGameMetadataUpdate_t20A9D002EF0A6174E7C7B6B52EFA6AFA2E5775E0_marshaled_pinvoke
+struct SavedGameMetadataUpdate_tC9E6CAB51B9AF869DB28DFAC4563F8EBC73E0F1B_marshaled_pinvoke
 {
 	int32_t ___mDescriptionUpdated_0;
 	char* ___mNewDescription_1;
@@ -4428,7 +4428,7 @@ struct SavedGameMetadataUpdate_t20A9D002EF0A6174E7C7B6B52EFA6AFA2E5775E0_marshal
 	Nullable_1_tE151CE1F6892804B41C4004C95CB57020ABB3272 ___mNewPlayedTime_4;
 };
 // Native definition for COM marshalling of GooglePlayGames.BasicApi.SavedGame.SavedGameMetadataUpdate
-struct SavedGameMetadataUpdate_t20A9D002EF0A6174E7C7B6B52EFA6AFA2E5775E0_marshaled_com
+struct SavedGameMetadataUpdate_tC9E6CAB51B9AF869DB28DFAC4563F8EBC73E0F1B_marshaled_com
 {
 	int32_t ___mDescriptionUpdated_0;
 	Il2CppChar* ___mNewDescription_1;
@@ -9860,7 +9860,7 @@ static  void UnresolvedVirtualCall_751 (RuntimeObject* __this, ValueTuple_5_t558
 	void* args[] = {&p1};
 	method->invoker_method(il2cpp_codegen_get_method_pointer(method), method, __this, args, NULL);
 }
-static  void UnresolvedVirtualCall_752 (RuntimeObject* __this, AdvertisingResult_tC2A0D13DAF5903AFA04349C2874575FC621D1E2C p1, const RuntimeMethod* method)
+static  void UnresolvedVirtualCall_752 (RuntimeObject* __this, AdvertisingResult_t2F2AC397C9B13D4CB235212DDED875C8BE5E7CFC p1, const RuntimeMethod* method)
 {
 	void* args[] = {&p1};
 	method->invoker_method(il2cpp_codegen_get_method_pointer(method), method, __this, args, NULL);
@@ -9900,12 +9900,12 @@ static  void UnresolvedVirtualCall_759 (RuntimeObject* __this, ComputedTransitio
 	void* args[] = {&p1};
 	method->invoker_method(il2cpp_codegen_get_method_pointer(method), method, __this, args, NULL);
 }
-static  void UnresolvedVirtualCall_760 (RuntimeObject* __this, ConnectionRequest_t91E30890E727FF25CC25A9DBB5CF83894E4F4EFF p1, const RuntimeMethod* method)
+static  void UnresolvedVirtualCall_760 (RuntimeObject* __this, ConnectionRequest_t4EA9B003366D32C2178CD48CD3954D22E5E56391 p1, const RuntimeMethod* method)
 {
 	void* args[] = {&p1};
 	method->invoker_method(il2cpp_codegen_get_method_pointer(method), method, __this, args, NULL);
 }
-static  void UnresolvedVirtualCall_761 (RuntimeObject* __this, ConnectionResponse_tD4B45BF8C81F4514392521939BA9A60D4C175A71 p1, const RuntimeMethod* method)
+static  void UnresolvedVirtualCall_761 (RuntimeObject* __this, ConnectionResponse_tD71C6B7BCC0F006C141722E2EE7FD7ACEBC252BA p1, const RuntimeMethod* method)
 {
 	void* args[] = {&p1};
 	method->invoker_method(il2cpp_codegen_get_method_pointer(method), method, __this, args, NULL);
@@ -9935,7 +9935,7 @@ static  void UnresolvedVirtualCall_766 (RuntimeObject* __this, EasingFunction_t5
 	void* args[] = {&p1};
 	method->invoker_method(il2cpp_codegen_get_method_pointer(method), method, __this, args, NULL);
 }
-static  void UnresolvedVirtualCall_767 (RuntimeObject* __this, EndpointDetails_t95EEA60E16EE0F4CD6834AF29B6BCDE20C10520C p1, const RuntimeMethod* method)
+static  void UnresolvedVirtualCall_767 (RuntimeObject* __this, EndpointDetails_tA093040A72AD2063F89847C6CC686E7EA67F12E0 p1, const RuntimeMethod* method)
 {
 	void* args[] = {&p1};
 	method->invoker_method(il2cpp_codegen_get_method_pointer(method), method, __this, args, NULL);
@@ -10205,7 +10205,7 @@ static  void UnresolvedVirtualCall_820 (RuntimeObject* __this, RuntimeObject* p1
 	void* args[] = {p1,&p2,&p3};
 	method->invoker_method(il2cpp_codegen_get_method_pointer(method), method, __this, args, NULL);
 }
-static  void UnresolvedVirtualCall_821 (RuntimeObject* __this, RuntimeObject* p1, SavedGameMetadataUpdate_t20A9D002EF0A6174E7C7B6B52EFA6AFA2E5775E0 p2, RuntimeObject* p3, RuntimeObject* p4, const RuntimeMethod* method)
+static  void UnresolvedVirtualCall_821 (RuntimeObject* __this, RuntimeObject* p1, SavedGameMetadataUpdate_tC9E6CAB51B9AF869DB28DFAC4563F8EBC73E0F1B p2, RuntimeObject* p3, RuntimeObject* p4, const RuntimeMethod* method)
 {
 	void* args[] = {p1,&p2,p3,p4};
 	method->invoker_method(il2cpp_codegen_get_method_pointer(method), method, __this, args, NULL);
