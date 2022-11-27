@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLobby: 0
-  onAwake: 0
+  onReady: 0
   onStart: 1
   onPause: 0
   onContinue: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLobby: 0
-  onAwake: 0
+  onReady: 0
   onStart: 1
   onPause: 0
   onContinue: 0
@@ -253,7 +253,7 @@ MonoBehaviour:
   spawnDistance: 100
   removeDistance: 50
   limitHeight: 50
-  spawnDealy: 10
+  spawnDealy: 8
   isSpowning: 0
   onRemove: 0
 --- !u!114 &1479242325
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChasing: 0
   moveDirection: 2
-  moveSpeed: 8
+  moveSpeed: 12
 --- !u!114 &8224274123377482233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLobby: 0
-  onAwake: 0
+  onReady: 0
   onStart: 1
   onPause: 0
   onContinue: 0

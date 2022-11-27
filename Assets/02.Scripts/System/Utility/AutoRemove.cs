@@ -18,6 +18,8 @@ public class AutoRemove : MonoBehaviour
 
     void Start()
     {
+        GameManager.OnGameReady.AddListener(Remove);
+
         switch (type)
         {
             case RemoveType.DEALY:
@@ -38,15 +40,21 @@ public class AutoRemove : MonoBehaviour
             if (GameManager.Instance.state != GameState.PLAY) continue;
             if (GameManager.BallHeight > transform.position.y + removeDistance) break;
         }
+        Remove();
+    }
+    
+    private void Remove()
+    {
         Destroy(gameObject);
     }
+
 
     private void OnBecameInvisible()
     {
         if(type == RemoveType.INVISIBLE)
         {
             print(gameObject.name);
-            Destroy(gameObject);
+            Remove();
         }
     }
 }

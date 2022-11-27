@@ -23,6 +23,7 @@ public class PlayerLine : BaseInit
     [SerializeField] private Color creatingColor;
     [SerializeField] private Color attackColor;
 
+    [SerializeField] private LayerMask ballLayer;
     [SerializeField] private LayerMask checkLayer;
     
     public float dashOffsetSpeed = 1.2f;
@@ -136,6 +137,14 @@ public class PlayerLine : BaseInit
         Vector2 dir = line.End - line.Start;
         float length = dir.magnitude;
         dir = dir.normalized;
+
+        RaycastHit2D ballHit = Physics2D.Raycast(line.Start, dir, length, ballLayer);
+
+        if (ballHit)
+        {
+            print(ballHit.transform.name);
+            SoundManager.Instance.PlaySFX(GameManager.MainBall.bounceSound);
+        }
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(line.Start, dir, length, checkLayer);
         HP hp;

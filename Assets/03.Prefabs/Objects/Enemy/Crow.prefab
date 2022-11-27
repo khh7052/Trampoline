@@ -214,14 +214,14 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   minSideOffset: 0.1
-  maxSideOffset: 0.5
+  maxSideOffset: 0.4
   minUpOffset: 0.2
   maxUpOffset: 1.2
   fixedY: 0
   fixedUpOffset: 0.1
   spawnType: 1
   spawnDistance: 50
-  removeDistance: 50
+  removeDistance: 45
   limitHeight: 50
   spawnDealy: 5
   isSpowning: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLobby: 0
-  onAwake: 0
+  onReady: 0
   onStart: 1
   onPause: 0
   onContinue: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChasing: 1
   moveDirection: 0
-  moveSpeed: 2.5
+  moveSpeed: 5
 --- !u!114 &7871829926425507102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLobby: 0
-  onAwake: 0
+  onReady: 0
   onStart: 1
   onPause: 0
   onContinue: 0

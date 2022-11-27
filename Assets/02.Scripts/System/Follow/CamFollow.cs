@@ -21,7 +21,7 @@ public class CamFollow : BaseInit
 
         if (target.position.y > transform.position.y)
         {
-            pos.y = Mathf.Lerp(pos.y, target.position.y, Time.deltaTime * speed);
+            pos.y = Mathf.Lerp(pos.y, target.position.y, Time.smoothDeltaTime * speed);
             // pos.y = target.position.y;
         }
         

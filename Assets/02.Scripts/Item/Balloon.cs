@@ -21,7 +21,7 @@ public class Balloon : DamageableObject
     {
         int rand = Random.Range(0, items.Count);
 
-        Instantiate(items[rand], transform.position, Quaternion.identity);
+        Instantiate(items[rand], transform.position, items[rand].transform.rotation);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

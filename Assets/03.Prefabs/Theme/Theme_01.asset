@@ -42,6 +42,21 @@ MonoBehaviour:
     limitHeight: 1000
   enemies:
   - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
+    spawnHeightPercent: 20
+    spawnHeight: 200
+    limitHeightPercent: 100
+    limitHeight: 1000
+  - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
+    spawnHeightPercent: 30
+    spawnHeight: 300
+    limitHeightPercent: 100
+    limitHeight: 1000
+  - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
+    spawnHeightPercent: 40
+    spawnHeight: 400
+    limitHeightPercent: 100
+    limitHeight: 1000
+  - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
     spawnHeightPercent: 50
     spawnHeight: 500
     limitHeightPercent: 100
@@ -51,14 +66,14 @@ MonoBehaviour:
     spawnHeight: 600
     limitHeightPercent: 100
     limitHeight: 1000
-  - spawnObject: {fileID: 7279942823016442885, guid: 2f0547f1b910cb243a5e73d38a445a77, type: 3}
-    spawnHeightPercent: 70
-    spawnHeight: 700
+  - spawnObject: {fileID: 8533228464220580260, guid: 824ca04825bb3534fa5a4da43a8a6ac0, type: 3}
+    spawnHeightPercent: 80
+    spawnHeight: 800
     limitHeightPercent: 100
     limitHeight: 1000
   items:
   - spawnObject: {fileID: 9031822537721832165, guid: 6f1a6d4be3b804141a96fc0ad929ea23, type: 3}
-    spawnHeightPercent: 50
-    spawnHeight: 500
+    spawnHeightPercent: 40
+    spawnHeight: 400
     limitHeightPercent: 100
     limitHeight: 1000
