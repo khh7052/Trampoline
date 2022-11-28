@@ -31,13 +31,13 @@ MonoBehaviour:
     limitHeightPercent: 100
     limitHeight: 3000
   - spawnObject: {fileID: 3656994241601731570, guid: 7e50a6cbd823c8a4aab9e1e87df20e76, type: 3}
-    spawnHeightPercent: 0
-    spawnHeight: 2000
+    spawnHeightPercent: 5
+    spawnHeight: 2050
     limitHeightPercent: 75
     limitHeight: 2750
   - spawnObject: {fileID: 3656994241601731570, guid: 7e50a6cbd823c8a4aab9e1e87df20e76, type: 3}
-    spawnHeightPercent: 0
-    spawnHeight: 2000
+    spawnHeightPercent: 10
+    spawnHeight: 2100
     limitHeightPercent: 75
     limitHeight: 2750
   enemies: []

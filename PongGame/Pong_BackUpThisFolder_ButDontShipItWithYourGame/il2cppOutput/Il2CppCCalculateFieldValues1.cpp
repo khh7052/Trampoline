@@ -13390,6 +13390,8 @@ struct Item_tFAF77888D49883A321EB596A7D93CB5615D37E95  : public MonoBehaviour_t5
 	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___useSound_6;
 	// UnityEngine.AudioClip Item::removeSound
 	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___removeSound_7;
+	// System.Boolean Item::isInvisible
+	bool ___isInvisible_8;
 };
 
 // MagnusEffect
@@ -14061,16 +14063,18 @@ struct ContentSizeFitter_tC40AED5F772F1F140F69E0F1BB7D4AE31D64A87B  : public UIB
 // DamageableObject
 struct DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8  : public BaseInit_t4246053C378391CB34CA5C9FBDA2A2EB1976EEEA
 {
+	// UnityEngine.Animator DamageableObject::animator
+	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___animator_11;
 	// RandomSpawn DamageableObject::spawn
-	RandomSpawn_tE9C1210478D65E9AE199F25511DF0A0492E5C23F* ___spawn_11;
+	RandomSpawn_tE9C1210478D65E9AE199F25511DF0A0492E5C23F* ___spawn_12;
 	// HP DamageableObject::hp
-	HP_tB907897EBD8B92A527D3E67EDE3C3614A666B665* ___hp_12;
-	// System.Collections.Generic.List`1<UnityEngine.AudioClip> DamageableObject::hitSounds
-	List_1_t33C1B21871505CF0516B63C148CD83EDA452BB5F* ___hitSounds_13;
+	HP_tB907897EBD8B92A527D3E67EDE3C3614A666B665* ___hp_13;
+	// System.Collections.Generic.List`1<UnityEngine.AudioClip> DamageableObject::hitSound
+	List_1_t33C1B21871505CF0516B63C148CD83EDA452BB5F* ___hitSound_14;
 	// System.Collections.Generic.List`1<UnityEngine.AudioClip> DamageableObject::dieSound
-	List_1_t33C1B21871505CF0516B63C148CD83EDA452BB5F* ___dieSound_14;
+	List_1_t33C1B21871505CF0516B63C148CD83EDA452BB5F* ___dieSound_15;
 	// System.Boolean DamageableObject::isInvisible
-	bool ___isInvisible_15;
+	bool ___isInvisible_16;
 };
 
 // UnityEngine.EventSystems.EventSystem
@@ -14256,12 +14260,14 @@ struct Graphic_tCBFCA4585A19E2B75465AECFEAC43F4016BF7931_StaticFields
 // HP
 struct HP_tB907897EBD8B92A527D3E67EDE3C3614A666B665  : public BaseInit_t4246053C378391CB34CA5C9FBDA2A2EB1976EEEA
 {
+	// UnityEngine.Events.UnityEvent HP::OnDamage
+	UnityEvent_tDC2C3548799DBC91D1E3F3DE60083A66F4751977* ___OnDamage_11;
 	// UnityEngine.Events.UnityEvent HP::OnDie
-	UnityEvent_tDC2C3548799DBC91D1E3F3DE60083A66F4751977* ___OnDie_11;
+	UnityEvent_tDC2C3548799DBC91D1E3F3DE60083A66F4751977* ___OnDie_12;
 	// System.Int32 HP::maxHp
-	int32_t ___maxHp_12;
+	int32_t ___maxHp_13;
 	// System.Int32 HP::currentHp
-	int32_t ___currentHp_13;
+	int32_t ___currentHp_14;
 };
 
 // InitActive
@@ -14670,11 +14676,11 @@ struct SoundSlider_t29DB50ECAA65638DDB1ADB6DFAA9E4675EEC16AE  : public BaseInit_
 struct Soupbobble_tAEAC1DD5A701E244E2D8D7BB417820793F821814  : public Item_tFAF77888D49883A321EB596A7D93CB5615D37E95
 {
 	// UnityEngine.Rigidbody2D Soupbobble::rigd
-	Rigidbody2D_tBEBE9523CF4448544085AF46BF7E10AA499F320F* ___rigd_8;
+	Rigidbody2D_tBEBE9523CF4448544085AF46BF7E10AA499F320F* ___rigd_9;
 	// UnityEngine.Vector2 Soupbobble::scaleOffset
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___scaleOffset_9;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___scaleOffset_10;
 	// UnityEngine.Transform Soupbobble::previousParent
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___previousParent_10;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___previousParent_11;
 };
 
 // SpawnManager
@@ -14735,40 +14741,40 @@ struct ToggleGroup_tF2E6FE7D4B17BDBF82462715CFB57C4FDE0A2A2C  : public UIBehavio
 struct Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B  : public DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8
 {
 	// UnityEngine.Rigidbody2D Ball::rigd
-	Rigidbody2D_tBEBE9523CF4448544085AF46BF7E10AA499F320F* ___rigd_16;
+	Rigidbody2D_tBEBE9523CF4448544085AF46BF7E10AA499F320F* ___rigd_17;
 	// UnityEngine.AudioClip Ball::bounceSound
-	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___bounceSound_17;
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___bounceSound_18;
 	// System.Single Ball::maxForce
-	float ___maxForce_18;
+	float ___maxForce_19;
 	// System.Single Ball::bounciness
-	float ___bounciness_19;
+	float ___bounciness_20;
 	// System.Boolean Ball::invincibility
-	bool ___invincibility_20;
+	bool ___invincibility_21;
 	// UnityEngine.SpriteRenderer Ball::spriteRenderer
-	SpriteRenderer_t1DD7FE258F072E1FA87D6577BA27225892B8047B* ___spriteRenderer_21;
+	SpriteRenderer_t1DD7FE258F072E1FA87D6577BA27225892B8047B* ___spriteRenderer_22;
 	// UnityEngine.CircleCollider2D Ball::circleCollider
-	CircleCollider2D_t5D665D58EACA966EA4033BCF0EE91E198552E786* ___circleCollider_22;
+	CircleCollider2D_t5D665D58EACA966EA4033BCF0EE91E198552E786* ___circleCollider_23;
 	// UnityEngine.PhysicsMaterial2D Ball::physicMaterial
-	PhysicsMaterial2D_t20AD48FB40C1BED4689A8135E81015703323C065* ___physicMaterial_23;
+	PhysicsMaterial2D_t20AD48FB40C1BED4689A8135E81015703323C065* ___physicMaterial_24;
 	// UnityEngine.Color Ball::paintingColor
-	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___paintingColor_24;
+	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___paintingColor_25;
 	// System.Boolean Ball::isQuiting
-	bool ___isQuiting_25;
+	bool ___isQuiting_26;
 	// System.Int32 Ball::myLayer
-	int32_t ___myLayer_26;
+	int32_t ___myLayer_27;
 	// System.Int32 Ball::jumpLayer
-	int32_t ___jumpLayer_27;
+	int32_t ___jumpLayer_28;
 	// UnityEngine.LayerMask Ball::obstacleLayerMask
-	LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB ___obstacleLayerMask_28;
+	LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB ___obstacleLayerMask_29;
 	// System.Boolean Ball::isPainting
-	bool ___isPainting_29;
+	bool ___isPainting_30;
 };
 
 // Balloon
 struct Balloon_t6CB988D52ACA6084C14555D88B6DB582F75902D7  : public DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8
 {
 	// System.Collections.Generic.List`1<Item> Balloon::items
-	List_1_tBB4BFB497BCF47BCBBEC63B4E8645B49487294C2* ___items_16;
+	List_1_tBB4BFB497BCF47BCBBEC63B4E8645B49487294C2* ___items_17;
 };
 
 // UnityEngine.UI.Dropdown
@@ -14814,11 +14820,11 @@ struct Dropdown_t54C0BDC1441E058BE37E796F68886671C270EF89_StaticFields
 struct Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB  : public DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8
 {
 	// UnityEngine.AudioClip Enemy::attackSound
-	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___attackSound_16;
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___attackSound_17;
 	// System.Single Enemy::attackRate
-	float ___attackRate_17;
+	float ___attackRate_18;
 	// System.Single Enemy::nextAttackTime
-	float ___nextAttackTime_18;
+	float ___nextAttackTime_19;
 };
 
 // UnityEngine.UI.GraphicRaycaster
@@ -15021,7 +15027,7 @@ struct MaskableGraphic_tFC5B6BE351C90DE53744DF2A70940242774B361E  : public Graph
 struct Meteor_t10360C73FC72D08F34F6121159D820010C67FB1C  : public DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8
 {
 	// UnityEngine.Vector3 Meteor::reduceScale
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___reduceScale_16;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___reduceScale_17;
 };
 
 // UnityEngine.UIElements.PanelRaycaster
@@ -15218,9 +15224,9 @@ struct RawImage_tFF12F7DB574FBDC1863CF607C7A12A5D9F8D6179  : public MaskableGrap
 struct SpacePirate_tCBFDD05B2A313C29FB08E27B83CB778D9B11E411  : public Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB
 {
 	// UnityEngine.Transform SpacePirate::gunPoint
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___gunPoint_19;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___gunPoint_20;
 	// UnityEngine.GameObject SpacePirate::laser
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___laser_20;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___laser_21;
 };
 
 // UnityEngine.EventSystems.StandaloneInputModule
@@ -15958,19 +15964,19 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3340[1] =
 	static_cast<int32_t>(offsetof(Test_tE08E78D2148871B8D08F758019DD90BE185E5B2D, ___log_4)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3341[1] = 
 {
-	static_cast<int32_t>(offsetof(Balloon_t6CB988D52ACA6084C14555D88B6DB582F75902D7, ___items_16)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3342[4] = 
+	static_cast<int32_t>(offsetof(Balloon_t6CB988D52ACA6084C14555D88B6DB582F75902D7, ___items_17)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3342[5] = 
 {
-	static_cast<int32_t>(offsetof(Item_tFAF77888D49883A321EB596A7D93CB5615D37E95, ___OnUse_4)),static_cast<int32_t>(offsetof(Item_tFAF77888D49883A321EB596A7D93CB5615D37E95, ___playerBall_5)),static_cast<int32_t>(offsetof(Item_tFAF77888D49883A321EB596A7D93CB5615D37E95, ___useSound_6)),static_cast<int32_t>(offsetof(Item_tFAF77888D49883A321EB596A7D93CB5615D37E95, ___removeSound_7)),};
+	static_cast<int32_t>(offsetof(Item_tFAF77888D49883A321EB596A7D93CB5615D37E95, ___OnUse_4)),static_cast<int32_t>(offsetof(Item_tFAF77888D49883A321EB596A7D93CB5615D37E95, ___playerBall_5)),static_cast<int32_t>(offsetof(Item_tFAF77888D49883A321EB596A7D93CB5615D37E95, ___useSound_6)),static_cast<int32_t>(offsetof(Item_tFAF77888D49883A321EB596A7D93CB5615D37E95, ___removeSound_7)),static_cast<int32_t>(offsetof(Item_tFAF77888D49883A321EB596A7D93CB5615D37E95, ___isInvisible_8)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3344[3] = 
 {
-	static_cast<int32_t>(offsetof(Soupbobble_tAEAC1DD5A701E244E2D8D7BB417820793F821814, ___rigd_8)),static_cast<int32_t>(offsetof(Soupbobble_tAEAC1DD5A701E244E2D8D7BB417820793F821814, ___scaleOffset_9)),static_cast<int32_t>(offsetof(Soupbobble_tAEAC1DD5A701E244E2D8D7BB417820793F821814, ___previousParent_10)),};
+	static_cast<int32_t>(offsetof(Soupbobble_tAEAC1DD5A701E244E2D8D7BB417820793F821814, ___rigd_9)),static_cast<int32_t>(offsetof(Soupbobble_tAEAC1DD5A701E244E2D8D7BB417820793F821814, ___scaleOffset_10)),static_cast<int32_t>(offsetof(Soupbobble_tAEAC1DD5A701E244E2D8D7BB417820793F821814, ___previousParent_11)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3345[14] = 
 {
-	static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___rigd_16)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___bounceSound_17)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___maxForce_18)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___bounciness_19)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___invincibility_20)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___spriteRenderer_21)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___circleCollider_22)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___physicMaterial_23)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___paintingColor_24)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___isQuiting_25)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___myLayer_26)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___jumpLayer_27)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___obstacleLayerMask_28)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___isPainting_29)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3346[5] = 
+	static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___rigd_17)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___bounceSound_18)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___maxForce_19)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___bounciness_20)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___invincibility_21)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___spriteRenderer_22)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___circleCollider_23)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___physicMaterial_24)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___paintingColor_25)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___isQuiting_26)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___myLayer_27)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___jumpLayer_28)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___obstacleLayerMask_29)),static_cast<int32_t>(offsetof(Ball_t3B9BED2176F4B268C18E329E499D8EC9914B5E2B, ___isPainting_30)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3346[6] = 
 {
-	static_cast<int32_t>(offsetof(DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8, ___spawn_11)),static_cast<int32_t>(offsetof(DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8, ___hp_12)),static_cast<int32_t>(offsetof(DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8, ___hitSounds_13)),static_cast<int32_t>(offsetof(DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8, ___dieSound_14)),static_cast<int32_t>(offsetof(DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8, ___isInvisible_15)),};
+	static_cast<int32_t>(offsetof(DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8, ___animator_11)),static_cast<int32_t>(offsetof(DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8, ___spawn_12)),static_cast<int32_t>(offsetof(DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8, ___hp_13)),static_cast<int32_t>(offsetof(DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8, ___hitSound_14)),static_cast<int32_t>(offsetof(DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8, ___dieSound_15)),static_cast<int32_t>(offsetof(DamageableObject_tAD46E7B44A248BB2856A4ED5FA51448893BA7DE8, ___isInvisible_16)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3347[2] = 
 {
 	static_cast<int32_t>(offsetof(ObjectData_tD9D3F22C72FE76B37DAA1A192E10D74B7C00CBA4, ___colors_4)),static_cast<int32_t>(offsetof(ObjectData_tD9D3F22C72FE76B37DAA1A192E10D74B7C00CBA4, ___spawnTheme_5)),};
@@ -15979,16 +15985,16 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3348[5] =
 	static_cast<int32_t>(offsetof(SpawnData_tA67D0FC1538964E4CF9996817EA842009464A670, ___spawnObject_0)),static_cast<int32_t>(offsetof(SpawnData_tA67D0FC1538964E4CF9996817EA842009464A670, ___spawnHeightPercent_1)),static_cast<int32_t>(offsetof(SpawnData_tA67D0FC1538964E4CF9996817EA842009464A670, ___spawnHeight_2)),static_cast<int32_t>(offsetof(SpawnData_tA67D0FC1538964E4CF9996817EA842009464A670, ___limitHeightPercent_3)),static_cast<int32_t>(offsetof(SpawnData_tA67D0FC1538964E4CF9996817EA842009464A670, ___limitHeight_4)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3349[3] = 
 {
-	static_cast<int32_t>(offsetof(Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB, ___attackSound_16)),static_cast<int32_t>(offsetof(Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB, ___attackRate_17)),static_cast<int32_t>(offsetof(Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB, ___nextAttackTime_18)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3350[3] = 
+	static_cast<int32_t>(offsetof(Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB, ___attackSound_17)),static_cast<int32_t>(offsetof(Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB, ___attackRate_18)),static_cast<int32_t>(offsetof(Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB, ___nextAttackTime_19)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3350[4] = 
 {
-	static_cast<int32_t>(offsetof(HP_tB907897EBD8B92A527D3E67EDE3C3614A666B665, ___OnDie_11)),static_cast<int32_t>(offsetof(HP_tB907897EBD8B92A527D3E67EDE3C3614A666B665, ___maxHp_12)),static_cast<int32_t>(offsetof(HP_tB907897EBD8B92A527D3E67EDE3C3614A666B665, ___currentHp_13)),};
+	static_cast<int32_t>(offsetof(HP_tB907897EBD8B92A527D3E67EDE3C3614A666B665, ___OnDamage_11)),static_cast<int32_t>(offsetof(HP_tB907897EBD8B92A527D3E67EDE3C3614A666B665, ___OnDie_12)),static_cast<int32_t>(offsetof(HP_tB907897EBD8B92A527D3E67EDE3C3614A666B665, ___maxHp_13)),static_cast<int32_t>(offsetof(HP_tB907897EBD8B92A527D3E67EDE3C3614A666B665, ___currentHp_14)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3351[1] = 
 {
-	static_cast<int32_t>(offsetof(Meteor_t10360C73FC72D08F34F6121159D820010C67FB1C, ___reduceScale_16)),};
+	static_cast<int32_t>(offsetof(Meteor_t10360C73FC72D08F34F6121159D820010C67FB1C, ___reduceScale_17)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3352[2] = 
 {
-	static_cast<int32_t>(offsetof(SpacePirate_tCBFDD05B2A313C29FB08E27B83CB778D9B11E411, ___gunPoint_19)),static_cast<int32_t>(offsetof(SpacePirate_tCBFDD05B2A313C29FB08E27B83CB778D9B11E411, ___laser_20)),};
+	static_cast<int32_t>(offsetof(SpacePirate_tCBFDD05B2A313C29FB08E27B83CB778D9B11E411, ___gunPoint_20)),static_cast<int32_t>(offsetof(SpacePirate_tCBFDD05B2A313C29FB08E27B83CB778D9B11E411, ___laser_21)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3353[2] = 
 {
 	static_cast<int32_t>(offsetof(CamFollow_t5F4867EAA2A4F38CACC86BAB8A1F95ECAA9D25DD, ___target_11)),static_cast<int32_t>(offsetof(CamFollow_t5F4867EAA2A4F38CACC86BAB8A1F95ECAA9D25DD, ___speed_12)),};
