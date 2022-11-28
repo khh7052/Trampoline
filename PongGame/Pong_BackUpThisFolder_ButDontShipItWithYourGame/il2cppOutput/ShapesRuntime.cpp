@@ -4153,7 +4153,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Renderer_set_enabled_m015E6D7B825528A311
 // System.Int32 UnityEngine.Transform::get_childCount()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Transform_get_childCount_mE9C29C702AB662CC540CA053EDE48BDAFA35B4B0 (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, const RuntimeMethod* method) ;
 // TMPro.TMP_TextInfo TMPro.TMP_Text::get_textInfo()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E (TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* __this, const RuntimeMethod* method) ;
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E_inline (TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* __this, const RuntimeMethod* method) ;
 // UnityEngine.Material TMPro.TMP_SubMesh::get_material()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* TMP_SubMesh_get_material_mC2E739573C72E85402DEEDC8BA589146E7738A2D (TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* __this, const RuntimeMethod* method) ;
 // UnityEngine.Mesh TMPro.TMP_SubMesh::get_mesh()
@@ -4509,7 +4509,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Line_Internal_m88AED4A953E676AC3C78
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_00fa:
+FINALLY_00ee:
 			{// begin finally (depth: 1)
 				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_0), NULL);
 				return;
@@ -4592,7 +4592,8 @@ FINALLY_00fa:
 			L_41 = Draw_get_ScaleMode_mA0447681DC90DDA0C0376732F2023E7CB2206353_inline(NULL);
 			NullCheck(L_40);
 			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_40, ((float)L_41), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			goto IL_0109;
+			// }
+			goto IL_00fc;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -4600,7 +4601,7 @@ FINALLY_00fa:
 		}
 	}
 
-IL_0109:
+IL_00fc:
 	{
 		// }
 		return;
@@ -4624,15 +4625,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Polyline_Internal_mBCD750037A12A95F
 	U3CU3Ec__DisplayClass6_0_t07C06D16492AF1A92F32E70B41453F51896A80B4 V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* V_1 = NULL;
-	bool V_2 = false;
-	int32_t V_3 = 0;
-	int32_t V_4 = 0;
-	bool V_5 = false;
-	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_6;
-	memset((&V_6), 0, sizeof(V_6));
-	bool V_7 = false;
-	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_8;
-	memset((&V_8), 0, sizeof(V_8));
+	int32_t V_2 = 0;
+	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_3;
+	memset((&V_3), 0, sizeof(V_3));
 	{
 		float L_0 = ___thickness4;
 		(&V_0)->___thickness_0 = L_0;
@@ -4649,115 +4644,104 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Polyline_Internal_mBCD750037A12A95F
 		NullCheck(L_4);
 		bool L_7;
 		L_7 = PolylinePath_EnsureMeshIsReadyToRender_mA901DD197CA703CA741A97CBC2B06B964089AB09(L_4, L_5, L_6, (&V_1), NULL);
-		V_2 = (bool)((((int32_t)L_7) == ((int32_t)0))? 1 : 0);
-		bool L_8 = V_2;
-		if (!L_8)
+		if (L_7)
 		{
-			goto IL_003a;
+			goto IL_0030;
 		}
 	}
 	{
 		// return; // no points defined in the mesh
-		goto IL_0112;
+		return;
 	}
 
-IL_003a:
+IL_0030:
 	{
 		// switch( path.Count ) {
-		PolylinePath_t640AAFE2160837E206A971FDD1C8777D562BEC70* L_9 = ___path0;
-		NullCheck(L_9);
-		int32_t L_10;
-		L_10 = PointPath_1_get_Count_m0B3C9500941F5AACF008435384A6E15BC8E5D781(L_9, PointPath_1_get_Count_m0B3C9500941F5AACF008435384A6E15BC8E5D781_RuntimeMethod_var);
-		V_4 = L_10;
-		int32_t L_11 = V_4;
-		V_3 = L_11;
-		int32_t L_12 = V_3;
-		if (!L_12)
+		PolylinePath_t640AAFE2160837E206A971FDD1C8777D562BEC70* L_8 = ___path0;
+		NullCheck(L_8);
+		int32_t L_9;
+		L_9 = PointPath_1_get_Count_m0B3C9500941F5AACF008435384A6E15BC8E5D781(L_8, PointPath_1_get_Count_m0B3C9500941F5AACF008435384A6E15BC8E5D781_RuntimeMethod_var);
+		V_2 = L_9;
+		int32_t L_10 = V_2;
+		if (!L_10)
 		{
-			goto IL_0050;
+			goto IL_0040;
 		}
 	}
 	{
-		goto IL_004a;
-	}
-
-IL_004a:
-	{
-		int32_t L_13 = V_3;
-		if ((((int32_t)L_13) == ((int32_t)1)))
+		int32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)1)))
 		{
-			goto IL_0060;
+			goto IL_004b;
 		}
 	}
 	{
-		goto IL_0070;
+		goto IL_0056;
 	}
 
-IL_0050:
+IL_0040:
 	{
 		// Debug.LogWarning( "Tried to draw polyline with no points" );
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_mEF15C6B17CE4E1FA7E379CDB82CE40FCD89A3F28(_stringLiteralB11FC3D33C740EF08E3419B19F185A13ED4C2F7F, NULL);
 		// return;
-		goto IL_0112;
+		return;
 	}
 
-IL_0060:
+IL_004b:
 	{
 		// Debug.LogWarning( "Tried to draw polyline with only one point" );
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_mEF15C6B17CE4E1FA7E379CDB82CE40FCD89A3F28(_stringLiteral2A824F2466DAA0DCD3B58E15253229F74ED78813, NULL);
 		// return;
-		goto IL_0112;
+		return;
 	}
 
-IL_0070:
+IL_0056:
 	{
 		// if( DrawCommand.IsAddingDrawCommandsToBuffer ) // mark as used by this command to prevent destroy in dispose
 		il2cpp_codegen_runtime_class_init_inline(DrawCommand_t46A2D90F1D54A6356F670CB5733CF37CB501D363_il2cpp_TypeInfo_var);
-		bool L_14;
-		L_14 = DrawCommand_get_IsAddingDrawCommandsToBuffer_m9CCC05FE7970B00A40F865F27BB90C0DB73992F8(NULL);
-		V_5 = L_14;
-		bool L_15 = V_5;
-		if (!L_15)
+		bool L_12;
+		L_12 = DrawCommand_get_IsAddingDrawCommandsToBuffer_m9CCC05FE7970B00A40F865F27BB90C0DB73992F8(NULL);
+		if (!L_12)
 		{
-			goto IL_0088;
+			goto IL_0068;
 		}
 	}
 	{
 		// path.RegisterToCommandBuffer( DrawCommand.CurrentWritingCommandBuffer );
-		PolylinePath_t640AAFE2160837E206A971FDD1C8777D562BEC70* L_16 = ___path0;
+		PolylinePath_t640AAFE2160837E206A971FDD1C8777D562BEC70* L_13 = ___path0;
 		il2cpp_codegen_runtime_class_init_inline(DrawCommand_t46A2D90F1D54A6356F670CB5733CF37CB501D363_il2cpp_TypeInfo_var);
-		DrawCommand_t46A2D90F1D54A6356F670CB5733CF37CB501D363* L_17;
-		L_17 = DrawCommand_get_CurrentWritingCommandBuffer_m700558C0293497E7352D12BBE49EDAF32D308852(NULL);
-		NullCheck(L_16);
-		DisposableMesh_RegisterToCommandBuffer_mCAB115BCDA533430A49B2BCB9E8257CFA0014368(L_16, L_17, NULL);
+		DrawCommand_t46A2D90F1D54A6356F670CB5733CF37CB501D363* L_14;
+		L_14 = DrawCommand_get_CurrentWritingCommandBuffer_m700558C0293497E7352D12BBE49EDAF32D308852(NULL);
+		NullCheck(L_13);
+		DisposableMesh_RegisterToCommandBuffer_mCAB115BCDA533430A49B2BCB9E8257CFA0014368(L_13, L_14, NULL);
 	}
 
-IL_0088:
+IL_0068:
 	{
 		// using( new IMDrawer( mpbPolyline, ShapesMaterialUtils.GetPolylineMat( joins )[Draw.BlendMode], mesh, 0 ) )
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-		MpbPolyline2D_t252237DEE1804771D6C86843BEA5967692FEF0E5* L_18 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolyline_2;
-		int32_t L_19 = ___joins3;
+		MpbPolyline2D_t252237DEE1804771D6C86843BEA5967692FEF0E5* L_15 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolyline_2;
+		int32_t L_16 = ___joins3;
 		il2cpp_codegen_runtime_class_init_inline(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
-		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_20;
-		L_20 = ShapesMaterialUtils_GetPolylineMat_m8B3C977E3BA6F464080F662E39808491EE2AED99(L_19, NULL);
-		int32_t L_21;
-		L_21 = Draw_get_BlendMode_mF4EBF1522E24D4EA347BEBAEF51ADE29C3E151F2_inline(NULL);
-		NullCheck(L_20);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_22;
-		L_22 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_20, L_21, NULL);
-		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_23 = V_1;
-		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_6), L_18, L_22, L_23, 0, 0, (bool)1, NULL);
+		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_17;
+		L_17 = ShapesMaterialUtils_GetPolylineMat_m8B3C977E3BA6F464080F662E39808491EE2AED99(L_16, NULL);
+		int32_t L_18;
+		L_18 = Draw_get_BlendMode_mF4EBF1522E24D4EA347BEBAEF51ADE29C3E151F2_inline(NULL);
+		NullCheck(L_17);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_19;
+		L_19 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_17, L_18, NULL);
+		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_20 = V_1;
+		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_3), L_15, L_19, L_20, 0, 0, (bool)1, NULL);
 	}
 	{
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_00b7:
+FINALLY_0096:
 			{// begin finally (depth: 1)
-				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_6), NULL);
+				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_3), NULL);
 				return;
 			}// end finally (depth: 1)
 		});
@@ -4765,9 +4749,9 @@ FINALLY_00b7:
 		{// begin try (depth: 1)
 			// ApplyToMpb( mpbPolyline );
 			il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-			MpbPolyline2D_t252237DEE1804771D6C86843BEA5967692FEF0E5* L_24 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolyline_2;
-			Draw_U3CPolyline_InternalU3Eg__ApplyToMpbU7C6_0_mD15F538FADF781524F70F24548D66E1610591A78(L_24, (&V_0), NULL);
-			goto IL_00c6;
+			MpbPolyline2D_t252237DEE1804771D6C86843BEA5967692FEF0E5* L_21 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolyline_2;
+			Draw_U3CPolyline_InternalU3Eg__ApplyToMpbU7C6_0_mD15F538FADF781524F70F24548D66E1610591A78(L_21, (&V_0), NULL);
+			goto IL_00a4;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -4775,42 +4759,40 @@ FINALLY_00b7:
 		}
 	}
 
-IL_00c6:
+IL_00a4:
 	{
 		// if( joins.HasJoinMesh() ) {
-		int32_t L_25 = ___joins3;
-		bool L_26;
-		L_26 = PolylineJoinsExtensions_HasJoinMesh_m5B7FB77848474AF0F101B63985BDEAE035DCA026(L_25, NULL);
-		V_7 = L_26;
-		bool L_27 = V_7;
-		if (!L_27)
+		int32_t L_22 = ___joins3;
+		bool L_23;
+		L_23 = PolylineJoinsExtensions_HasJoinMesh_m5B7FB77848474AF0F101B63985BDEAE035DCA026(L_22, NULL);
+		if (!L_23)
 		{
-			goto IL_0112;
+			goto IL_00e8;
 		}
 	}
 	{
 		// using( new IMDrawer( mpbPolylineJoins, ShapesMaterialUtils.GetPolylineJoinsMat( joins )[Draw.BlendMode], mesh, 1 ) )
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-		MpbPolyline2D_t252237DEE1804771D6C86843BEA5967692FEF0E5* L_28 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolylineJoins_3;
-		int32_t L_29 = ___joins3;
+		MpbPolyline2D_t252237DEE1804771D6C86843BEA5967692FEF0E5* L_24 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolylineJoins_3;
+		int32_t L_25 = ___joins3;
 		il2cpp_codegen_runtime_class_init_inline(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
-		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_30;
-		L_30 = ShapesMaterialUtils_GetPolylineJoinsMat_m6CCE2127D542A8485374BB7754EF602B50708415(L_29, NULL);
-		int32_t L_31;
-		L_31 = Draw_get_BlendMode_mF4EBF1522E24D4EA347BEBAEF51ADE29C3E151F2_inline(NULL);
-		NullCheck(L_30);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_32;
-		L_32 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_30, L_31, NULL);
-		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_33 = V_1;
-		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_8), L_28, L_32, L_33, 1, 0, (bool)1, NULL);
+		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_26;
+		L_26 = ShapesMaterialUtils_GetPolylineJoinsMat_m6CCE2127D542A8485374BB7754EF602B50708415(L_25, NULL);
+		int32_t L_27;
+		L_27 = Draw_get_BlendMode_mF4EBF1522E24D4EA347BEBAEF51ADE29C3E151F2_inline(NULL);
+		NullCheck(L_26);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_28;
+		L_28 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_26, L_27, NULL);
+		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_29 = V_1;
+		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_3), L_24, L_28, L_29, 1, 0, (bool)1, NULL);
 	}
 	{
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0102:
+FINALLY_00da:
 			{// begin finally (depth: 1)
-				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_8), NULL);
+				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_3), NULL);
 				return;
 			}// end finally (depth: 1)
 		});
@@ -4818,9 +4800,9 @@ FINALLY_0102:
 		{// begin try (depth: 1)
 			// ApplyToMpb( mpbPolylineJoins );
 			il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-			MpbPolyline2D_t252237DEE1804771D6C86843BEA5967692FEF0E5* L_34 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolylineJoins_3;
-			Draw_U3CPolyline_InternalU3Eg__ApplyToMpbU7C6_0_mD15F538FADF781524F70F24548D66E1610591A78(L_34, (&V_0), NULL);
-			goto IL_0111;
+			MpbPolyline2D_t252237DEE1804771D6C86843BEA5967692FEF0E5* L_30 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolylineJoins_3;
+			Draw_U3CPolyline_InternalU3Eg__ApplyToMpbU7C6_0_mD15F538FADF781524F70F24548D66E1610591A78(L_30, (&V_0), NULL);
+			goto IL_00e8;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -4828,11 +4810,7 @@ FINALLY_0102:
 		}
 	}
 
-IL_0111:
-	{
-	}
-
-IL_0112:
+IL_00e8:
 	{
 		// }
 		return;
@@ -4856,12 +4834,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Polygon_Internal_mCCA6F21EC056E6E23
 		s_Il2CppMethodInitialized = true;
 	}
 	Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* V_0 = NULL;
-	bool V_1 = false;
-	int32_t V_2 = 0;
-	int32_t V_3 = 0;
-	bool V_4 = false;
-	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_5;
-	memset((&V_5), 0, sizeof(V_5));
+	int32_t V_1 = 0;
+	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_2;
+	memset((&V_2), 0, sizeof(V_2));
 	{
 		// if( path.EnsureMeshIsReadyToRender( triangulation, out Mesh mesh ) == false )
 		PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* L_0 = ___path0;
@@ -4869,121 +4844,115 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Polygon_Internal_mCCA6F21EC056E6E23
 		NullCheck(L_0);
 		bool L_2;
 		L_2 = PolygonPath_EnsureMeshIsReadyToRender_mE6BBBF41077CF69EF7FB04034FA33E60C0928863(L_0, L_1, (&V_0), NULL);
-		V_1 = (bool)((((int32_t)L_2) == ((int32_t)0))? 1 : 0);
-		bool L_3 = V_1;
-		if (!L_3)
+		if (L_2)
 		{
-			goto IL_0016;
+			goto IL_000c;
 		}
 	}
 	{
 		// return; // no points defined in the mesh
-		goto IL_00af;
+		return;
 	}
 
-IL_0016:
+IL_000c:
 	{
 		// switch( path.Count ) {
-		PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* L_4 = ___path0;
-		NullCheck(L_4);
-		int32_t L_5;
-		L_5 = PointPath_1_get_Count_m3290209415F00DA427D81CDAC68400D358D08A5E(L_4, PointPath_1_get_Count_m3290209415F00DA427D81CDAC68400D358D08A5E_RuntimeMethod_var);
-		V_3 = L_5;
-		int32_t L_6 = V_3;
-		V_2 = L_6;
-		int32_t L_7 = V_2;
-		switch (L_7)
+		PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* L_3 = ___path0;
+		NullCheck(L_3);
+		int32_t L_4;
+		L_4 = PointPath_1_get_Count_m3290209415F00DA427D81CDAC68400D358D08A5E(L_3, PointPath_1_get_Count_m3290209415F00DA427D81CDAC68400D358D08A5E_RuntimeMethod_var);
+		V_1 = L_4;
+		int32_t L_5 = V_1;
+		switch (L_5)
 		{
 			case 0:
 			{
-				goto IL_0033;
+				goto IL_0027;
 			}
 			case 1:
 			{
-				goto IL_0040;
+				goto IL_0032;
 			}
 			case 2:
 			{
-				goto IL_004d;
+				goto IL_003d;
 			}
 		}
 	}
 	{
-		goto IL_005a;
+		goto IL_0048;
 	}
 
-IL_0033:
+IL_0027:
 	{
 		// Debug.LogWarning( "Tried to draw polygon with no points" );
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_mEF15C6B17CE4E1FA7E379CDB82CE40FCD89A3F28(_stringLiteral6E8F9A071B829D7599B5FA981493115DC5C68952, NULL);
 		// return;
-		goto IL_00af;
+		return;
 	}
 
-IL_0040:
+IL_0032:
 	{
 		// Debug.LogWarning( "Tried to draw polygon with only one point" );
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_mEF15C6B17CE4E1FA7E379CDB82CE40FCD89A3F28(_stringLiteral2A0B117747C927E3548A2235E64BB67BAF21DF13, NULL);
 		// return;
-		goto IL_00af;
+		return;
 	}
 
-IL_004d:
+IL_003d:
 	{
 		// Debug.LogWarning( "Tried to draw polygon with only two points" );
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_mEF15C6B17CE4E1FA7E379CDB82CE40FCD89A3F28(_stringLiteral9A3874B7C6812634DDF4B7802E61FD6F638D6BD3, NULL);
 		// return;
-		goto IL_00af;
+		return;
 	}
 
-IL_005a:
+IL_0048:
 	{
 		// if( DrawCommand.IsAddingDrawCommandsToBuffer ) // mark as used by this command to prevent destroy in dispose
 		il2cpp_codegen_runtime_class_init_inline(DrawCommand_t46A2D90F1D54A6356F670CB5733CF37CB501D363_il2cpp_TypeInfo_var);
-		bool L_8;
-		L_8 = DrawCommand_get_IsAddingDrawCommandsToBuffer_m9CCC05FE7970B00A40F865F27BB90C0DB73992F8(NULL);
-		V_4 = L_8;
-		bool L_9 = V_4;
-		if (!L_9)
+		bool L_6;
+		L_6 = DrawCommand_get_IsAddingDrawCommandsToBuffer_m9CCC05FE7970B00A40F865F27BB90C0DB73992F8(NULL);
+		if (!L_6)
 		{
-			goto IL_0071;
+			goto IL_005a;
 		}
 	}
 	{
 		// path.RegisterToCommandBuffer( DrawCommand.CurrentWritingCommandBuffer );
-		PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* L_10 = ___path0;
+		PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* L_7 = ___path0;
 		il2cpp_codegen_runtime_class_init_inline(DrawCommand_t46A2D90F1D54A6356F670CB5733CF37CB501D363_il2cpp_TypeInfo_var);
-		DrawCommand_t46A2D90F1D54A6356F670CB5733CF37CB501D363* L_11;
-		L_11 = DrawCommand_get_CurrentWritingCommandBuffer_m700558C0293497E7352D12BBE49EDAF32D308852(NULL);
-		NullCheck(L_10);
-		DisposableMesh_RegisterToCommandBuffer_mCAB115BCDA533430A49B2BCB9E8257CFA0014368(L_10, L_11, NULL);
+		DrawCommand_t46A2D90F1D54A6356F670CB5733CF37CB501D363* L_8;
+		L_8 = DrawCommand_get_CurrentWritingCommandBuffer_m700558C0293497E7352D12BBE49EDAF32D308852(NULL);
+		NullCheck(L_7);
+		DisposableMesh_RegisterToCommandBuffer_mCAB115BCDA533430A49B2BCB9E8257CFA0014368(L_7, L_8, NULL);
 	}
 
-IL_0071:
+IL_005a:
 	{
 		// using( new IMDrawer( mpbPolygon, ShapesMaterialUtils.matPolygon[Draw.BlendMode], mesh ) ) {
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-		MpbPolygon_tECD88062A6A2DB4CDFADD65802560AD08B9B91DB* L_12 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolygon_4;
+		MpbPolygon_tECD88062A6A2DB4CDFADD65802560AD08B9B91DB* L_9 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolygon_4;
 		il2cpp_codegen_runtime_class_init_inline(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
-		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_13 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matPolygon_70;
-		int32_t L_14;
-		L_14 = Draw_get_BlendMode_mF4EBF1522E24D4EA347BEBAEF51ADE29C3E151F2_inline(NULL);
-		NullCheck(L_13);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_15;
-		L_15 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_13, L_14, NULL);
-		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_16 = V_0;
-		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_5), L_12, L_15, L_16, 0, 0, (bool)1, NULL);
+		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_10 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matPolygon_70;
+		int32_t L_11;
+		L_11 = Draw_get_BlendMode_mF4EBF1522E24D4EA347BEBAEF51ADE29C3E151F2_inline(NULL);
+		NullCheck(L_10);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_12;
+		L_12 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_10, L_11, NULL);
+		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_13 = V_0;
+		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_2), L_9, L_12, L_13, 0, 0, (bool)1, NULL);
 	}
 	{
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_00a0:
+FINALLY_0086:
 			{// begin finally (depth: 1)
-				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_5), NULL);
+				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_2), NULL);
 				return;
 			}// end finally (depth: 1)
 		});
@@ -4991,10 +4960,11 @@ FINALLY_00a0:
 		{// begin try (depth: 1)
 			// MetaMpb.ApplyColorOrFill( mpbPolygon, color );
 			il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-			MpbPolygon_tECD88062A6A2DB4CDFADD65802560AD08B9B91DB* L_17 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolygon_4;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_18 = ___color2;
-			MetaMpb_ApplyColorOrFill_TisMpbPolygon_tECD88062A6A2DB4CDFADD65802560AD08B9B91DB_m0DBF095B0801BC9BAD66A86DE164CCA0A9731E25_inline(L_17, L_18, MetaMpb_ApplyColorOrFill_TisMpbPolygon_tECD88062A6A2DB4CDFADD65802560AD08B9B91DB_m0DBF095B0801BC9BAD66A86DE164CCA0A9731E25_RuntimeMethod_var);
-			goto IL_00af;
+			MpbPolygon_tECD88062A6A2DB4CDFADD65802560AD08B9B91DB* L_14 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbPolygon_4;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_15 = ___color2;
+			MetaMpb_ApplyColorOrFill_TisMpbPolygon_tECD88062A6A2DB4CDFADD65802560AD08B9B91DB_m0DBF095B0801BC9BAD66A86DE164CCA0A9731E25_inline(L_14, L_15, MetaMpb_ApplyColorOrFill_TisMpbPolygon_tECD88062A6A2DB4CDFADD65802560AD08B9B91DB_m0DBF095B0801BC9BAD66A86DE164CCA0A9731E25_RuntimeMethod_var);
+			// }
+			goto IL_0094;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -5002,7 +4972,7 @@ FINALLY_00a0:
 		}
 	}
 
-IL_00af:
+IL_0094:
 	{
 		// }
 		return;
@@ -5104,16 +5074,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscCore_mF4C6711037D6244D22B905AB7
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	bool V_0 = false;
-	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	int32_t G_B3_0 = 0;
+	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_0;
+	memset((&V_0), 0, sizeof(V_0));
 	{
 		// if( sector && Mathf.Abs( angleRadEnd - angleRadStart ) < 0.0001f )
 		bool L_0 = ___sector1;
 		if (!L_0)
 		{
-			goto IL_0017;
+			goto IL_0015;
 		}
 	}
 	{
@@ -5121,58 +5089,45 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscCore_mF4C6711037D6244D22B905AB7
 		float L_2 = ___angleRadStart5;
 		float L_3;
 		L_3 = fabsf(((float)il2cpp_codegen_subtract(L_1, L_2)));
-		G_B3_0 = ((((float)L_3) < ((float)(9.99999975E-05f)))? 1 : 0);
-		goto IL_0018;
-	}
-
-IL_0017:
-	{
-		G_B3_0 = 0;
-	}
-
-IL_0018:
-	{
-		V_0 = (bool)G_B3_0;
-		bool L_4 = V_0;
-		if (!L_4)
+		if ((!(((float)L_3) < ((float)(9.99999975E-05f)))))
 		{
-			goto IL_0021;
+			goto IL_0015;
 		}
 	}
 	{
 		// return;
-		goto IL_019c;
+		return;
 	}
 
-IL_0021:
+IL_0015:
 	{
 		// using( new IMDrawer( mpbDisc, ShapesMaterialUtils.GetDiscMaterial( hollow, sector )[Draw.BlendMode], ShapesMeshUtils.QuadMesh[0] ) ) {
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-		MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_5 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
-		bool L_6 = ___hollow0;
-		bool L_7 = ___sector1;
+		MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_4 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+		bool L_5 = ___hollow0;
+		bool L_6 = ___sector1;
 		il2cpp_codegen_runtime_class_init_inline(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
-		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_8;
-		L_8 = ShapesMaterialUtils_GetDiscMaterial_m3D6C797E7EBF25EB33663507E1FFE31DAB19B885_inline(L_6, L_7, NULL);
-		int32_t L_9;
-		L_9 = Draw_get_BlendMode_mF4EBF1522E24D4EA347BEBAEF51ADE29C3E151F2_inline(NULL);
-		NullCheck(L_8);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_10;
-		L_10 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_8, L_9, NULL);
-		MeshU5BU5D_t178CA36422FC397211E68FB7E39C5B2F95619689* L_11;
-		L_11 = ShapesMeshUtils_get_QuadMesh_m56C1128AD0A67091154047D7A8F76F7EE4E168E3(NULL);
-		NullCheck(L_11);
-		int32_t L_12 = 0;
-		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_13 = (L_11)->GetAt(static_cast<il2cpp_array_size_t>(L_12));
-		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_1), L_5, L_10, L_13, 0, 0, (bool)1, NULL);
+		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_7;
+		L_7 = ShapesMaterialUtils_GetDiscMaterial_m3D6C797E7EBF25EB33663507E1FFE31DAB19B885_inline(L_5, L_6, NULL);
+		int32_t L_8;
+		L_8 = Draw_get_BlendMode_mF4EBF1522E24D4EA347BEBAEF51ADE29C3E151F2_inline(NULL);
+		NullCheck(L_7);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_9;
+		L_9 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_7, L_8, NULL);
+		MeshU5BU5D_t178CA36422FC397211E68FB7E39C5B2F95619689* L_10;
+		L_10 = ShapesMeshUtils_get_QuadMesh_m56C1128AD0A67091154047D7A8F76F7EE4E168E3(NULL);
+		NullCheck(L_10);
+		int32_t L_11 = 0;
+		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_12 = (L_10)->GetAt(static_cast<il2cpp_array_size_t>(L_11));
+		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_0), L_4, L_9, L_12, 0, 0, (bool)1, NULL);
 	}
 	{
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_018d:
+FINALLY_0171:
 			{// begin finally (depth: 1)
-				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_1), NULL);
+				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_0), NULL);
 				return;
 			}// end finally (depth: 1)
 		});
@@ -5180,125 +5135,126 @@ FINALLY_018d:
 		{// begin try (depth: 1)
 			// MetaMpb.ApplyDashSettings( mpbDisc, thickness );
 			il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_14 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
-			float L_15 = ___thickness3;
-			MetaMpb_ApplyDashSettings_TisMpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E_mB30EE8E00A5FBCF23937DB38772F090E0F9E06FC_inline(L_14, L_15, MetaMpb_ApplyDashSettings_TisMpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E_mB30EE8E00A5FBCF23937DB38772F090E0F9E06FC_RuntimeMethod_var);
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_13 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			float L_14 = ___thickness3;
+			MetaMpb_ApplyDashSettings_TisMpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E_mB30EE8E00A5FBCF23937DB38772F090E0F9E06FC_inline(L_13, L_14, MetaMpb_ApplyDashSettings_TisMpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E_mB30EE8E00A5FBCF23937DB38772F090E0F9E06FC_RuntimeMethod_var);
 			// mpbDisc.radius.Add( radius );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_16 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_15 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_15);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_16 = L_15->___radius_13;
+			float L_17 = ___radius2;
 			NullCheck(L_16);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_17 = L_16->___radius_13;
-			float L_18 = ___radius2;
-			NullCheck(L_17);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_17, L_18, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_16, L_17, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 			// mpbDisc.radiusSpace.Add( (int)Draw.RadiusSpace );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_19 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_18 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_18);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_19 = L_18->___radiusSpace_14;
+			int32_t L_20;
+			L_20 = Draw_get_RadiusSpace_m60A8A3DFC174DCD6A8DE955D1972E115DC06A5AD_inline(NULL);
 			NullCheck(L_19);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_20 = L_19->___radiusSpace_14;
-			int32_t L_21;
-			L_21 = Draw_get_RadiusSpace_m60A8A3DFC174DCD6A8DE955D1972E115DC06A5AD_inline(NULL);
-			NullCheck(L_20);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_20, ((float)L_21), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_19, ((float)L_20), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 			// mpbDisc.alignment.Add( (int)Draw.DiscGeometry );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_22 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_21 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_21);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_22 = L_21->___alignment_7;
+			int32_t L_23;
+			L_23 = Draw_get_DiscGeometry_mD0F5021D20EB4471D3C1D75C2280A8DD65E91CFD_inline(NULL);
 			NullCheck(L_22);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_23 = L_22->___alignment_7;
-			int32_t L_24;
-			L_24 = Draw_get_DiscGeometry_mD0F5021D20EB4471D3C1D75C2280A8DD65E91CFD_inline(NULL);
-			NullCheck(L_23);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_23, ((float)L_24), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_22, ((float)L_23), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 			// mpbDisc.thicknessSpace.Add( (int)Draw.ThicknessSpace );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_25 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_24 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_24);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_25 = L_24->___thicknessSpace_18;
+			int32_t L_26;
+			L_26 = Draw_get_ThicknessSpace_mEAC10735B9B7101C77FABB9E158768D0FA865B9E_inline(NULL);
 			NullCheck(L_25);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_26 = L_25->___thicknessSpace_18;
-			int32_t L_27;
-			L_27 = Draw_get_ThicknessSpace_mEAC10735B9B7101C77FABB9E158768D0FA865B9E_inline(NULL);
-			NullCheck(L_26);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_26, ((float)L_27), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_25, ((float)L_26), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 			// mpbDisc.thickness.Add( thickness );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_28 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_27 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_27);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_28 = L_27->___thickness_17;
+			float L_29 = ___thickness3;
 			NullCheck(L_28);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_29 = L_28->___thickness_17;
-			float L_30 = ___thickness3;
-			NullCheck(L_29);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_29, L_30, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_28, L_29, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 			// mpbDisc.scaleMode.Add( (int)ScaleMode );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_31 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_30 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_30);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_31 = L_30->___scaleMode_16;
+			int32_t L_32;
+			L_32 = Draw_get_ScaleMode_mA0447681DC90DDA0C0376732F2023E7CB2206353_inline(NULL);
 			NullCheck(L_31);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_32 = L_31->___scaleMode_16;
-			int32_t L_33;
-			L_33 = Draw_get_ScaleMode_mA0447681DC90DDA0C0376732F2023E7CB2206353_inline(NULL);
-			NullCheck(L_32);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_32, ((float)L_33), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_31, ((float)L_32), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 			// mpbDisc.angleStart.Add( angleRadStart );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_34 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_33 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_33);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_34 = L_33->___angleStart_9;
+			float L_35 = ___angleRadStart5;
 			NullCheck(L_34);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_35 = L_34->___angleStart_9;
-			float L_36 = ___angleRadStart5;
-			NullCheck(L_35);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_35, L_36, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_34, L_35, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 			// mpbDisc.angleEnd.Add( angleRadEnd );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_37 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_36 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_36);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_37 = L_36->___angleEnd_8;
+			float L_38 = ___angleRadEnd6;
 			NullCheck(L_37);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_38 = L_37->___angleEnd_8;
-			float L_39 = ___angleRadEnd6;
-			NullCheck(L_38);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_38, L_39, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_37, L_38, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 			// mpbDisc.roundCaps.Add( (int)arcEndCaps );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_40 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_39 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_39);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_40 = L_39->___roundCaps_15;
+			int32_t L_41 = ___arcEndCaps7;
 			NullCheck(L_40);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_41 = L_40->___roundCaps_15;
-			int32_t L_42 = ___arcEndCaps7;
-			NullCheck(L_41);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_41, ((float)L_42), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_40, ((float)L_41), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 			// mpbDisc.color.Add( colors.innerStart.ColorSpaceAdjusted() );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_43 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_42 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_42);
+			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_43 = ((MetaMpb_tB792FE03D70B982D5388C535A9956B333BC2D4E4*)L_42)->___color_5;
+			DiscColors_t23313F313E19AA1FA266B694466D0920D605B50A L_44 = ___colors4;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_45 = L_44.___innerStart_0;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_46;
+			L_46 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_45, NULL);
+			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_47;
+			L_47 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_46, NULL);
 			NullCheck(L_43);
-			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_44 = ((MetaMpb_tB792FE03D70B982D5388C535A9956B333BC2D4E4*)L_43)->___color_5;
-			DiscColors_t23313F313E19AA1FA266B694466D0920D605B50A L_45 = ___colors4;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_46 = L_45.___innerStart_0;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_47;
-			L_47 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_46, NULL);
-			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_48;
-			L_48 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_47, NULL);
-			NullCheck(L_44);
-			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_44, L_48, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_43, L_47, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 			// mpbDisc.colorOuterStart.Add( colors.outerStart.ColorSpaceAdjusted() );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_49 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_48 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_48);
+			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_49 = L_48->___colorOuterStart_12;
+			DiscColors_t23313F313E19AA1FA266B694466D0920D605B50A L_50 = ___colors4;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_51 = L_50.___outerStart_1;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_52;
+			L_52 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_51, NULL);
+			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_53;
+			L_53 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_52, NULL);
 			NullCheck(L_49);
-			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_50 = L_49->___colorOuterStart_12;
-			DiscColors_t23313F313E19AA1FA266B694466D0920D605B50A L_51 = ___colors4;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_52 = L_51.___outerStart_1;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_53;
-			L_53 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_52, NULL);
-			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_54;
-			L_54 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_53, NULL);
-			NullCheck(L_50);
-			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_50, L_54, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_49, L_53, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 			// mpbDisc.colorInnerEnd.Add( colors.innerEnd.ColorSpaceAdjusted() );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_55 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_54 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_54);
+			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_55 = L_54->___colorInnerEnd_10;
+			DiscColors_t23313F313E19AA1FA266B694466D0920D605B50A L_56 = ___colors4;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_57 = L_56.___innerEnd_2;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_58;
+			L_58 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_57, NULL);
+			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_59;
+			L_59 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_58, NULL);
 			NullCheck(L_55);
-			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_56 = L_55->___colorInnerEnd_10;
-			DiscColors_t23313F313E19AA1FA266B694466D0920D605B50A L_57 = ___colors4;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_58 = L_57.___innerEnd_2;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_59;
-			L_59 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_58, NULL);
-			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_60;
-			L_60 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_59, NULL);
-			NullCheck(L_56);
-			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_56, L_60, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_55, L_59, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 			// mpbDisc.colorOuterEnd.Add( colors.outerEnd.ColorSpaceAdjusted() );
-			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_61 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			MpbDisc_t9B273986C5859B7B5AE7EA7971D38A77D2B9733E* L_60 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbDisc_5;
+			NullCheck(L_60);
+			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_61 = L_60->___colorOuterEnd_11;
+			DiscColors_t23313F313E19AA1FA266B694466D0920D605B50A L_62 = ___colors4;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_63 = L_62.___outerEnd_3;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_64;
+			L_64 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_63, NULL);
+			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_65;
+			L_65 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_64, NULL);
 			NullCheck(L_61);
-			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_62 = L_61->___colorOuterEnd_11;
-			DiscColors_t23313F313E19AA1FA266B694466D0920D605B50A L_63 = ___colors4;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_64 = L_63.___outerEnd_3;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_65;
-			L_65 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_64, NULL);
-			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_66;
-			L_66 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_65, NULL);
-			NullCheck(L_62);
-			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_62, L_66, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
-			goto IL_019c;
+			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_61, L_65, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+			// }
+			goto IL_017f;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -5306,7 +5262,7 @@ FINALLY_018d:
 		}
 	}
 
-IL_019c:
+IL_017f:
 	{
 		// }
 		return;
@@ -5349,7 +5305,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygon_Internal_m1CD49A4B5D
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0110:
+FINALLY_0101:
 			{// begin finally (depth: 1)
 				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_0), NULL);
 				return;
@@ -5444,7 +5400,8 @@ FINALLY_0110:
 			L_42 = Draw_get_ScaleMode_mA0447681DC90DDA0C0376732F2023E7CB2206353_inline(NULL);
 			NullCheck(L_41);
 			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_41, ((float)L_42), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			goto IL_011f;
+			// }
+			goto IL_010f;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -5452,7 +5409,7 @@ FINALLY_0110:
 		}
 	}
 
-IL_011f:
+IL_010f:
 	{
 		// }
 		return;
@@ -5473,11 +5430,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Rectangle_Internal_mCF6D5C6FFB1F96F
 		s_Il2CppMethodInitialized = true;
 	}
 	bool V_0 = false;
-	bool V_1 = false;
-	float V_2 = 0.0f;
-	bool V_3 = false;
-	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_4;
-	memset((&V_4), 0, sizeof(V_4));
+	float V_1 = 0.0f;
+	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_2;
+	memset((&V_2), 0, sizeof(V_2));
 	{
 		// bool rounded = ShapesMath.MaxComp( cornerRadii ) >= 0.0001f;
 		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_0 = ___cornerRadii5;
@@ -5487,83 +5442,79 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Rectangle_Internal_mCF6D5C6FFB1F96F
 		// if( rect.width < 0 ) rect.x -= rect.width *= -1;
 		float L_2;
 		L_2 = Rect_get_width_m620D67551372073C9C32C4C4624C2A5713F7F9A9((&___rect2), NULL);
-		V_1 = (bool)((((float)L_2) < ((float)(0.0f)))? 1 : 0);
-		bool L_3 = V_1;
-		if (!L_3)
+		if ((!(((float)L_2) < ((float)(0.0f)))))
 		{
-			goto IL_004b;
+			goto IL_0044;
 		}
 	}
 	{
 		// if( rect.width < 0 ) rect.x -= rect.width *= -1;
-		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D* L_4 = (&___rect2);
-		float L_5;
-		L_5 = Rect_get_x_mB267B718E0D067F2BAE31BA477647FBF964916EB(L_4, NULL);
-		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D* L_6 = (&___rect2);
-		float L_7;
-		L_7 = Rect_get_width_m620D67551372073C9C32C4C4624C2A5713F7F9A9(L_6, NULL);
-		float L_8 = ((float)il2cpp_codegen_multiply(L_7, (-1.0f)));
-		V_2 = L_8;
-		Rect_set_width_m93B6217CF3EFF89F9B0C81F34D7345DE90B93E5A(L_6, L_8, NULL);
-		float L_9 = V_2;
-		Rect_set_x_mAB91AB71898A20762BC66FD0723C4C739C4C3406(L_4, ((float)il2cpp_codegen_subtract(L_5, L_9)), NULL);
+		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D* L_3 = (&___rect2);
+		float L_4;
+		L_4 = Rect_get_x_mB267B718E0D067F2BAE31BA477647FBF964916EB(L_3, NULL);
+		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D* L_5 = (&___rect2);
+		float L_6;
+		L_6 = Rect_get_width_m620D67551372073C9C32C4C4624C2A5713F7F9A9(L_5, NULL);
+		float L_7 = ((float)il2cpp_codegen_multiply(L_6, (-1.0f)));
+		V_1 = L_7;
+		Rect_set_width_m93B6217CF3EFF89F9B0C81F34D7345DE90B93E5A(L_5, L_7, NULL);
+		float L_8 = V_1;
+		Rect_set_x_mAB91AB71898A20762BC66FD0723C4C739C4C3406(L_3, ((float)il2cpp_codegen_subtract(L_4, L_8)), NULL);
 	}
 
-IL_004b:
+IL_0044:
 	{
 		// if( rect.height < 0 ) rect.y -= rect.height *= -1;
-		float L_10;
-		L_10 = Rect_get_height_mE1AA6C6C725CCD2D317BD2157396D3CF7D47C9D8((&___rect2), NULL);
-		V_3 = (bool)((((float)L_10) < ((float)(0.0f)))? 1 : 0);
-		bool L_11 = V_3;
-		if (!L_11)
+		float L_9;
+		L_9 = Rect_get_height_mE1AA6C6C725CCD2D317BD2157396D3CF7D47C9D8((&___rect2), NULL);
+		if ((!(((float)L_9) < ((float)(0.0f)))))
 		{
-			goto IL_0083;
+			goto IL_0076;
 		}
 	}
 	{
 		// if( rect.height < 0 ) rect.y -= rect.height *= -1;
+		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D* L_10 = (&___rect2);
+		float L_11;
+		L_11 = Rect_get_y_mC733E8D49F3CE21B2A3D40A1B72D687F22C97F49(L_10, NULL);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D* L_12 = (&___rect2);
 		float L_13;
-		L_13 = Rect_get_y_mC733E8D49F3CE21B2A3D40A1B72D687F22C97F49(L_12, NULL);
-		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D* L_14 = (&___rect2);
-		float L_15;
-		L_15 = Rect_get_height_mE1AA6C6C725CCD2D317BD2157396D3CF7D47C9D8(L_14, NULL);
-		float L_16 = ((float)il2cpp_codegen_multiply(L_15, (-1.0f)));
-		V_2 = L_16;
-		Rect_set_height_mD00038E6E06637137A5626CA8CD421924005BF03(L_14, L_16, NULL);
-		float L_17 = V_2;
-		Rect_set_y_mDE91F4B98A6E8623EFB1250FF6526D5DB5855629(L_12, ((float)il2cpp_codegen_subtract(L_13, L_17)), NULL);
+		L_13 = Rect_get_height_mE1AA6C6C725CCD2D317BD2157396D3CF7D47C9D8(L_12, NULL);
+		float L_14 = ((float)il2cpp_codegen_multiply(L_13, (-1.0f)));
+		V_1 = L_14;
+		Rect_set_height_mD00038E6E06637137A5626CA8CD421924005BF03(L_12, L_14, NULL);
+		float L_15 = V_1;
+		Rect_set_y_mDE91F4B98A6E8623EFB1250FF6526D5DB5855629(L_10, ((float)il2cpp_codegen_subtract(L_11, L_15)), NULL);
 	}
 
-IL_0083:
+IL_0076:
 	{
 		// using( new IMDrawer( mpbRect, ShapesMaterialUtils.GetRectMaterial( hollow, rounded )[blendMode], ShapesMeshUtils.QuadMesh[0] ) ) {
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-		MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_18 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
-		bool L_19 = ___hollow1;
-		bool L_20 = V_0;
+		MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_16 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
+		bool L_17 = ___hollow1;
+		bool L_18 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
-		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_21;
-		L_21 = ShapesMaterialUtils_GetRectMaterial_mD978BB487EB8F754077ED8DED4AEEAE6A9E23172(L_19, L_20, NULL);
-		int32_t L_22 = ___blendMode0;
-		NullCheck(L_21);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_23;
-		L_23 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_21, L_22, NULL);
-		MeshU5BU5D_t178CA36422FC397211E68FB7E39C5B2F95619689* L_24;
-		L_24 = ShapesMeshUtils_get_QuadMesh_m56C1128AD0A67091154047D7A8F76F7EE4E168E3(NULL);
-		NullCheck(L_24);
-		int32_t L_25 = 0;
-		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_26 = (L_24)->GetAt(static_cast<il2cpp_array_size_t>(L_25));
-		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_4), L_18, L_23, L_26, 0, 0, (bool)1, NULL);
+		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_19;
+		L_19 = ShapesMaterialUtils_GetRectMaterial_mD978BB487EB8F754077ED8DED4AEEAE6A9E23172(L_17, L_18, NULL);
+		int32_t L_20 = ___blendMode0;
+		NullCheck(L_19);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_21;
+		L_21 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_19, L_20, NULL);
+		MeshU5BU5D_t178CA36422FC397211E68FB7E39C5B2F95619689* L_22;
+		L_22 = ShapesMeshUtils_get_QuadMesh_m56C1128AD0A67091154047D7A8F76F7EE4E168E3(NULL);
+		NullCheck(L_22);
+		int32_t L_23 = 0;
+		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_24 = (L_22)->GetAt(static_cast<il2cpp_array_size_t>(L_23));
+		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_2), L_16, L_21, L_24, 0, 0, (bool)1, NULL);
 	}
 	{
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0129:
+FINALLY_0113:
 			{// begin finally (depth: 1)
-				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_4), NULL);
+				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_2), NULL);
 				return;
 			}// end finally (depth: 1)
 		});
@@ -5571,53 +5522,54 @@ FINALLY_0129:
 		{// begin try (depth: 1)
 			// MetaMpb.ApplyColorOrFill( mpbRect, color );
 			il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_27 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_28 = ___color3;
-			MetaMpb_ApplyColorOrFill_TisMpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8_mF85A185D96E6FA2AB00B22A5F96D109599C9F5E3_inline(L_27, L_28, MetaMpb_ApplyColorOrFill_TisMpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8_mF85A185D96E6FA2AB00B22A5F96D109599C9F5E3_RuntimeMethod_var);
+			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_25 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_26 = ___color3;
+			MetaMpb_ApplyColorOrFill_TisMpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8_mF85A185D96E6FA2AB00B22A5F96D109599C9F5E3_inline(L_25, L_26, MetaMpb_ApplyColorOrFill_TisMpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8_mF85A185D96E6FA2AB00B22A5F96D109599C9F5E3_RuntimeMethod_var);
 			// MetaMpb.ApplyDashSettings( mpbRect, thickness );
-			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_29 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
-			float L_30 = ___thickness4;
-			MetaMpb_ApplyDashSettings_TisMpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8_m568ED98A7BE95AABBFA7B3788E29E9BE06D77A39_inline(L_29, L_30, MetaMpb_ApplyDashSettings_TisMpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8_m568ED98A7BE95AABBFA7B3788E29E9BE06D77A39_RuntimeMethod_var);
+			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_27 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
+			float L_28 = ___thickness4;
+			MetaMpb_ApplyDashSettings_TisMpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8_m568ED98A7BE95AABBFA7B3788E29E9BE06D77A39_inline(L_27, L_28, MetaMpb_ApplyDashSettings_TisMpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8_m568ED98A7BE95AABBFA7B3788E29E9BE06D77A39_RuntimeMethod_var);
 			// mpbRect.rect.Add( rect.ToVector4() );
-			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_31 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
-			NullCheck(L_31);
-			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_32 = L_31->___rect_8;
-			Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_33 = ___rect2;
-			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_34;
-			L_34 = ShapesExtensions_ToVector4_m8B891B82480A1E6B7A0941B2E09A549534B81486(L_33, NULL);
-			NullCheck(L_32);
-			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_32, L_34, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_29 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
+			NullCheck(L_29);
+			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_30 = L_29->___rect_8;
+			Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_31 = ___rect2;
+			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_32;
+			L_32 = ShapesExtensions_ToVector4_m8B891B82480A1E6B7A0941B2E09A549534B81486(L_31, NULL);
+			NullCheck(L_30);
+			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_30, L_32, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 			// mpbRect.cornerRadii.Add( cornerRadii );
-			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_35 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
-			NullCheck(L_35);
-			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_36 = L_35->___cornerRadii_7;
-			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_37 = ___cornerRadii5;
-			NullCheck(L_36);
-			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_36, L_37, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_33 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
+			NullCheck(L_33);
+			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_34 = L_33->___cornerRadii_7;
+			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_35 = ___cornerRadii5;
+			NullCheck(L_34);
+			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_34, L_35, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 			// mpbRect.thickness.Add( thickness );
-			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_38 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
-			NullCheck(L_38);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_39 = L_38->___thickness_10;
-			float L_40 = ___thickness4;
-			NullCheck(L_39);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_39, L_40, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_36 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
+			NullCheck(L_36);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_37 = L_36->___thickness_10;
+			float L_38 = ___thickness4;
+			NullCheck(L_37);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_37, L_38, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 			// mpbRect.thicknessSpace.Add( (int)Draw.ThicknessSpace );
-			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_41 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
-			NullCheck(L_41);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_42 = L_41->___thicknessSpace_11;
-			int32_t L_43;
-			L_43 = Draw_get_ThicknessSpace_mEAC10735B9B7101C77FABB9E158768D0FA865B9E_inline(NULL);
-			NullCheck(L_42);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_42, ((float)L_43), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_39 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
+			NullCheck(L_39);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_40 = L_39->___thicknessSpace_11;
+			int32_t L_41;
+			L_41 = Draw_get_ThicknessSpace_mEAC10735B9B7101C77FABB9E158768D0FA865B9E_inline(NULL);
+			NullCheck(L_40);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_40, ((float)L_41), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 			// mpbRect.scaleMode.Add( (int)ScaleMode );
-			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_44 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
-			NullCheck(L_44);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_45 = L_44->___scaleMode_9;
-			int32_t L_46;
-			L_46 = Draw_get_ScaleMode_mA0447681DC90DDA0C0376732F2023E7CB2206353_inline(NULL);
-			NullCheck(L_45);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_45, ((float)L_46), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			goto IL_0138;
+			MpbRect_tEC1B146112632197DAA065AE1DCF1B3B3757B1B8* L_42 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbRect_7;
+			NullCheck(L_42);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_43 = L_42->___scaleMode_9;
+			int32_t L_44;
+			L_44 = Draw_get_ScaleMode_mA0447681DC90DDA0C0376732F2023E7CB2206353_inline(NULL);
+			NullCheck(L_43);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_43, ((float)L_44), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			// }
+			goto IL_0121;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -5625,7 +5577,7 @@ FINALLY_0129:
 		}
 	}
 
-IL_0138:
+IL_0121:
 	{
 		// }
 		return;
@@ -5668,7 +5620,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Triangle_Internal_m75AD9DC979496955
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0134:
+FINALLY_0125:
 			{// begin finally (depth: 1)
 				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_0), NULL);
 				return;
@@ -5780,7 +5732,8 @@ FINALLY_0134:
 			L_51 = Draw_get_ScaleMode_mA0447681DC90DDA0C0376732F2023E7CB2206353_inline(NULL);
 			NullCheck(L_50);
 			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_50, ((float)L_51), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			goto IL_0143;
+			// }
+			goto IL_0133;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -5788,7 +5741,7 @@ FINALLY_0134:
 		}
 	}
 
-IL_0143:
+IL_0133:
 	{
 		// }
 		return;
@@ -5829,7 +5782,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Quad_Internal_mC3A0C88CB03D0314D889
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_00f2:
+FINALLY_00e7:
 			{// begin finally (depth: 1)
 				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_0), NULL);
 				return;
@@ -5918,7 +5871,8 @@ FINALLY_00f2:
 			L_42 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_41, NULL);
 			NullCheck(L_39);
 			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_39, L_42, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
-			goto IL_0101;
+			// }
+			goto IL_00f5;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -5926,7 +5880,7 @@ FINALLY_00f2:
 		}
 	}
 
-IL_0101:
+IL_00f5:
 	{
 		// }
 		return;
@@ -5970,7 +5924,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Sphere_Internal_m7AABE6E1B61188F19B
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0070:
+FINALLY_006a:
 			{// begin finally (depth: 1)
 				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_0), NULL);
 				return;
@@ -6005,7 +5959,8 @@ FINALLY_0070:
 			L_18 = Draw_get_RadiusSpace_m60A8A3DFC174DCD6A8DE955D1972E115DC06A5AD_inline(NULL);
 			NullCheck(L_17);
 			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_17, ((float)L_18), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			goto IL_007f;
+			// }
+			goto IL_0078;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -6013,7 +5968,7 @@ FINALLY_0070:
 		}
 	}
 
-IL_007f:
+IL_0078:
 	{
 		// }
 		return;
@@ -6040,7 +5995,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Cone_Internal_mA8A0C28B04FC2D31B635
 		bool L_0 = ___fillCap2;
 		if (L_0)
 		{
-			goto IL_0011;
+			goto IL_0010;
 		}
 	}
 	{
@@ -6053,10 +6008,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Cone_Internal_mA8A0C28B04FC2D31B635
 		int32_t L_3 = L_2;
 		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_4 = (L_1)->GetAt(static_cast<il2cpp_array_size_t>(L_3));
 		G_B3_0 = L_4;
-		goto IL_001c;
+		goto IL_001b;
 	}
 
-IL_0011:
+IL_0010:
 	{
 		MeshU5BU5D_t178CA36422FC397211E68FB7E39C5B2F95619689* L_5;
 		L_5 = ShapesMeshUtils_get_ConeMesh_mEAFF9C9555C1380EAE953960384301683871ADDB(NULL);
@@ -6069,7 +6024,7 @@ IL_0011:
 		G_B3_0 = L_8;
 	}
 
-IL_001c:
+IL_001b:
 	{
 		V_0 = G_B3_0;
 		// using( new IMDrawer( mpbCone, ShapesMaterialUtils.matCone[Draw.BlendMode], mesh ) ) {
@@ -6089,7 +6044,7 @@ IL_001c:
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0093:
+FINALLY_008c:
 			{// begin finally (depth: 1)
 				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_1), NULL);
 				return;
@@ -6131,7 +6086,8 @@ FINALLY_0093:
 			L_27 = Draw_get_SizeSpace_m4E9A41B542AE0D61A7A04FCAE8319BEB07F11FB0_inline(NULL);
 			NullCheck(L_26);
 			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_26, ((float)L_27), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			goto IL_00a2;
+			// }
+			goto IL_009a;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -6139,7 +6095,7 @@ FINALLY_0093:
 		}
 	}
 
-IL_00a2:
+IL_009a:
 	{
 		// }
 		return;
@@ -6181,7 +6137,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Cuboid_Internal_m7BDBE5341DBB1E9167
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0071:
+FINALLY_006b:
 			{// begin finally (depth: 1)
 				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_0), NULL);
 				return;
@@ -6218,7 +6174,8 @@ FINALLY_0071:
 			L_18 = Draw_get_SizeSpace_m4E9A41B542AE0D61A7A04FCAE8319BEB07F11FB0_inline(NULL);
 			NullCheck(L_17);
 			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_17, ((float)L_18), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			goto IL_0080;
+			// }
+			goto IL_0079;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -6226,7 +6183,7 @@ FINALLY_0071:
 		}
 	}
 
-IL_0080:
+IL_0079:
 	{
 		// }
 		return;
@@ -6244,86 +6201,77 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Torus_Internal_m41ACC0E3FB8122854E2
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	bool V_0 = false;
-	bool V_1 = false;
-	int32_t V_2 = 0;
-	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_3;
-	memset((&V_3), 0, sizeof(V_3));
+	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_0;
+	memset((&V_0), 0, sizeof(V_0));
 	{
 		// if( thickness < 0.0001f )
 		float L_0 = ___thickness1;
-		V_0 = (bool)((((float)L_0) < ((float)(9.99999975E-05f)))? 1 : 0);
-		bool L_1 = V_0;
-		if (!L_1)
+		if ((!(((float)L_0) < ((float)(9.99999975E-05f)))))
 		{
-			goto IL_0012;
+			goto IL_0009;
 		}
 	}
 	{
 		// return;
-		goto IL_0129;
+		return;
 	}
 
-IL_0012:
+IL_0009:
 	{
 		// if( radius < 0.00001f ) {
-		float L_2 = ___radius0;
-		V_1 = (bool)((((float)L_2) < ((float)(9.99999975E-06f)))? 1 : 0);
-		bool L_3 = V_1;
-		if (!L_3)
+		float L_1 = ___radius0;
+		if ((!(((float)L_1) < ((float)(9.99999975E-06f)))))
 		{
-			goto IL_004b;
+			goto IL_0034;
 		}
 	}
 	{
 		// ThicknessSpace cached = Draw.RadiusSpace;
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-		int32_t L_4;
-		L_4 = Draw_get_RadiusSpace_m60A8A3DFC174DCD6A8DE955D1972E115DC06A5AD_inline(NULL);
-		V_2 = L_4;
+		int32_t L_2;
+		L_2 = Draw_get_RadiusSpace_m60A8A3DFC174DCD6A8DE955D1972E115DC06A5AD_inline(NULL);
 		// Draw.RadiusSpace = Draw.ThicknessSpace;
-		int32_t L_5;
-		L_5 = Draw_get_ThicknessSpace_mEAC10735B9B7101C77FABB9E158768D0FA865B9E_inline(NULL);
-		Draw_set_RadiusSpace_mE7B76E065CBD8F9553D92DDAF0779A81DC517F78_inline(L_5, NULL);
+		int32_t L_3;
+		L_3 = Draw_get_ThicknessSpace_mEAC10735B9B7101C77FABB9E158768D0FA865B9E_inline(NULL);
+		Draw_set_RadiusSpace_mE7B76E065CBD8F9553D92DDAF0779A81DC517F78_inline(L_3, NULL);
 		// Sphere( thickness / 2, color );
-		float L_6 = ___thickness1;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7 = ___color4;
-		Draw_Sphere_m1F396E87A90FB4980EF4AD974D5E2634FFEF3226_inline(((float)(L_6/(2.0f))), L_7, NULL);
+		float L_4 = ___thickness1;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_5 = ___color4;
+		Draw_Sphere_m1F396E87A90FB4980EF4AD974D5E2634FFEF3226_inline(((float)(L_4/(2.0f))), L_5, NULL);
 		// Draw.RadiusSpace = cached;
-		int32_t L_8 = V_2;
-		Draw_set_RadiusSpace_mE7B76E065CBD8F9553D92DDAF0779A81DC517F78_inline(L_8, NULL);
+		Draw_set_RadiusSpace_mE7B76E065CBD8F9553D92DDAF0779A81DC517F78_inline(L_2, NULL);
 		// return;
-		goto IL_0129;
+		return;
 	}
 
-IL_004b:
+IL_0034:
 	{
 		// using( new IMDrawer( mpbTorus, ShapesMaterialUtils.matTorus[Draw.BlendMode], ShapesMeshUtils.TorusMesh[(int)DetailLevel] ) ) {
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-		MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_9 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
+		MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_6 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
 		il2cpp_codegen_runtime_class_init_inline(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
-		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_10 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matTorus_69;
+		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_7 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matTorus_69;
+		int32_t L_8;
+		L_8 = Draw_get_BlendMode_mF4EBF1522E24D4EA347BEBAEF51ADE29C3E151F2_inline(NULL);
+		NullCheck(L_7);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_9;
+		L_9 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_7, L_8, NULL);
+		MeshU5BU5D_t178CA36422FC397211E68FB7E39C5B2F95619689* L_10;
+		L_10 = ShapesMeshUtils_get_TorusMesh_m9337E2C6C2C7B096B26D708FDB60032464265127(NULL);
 		int32_t L_11;
-		L_11 = Draw_get_BlendMode_mF4EBF1522E24D4EA347BEBAEF51ADE29C3E151F2_inline(NULL);
+		L_11 = Draw_get_DetailLevel_mA9B0F1EBF1D9654DFED679347D137F4BC0E88CC0_inline(NULL);
 		NullCheck(L_10);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_12;
-		L_12 = ShapesMaterials_get_Item_m149F7345E14C7CF1061106480E04DC3522B500FE(L_10, L_11, NULL);
-		MeshU5BU5D_t178CA36422FC397211E68FB7E39C5B2F95619689* L_13;
-		L_13 = ShapesMeshUtils_get_TorusMesh_m9337E2C6C2C7B096B26D708FDB60032464265127(NULL);
-		int32_t L_14;
-		L_14 = Draw_get_DetailLevel_mA9B0F1EBF1D9654DFED679347D137F4BC0E88CC0_inline(NULL);
-		NullCheck(L_13);
-		int32_t L_15 = L_14;
-		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_16 = (L_13)->GetAt(static_cast<il2cpp_array_size_t>(L_15));
-		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_3), L_9, L_12, L_16, 0, 0, (bool)1, NULL);
+		int32_t L_12 = L_11;
+		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_13 = (L_10)->GetAt(static_cast<il2cpp_array_size_t>(L_12));
+		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_0), L_6, L_9, L_13, 0, 0, (bool)1, NULL);
 	}
 	{
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_011a:
+FINALLY_00f9:
 			{// begin finally (depth: 1)
-				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_3), NULL);
+				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_0), NULL);
 				return;
 			}// end finally (depth: 1)
 		});
@@ -6331,69 +6279,70 @@ FINALLY_011a:
 		{// begin try (depth: 1)
 			// mpbTorus.color.Add( color.ColorSpaceAdjusted() );
 			il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-			MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_17 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
-			NullCheck(L_17);
-			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_18 = ((MetaMpb_tB792FE03D70B982D5388C535A9956B333BC2D4E4*)L_17)->___color_5;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_19 = ___color4;
-			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_20;
-			L_20 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_19, NULL);
-			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_21;
-			L_21 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_20, NULL);
-			NullCheck(L_18);
-			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_18, L_21, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+			MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_14 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
+			NullCheck(L_14);
+			List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_15 = ((MetaMpb_tB792FE03D70B982D5388C535A9956B333BC2D4E4*)L_14)->___color_5;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_16 = ___color4;
+			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_17;
+			L_17 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_16, NULL);
+			Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_18;
+			L_18 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_17, NULL);
+			NullCheck(L_15);
+			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_15, L_18, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 			// mpbTorus.radius.Add( radius );
+			MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_19 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
+			NullCheck(L_19);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_20 = L_19->___radius_9;
+			float L_21 = ___radius0;
+			NullCheck(L_20);
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_20, L_21, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			// mpbTorus.thickness.Add( thickness );
 			MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_22 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
 			NullCheck(L_22);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_23 = L_22->___radius_9;
-			float L_24 = ___radius0;
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_23 = L_22->___thickness_12;
+			float L_24 = ___thickness1;
 			NullCheck(L_23);
 			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_23, L_24, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			// mpbTorus.thickness.Add( thickness );
+			// mpbTorus.radiusSpace.Add( (int)Draw.RadiusSpace );
 			MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_25 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
 			NullCheck(L_25);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_26 = L_25->___thickness_12;
-			float L_27 = ___thickness1;
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_26 = L_25->___radiusSpace_10;
+			int32_t L_27;
+			L_27 = Draw_get_RadiusSpace_m60A8A3DFC174DCD6A8DE955D1972E115DC06A5AD_inline(NULL);
 			NullCheck(L_26);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_26, L_27, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			// mpbTorus.radiusSpace.Add( (int)Draw.RadiusSpace );
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_26, ((float)L_27), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			// mpbTorus.thicknessSpace.Add( (int)Draw.ThicknessSpace );
 			MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_28 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
 			NullCheck(L_28);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_29 = L_28->___radiusSpace_10;
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_29 = L_28->___thicknessSpace_13;
 			int32_t L_30;
-			L_30 = Draw_get_RadiusSpace_m60A8A3DFC174DCD6A8DE955D1972E115DC06A5AD_inline(NULL);
+			L_30 = Draw_get_ThicknessSpace_mEAC10735B9B7101C77FABB9E158768D0FA865B9E_inline(NULL);
 			NullCheck(L_29);
 			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_29, ((float)L_30), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			// mpbTorus.thicknessSpace.Add( (int)Draw.ThicknessSpace );
+			// mpbTorus.scaleMode.Add( (int)Draw.ScaleMode );
 			MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_31 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
 			NullCheck(L_31);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_32 = L_31->___thicknessSpace_13;
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_32 = L_31->___scaleMode_11;
 			int32_t L_33;
-			L_33 = Draw_get_ThicknessSpace_mEAC10735B9B7101C77FABB9E158768D0FA865B9E_inline(NULL);
+			L_33 = Draw_get_ScaleMode_mA0447681DC90DDA0C0376732F2023E7CB2206353_inline(NULL);
 			NullCheck(L_32);
 			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_32, ((float)L_33), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			// mpbTorus.scaleMode.Add( (int)Draw.ScaleMode );
+			// mpbTorus.angleStart.Add( angStart );
 			MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_34 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
 			NullCheck(L_34);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_35 = L_34->___scaleMode_11;
-			int32_t L_36;
-			L_36 = Draw_get_ScaleMode_mA0447681DC90DDA0C0376732F2023E7CB2206353_inline(NULL);
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_35 = L_34->___angleStart_8;
+			float L_36 = ___angStart2;
 			NullCheck(L_35);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_35, ((float)L_36), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			// mpbTorus.angleStart.Add( angStart );
+			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_35, L_36, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+			// mpbTorus.angleEnd.Add( angEnd );
 			MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_37 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
 			NullCheck(L_37);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_38 = L_37->___angleStart_8;
-			float L_39 = ___angStart2;
+			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_38 = L_37->___angleEnd_7;
+			float L_39 = ___angEnd3;
 			NullCheck(L_38);
 			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_38, L_39, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			// mpbTorus.angleEnd.Add( angEnd );
-			MpbTorus_t11CDED6674CF55C18C2688F8B721241D6EE06ADF* L_40 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbTorus_13;
-			NullCheck(L_40);
-			List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_41 = L_40->___angleEnd_7;
-			float L_42 = ___angEnd3;
-			NullCheck(L_41);
-			List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_41, L_42, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-			goto IL_0129;
+			// }
+			goto IL_0107;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -6401,7 +6350,7 @@ FINALLY_011a:
 		}
 	}
 
-IL_0129:
+IL_0107:
 	{
 		// }
 		return;
@@ -6423,14 +6372,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Text_Internal_m7FCCE819779FC9CC72E8
 	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_2;
 	memset((&V_2), 0, sizeof(V_2));
 	int32_t V_3 = 0;
-	TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* V_4 = NULL;
-	bool V_5 = false;
-	bool V_6 = false;
-	int32_t V_7 = 0;
-	TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* V_8 = NULL;
-	IMDrawer_t18D85BCDC9CE3969F82207A8A43F920DCE2A4CAB V_9;
-	memset((&V_9), 0, sizeof(V_9));
-	bool V_10 = false;
+	int32_t V_4 = 0;
+	TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* V_5 = NULL;
 	{
 		// TextMeshPro tmp = ShapesTextDrawer.Instance.tmp;
 		ShapesTextDrawer_t395CD6066BA54E7B0C8B9E805CD55A9785782054* L_0;
@@ -6557,7 +6500,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Text_Internal_m7FCCE819779FC9CC72E8
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_00f4:
+FINALLY_00e2:
 			{// begin finally (depth: 1)
 				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_2), NULL);
 				return;
@@ -6565,7 +6508,8 @@ FINALLY_00f4:
 		});
 		try
 		{// begin try (depth: 1)
-			goto IL_0103;
+			// }
+			goto IL_00f0;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -6573,14 +6517,14 @@ FINALLY_00f4:
 		}
 	}
 
-IL_0103:
+IL_00f0:
 	{
 		// for( int i = 0; i < tmp.transform.childCount; i++ ) {
 		V_3 = 0;
-		goto IL_012e;
+		goto IL_0114;
 	}
 
-IL_0107:
+IL_00f4:
 	{
 		// TMP_SubMesh sm = tmp.transform.GetChild( i ).GetComponent<TMP_SubMesh>();
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_44 = V_0;
@@ -6594,106 +6538,101 @@ IL_0107:
 		NullCheck(L_47);
 		TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* L_48;
 		L_48 = Component_GetComponent_TisTMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214_m3D1E876ABB6AA7FEE6155F7B18B44DD4BF0AF4B6(L_47, Component_GetComponent_TisTMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214_m3D1E876ABB6AA7FEE6155F7B18B44DD4BF0AF4B6_RuntimeMethod_var);
-		V_4 = L_48;
 		// sm.renderer.enabled = false; // :>
-		TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* L_49 = V_4;
+		NullCheck(L_48);
+		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_49;
+		L_49 = TMP_SubMesh_get_renderer_m57EDD2B2B7742D389E019F7D81BFCD7BDA468013(L_48, NULL);
 		NullCheck(L_49);
-		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_50;
-		L_50 = TMP_SubMesh_get_renderer_m57EDD2B2B7742D389E019F7D81BFCD7BDA468013(L_49, NULL);
-		NullCheck(L_50);
-		Renderer_set_enabled_m015E6D7B825528A31182F267234CC6A925F71DA8(L_50, (bool)0, NULL);
+		Renderer_set_enabled_m015E6D7B825528A31182F267234CC6A925F71DA8(L_49, (bool)0, NULL);
 		// for( int i = 0; i < tmp.transform.childCount; i++ ) {
-		int32_t L_51 = V_3;
-		V_3 = ((int32_t)il2cpp_codegen_add(L_51, 1));
+		int32_t L_50 = V_3;
+		V_3 = ((int32_t)il2cpp_codegen_add(L_50, 1));
 	}
 
-IL_012e:
+IL_0114:
 	{
 		// for( int i = 0; i < tmp.transform.childCount; i++ ) {
-		int32_t L_52 = V_3;
-		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_53 = V_0;
+		int32_t L_51 = V_3;
+		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_52 = V_0;
+		NullCheck(L_52);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_53;
+		L_53 = TextMeshPro_get_transform_m750148EC362B176A0E80D6F4ABAC1062E5281E11(L_52, NULL);
 		NullCheck(L_53);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_54;
-		L_54 = TextMeshPro_get_transform_m750148EC362B176A0E80D6F4ABAC1062E5281E11(L_53, NULL);
-		NullCheck(L_54);
-		int32_t L_55;
-		L_55 = Transform_get_childCount_mE9C29C702AB662CC540CA053EDE48BDAFA35B4B0(L_54, NULL);
-		V_5 = (bool)((((int32_t)L_52) < ((int32_t)L_55))? 1 : 0);
-		bool L_56 = V_5;
-		if (L_56)
+		int32_t L_54;
+		L_54 = Transform_get_childCount_mE9C29C702AB662CC540CA053EDE48BDAFA35B4B0(L_53, NULL);
+		if ((((int32_t)L_51) < ((int32_t)L_54)))
 		{
-			goto IL_0107;
+			goto IL_00f4;
 		}
 	}
 	{
 		// if( tmp.textInfo.materialCount > 1 ) {
-		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_57 = V_0;
-		NullCheck(L_57);
-		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_58;
-		L_58 = TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E(L_57, NULL);
-		NullCheck(L_58);
-		int32_t L_59 = L_58->___materialCount_10;
-		V_6 = (bool)((((int32_t)L_59) > ((int32_t)1))? 1 : 0);
-		bool L_60 = V_6;
-		if (!L_60)
+		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_55 = V_0;
+		NullCheck(L_55);
+		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_56;
+		L_56 = TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E_inline(L_55, NULL);
+		NullCheck(L_56);
+		int32_t L_57 = L_56->___materialCount_10;
+		if ((((int32_t)L_57) <= ((int32_t)1)))
 		{
-			goto IL_01cc;
+			goto IL_0198;
 		}
 	}
 	{
 		// for( int i = 0; i < tmp.transform.childCount; i++ ) {
-		V_7 = 0;
-		goto IL_01b6;
+		V_4 = 0;
+		goto IL_0189;
 	}
 
-IL_015c:
+IL_0135:
 	{
 		// TMP_SubMesh sm = tmp.transform.GetChild( i ).GetComponent<TMP_SubMesh>();
-		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_61 = V_0;
+		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_58 = V_0;
+		NullCheck(L_58);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_59;
+		L_59 = TextMeshPro_get_transform_m750148EC362B176A0E80D6F4ABAC1062E5281E11(L_58, NULL);
+		int32_t L_60 = V_4;
+		NullCheck(L_59);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_61;
+		L_61 = Transform_GetChild_mE686DF0C7AAC1F7AEF356967B1C04D8B8E240EAF(L_59, L_60, NULL);
 		NullCheck(L_61);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_62;
-		L_62 = TextMeshPro_get_transform_m750148EC362B176A0E80D6F4ABAC1062E5281E11(L_61, NULL);
-		int32_t L_63 = V_7;
-		NullCheck(L_62);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_64;
-		L_64 = Transform_GetChild_mE686DF0C7AAC1F7AEF356967B1C04D8B8E240EAF(L_62, L_63, NULL);
-		NullCheck(L_64);
-		TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* L_65;
-		L_65 = Component_GetComponent_TisTMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214_m3D1E876ABB6AA7FEE6155F7B18B44DD4BF0AF4B6(L_64, Component_GetComponent_TisTMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214_m3D1E876ABB6AA7FEE6155F7B18B44DD4BF0AF4B6_RuntimeMethod_var);
-		V_8 = L_65;
+		TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* L_62;
+		L_62 = Component_GetComponent_TisTMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214_m3D1E876ABB6AA7FEE6155F7B18B44DD4BF0AF4B6(L_61, Component_GetComponent_TisTMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214_m3D1E876ABB6AA7FEE6155F7B18B44DD4BF0AF4B6_RuntimeMethod_var);
+		V_5 = L_62;
 		// sm.renderer.enabled = false; // :>
-		TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* L_66 = V_8;
-		NullCheck(L_66);
-		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_67;
-		L_67 = TMP_SubMesh_get_renderer_m57EDD2B2B7742D389E019F7D81BFCD7BDA468013(L_66, NULL);
-		NullCheck(L_67);
-		Renderer_set_enabled_m015E6D7B825528A31182F267234CC6A925F71DA8(L_67, (bool)0, NULL);
+		TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* L_63 = V_5;
+		NullCheck(L_63);
+		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_64;
+		L_64 = TMP_SubMesh_get_renderer_m57EDD2B2B7742D389E019F7D81BFCD7BDA468013(L_63, NULL);
+		NullCheck(L_64);
+		Renderer_set_enabled_m015E6D7B825528A31182F267234CC6A925F71DA8(L_64, (bool)0, NULL);
 		// using( new IMDrawer( mpbText, sm.material, sm.mesh, drawType: IMDrawer.DrawType.Text, allowInstancing: false ) ) {
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-		MpbText_t8B849662D98414AFFBDCE7B65CB4D8949E6F3FE5* L_68 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbText_14;
-		TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* L_69 = V_8;
-		NullCheck(L_69);
-		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_70;
-		L_70 = TMP_SubMesh_get_material_mC2E739573C72E85402DEEDC8BA589146E7738A2D(L_69, NULL);
-		TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* L_71 = V_8;
-		NullCheck(L_71);
-		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_72;
-		L_72 = TMP_SubMesh_get_mesh_m9AF8E94AA6D6A9B47B76EE0B88A75BCECE8F43EB(L_71, NULL);
-		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_9), L_68, L_70, L_72, 0, 1, (bool)0, NULL);
+		MpbText_t8B849662D98414AFFBDCE7B65CB4D8949E6F3FE5* L_65 = ((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___mpbText_14;
+		TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* L_66 = V_5;
+		NullCheck(L_66);
+		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_67;
+		L_67 = TMP_SubMesh_get_material_mC2E739573C72E85402DEEDC8BA589146E7738A2D(L_66, NULL);
+		TMP_SubMesh_t03A386328B843ADDDC3D5C53D901B38294142214* L_68 = V_5;
+		NullCheck(L_68);
+		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_69;
+		L_69 = TMP_SubMesh_get_mesh_m9AF8E94AA6D6A9B47B76EE0B88A75BCECE8F43EB(L_68, NULL);
+		IMDrawer__ctor_m828D075CDFAF0036AC3722FD7C1970B5210B97BD((&V_2), L_65, L_67, L_69, 0, 1, (bool)0, NULL);
 	}
 	{
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_01a0:
+FINALLY_0175:
 			{// begin finally (depth: 1)
-				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_9), NULL);
+				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_2), NULL);
 				return;
 			}// end finally (depth: 1)
 		});
 		try
 		{// begin try (depth: 1)
-			goto IL_01af;
+			// }
+			goto IL_0183;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -6701,35 +6640,31 @@ FINALLY_01a0:
 		}
 	}
 
-IL_01af:
+IL_0183:
 	{
 		// for( int i = 0; i < tmp.transform.childCount; i++ ) {
-		int32_t L_73 = V_7;
-		V_7 = ((int32_t)il2cpp_codegen_add(L_73, 1));
+		int32_t L_70 = V_4;
+		V_4 = ((int32_t)il2cpp_codegen_add(L_70, 1));
 	}
 
-IL_01b6:
+IL_0189:
 	{
 		// for( int i = 0; i < tmp.transform.childCount; i++ ) {
-		int32_t L_74 = V_7;
-		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_75 = V_0;
-		NullCheck(L_75);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_76;
-		L_76 = TextMeshPro_get_transform_m750148EC362B176A0E80D6F4ABAC1062E5281E11(L_75, NULL);
-		NullCheck(L_76);
-		int32_t L_77;
-		L_77 = Transform_get_childCount_mE9C29C702AB662CC540CA053EDE48BDAFA35B4B0(L_76, NULL);
-		V_10 = (bool)((((int32_t)L_74) < ((int32_t)L_77))? 1 : 0);
-		bool L_78 = V_10;
-		if (L_78)
+		int32_t L_71 = V_4;
+		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_72 = V_0;
+		NullCheck(L_72);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_73;
+		L_73 = TextMeshPro_get_transform_m750148EC362B176A0E80D6F4ABAC1062E5281E11(L_72, NULL);
+		NullCheck(L_73);
+		int32_t L_74;
+		L_74 = Transform_get_childCount_mE9C29C702AB662CC540CA053EDE48BDAFA35B4B0(L_73, NULL);
+		if ((((int32_t)L_71) < ((int32_t)L_74)))
 		{
-			goto IL_015c;
+			goto IL_0135;
 		}
 	}
-	{
-	}
 
-IL_01cc:
+IL_0198:
 	{
 		// }
 		return;
@@ -6775,7 +6710,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Texture_Internal_mA9A3C59BD02D69807
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0084:
+FINALLY_007d:
 			{// begin finally (depth: 1)
 				IMDrawer_Dispose_mB1D219AD211F30A2C909A19B90D7FA9D69BB603B((&V_1), NULL);
 				return;
@@ -6820,7 +6755,8 @@ FINALLY_0084:
 			L_23 = ShapesExtensions_ToVector4_m8B891B82480A1E6B7A0941B2E09A549534B81486(L_22, NULL);
 			NullCheck(L_21);
 			List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_21, L_23, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
-			goto IL_0093;
+			// }
+			goto IL_008b;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -6828,7 +6764,7 @@ FINALLY_0084:
 		}
 	}
 
-IL_0093:
+IL_008b:
 	{
 		// }
 		return;
@@ -29248,6 +29184,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_Texture_mBE74374DCD828AF661B8F5F5C6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m07C5312C11F3120FAF1C6CD7F24370A6305ED2E7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end ) => _ = 0;
 		return;
 	}
 }
@@ -29255,6 +29192,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m07C5312C11F3120FAF1C6CD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m2AE89E94A8459A7C6D8A57E151A92C83F31409DC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29262,6 +29200,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m2AE89E94A8459A7C6D8A57E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m161DFC2C58E3F19B229DF245E2F1F0BE988FAB08 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -29269,6 +29208,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m161DFC2C58E3F19B229DF24
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m8E57940F8F21E9740EBF502437B6D9B797140E3B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, float ___thickness2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -29276,6 +29216,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m8E57940F8F21E9740EBF502
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m770E8DAF6D96328AF1C3AD3D7CC5C86B27B7D6E2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29283,6 +29224,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m770E8DAF6D96328AF1C3AD3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mA2B90CA0C0A7FBD329CFFAD4B61848B3257FE02B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -29290,6 +29232,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mA2B90CA0C0A7FBD329CFFAD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mECD2D6F7B3F5C22C746B849EE1FFD6A4C46B2103 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, int32_t ___endCaps2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, LineEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -29297,6 +29240,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mECD2D6F7B3F5C22C746B849
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mC11016C65CDDF2A3C192E7311ACB48589B63C3FB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, int32_t ___endCaps2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, LineEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29304,6 +29248,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mC11016C65CDDF2A3C192E73
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m6459863345632012E7668BB1E70EEA0FD36D48DB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, int32_t ___endCaps2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, LineEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -29311,6 +29256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m6459863345632012E7668BB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m8527637720E70C87B1CB4AC6EC894F1EF6F4AA0E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, float ___thickness2, int32_t ___endCaps3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, float thickness, LineEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -29318,6 +29264,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m8527637720E70C87B1CB4AC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m402051B1124BEAB4E3DC74588F77080260D81AD1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, float ___thickness2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, float thickness, LineEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29325,6 +29272,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m402051B1124BEAB4E3DC745
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mC7E2BD1A0553E8BDDF8F039D9BC272A16350E4B2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, float ___thickness2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, float thickness, LineEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -29332,6 +29280,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mC7E2BD1A0553E8BDDF8F039
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mCE536DE5F9B9D9F64C6CBD464F023D63731DF153 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle ) => _ = 0;
 		return;
 	}
 }
@@ -29339,6 +29288,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mCE536DE5F9B9D9F64C6CBD4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m255C9F97942A7436951B316683BBC81AF8F22284 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29346,6 +29296,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m255C9F97942A7436951B316
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m9EFB6DF5875B60795CA7D4EE0C8A75CFBFF55A61 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -29353,6 +29304,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m9EFB6DF5875B60795CA7D4E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mD166DEA26D7729BE8CD840E01F2B393A2AE939A7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -29360,6 +29312,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mD166DEA26D7729BE8CD840E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m3A1116BB9A3286EBF0FF08C79294A0F23B5AE91F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29367,6 +29320,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m3A1116BB9A3286EBF0FF08C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mCF270D9119E44AFFA22C84D24E0EE0CFCF1D92CC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -29374,6 +29328,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mCF270D9119E44AFFA22C84D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m702C60EB13F71004B27A979797CEB3F69D017AB6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, int32_t ___endCaps3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle, LineEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -29381,6 +29336,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m702C60EB13F71004B27A979
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m907F2F0E8B493E1BE363A44F7BA43DAFE7EC426D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle, LineEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29388,6 +29344,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m907F2F0E8B493E1BE363A44
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m718DBF40B5529C2A5890A15A103CD11F4EF585E1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle, LineEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -29395,6 +29352,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m718DBF40B5529C2A5890A15
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m66C76638080E50BA864B7C38F38E5ADEA02403A2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___thickness3, int32_t ___endCaps4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle, float thickness, LineEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -29402,6 +29360,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m66C76638080E50BA864B7C3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m12DEF5C15FA61669D922F222880CA17447682775 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___thickness3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle, float thickness, LineEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29409,6 +29368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_m12DEF5C15FA61669D922F22
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mF43D393404AC0CA91B3D7A81E0A6B3E4C3C55BFD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___start0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___end1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___thickness3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void LineDashed( Vector3 start, Vector3 end, DashStyle dashStyle, float thickness, LineEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -29416,6 +29376,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_LineDashed_mF43D393404AC0CA91B3D7A8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFill_mDC7DB701A77592EAC45158AE589FE3120C800169 (PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* ___path0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void PolygonFill( PolygonPath path ) => _ = 0;
 		return;
 	}
 }
@@ -29423,6 +29384,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFill_mDC7DB701A77592EAC45158
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFill_m8BF8CF15D43EED8222B9F7836A6CBDBCB27CE3ED (PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* ___path0, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void PolygonFill( PolygonPath path, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -29430,6 +29392,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFill_m8BF8CF15D43EED8222B9F7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFill_m2EEB7720EF989C47B6542BB55693073983817ACA (PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* ___path0, int32_t ___triangulation1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void PolygonFill( PolygonPath path, PolygonTriangulation triangulation ) => _ = 0;
 		return;
 	}
 }
@@ -29437,6 +29400,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFill_m2EEB7720EF989C47B6542B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFill_m07A5EAA6DE8CDD1A298C63BC74DF9B581F41748C (PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* ___path0, int32_t ___triangulation1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void PolygonFill( PolygonPath path, PolygonTriangulation triangulation, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -29444,6 +29408,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFill_m07A5EAA6DE8CDD1A298C63
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFillLinear_mB25151E619F334E56F98C95467288EFBC4875173 (PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* ___path0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void PolygonFillLinear( PolygonPath path, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -29451,6 +29416,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFillLinear_mB25151E619F334E5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFillLinear_mF107DD19C165ACDE10A85A17FD547D07F8E426D4 (PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* ___path0, int32_t ___triangulation1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void PolygonFillLinear( PolygonPath path, PolygonTriangulation triangulation, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -29458,6 +29424,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFillLinear_mF107DD19C165ACDE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFillRadial_m702650AF63155F9B886B2F51D603DBC3DAEF49DA (PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* ___path0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin1, float ___fillRadius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void PolygonFillRadial( PolygonPath path, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -29465,6 +29432,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFillRadial_m702650AF63155F9B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFillRadial_mF13453B22A3BCE809654285EBCE522E12501618E (PolygonPath_t6619B2761C225DDA5475677D941B41E8919FB297* ___path0, int32_t ___triangulation1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void PolygonFillRadial( PolygonPath path, PolygonTriangulation triangulation, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -29472,6 +29440,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PolygonFillRadial_mF13453B22A3BCE80
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m7DC7C972BCD6F28A8124F25DBBCD67B2CEF8603F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos ) => _ = 0;
 		return;
 	}
 }
@@ -29479,6 +29448,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m7DC7C972BCD6F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m4E94007B1AB5A0BDF5ABB5103FDB607E88A48C10 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29486,6 +29456,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m4E94007B1AB5A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m098CE262D187F65594D1736BB7947D5094607C3B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -29493,6 +29464,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m098CE262D187F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m9FB93A2701B0318F5CD1EE755EB7C8577A0CCC23 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29500,6 +29472,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m9FB93A2701B03
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC51D52A8AF05ADF287F07A7F558198C9F9B8745B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -29507,6 +29480,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC51D52A8AF05A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m79CE6C43CFC4CA8E2A1E4690E5AE588221583113 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29514,6 +29488,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m79CE6C43CFC4C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m680598BCE6B3FD7C0243A02E23C0D700A42BD342 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -29521,6 +29496,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m680598BCE6B3F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mD76A4D47ED3DF635F18D11482E54B0DB6935A6AE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, float radius, float thickness, float angle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29528,6 +29504,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mD76A4D47ED3DF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mAE6704ED4B0429D3A60582202C23CA7E7E28732D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -29535,6 +29512,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mAE6704ED4B042
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mE29487A656F81A99D6CF23A4009B73583883873F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, float radius, float thickness, float angle, float roundness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29542,6 +29520,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mE29487A656F81
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m2DD6E0E5A10CEB06C2DE9581DA455E8985E0D1B0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -29549,6 +29528,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m2DD6E0E5A10CE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m72F45D2525D5183301E869191CD1F01EF1050BEF (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, int sideCount, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29556,6 +29536,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m72F45D2525D51
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m18F4C45FFE3E01284B4B05E005797F1525EB2368 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -29563,6 +29544,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m18F4C45FFE3E0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mCF62B6FC33BCF06E796F174A0F75663DBCFDE9C3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, int sideCount, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29570,6 +29552,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mCF62B6FC33BCF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mB33FC43E9948F64B3FC2AB8A545A280538E6538B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, int sideCount, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -29577,6 +29560,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mB33FC43E9948F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m0EE3044F2219DF4BCC251167E8CD4D6E9AC360D9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, int sideCount, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29584,6 +29568,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m0EE3044F2219D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mBC03EAF2EF00F6CA7C46C8DDD39934FE2E482494 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, int sideCount, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -29591,6 +29576,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mBC03EAF2EF00F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m0F849C445857AAC4E2C24AB21D38954527C746F4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, int sideCount, float radius, float thickness, float angle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29598,6 +29584,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m0F849C445857A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mA0DDE8AC64562F6A9340D18373FE2D6527055BF0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, int sideCount, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -29605,6 +29592,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mA0DDE8AC64562
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mA9248ABC368602F55A0821A0C229E9C0EF3B4B0B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, int sideCount, float radius, float thickness, float angle, float roundness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29612,6 +29600,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mA9248ABC36860
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m8AA9913D1BB4D39240D9CA352AF6917BFC8EADE4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal ) => _ = 0;
 		return;
 	}
 }
@@ -29619,6 +29608,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m8AA9913D1BB4D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mEDA3349C67B60650205663129358F62D78FB1FC5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29626,6 +29616,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mEDA3349C67B60
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m2F0957F393FB53B91B0FCE228CAADB73D6CE5480 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -29633,6 +29624,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m2F0957F393FB5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m3F61702B45F9143B7D3B0A446255D2767BA52E2B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29640,6 +29632,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m3F61702B45F91
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m1134D62A13AAF091733648DBB5904DD2761A8E74 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -29647,6 +29640,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m1134D62A13AAF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m1A302D43A86389609B7FA25994785163176448A1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29654,6 +29648,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m1A302D43A8638
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m5AF670DFE39215F0347F0B8E4A2DEDB662607EB5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -29661,6 +29656,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m5AF670DFE3921
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC494DE305D76F4F4F7488104F203153D7DD89CD8 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, float radius, float thickness, float angle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29668,6 +29664,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC494DE305D76F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mFADA2FAE91936410EFE9B17F7827D402BBD79D33 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -29675,6 +29672,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mFADA2FAE91936
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m2D4C961E013133749091AD9F76AA2B7F2C2F4DB0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, float radius, float thickness, float angle, float roundness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29682,6 +29680,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m2D4C961E01313
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m1E65EE8BEEBE35BF6B848E8A9C6B970FCF2502C0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -29689,6 +29688,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m1E65EE8BEEBE3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mEAF86120DAD269CB2B813EAF3A4177DDDAE1AECC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, int sideCount, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29696,6 +29696,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mEAF86120DAD26
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC3ADCE73B138EB2E5BEBD9CCC633081EABF6B72E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -29703,6 +29704,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC3ADCE73B138E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m452796979A77198424D0069CA882243B798D0F1C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, int sideCount, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29710,6 +29712,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m452796979A771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mFF650B66FA94EBCC48CFCE62CAF57D7C5B4BF870 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -29717,6 +29720,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mFF650B66FA94E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m513ACA1D33E7B6F6BE49552C4034B369A8DBAF27 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29724,6 +29728,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m513ACA1D33E7B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m185CFD676920D440549574DCF12490D277837223 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -29731,6 +29736,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m185CFD676920D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m2D5EB809202012DC0B9685D80BA79450BDF54A33 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29738,6 +29744,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m2D5EB80920201
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mD288903BE4ACB766D00820501C3FB1B4E0BD725C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -29745,6 +29752,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mD288903BE4ACB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m672C6C1A72E19D54539B0A7EB58CE2AEF281E3AB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle, float roundness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29752,6 +29760,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m672C6C1A72E19
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m3BA4595BE197973AD5329CAB20B5A24C39D72AF7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot ) => _ = 0;
 		return;
 	}
 }
@@ -29759,6 +29768,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m3BA4595BE1979
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m3B31F69B1B7991A85AC0DD7EDD923570C7AE97EE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29766,6 +29776,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m3B31F69B1B799
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mAD37CC6FA0856E32098FCD659762050639D7B36C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -29773,6 +29784,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mAD37CC6FA0856
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mBB6253FB1881765C4EA21FF1C15DCBC3DDDB8246 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29780,6 +29792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mBB6253FB18817
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mDB66161095F2DAFEA65798F4D11ACE3713F1B2F3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -29787,6 +29800,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mDB66161095F2D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mA91DE2AE81B2DC0D330F75384A67A72BCDA5AA93 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29794,6 +29808,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mA91DE2AE81B2D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m057165ABF1BF349F4C97F8CF3ED20D4A879D7BA7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -29801,6 +29816,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m057165ABF1BF3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m6EF4845697B1570D5E66E9B7982B612B892B1BDA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, float radius, float thickness, float angle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29808,6 +29824,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m6EF4845697B15
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mCF2E1330AF237944FE715B63558271771815FB6F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -29815,6 +29832,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mCF2E1330AF237
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mD3D57C0E5841EE9BE224847CD748FBA446772133 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, float radius, float thickness, float angle, float roundness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29822,6 +29840,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mD3D57C0E5841E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mA7E06F0F49D34FFCDA9F1299CB86E1AB7822CC56 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -29829,6 +29848,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mA7E06F0F49D34
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m400241196FFF09E4153D1BC9BEB40E06F5575C3D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, int sideCount, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29836,6 +29856,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m400241196FFF0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mBE18FEA740F8BEEC4FDB886D1C006F3DC41B70FF (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -29843,6 +29864,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mBE18FEA740F8B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m0C9AE7C37377C5F1200B37DE1E449BFFEAABA964 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, int sideCount, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29850,6 +29872,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m0C9AE7C37377C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m6AEAF543B3446AEB8CD600B72DD318DA6436DD1D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -29857,6 +29880,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m6AEAF543B3446
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m4307392578D3B1CAC03122D25D407911BAE3065E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29864,6 +29888,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m4307392578D3B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m1BD4640B9D547F337DD30E781BBEA5B41DFEB1B9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -29871,6 +29896,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m1BD4640B9D547
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mDEA729AEEDC50E9A33E517BC942DFC12F4CFCD4D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29878,6 +29904,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mDEA729AEEDC50
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m70B80161D1291AFE81637420FE7A349761A6D6E3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -29885,6 +29912,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m70B80161D1291
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m4CF7CEDA85E7ED2C1DF35265F3D3DD824A690764 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle, float roundness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29892,6 +29920,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m4CF7CEDA85E7E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m6A00DBC81FD01010ADAA725922EABBD811198A34 (const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow() => _ = 0;
 		return;
 	}
 }
@@ -29899,6 +29928,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m6A00DBC81FD01
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m2FA980531DFB91AA580706DC0D91CC462E70C93E (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29906,6 +29936,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m2FA980531DFB9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m408FB5555FE19FE16AA04305B6A0A727D5B7D26D (float ___radius0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( float radius ) => _ = 0;
 		return;
 	}
 }
@@ -29913,6 +29944,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m408FB5555FE19
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mBA39A3480EE96B39ABFDBA13CFD25CAC8783A97C (float ___radius0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29920,6 +29952,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mBA39A3480EE96
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m38B649C0158328970523F40DCBFF1C8A7629DEF0 (float ___radius0, float ___thickness1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -29927,6 +29960,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m38B649C015832
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m34D3E185F7D8476346DE4FF02A31C585CB3ED795 (float ___radius0, float ___thickness1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29934,6 +29968,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m34D3E185F7D84
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mBB3F756C11DA49A58AC16F2C3A1199AB81A2AAAF (float ___radius0, float ___thickness1, float ___angle2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -29941,6 +29976,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mBB3F756C11DA4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m3E326758E45A2C0D8476C9BD5DC45C29D2BAC00E (float ___radius0, float ___thickness1, float ___angle2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( float radius, float thickness, float angle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29948,6 +29984,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m3E326758E45A2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mF70DA0ABBC66C30D4C7668395C1D90E1A8289BA8 (float ___radius0, float ___thickness1, float ___angle2, float ___roundness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -29955,6 +29992,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mF70DA0ABBC66C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mE0FC4057D106DF92857B06E7C01748D169458EFC (float ___radius0, float ___thickness1, float ___angle2, float ___roundness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( float radius, float thickness, float angle, float roundness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29962,6 +30000,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mE0FC4057D106D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC17EA917B575B246A09AE2D2A0CC4E0EED0180CB (int32_t ___sideCount0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -29969,6 +30008,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC17EA917B575B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mFD842B5C15BB2DE68DDE5C01961EFCED2F07D50A (int32_t ___sideCount0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( int sideCount, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29976,6 +30016,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mFD842B5C15BB2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m5B9148B7421F979430DC362000011FC1E8358F59 (int32_t ___sideCount0, float ___radius1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -29983,6 +30024,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m5B9148B7421F9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m32DBEE08A1664AF21DE7F12A0903F2CC964FB640 (int32_t ___sideCount0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( int sideCount, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -29990,6 +30032,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m32DBEE08A1664
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC3D9BE260BB9532A9D8D0A8E82D8D7218382540D (int32_t ___sideCount0, float ___radius1, float ___thickness2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( int sideCount, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -29997,6 +30040,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC3D9BE260BB95
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m31FB53529DC6222211EA84EFCF492326537D029B (int32_t ___sideCount0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( int sideCount, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -30004,6 +30048,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m31FB53529DC62
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mCD70D505ACEFBE8DFD84328F045210AB56D27E53 (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( int sideCount, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30011,6 +30056,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mCD70D505ACEFB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m153204AA8F0A07418853C19142798C4BBC38A6A3 (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( int sideCount, float radius, float thickness, float angle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -30018,6 +30064,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m153204AA8F0A0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m8D06206790A8DDF0976F7998B92088A06A72A507 (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( int sideCount, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30025,6 +30072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_m8D06206790A8D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC88D541A7AC140BF9678D6B6645C8644FB79A321 (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME, true )] public static void RegularPolygonHollow( int sideCount, float radius, float thickness, float angle, float roundness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -30032,6 +30080,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollow_mC88D541A7AC14
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m6738CF713E675843F3D26D1A27D9B5043C791486 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos ) => _ = 0;
 		return;
 	}
 }
@@ -30039,6 +30088,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m6738CF713E67584
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m92CBA8B96420924410D20251B9C3EE6683345865 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30046,6 +30096,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m92CBA8B96420924
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m94637FB1AD5D6FA41DEA223552AEF219FCB827E2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30053,6 +30104,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m94637FB1AD5D6FA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mD6C43F3E2F68D61A9CCB7235E28A0D92DAAFA56C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30060,6 +30112,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mD6C43F3E2F68D61
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m0598F55A279567C4E717B91FDDDED3F039090B76 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angle2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, float radius, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30067,6 +30120,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m0598F55A279567C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5036D63B452BE5016F65BFC7022232EF8BD750D9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angle2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, float radius, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30074,6 +30128,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5036D63B452BE50
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m8B13BF4CE49E440DABB7F113AE65DA1156EF44B0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angle2, float ___roundness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, float radius, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30081,6 +30136,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m8B13BF4CE49E440
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m72778867070DFFB83472D1EE1EDD3D61E5A301FC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angle2, float ___roundness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, float radius, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30088,6 +30144,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m72778867070DFFB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m15C53DBF716C3D0FC702BFAEE5AF585D5C7FAD57 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -30095,6 +30152,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m15C53DBF716C3D0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m6FF1B0262C156AE2705E601DDE5A47E4F8023B67 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, int sideCount, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30102,6 +30160,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m6FF1B0262C156AE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mA71D4C37D02D69D2679739890DF8566561F61C58 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30109,6 +30168,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mA71D4C37D02D69D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mCCA3D47BD4C7A98B5FB42A00A41F5C75CA12674F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, int sideCount, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30116,6 +30176,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mCCA3D47BD4C7A98
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5258430F90C178C25DF69E349C7455107F30B3D1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___angle3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, int sideCount, float radius, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30123,6 +30184,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5258430F90C178C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mC4C23EF521263A27866ABC75DA5B6ABF565479CD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___angle3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, int sideCount, float radius, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30130,6 +30192,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mC4C23EF521263A2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5E93B00FDD6A06B7B7B274CDEB228E42CDEEED3B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___angle3, float ___roundness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, int sideCount, float radius, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30137,6 +30200,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5E93B00FDD6A06B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mE2ABD124BB854143B5F6DE98D31415EF9A9253B7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___angle3, float ___roundness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, int sideCount, float radius, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30144,6 +30208,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mE2ABD124BB85414
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mC6C3F16527F60A695BDF4BD3BAD82F7DFAB16BA9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal ) => _ = 0;
 		return;
 	}
 }
@@ -30151,6 +30216,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mC6C3F16527F60A6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m98E8399DADF97A190319E04359AEA774FF55B736 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30158,6 +30224,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m98E8399DADF97A1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mC2B08BF026558E28611B31932695E6A64B2BDE81 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30165,6 +30232,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mC2B08BF026558E2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m2627412854444F11829C77F831BE2C94524AF9B6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30172,6 +30240,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m2627412854444F1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mE3F7A019BB0782578DB26A072F8ED2A895D73C70 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angle3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, float radius, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30179,6 +30248,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mE3F7A019BB07825
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m2F489FFF1355302C87301075907B921DAD7F4207 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angle3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, float radius, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30186,6 +30256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m2F489FFF1355302
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m019EB00EB2BC885DCD582747E60F81D7DFA9F64E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angle3, float ___roundness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, float radius, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30193,6 +30264,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m019EB00EB2BC885
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mB1933B9D5CF801BC34AEF98353C110A19CDD7441 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angle3, float ___roundness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, float radius, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30200,6 +30272,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mB1933B9D5CF801B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m9774669261EAD64F6F2942F0E510EECA9F0C9164 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -30207,6 +30280,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m9774669261EAD64
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5973CE60251B894F358EE6ED76985C7EA395A178 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, int sideCount, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30214,6 +30288,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5973CE60251B894
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mC5300988398F94675CF75EF9BD3D65ACC0F00451 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30221,6 +30296,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mC5300988398F946
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5B98177ACDC02423FCAF9EE11D7FB0533BDC5152 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, int sideCount, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30228,6 +30304,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5B98177ACDC0242
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m8957361307DFD92F06D9E9681D71295C3BAF8C90 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___angle4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, int sideCount, float radius, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30235,6 +30312,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m8957361307DFD92
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mFE6CBDAF75B87CDB441B579985C186BA811505B6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___angle4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, int sideCount, float radius, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30242,6 +30320,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mFE6CBDAF75B87CD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m95DEA3DE30D953D753F71547A693B627C1BD4962 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___angle4, float ___roundness5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, int sideCount, float radius, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30249,6 +30328,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m95DEA3DE30D953D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m2969A1CC8690FE9E7ECFA25FD4346797F702D9AE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___angle4, float ___roundness5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Vector3 normal, int sideCount, float radius, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30256,6 +30336,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m2969A1CC8690FE9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mAC56DC0DF49EC2DFF3507F3F1DDC2329AB729D4A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot ) => _ = 0;
 		return;
 	}
 }
@@ -30263,6 +30344,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mAC56DC0DF49EC2D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m127B9E60DE11C7B5E4B7FFC7ABDD329D3393B4C6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30270,6 +30352,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m127B9E60DE11C7B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m981611DCA8FA22719A63A5A4390CF50089C6E746 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30277,6 +30360,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m981611DCA8FA227
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mFF5C09885503AD37B27EAD72D8F77A8EC5869048 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30284,6 +30368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mFF5C09885503AD3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mAD9392F856DDFD119614EC965DF63360AF8BDC79 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angle3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, float radius, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30291,6 +30376,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mAD9392F856DDFD1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mDDA18A940A5242F7224E07398C2C94762857C6AD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angle3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, float radius, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30298,6 +30384,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mDDA18A940A5242F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mC758236FB5B7B6AA9EFFD09E22AD8DC02D456D43 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angle3, float ___roundness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, float radius, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30305,6 +30392,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mC758236FB5B7B6A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m62B14CA9F96F5FE1F437BC67BD5383CABA6A0578 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angle3, float ___roundness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, float radius, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30312,6 +30400,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m62B14CA9F96F5FE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mB337CBC8F62B05C60C118784AEA8BB011F28FE61 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -30319,6 +30408,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mB337CBC8F62B05C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mEF5322047A94359D66CBC69997132A23549C681F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, int sideCount, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30326,6 +30416,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mEF5322047A94359
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5E5771A61E4665D5D69DE10B72D4B9A6384EB906 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30333,6 +30424,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m5E5771A61E4665D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mE48AC4301CB398868CC2E02CF80AA33B2FAC3C90 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, int sideCount, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30340,6 +30432,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mE48AC4301CB3988
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mAD5B0C873CD49608DB7A0F7DA406EBBECA9907DD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___angle4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, int sideCount, float radius, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30347,6 +30440,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mAD5B0C873CD4960
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mD9EF1F6B4E9C3624825C4D63E16812B54B3A2807 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___angle4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, int sideCount, float radius, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30354,6 +30448,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mD9EF1F6B4E9C362
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mF0804BAA1AFB88F77A258BD831B1E018427CE75D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___angle4, float ___roundness5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, int sideCount, float radius, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30361,6 +30456,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mF0804BAA1AFB88F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mBB2897ADA1248133F96CAA67BBA29982BEA64B1C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___angle4, float ___roundness5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( Vector3 pos, Quaternion rot, int sideCount, float radius, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30368,6 +30464,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mBB2897ADA124813
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mD0607CA8B34EAB478D9A33C3669B632F40D7B030 (const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill() => _ = 0;
 		return;
 	}
 }
@@ -30375,6 +30472,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mD0607CA8B34EAB4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m23AD20715726F8D0C9C8DA5B3B6AC201AB601169 (GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30382,6 +30480,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m23AD20715726F8D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mB6A906F1FAB77FBF1BF6EA2FA60ED3167F2E13FD (float ___radius0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30389,6 +30488,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mB6A906F1FAB77FB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mE554961B8DCBDFCA4A2E3800F471477B137C53BA (float ___radius0, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30396,6 +30496,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mE554961B8DCBDFC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m114AC413AB239C9AF37015E0BEAEA1AFCAFB9221 (float ___radius0, float ___angle1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( float radius, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30403,6 +30504,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m114AC413AB239C9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mE842519F215E4075029E386A68D653D26971FED7 (float ___radius0, float ___angle1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( float radius, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30410,6 +30512,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mE842519F215E407
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m83DF8DFEB2B7BDD986154323D7F78929775BFFE2 (float ___radius0, float ___angle1, float ___roundness2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( float radius, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30417,6 +30520,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m83DF8DFEB2B7BDD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mAD546EFBD88FF118AE086C91082CD9485069D89B (float ___radius0, float ___angle1, float ___roundness2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( float radius, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30424,6 +30528,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mAD546EFBD88FF11
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mF45BBA50CE33551053A5C68C4BCB7E8951644F13 (int32_t ___sideCount0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -30431,6 +30536,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mF45BBA50CE33551
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m3421CED32180FD0F86EEC8BDAAFEF08A1FEB4EAF (int32_t ___sideCount0, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( int sideCount, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30438,6 +30544,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m3421CED32180FD0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m7A63CAB00E9B8BA6FAE96C9E9AF0658CB0F422F4 (int32_t ___sideCount0, float ___radius1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30445,6 +30552,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m7A63CAB00E9B8BA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mACB99AE9CD7644CD74522FA4E9774A5DA0EA1F2C (int32_t ___sideCount0, float ___radius1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( int sideCount, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30452,6 +30560,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_mACB99AE9CD7644C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m0A32BB013020AB300F43A94FCC42719250D4EFDE (int32_t ___sideCount0, float ___radius1, float ___angle2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( int sideCount, float radius, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30459,6 +30568,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m0A32BB013020AB3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m1C0C30ED54A70513279EDB9A7139A2C8415CF6CE (int32_t ___sideCount0, float ___radius1, float ___angle2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( int sideCount, float radius, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30466,6 +30576,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m1C0C30ED54A7051
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m024B99D32F81D4024858BD3AF562B2A340E9EEDD (int32_t ___sideCount0, float ___radius1, float ___angle2, float ___roundness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( int sideCount, float radius, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30473,6 +30584,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m024B99D32F81D40
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m7EA417F72B32514F70F026988862C9B8A7281E95 (int32_t ___sideCount0, float ___radius1, float ___angle2, float ___roundness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFill( int sideCount, float radius, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30480,6 +30592,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFill_m7EA417F72B32514
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mD57CF46337D542E39538C26A8EF9869F8CC48B14 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos ) => _ = 0;
 		return;
 	}
 }
@@ -30487,6 +30600,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mD57CF4633
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m01F9AAFFE76FF5F7092D40749F6FA0EEFF4F5ED8 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30494,6 +30608,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m01F9AAFFE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m358FFCF3BE9D68BFF9DA38951256D261068012B1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30501,6 +30616,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m358FFCF3B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mF606FE5519D1AEB9897E5A44A8EE846C5AA3BF1E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30508,6 +30624,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mF606FE551
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m4588B13437ECA3523763650068A26467C70179C7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -30515,6 +30632,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m4588B1343
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m37C31749011F0F56AE4C6AEB6C15FBD509082EB4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, float radius, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30522,6 +30640,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m37C317490
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m60A62F9CD5BC653132ACCB814F8497335A64BD74 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30529,6 +30648,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m60A62F9CD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m341AD8232BE67C54CCA58DEA9BEA8FBF9F779B9B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, float radius, float thickness, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30536,6 +30656,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m341AD8232
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mE057DE9812F382463579FE5DAC2982632E376556 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30543,6 +30664,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mE057DE981
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mDD51C4635365428DD59CC26219663251693394D7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, float radius, float thickness, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30550,6 +30672,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mDD51C4635
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m4356ACB6973A13E8F72CAC3913AC792AC4248DE2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -30557,6 +30680,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m4356ACB69
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m7EADC0953BB25FBFDA211FB2E0CBE389DE38BDED (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, int sideCount, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30564,6 +30688,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m7EADC0953
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mA135F79122F9155E748536953C2675B9CB7EFF4D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30571,6 +30696,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mA135F7912
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m11F675EFC1E4633B62F1AD948CBA4442ED0772D5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, int sideCount, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30578,6 +30704,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m11F675EFC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mAAC21CC6F25CC37452D037915AD5FFEE05840045 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, int sideCount, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -30585,6 +30712,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mAAC21CC6F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m21E0949D3512BD2FB72BBB7C229106EDB618B48E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, int sideCount, float radius, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30592,6 +30720,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m21E0949D3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m2038E67F303C4465166AB168322B4E549694AADA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, int sideCount, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30599,6 +30728,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m2038E67F3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mD881D71D809622BD532C2132581EF2116394A130 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, int sideCount, float radius, float thickness, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30606,6 +30736,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mD881D71D8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m8A4BCB0071D9DEB7B453CF5024A9106A2F68AB44 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, int sideCount, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30613,6 +30744,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m8A4BCB007
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m19F788ADAB174677BE38022FC4A0823D4C837A33 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, int sideCount, float radius, float thickness, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30620,6 +30752,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m19F788ADA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mB76E7DA42968544B2C8D11419F3E8A6563C46637 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal ) => _ = 0;
 		return;
 	}
 }
@@ -30627,6 +30760,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mB76E7DA42
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m6A1332A72725C11D3689ED1E02FFC4FCE398256A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30634,6 +30768,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m6A1332A72
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m7E5C0E2F3BE2B973629D8362A3641A1052A760ED (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30641,6 +30776,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m7E5C0E2F3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m60E7314571C8444CF0333BE1E7B0142B3049702F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30648,6 +30784,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m60E731457
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m8541AC07DA01F5FA0D6F652047F2060E7E447E2C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -30655,6 +30792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m8541AC07D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m6F201118D8F8E86840A91794376B40350F5487AB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, float radius, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30662,6 +30800,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m6F201118D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m8D91A37C6473D804A893F65D85017C8CDE2552C1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30669,6 +30808,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m8D91A37C6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m97572F0167B05FFFEC83BFA47DCD8FD18EA1FAB2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, float radius, float thickness, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30676,6 +30816,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m97572F016
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mADC7F849FD3BBE166DD020ECD6FF782371D0D98D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30683,6 +30824,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mADC7F849F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mABCCE19B5B99A454384762D9BEA3599551BCECD2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, float radius, float thickness, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30690,6 +30832,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mABCCE19B5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m391A05F25FBCCCC66F1D3F7CA4D23B387DC9DBEE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -30697,6 +30840,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m391A05F25
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mAF9985489D1B40976A1FE59DF5607C9A9FBD235A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, int sideCount, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30704,6 +30848,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mAF9985489
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m3BFF3EB0F0FB916A8E6CC06204B4B4BD5E9FA8D3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30711,6 +30856,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m3BFF3EB0F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m3115D138BC3411C3F5655A8EFE010E75D32B1668 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, int sideCount, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30718,6 +30864,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m3115D138B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mDCDD07151137AF8AA3ED90CFA20B1A3B9D76724F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -30725,6 +30872,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mDCDD07151
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mB7FB89F3749D44F3784AA3BDE06903F25AE54D62 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30732,6 +30880,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mB7FB89F37
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mECA495DD36E73F13824EB7A396228FA912EF130E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30739,6 +30888,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mECA495DD3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m5857FD737713C85C77FB062A812CD45B4AC4182D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30746,6 +30896,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m5857FD737
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m778E152214D46E387FCDE91EA76F5D04D90BF5DE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30753,6 +30904,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m778E15221
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m827F35FE6BF75A78F218EE36AAA4E754AA087DCD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30760,6 +30912,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m827F35FE6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m21C27C74A95BB25DE1678F1099CB3962D160459C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot ) => _ = 0;
 		return;
 	}
 }
@@ -30767,6 +30920,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m21C27C74A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m39A41E27F3309A80B992E55F1A87A01A059FFF52 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30774,6 +30928,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m39A41E27F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m10BE0028B56DB5CBA656451A7D07536E21ED5BB5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30781,6 +30936,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m10BE0028B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m7D3B51D037954C9E2496E34833272FAC2FA82D92 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30788,6 +30944,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m7D3B51D03
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mE49F5CB0532FD160AF3136CEF1E04510B9C7B545 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -30795,6 +30952,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mE49F5CB05
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m4732532DB23B775141B43BA8B6F8E761CAACEE20 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, float radius, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30802,6 +30960,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m4732532DB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mBED0A1B644D79E4AC56F80848B400F1F85F80E28 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30809,6 +30968,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mBED0A1B64
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mB7F151100C257D6B8F9C221A907BBDB2F381FB58 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, float radius, float thickness, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30816,6 +30976,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mB7F151100
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m4217B5AE7794AA74364C54CCD7DE6CA71D8F2B5E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30823,6 +30984,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m4217B5AE7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m214916CE161192B6552A2819CC33970360969B97 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, float radius, float thickness, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30830,6 +30992,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m214916CE1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mADDFD3CDE3062FE42F7B08D908A4D8AD3ABAF64A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -30837,6 +31000,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mADDFD3CDE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mF6C6DE094D971BA47746DD3AAF1B940D751E76E2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, int sideCount, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30844,6 +31008,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mF6C6DE094
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m520F82FF9E2F91775219B2AA52B550DCD13373C9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30851,6 +31016,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m520F82FF9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m8C13F09692326874ABD1DAC58F64E504700AAA67 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, int sideCount, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30858,6 +31024,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m8C13F0969
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m0D66AAB6B01C70D198C3DF7820DC82D50A9AE07C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -30865,6 +31032,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m0D66AAB6B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mA3ABB33ECDBF0D7C8BB2DF34888C1D6836540CD9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30872,6 +31040,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mA3ABB33EC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mAA251A106EE1CDCF0C357F76AACCBB311BBCE7BF (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30879,6 +31048,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mAA251A106
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m56C4EF6E369AE3B3555B5A00FAF0645B18899D5D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30886,6 +31056,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m56C4EF6E3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mA6C9DA722F8A4894AA5968342DC1B425D3CD230F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30893,6 +31064,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mA6C9DA722
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mF5FFC09B9215FF79ECF5FA9A3A7A0436D7F30C1A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30900,6 +31072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mF5FFC09B9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m6FBEF491806C5A93CADF232896B8FB3218128DF9 (const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill() => _ = 0;
 		return;
 	}
 }
@@ -30907,6 +31080,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m6FBEF4918
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m54BBA636A42F615E703A8367645D6CE395E01B6A (GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30914,6 +31088,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m54BBA636A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m790D8D7305DC64ADC395EA2768322265AE215D13 (float ___radius0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30921,6 +31096,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m790D8D730
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mFA4083483E1F4AC1864AD7825459AD48066333FB (float ___radius0, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30928,6 +31104,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mFA4083483
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mE08D3248ABD8005A8B1CE9EEFE6F06E28AFDB268 (float ___radius0, float ___thickness1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -30935,6 +31112,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mE08D3248A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m6678BBEBCDBE6DEA58A68E892568C5B4ADEC7FF0 (float ___radius0, float ___thickness1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( float radius, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30942,6 +31120,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m6678BBEBC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m843AFD14B68802DDA52A51984E0838ECB1632258 (float ___radius0, float ___thickness1, float ___angle2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -30949,6 +31128,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m843AFD14B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m880A8EEDE99795E3EDDD8E9FC8B0B7E94056A544 (float ___radius0, float ___thickness1, float ___angle2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( float radius, float thickness, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30956,6 +31136,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m880A8EEDE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mC5D8F8FB7BA4AA308F01CCB843EECB43651C7491 (float ___radius0, float ___thickness1, float ___angle2, float ___roundness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -30963,6 +31144,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mC5D8F8FB7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mE98B8A25E9B3382A6447A32C87A0A8186131A243 (float ___radius0, float ___thickness1, float ___angle2, float ___roundness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( float radius, float thickness, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30970,6 +31152,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mE98B8A25E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m41B6A0255905956207E6537E36FE713135DF7DE8 (int32_t ___sideCount0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( int sideCount ) => _ = 0;
 		return;
 	}
 }
@@ -30977,6 +31160,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m41B6A0255
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mC1D3FD811DD568DEEF43A6B3F6CC116CDED6E421 (int32_t ___sideCount0, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( int sideCount, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30984,6 +31168,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mC1D3FD811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mDB8E557D08494DC91A7ECACE242576ECC15A325C (int32_t ___sideCount0, float ___radius1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( int sideCount, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -30991,6 +31176,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mDB8E557D0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mE0BEFA1E0676637C57B15C33D20A5A87036CDB05 (int32_t ___sideCount0, float ___radius1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( int sideCount, float radius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -30998,6 +31184,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mE0BEFA1E0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mDF2DAFEB6046A652C1E8E1391D307934BB3A67C6 (int32_t ___sideCount0, float ___radius1, float ___thickness2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( int sideCount, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -31005,6 +31192,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mDF2DAFEB6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mECA7EDB3EF5EB29834F68764B406BEF18F234B43 (int32_t ___sideCount0, float ___radius1, float ___thickness2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( int sideCount, float radius, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -31012,6 +31200,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mECA7EDB3E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mC8CB767AA096DC3A8D85C39451FC65A160D6ED88 (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( int sideCount, float radius, float thickness, float angle ) => _ = 0;
 		return;
 	}
 }
@@ -31019,6 +31208,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_mC8CB767AA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m3F13A9FC5C22AB77F0BB4761EAFEEC872A9E5039 (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( int sideCount, float radius, float thickness, float angle, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -31026,6 +31216,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m3F13A9FC5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m76E373B42215044F3C3990726412A541D59C74D0 (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( int sideCount, float radius, float thickness, float angle, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -31033,6 +31224,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m76E373B42
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m4CB9CE9A5324B39224059775D2DD7179E8D10C49 (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFill( int sideCount, float radius, float thickness, float angle, float roundness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -31040,6 +31232,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFill_m4CB9CE9A5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m874BE1FEF5CC94D1D6E92C003806A1A88E4BBBEE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31047,6 +31240,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m874BE1FEF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m41BE3D6E3C26CF5068FF453EE6F9D77D775D6334 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31054,6 +31248,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m41BE3D6E3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mA4693F3AB4551744C8E9C1C091D56AD1FF3C4B6D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angle2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, float radius, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31061,6 +31256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mA4693F3AB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m8F8B0448DFE6CE2CACB8EFC14DB29E00E2E8A812 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angle2, float ___roundness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, float radius, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31068,6 +31264,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m8F8B0448D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m1292EF85B27D18E36B4B119879728A8ABB92BD77 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, int sideCount, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31075,6 +31272,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m1292EF85B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m779C6FB49302136B789E6EF092B030C8EF4B2815 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, int sideCount, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31082,6 +31280,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m779C6FB49
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m09C7857CC441904A9D58AA9313CB1F9991395211 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___angle3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, int sideCount, float radius, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31089,6 +31288,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m09C7857CC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m0984B0022BC5A5FFE2AB548E771172CD3C94AE72 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___angle3, float ___roundness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, int sideCount, float radius, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31096,6 +31296,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m0984B0022
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mD840BD5CD8F4995F260E6CBE4E7729081B5E7DD1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Vector3 normal, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31103,6 +31304,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mD840BD5CD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mF01C8DE07A2E946E6059E2A035CD4D0162C68688 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Vector3 normal, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31110,6 +31312,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mF01C8DE07
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m51C49D95F827D878F694F9EAAFF5357BCA24F9D0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angle3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Vector3 normal, float radius, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31117,6 +31320,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m51C49D95F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m769A5946F70BD9866C945833BBFAA4BA6AE0BB2C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angle3, float ___roundness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Vector3 normal, float radius, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31124,6 +31328,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m769A5946F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m302AE59FF21B590C7DAACF1F258EF7A0EF74FA87 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Vector3 normal, int sideCount, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31131,6 +31336,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m302AE59FF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mF2BC4F67EE5B990A9A5DFC7C8EB08569D8ACF699 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Vector3 normal, int sideCount, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31138,6 +31344,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mF2BC4F67E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mFE351D191CFC6F7CAE008E0CF28C75E65FA351FC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___angle4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Vector3 normal, int sideCount, float radius, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31145,6 +31352,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mFE351D191
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mB6317D40D2B38748054659510E2CF3DD4FA1902D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___angle4, float ___roundness5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart6, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Vector3 normal, int sideCount, float radius, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31152,6 +31360,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mB6317D40D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m9D761FF1F1E3B363F530254821529C0C45F272AB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Quaternion rot, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31159,6 +31368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m9D761FF1F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mC35CB354BF2C94EF651A0011455D3E7E3FC05C73 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Quaternion rot, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31166,6 +31376,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mC35CB354B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mC494485557565CD47961499662EA67245AAA16D6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angle3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Quaternion rot, float radius, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31173,6 +31384,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mC49448555
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m3DB3F277F45CE4F03F5B5AA6B2194DACF53880FA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angle3, float ___roundness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Quaternion rot, float radius, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31180,6 +31392,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m3DB3F277F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m9CDD9C8331BFA75CBB08CB26D4B4EF418230B59E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Quaternion rot, int sideCount, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31187,6 +31400,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m9CDD9C833
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m6A9584CBFC811D7276ED583B4D45F412CC287298 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Quaternion rot, int sideCount, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31194,6 +31408,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m6A9584CBF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mB7786B3A38D406CD3364DCE0DB488D7E45A91C9E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___angle4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Quaternion rot, int sideCount, float radius, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31201,6 +31416,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mB7786B3A3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m0755B378F39F9BF09CCF5B51E6B7B88D53262D67 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___angle4, float ___roundness5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart6, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 pos, Quaternion rot, int sideCount, float radius, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31208,6 +31424,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m0755B378F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m70445FC6688BC901DEAE5E1DBCE932A9B906F9D6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd3, int32_t ___fillSpace4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31215,6 +31432,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m70445FC66
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m58E3A000F16683B2005A628C2927036B431BF11B (float ___radius0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31222,6 +31440,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m58E3A000F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m1A320DFFD315FE9FCB1F4E35A517E638E66D5E63 (float ___radius0, float ___angle1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( float radius, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31229,6 +31448,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m1A320DFFD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mBEA5FC237750D013B6C0A9F4AB2C6410C6D66908 (float ___radius0, float ___angle1, float ___roundness2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( float radius, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31236,6 +31456,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_mBEA5FC237
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m724F040DA891A2EB57F6716D94EA92A71329FC65 (int32_t ___sideCount0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( int sideCount, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31243,6 +31464,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m724F040DA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m4FC27D30DCA57F7B3216345B098E8AC47071969C (int32_t ___sideCount0, float ___radius1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( int sideCount, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31250,6 +31472,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m4FC27D30D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m470A215F83B68E3E8F73196F8639C2FE536AB045 (int32_t ___sideCount0, float ___radius1, float ___angle2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( int sideCount, float radius, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31257,6 +31480,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m470A215F8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m5B33958EB2D9856A946E2BE26A879F36F99FCCF6 (int32_t ___sideCount0, float ___radius1, float ___angle2, float ___roundness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillLinear( int sideCount, float radius, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31264,6 +31488,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillLinear_m5B33958EB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m01D94485B935E0A8F79ABE5B12F1C70710900E58 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31271,6 +31496,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m01D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m34137B24BE19D066BDEEFD85CC9ED55A0E0E48FC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31278,6 +31504,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m341
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mD32C85E8D2ECE8F4788DBE4C6AABCC551BDE1D52 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, float radius, float thickness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31285,6 +31512,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mD32
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m89A8FAC9E95DABCD0F3FA78A32C3AA52BBD73215 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, float radius, float thickness, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31292,6 +31520,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m89A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m90C26B50B4065BD9175608EDEDA4070768D81A81 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, float radius, float thickness, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31299,6 +31528,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m90C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m998D1E2F41EE593E67BB6184A1FABB84FDF16A64 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, int sideCount, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31306,6 +31536,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m998
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m21993B2FB1ADB42D4A93AC8E3055197E17EB04DB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, int sideCount, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31313,6 +31544,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m219
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m845140793E5526F3C4D96ED367C15E67A14695D8 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, int sideCount, float radius, float thickness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31320,6 +31552,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m845
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m6990B4AE54E3DABAA74DB141A3768872D1EB92BC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, int sideCount, float radius, float thickness, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31327,6 +31560,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m699
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mA40A5113514997508CD18E24115EA2090DCF7D87 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart6, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, int sideCount, float radius, float thickness, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31334,6 +31568,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mA40
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mFF1858B47CB674C53F5E0753213CFD111417B026 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Vector3 normal, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31341,6 +31576,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mFF1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m1DBA27495E57073823E775E484A78A4F21E773BB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Vector3 normal, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31348,6 +31584,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m1DB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m6D2D99798F5965DCE8057DC5C5057C96A265839F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Vector3 normal, float radius, float thickness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31355,6 +31592,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m6D2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m54DCE3DAE7397C9AD67FCAD34CC74EA8B1A52541 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Vector3 normal, float radius, float thickness, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31362,6 +31600,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m54D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m3A89AF662E9498D704D9544FE9E21E5EAFFD829B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart6, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Vector3 normal, float radius, float thickness, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31369,6 +31608,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m3A8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mD594E9001CEBAAE30AAA58604DA6BA12DE9A944D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Vector3 normal, int sideCount, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31376,6 +31616,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mD59
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mB3FDDCAF856248E5890743A348FEA511172EBEDD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Vector3 normal, int sideCount, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31383,6 +31624,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mB3F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m7E3F33C1DB926E94C2D7A231026C17485F76B838 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31390,6 +31632,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m7E3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m884DA0AE69C548067ECEFD442601F7FA54931173 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart6, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31397,6 +31640,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m884
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m47FE3289E0DB9FBCE39AC30AF348FA256A2D85E7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart7, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd10, int32_t ___fillSpace11, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31404,6 +31648,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m47F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mA79917ABCC0AA29266364D3BC8F53EBFF10C7550 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Quaternion rot, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31411,6 +31656,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mA79
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m9BAB9E353E69C96123944F60190DF1EA866FEA68 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Quaternion rot, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31418,6 +31664,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m9BA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mC554F17AF16CBB3CF3673980E3D1D085A3232937 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Quaternion rot, float radius, float thickness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31425,6 +31672,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mC55
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m53CFFCA9203766FFB9721C8444B8CCF6B57445B2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Quaternion rot, float radius, float thickness, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31432,6 +31680,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m53C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m1A664F156595747A382B8C7D49BF09A3D1B8784B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart6, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Quaternion rot, float radius, float thickness, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31439,6 +31688,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m1A6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m7CD41A06F61D20D59D09D812D7B1B0A0554D438B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Quaternion rot, int sideCount, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31446,6 +31696,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m7CD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mBAFFC1B204C342564A3BCC942C67E94C44A5DA1D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Quaternion rot, int sideCount, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31453,6 +31704,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mBAF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m368DC318369C97505C26A8142B6676885551D9D0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31460,6 +31712,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m368
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m02EE7D537C2DA30118B72D57EC5AC09205430A57 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart6, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31467,6 +31720,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m02E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mABCBD7AE1A933C7EB5FEE15C603E9C0A2FAFA030 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart7, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd10, int32_t ___fillSpace11, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31474,6 +31728,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mABC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mE8095EC2F46BA9BA0EF1B4134CFA778B685A4D99 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd3, int32_t ___fillSpace4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31481,6 +31736,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mE80
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mE7337AA1DBD0FF8491C296B866AA10DD23453519 (float ___radius0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31488,6 +31744,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mE73
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mFDC321CD21FF86CAF8B68DF34A20067E96E04BE4 (float ___radius0, float ___thickness1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( float radius, float thickness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31495,6 +31752,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mFDC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mB252C958F6A95640E363BB37A925A1FB2701DEF4 (float ___radius0, float ___thickness1, float ___angle2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( float radius, float thickness, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31502,6 +31760,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mB25
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m3C6952CDCA04BB8354720BEE554E6C7DB37EA186 (float ___radius0, float ___thickness1, float ___angle2, float ___roundness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( float radius, float thickness, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31509,6 +31768,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m3C6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mF41530E76A00C3808B60AFCFE8EB7AFC32AF9C8E (int32_t ___sideCount0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( int sideCount, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31516,6 +31776,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_mF41
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m56747C285AA714A225779AFE1FBE36CD4213B550 (int32_t ___sideCount0, float ___radius1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( int sideCount, float radius, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31523,6 +31784,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m567
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m5FDCB4D38E1C936C93737774777714D6A044A02A (int32_t ___sideCount0, float ___radius1, float ___thickness2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( int sideCount, float radius, float thickness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31530,6 +31792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m5FD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m3BC96B1F24EE3D4F500B4F45F779B7BECBE8B520 (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( int sideCount, float radius, float thickness, float angle, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31537,6 +31800,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m3BC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m0940818A6EB2FD2850ECA9DF6C4DBCF1539F0AA6 (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillStart5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillLinear( int sideCount, float radius, float thickness, float angle, float roundness, Vector3 fillStart, Vector3 fillEnd, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31544,6 +31808,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillLinear_m094
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mCC37802F87763B5D57F0715E4EF4BDDA826068D1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin1, float ___fillRadius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31551,6 +31816,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mCC37802F8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m46C6A9D506B58E9002CF43933D062BDA84F9D4C1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31558,6 +31824,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m46C6A9D50
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m332645B2FC19F4FED53613D1BEF627F66285C32E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angle2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, float radius, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31565,6 +31832,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m332645B2F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mA5362EB23341DFF44733D628A06013AB298B33B3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angle2, float ___roundness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, float radius, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31572,6 +31840,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mA5362EB23
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m9DD5920279EB702F54C840BE7B36CACCBD5A6251 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, int sideCount, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31579,6 +31848,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m9DD592027
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mAB5DF3108DB266735CD4A0ED542DC331A90D9EDB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, int sideCount, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31586,6 +31856,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mAB5DF3108
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mDB91CE48B183A55FB39BD004E786139AF6D1A405 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___angle3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, int sideCount, float radius, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31593,6 +31864,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mDB91CE48B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m46FC121AA5D911F70D6F1767B9B00988A526BD41 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___angle3, float ___roundness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, int sideCount, float radius, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31600,6 +31872,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m46FC121AA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m2B50C18B04CF7F961656788CFDECD77DE1624745 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Vector3 normal, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31607,6 +31880,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m2B50C18B0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m46CEFC7A44B83ABD795F424FD239C7B817C925A2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Vector3 normal, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31614,6 +31888,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m46CEFC7A4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mE605EEB02D5677EE6B66037F8F392245888E5713 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angle3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Vector3 normal, float radius, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31621,6 +31896,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mE605EEB02
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m101DE6DF90AB32778DA64E38E36E26F958CEE42D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angle3, float ___roundness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Vector3 normal, float radius, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31628,6 +31904,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m101DE6DF9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m09286BC1801B47277053435186A1952BD287DF39 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Vector3 normal, int sideCount, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31635,6 +31912,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m09286BC18
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mD86E2B6D55A084BBC20A61EBF516125761FB1AEA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Vector3 normal, int sideCount, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31642,6 +31920,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mD86E2B6D5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m483C12BE1A6EB488FF7430AF6F1FDBADE3E11F41 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___angle4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Vector3 normal, int sideCount, float radius, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31649,6 +31928,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m483C12BE1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m3AA8F851FB6E0053EB6BDBF4AE62F28E3EB18F18 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___angle4, float ___roundness5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin6, float ___fillRadius7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Vector3 normal, int sideCount, float radius, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31656,6 +31936,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m3AA8F851F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mF29ECDC0669B558A2A403A1DCE70595C6533210C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Quaternion rot, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31663,6 +31944,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mF29ECDC06
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m361789B447954BC77621F2B39CBF7A1B5C340888 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Quaternion rot, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31670,6 +31952,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m361789B44
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m2872C2593926F38E3B2BB29B23E117538B9EA049 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angle3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Quaternion rot, float radius, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31677,6 +31960,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m2872C2593
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m655B5700B9DED39D18FE3D250688FC730293B472 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angle3, float ___roundness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Quaternion rot, float radius, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31684,6 +31968,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m655B5700B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m1D9E7CA212069CAFE17F2EC08BD9D5E52D833C53 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Quaternion rot, int sideCount, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31691,6 +31976,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m1D9E7CA21
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m7EFB58B69D86CA41DAD858E99386BA41060F04FC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Quaternion rot, int sideCount, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31698,6 +31984,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m7EFB58B69
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m207379194F95675560B744B9482C965E26CD3E63 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___angle4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Quaternion rot, int sideCount, float radius, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31705,6 +31992,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m207379194
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mBCE67939C4610373E65CDA2E717B8B44B08D87B3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___angle4, float ___roundness5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin6, float ___fillRadius7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 pos, Quaternion rot, int sideCount, float radius, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31712,6 +32000,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mBCE67939C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mE1880639E9A742DA51D4B98332ADF765FE91C433 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin0, float ___fillRadius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd3, int32_t ___fillSpace4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31719,6 +32008,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mE1880639E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m8893E8CF0E061701BD6DD4636A27B37BD48BBA1A (float ___radius0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin1, float ___fillRadius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31726,6 +32016,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m8893E8CF0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m963595E6D92F1142B2AB7C03242CF893201DDB55 (float ___radius0, float ___angle1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( float radius, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31733,6 +32024,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m963595E6D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mDE996006918CC59F5152FDDAC5CD3AC6446A1F36 (float ___radius0, float ___angle1, float ___roundness2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( float radius, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31740,6 +32032,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mDE9960069
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mFB0A842D2957B68B9DC73CB7C703B2D3865A4CAE (int32_t ___sideCount0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin1, float ___fillRadius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( int sideCount, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31747,6 +32040,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mFB0A842D2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m634F817F3E7783394F09868BE3B589853FA08EC1 (int32_t ___sideCount0, float ___radius1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( int sideCount, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31754,6 +32048,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m634F817F3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m88B779D3D4AE1A2E0D0A23FF6569AC1C761D6199 (int32_t ___sideCount0, float ___radius1, float ___angle2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( int sideCount, float radius, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31761,6 +32056,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_m88B779D3D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mB91B1F472E5014667501AA91468BFD73F924B20B (int32_t ___sideCount0, float ___radius1, float ___angle2, float ___roundness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RegularPolygonFillRadial( int sideCount, float radius, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31768,6 +32064,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonFillRadial_mB91B1F472
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m620D142AA7819FE861363262E40DC44ABB124A44 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin1, float ___fillRadius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31775,6 +32072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m620
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m8C6FCB215CC50FDD796EAD5721F0CA9FA2633C73 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31782,6 +32080,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m8C6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m3D63ADF12EE0B4520E8767EFD8373D33AE23FE84 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, float radius, float thickness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31789,6 +32088,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m3D6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m4A7AA87202E777CC63461594F48F459233EDC409 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, float radius, float thickness, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31796,6 +32096,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m4A7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m88AF08D9C75B812595A61C4BF0175E836044F9E4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, float radius, float thickness, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31803,6 +32104,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m88A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m435593A0461693E4BBDE641DB89DE6CBA5B0C791 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, int sideCount, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31810,6 +32112,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m435
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m93564A39B4D5029A106AAAC7B70F9772D9896069 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, int sideCount, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31817,6 +32120,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m935
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m2E857CE44BCB254AFA64D01C1E7624E359088F5B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, int sideCount, float radius, float thickness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31824,6 +32128,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m2E8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m00C41D724855BC27003E3C2C1EDBAB21D72BA5EB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, int sideCount, float radius, float thickness, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31831,6 +32136,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m00C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m25BCB12C31AF2B60B55357ADBA625C662D3BB09C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, int32_t ___sideCount1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin6, float ___fillRadius7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, int sideCount, float radius, float thickness, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31838,6 +32144,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m25B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m5F66A2E996EBC2323BC8F4A643A92AE15C116B76 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Vector3 normal, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31845,6 +32152,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m5F6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mD25C9A70A6FD832A7DAAAC5A02FEB94D1CDFB61F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Vector3 normal, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31852,6 +32160,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mD25
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mD545BC5059DD3006664B8DA1CED3DF58ABCCDA6B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Vector3 normal, float radius, float thickness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31859,6 +32168,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mD54
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mF6AF96046BF9F28E6243129D539B4AD9808AB286 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Vector3 normal, float radius, float thickness, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31866,6 +32176,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mF6A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mDB6AB4D96F05AC1718DB125526A4E21BB90FFC17 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin6, float ___fillRadius7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Vector3 normal, float radius, float thickness, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31873,6 +32184,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mDB6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m6FE9DB79D711698DE1B920E4C35A6E8417315A45 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Vector3 normal, int sideCount, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31880,6 +32192,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m6FE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m058BEA59D54822BAE66DB9D4D4F8FA70F30E5934 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Vector3 normal, int sideCount, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31887,6 +32200,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m058
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m75FB2489AF2B091FA6FCFE5F64EA69355DB9B59B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31894,6 +32208,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m75F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m652CD0E4FF666E8F3FFDADFCEBE2E221A4859783 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin6, float ___fillRadius7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31901,6 +32216,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m652
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m46B2C7AA3A928E15096AEB945469C64CB4B6E974 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin7, float ___fillRadius8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd10, int32_t ___fillSpace11, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Vector3 normal, int sideCount, float radius, float thickness, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31908,6 +32224,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m46B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mA87E73FE1DF3CAA2A38A744C7A2DDC8CCD0F3FB4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Quaternion rot, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31915,6 +32232,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mA87
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m7A90857966A99478D5B799E1047D4DA1ABC5A064 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Quaternion rot, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31922,6 +32240,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m7A9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mC8C7F13EAB27D2A3054603E64CAFFD57578EA322 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Quaternion rot, float radius, float thickness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31929,6 +32248,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mC8C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mFBED44D225CE9FFC1312A01CBF817B90388D7746 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Quaternion rot, float radius, float thickness, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31936,6 +32256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mFBE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mC004C36B771559A54212FB216856BCC8BE29A180 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angle4, float ___roundness5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin6, float ___fillRadius7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Quaternion rot, float radius, float thickness, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31943,6 +32264,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mC00
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mBE4487DD5869879C0805C96772E18A85170BEB2F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Quaternion rot, int sideCount, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31950,6 +32272,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mBE4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mEC34BDD93D1573B9FCB495032155A9D85E036668 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Quaternion rot, int sideCount, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31957,6 +32280,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mEC3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mB3484C233D4BFA61412E199545774D001DAA04F4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31964,6 +32288,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mB34
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m73562699ECC0CA07F8914227F802C94AC616B9D2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin6, float ___fillRadius7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd9, int32_t ___fillSpace10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31971,6 +32296,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m735
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m1E890B256FF0ECEB18B6B726E9446624BB041D3A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, int32_t ___sideCount2, float ___radius3, float ___thickness4, float ___angle5, float ___roundness6, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin7, float ___fillRadius8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd10, int32_t ___fillSpace11, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 pos, Quaternion rot, int sideCount, float radius, float thickness, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31978,6 +32304,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m1E8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m7696E4CC863F50CFEECE9F48CE7331E821077F7A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin0, float ___fillRadius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd3, int32_t ___fillSpace4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31985,6 +32312,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m37481A0B32AB7ED2B6977161C66DB95B55FA855F (float ___radius0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin1, float ___fillRadius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31992,6 +32320,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m374
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m6699DCB60BF6C9BC9B1CE7485FE557688FA2316C (float ___radius0, float ___thickness1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( float radius, float thickness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -31999,6 +32328,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m669
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m11C3F32EE7DA5B2635F8651C2D509413D9E9E929 (float ___radius0, float ___thickness1, float ___angle2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( float radius, float thickness, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -32006,6 +32336,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m11C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mE92EF5C2AFB36E8669F0E953BCF957A846D92350 (float ___radius0, float ___thickness1, float ___angle2, float ___roundness3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( float radius, float thickness, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -32013,6 +32344,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mE92
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mDDBD61443EF2CEFE07C02EA4F063D0AFB404817E (int32_t ___sideCount0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin1, float ___fillRadius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd4, int32_t ___fillSpace5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( int sideCount, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -32020,6 +32352,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mDDB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m9042BCA123345EB2CF85519BC858C950044AB958 (int32_t ___sideCount0, float ___radius1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin2, float ___fillRadius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd5, int32_t ___fillSpace6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( int sideCount, float radius, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -32027,6 +32360,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m904
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mBDBDC0407D21CC298C071721B23A42FC45AC96A6 (int32_t ___sideCount0, float ___radius1, float ___thickness2, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin3, float ___fillRadius4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd6, int32_t ___fillSpace7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( int sideCount, float radius, float thickness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -32034,6 +32368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mBDB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m31D47A47AA8E8FD0E3E7BF921674A8ADC44E6526 (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin4, float ___fillRadius5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd7, int32_t ___fillSpace8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( int sideCount, float radius, float thickness, float angle, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -32041,6 +32376,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_m31D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mF91522E49FCE9B3E898C35F83C9234E111CCF90C (int32_t ___sideCount0, float ___radius1, float ___thickness2, float ___angle3, float ___roundness4, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___fillOrigin5, float ___fillRadius6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___fillColorEnd8, int32_t ___fillSpace9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_REGPOLRENAME_AND_FILL, true )] public static void RegularPolygonHollowFillRadial( int sideCount, float radius, float thickness, float angle, float roundness, Vector3 fillOrigin, float fillRadius, Color fillColorStart, Color fillColorEnd, FillSpace fillSpace = FillSpace.Local ) => _ = 0;
 		return;
 	}
 }
@@ -32048,6 +32384,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RegularPolygonHollowFillRadial_mF91
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m8641F070D239EEEC24608AD0103FD8F60EC6B145 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_RADIAL, true )] public static void DiscGradientRadial( Vector3 pos, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32055,6 +32392,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m8641F070D239EEE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m01BDDDD1B102693522809014DACBD5B81C092D2A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_RADIAL, true )] public static void DiscGradientRadial( Vector3 pos, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32062,6 +32400,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m01BDDDD1B102693
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m9C4E098761F5179B726FA728036CF27CF14B434B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_RADIAL, true )] public static void DiscGradientRadial( Vector3 pos, Vector3 normal, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32069,6 +32408,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m9C4E098761F5179
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_mD3836A97848C2789583CD1A3061BE33F3340B413 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_RADIAL, true )] public static void DiscGradientRadial( Vector3 pos, Vector3 normal, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32076,6 +32416,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_mD3836A97848C278
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_mD519A0D9D90A52EE02AE6401E2DE8EAE77A593A1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_RADIAL, true )] public static void DiscGradientRadial( Vector3 pos, Quaternion rot, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32083,6 +32424,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_mD519A0D9D90A52E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m642CCB822F235766DDBDDB2AFB4787C1B635CEBA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_RADIAL, true )] public static void DiscGradientRadial( Vector3 pos, Quaternion rot, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32090,6 +32432,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m642CCB822F23576
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m03EC99D6DFD645ECB1C50CFA5CC6AF509EB02E30 (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_RADIAL, true )] public static void DiscGradientRadial( Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32097,6 +32440,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m03EC99D6DFD645E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m3363C7E660DB14EAE9427E3B503EAA5C1D590B95 (float ___radius0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_RADIAL, true )] public static void DiscGradientRadial( float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32104,6 +32448,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientRadial_m3363C7E660DB14E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_m48583A74502FDC11A2F5DE7531D3B2A1E6B1F2FC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_ANGULAR, true )] public static void DiscGradientAngular( Vector3 pos, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32111,6 +32456,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_m48583A74502FDC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mC616E7A574285F442236F7D575F36721EBEC8B5B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_ANGULAR, true )] public static void DiscGradientAngular( Vector3 pos, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32118,6 +32464,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mC616E7A574285F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mEDEBD51D650DBB51C0D7FD96CE14CA9170250228 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_ANGULAR, true )] public static void DiscGradientAngular( Vector3 pos, Vector3 normal, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32125,6 +32472,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mEDEBD51D650DBB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_m7EF7C62EB35D47D4F947D6827F544B11BA2E834E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_ANGULAR, true )] public static void DiscGradientAngular( Vector3 pos, Vector3 normal, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32132,6 +32480,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_m7EF7C62EB35D47
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mFCB6735BE19091F305EA91EEA23F632A30DF163C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_ANGULAR, true )] public static void DiscGradientAngular( Vector3 pos, Quaternion rot, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32139,6 +32488,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mFCB6735BE19091
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mBE52F4B7F19B6B23CA2C0ADB8D8E9D8827CE7FFA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_ANGULAR, true )] public static void DiscGradientAngular( Vector3 pos, Quaternion rot, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32146,6 +32496,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mBE52F4B7F19B6B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mC9DB5FBBD7BE5E2E3483B1EACBDDF70D1D9C2B5A (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_ANGULAR, true )] public static void DiscGradientAngular( Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32153,6 +32504,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mC9DB5FBBD7BE5E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mE8D27161A6C75C1FA678A665CE7B9D9360C742D0 (float ___radius0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_ANGULAR, true )] public static void DiscGradientAngular( float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32160,6 +32512,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientAngular_mE8D27161A6C75C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m68F30A5A186EB203D36105CA17A34CD4F22C240D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_BILINEAR, true )] public static void DiscGradientBilinear( Vector3 pos, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32167,6 +32520,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m68F30A5A186EB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m909D7E843908A59A81EBE3CC8341200DDEDD5F3A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_BILINEAR, true )] public static void DiscGradientBilinear( Vector3 pos, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32174,6 +32528,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m909D7E843908A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m1CEDE9E0F6E80DAFFB671E523930C46B984874D0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_BILINEAR, true )] public static void DiscGradientBilinear( Vector3 pos, Vector3 normal, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32181,6 +32536,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m1CEDE9E0F6E80
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m34094605E1D2A84FB6AB3EC43A49C973CC6B5B76 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_BILINEAR, true )] public static void DiscGradientBilinear( Vector3 pos, Vector3 normal, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32188,6 +32544,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m34094605E1D2A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_mBCD91D0D6B27772D1FD656EE76F968AA08EFA0AC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_BILINEAR, true )] public static void DiscGradientBilinear( Vector3 pos, Quaternion rot, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32195,6 +32552,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_mBCD91D0D6B277
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m83964B901D61D78B475432220ACF5A2D0EE567B3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_BILINEAR, true )] public static void DiscGradientBilinear( Vector3 pos, Quaternion rot, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32202,6 +32560,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m83964B901D61D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m37701961EF99FB8180166A7FF9B0D4EB0BB60CAD (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_BILINEAR, true )] public static void DiscGradientBilinear( Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32209,6 +32568,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m37701961EF99F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m4AD23AE408D24FE94D926BB372C341A01723D75C (float ___radius0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_DISC_BILINEAR, true )] public static void DiscGradientBilinear( float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32216,6 +32576,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_DiscGradientBilinear_m4AD23AE408D24
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mF883B99924B638B8B390E7259FD1E2D90643343F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos ) => _ = 0;
 		return;
 	}
 }
@@ -32223,6 +32584,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mF883B99924B638B8B390E72
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m06F93937507A763E6943C5F6B3685F7ABEFBBB87 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32230,6 +32592,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m06F93937507A763E6943C5F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mE2AE5E142551BCA756EEEA9BBAD10D2B938AB2F2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -32237,6 +32600,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mE2AE5E142551BCA756EEEA9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m3AEA9D5DF4FFCE322D253A67260F8D35165F9722 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32244,6 +32608,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m3AEA9D5DF4FFCE322D253A6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mED6C6A3D9A4125A415A674600B8DD59576894A77 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -32251,6 +32616,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mED6C6A3D9A4125A415A6746
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mC42AC8F46970365D3059BE63D4D0ADC47C0EAFE0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32258,6 +32624,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mC42AC8F46970365D3059BE6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m1B0F34A2DF66210CF5E3BC76C16613EDB81AB7A2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, DashStyle dashStyle ) => _ = 0;
 		return;
 	}
 }
@@ -32265,6 +32632,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m1B0F34A2DF66210CF5E3BC7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m975DE7FE3CF9FF1ED912359E9278B0ECC2FE49B3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, DashStyle dashStyle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32272,6 +32640,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m975DE7FE3CF9FF1ED912359
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m2D0F15ACF09315A622AED109A58F6D0655DD0902 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, DashStyle dashStyle, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -32279,6 +32648,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m2D0F15ACF09315A622AED10
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mCBC5AC36A4BAF36324518E131066CE7ADD1EF58B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, DashStyle dashStyle, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32286,6 +32656,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mCBC5AC36A4BAF36324518E1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m6D0A07DAF953DAC4630529AE8549872596D23B4C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -32293,6 +32664,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m6D0A07DAF953DAC4630529A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mB467D75D4E828C47BE2D31726820F12CDC2F5851 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32300,6 +32672,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mB467D75D4E828C47BE2D317
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m1153A20E6061B5F7A5E2D8BD9DBA53164B5613C7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal ) => _ = 0;
 		return;
 	}
 }
@@ -32307,6 +32680,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m1153A20E6061B5F7A5E2D8B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mB4ABC53B429FD1E576B836D9D217ED8AFC5CB890 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32314,6 +32688,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mB4ABC53B429FD1E576B836D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mCC20F39007F5D9032A5F892ACA3DA4D29F1EE0B5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -32321,6 +32696,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mCC20F39007F5D9032A5F892
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mDA872E8D42461CFD362BC13D7DB1A7310D29C7D1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32328,6 +32704,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mDA872E8D42461CFD362BC13
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mEBAA80B79EF273ABD1B5C396F9D7B94A9FF379A5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -32335,6 +32712,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mEBAA80B79EF273ABD1B5C39
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m4806790B9A2B1687E84D2EE5F31A71C5A3014569 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32342,6 +32720,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m4806790B9A2B1687E84D2EE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m20A7FAC6EA8037F3E6F5F314DC9849743BC669B7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle ) => _ = 0;
 		return;
 	}
 }
@@ -32349,6 +32728,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m20A7FAC6EA8037F3E6F5F31
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m24FAAAE566B657E7AD478FC79C85806457409C96 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32356,6 +32736,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m24FAAAE566B657E7AD478FC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m50140A827F5783283FC5714E8F3B18CA182AF5F5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -32363,6 +32744,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m50140A827F5783283FC5714
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mF260222911908204B6A4D64B05F48CBD510EFB64 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32370,6 +32752,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mF260222911908204B6A4D64
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m7F005E425115DF1065662766DAFD8BEBE154BA48 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -32377,6 +32760,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m7F005E425115DF106566276
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mC3A9D09DE5DB3E8C0B996D890FE79B0B0EDD8922 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32384,6 +32768,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mC3A9D09DE5DB3E8C0B996D8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mB69DADB9C997F8F50F4DC452181EF2ED31D4685D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot ) => _ = 0;
 		return;
 	}
 }
@@ -32391,6 +32776,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mB69DADB9C997F8F50F4DC45
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mB32D3D10AEAA9D89614DC41F0B69CD0F8B8FF7FA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32398,6 +32784,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mB32D3D10AEAA9D89614DC41
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mC7AD8288F7077FF0ECFF9AD732F53EC9801A7EE8 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -32405,6 +32792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mC7AD8288F7077FF0ECFF9AD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mFEBC4071011DD3F647F9D119AF8789F47DAC8D25 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32412,6 +32800,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mFEBC4071011DD3F647F9D11
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mA73B041ECAAC28052E4E06191033428CAF02A248 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -32419,6 +32808,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mA73B041ECAAC28052E4E061
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mE211DF55EF7EFD06E2259011127B7153D979DD79 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32426,6 +32816,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mE211DF55EF7EFD06E225901
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m3532AD2E7D2E7ED3DE1A53ACAD25640CDB66DA1D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle ) => _ = 0;
 		return;
 	}
 }
@@ -32433,6 +32824,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m3532AD2E7D2E7ED3DE1A53A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mF3038F82888DF5DAA6B06ABBAE4F1F059F246538 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32440,6 +32832,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mF3038F82888DF5DAA6B06AB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mB3751D1990692C0C33F22E8A30C487881B09E353 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -32447,6 +32840,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mB3751D1990692C0C33F22E8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m84B0E022FFE6A003D4996F3AE22F6D343BDD05D0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32454,6 +32848,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m84B0E022FFE6A003D4996F3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m2A341986C3D90872CBA73425EE98848776C922BC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -32461,6 +32856,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m2A341986C3D90872CBA7342
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m3F16CCD8C6D74890D502F61288D792C00B889B4A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32468,6 +32864,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m3F16CCD8C6D74890D502F61
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mEF24732DA04C24CCE216FF48F86FA1ABE688A776 (const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed() => _ = 0;
 		return;
 	}
 }
@@ -32475,6 +32872,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mEF24732DA04C24CCE216FF4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mD92769A182BACAE2AC688DDE67D824675F0595A9 (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32482,6 +32880,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mD92769A182BACAE2AC688DD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mCA926AF07BA7FB9DA5E2743DB84FD2B975A88B61 (float ___radius0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( float radius ) => _ = 0;
 		return;
 	}
 }
@@ -32489,6 +32888,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mCA926AF07BA7FB9DA5E2743
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mF8A92DA0FB772A39FD70DAF616D3714097427608 (float ___radius0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32496,6 +32896,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mF8A92DA0FB772A39FD70DAF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mA3D3EF65DF4A8BEA55A9E3C3EC87B70975EBEE9A (float ___radius0, float ___thickness1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -32503,6 +32904,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mA3D3EF65DF4A8BEA55A9E3C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m0DFA4BC42847AF4F2E7B59D776D2F0A7021E6752 (float ___radius0, float ___thickness1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32510,6 +32912,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m0DFA4BC42847AF4F2E7B59D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mBA6932BC67B764C357469FF59583AB286FAF27BB (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( DashStyle dashStyle ) => _ = 0;
 		return;
 	}
 }
@@ -32517,6 +32920,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mBA6932BC67B764C357469FF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m1A991BA8BC2B0410FECD5FC0A043039EF8DFF716 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( DashStyle dashStyle, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32524,6 +32928,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m1A991BA8BC2B0410FECD5FC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m6555377E62025BCDB2D5EF1FAD0C1357425965B4 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( DashStyle dashStyle, float radius ) => _ = 0;
 		return;
 	}
 }
@@ -32531,6 +32936,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m6555377E62025BCDB2D5EF1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mC7CC69799ED03F2D400CB10BAD60BA0250FA5AB1 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( DashStyle dashStyle, float radius, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32538,6 +32944,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mC7CC69799ED03F2D400CB10
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mEE16AF2DE1D8ACE5AA954A684DD5B06A8015B2E8 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( DashStyle dashStyle, float radius, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -32545,6 +32952,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_mEE16AF2DE1D8ACE5AA954A6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m6AB3955670958CA40279D27407DC25D919B9F7BB (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void RingDashed( DashStyle dashStyle, float radius, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -32552,6 +32960,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingDashed_m6AB3955670958CA40279D27
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m7DF2A64E0DFB22FA2495635BD86C250FBFB2C658 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( Vector3 pos, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32559,6 +32968,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m7DF2A64E0DFB22F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m5200F8FC2ED4E64CA256EDEAFEDE0AABE95357D9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( Vector3 pos, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32566,6 +32976,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m5200F8FC2ED4E64
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mE2083D93519CF8456BB1364FA23EC177884C8E18 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( Vector3 pos, float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32573,6 +32984,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mE2083D93519CF84
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mEF6EF75AE49393442DF9036AD978AE2BD4E336E9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( Vector3 pos, Vector3 normal, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32580,6 +32992,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mEF6EF75AE493934
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m1037255F39C7FCBCA4426BF9BC86F4088B736C6B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( Vector3 pos, Vector3 normal, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32587,6 +33000,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m1037255F39C7FCB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mC90554266ECD49955C33573FF27E805698406C76 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( Vector3 pos, Vector3 normal, float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32594,6 +33008,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mC90554266ECD499
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mAAEE999875A64CC1E38B75EBA9C29A882258DFD5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( Vector3 pos, Quaternion rot, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32601,6 +33016,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mAAEE999875A64CC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mEE994AF624E870E5AA8EB6E777A9F5FF7D49C861 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( Vector3 pos, Quaternion rot, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32608,6 +33024,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mEE994AF624E870E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m48F7CF6B5C9DD7593531F216E11746A5836EAC9A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( Vector3 pos, Quaternion rot, float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32615,6 +33032,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m48F7CF6B5C9DD75
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mB3595F4131806E2FBAB96F6305027DA3E4AED68D (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32622,6 +33040,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_mB3595F4131806E2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m030AF2A8C836E843BF354D717CF67DFFBACE0E86 (float ___radius0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32629,6 +33048,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m030AF2A8C836E84
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m564491E40A416151F801863E81B2F5B50823A544 (float ___radius0, float ___thickness1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL, true )] public static void RingGradientRadial( float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32636,6 +33056,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadial_m564491E40A41615
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m7348DC3140FD62B008919BE952F57135DE643AB9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32643,6 +33064,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m7348DC314
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m951C109D8FE575438FB28C0423F042567FFFCFB4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32650,6 +33072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m951C109D8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mCB65F8E7A5FBBF0F34C17D0C14EC247BD7F1F806 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32657,6 +33080,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mCB65F8E7A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mFACDFB3579B185973180F8D46021BB5223AFF57F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, DashStyle dashStyle, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32664,6 +33088,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mFACDFB357
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mD959B952054930BE027C67B88C4A00028AA6EAD0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, DashStyle dashStyle, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32671,6 +33096,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mD959B9520
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mF77EDE4ABE7A69A64FB137B7B8102841C81DA463 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32678,6 +33104,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mF77EDE4AB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mE0F70A8F7C0FCFAAF96D8CEE03BBFA331664D72F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Vector3 normal, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32685,6 +33112,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mE0F70A8F7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m6C8B09821597323B3BE2A9046541D7F58C75EB8D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Vector3 normal, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32692,6 +33120,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m6C8B09821
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m47657700C11E341F4D6972BA189AD47F24D0FB14 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Vector3 normal, float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32699,6 +33128,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m47657700C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m81054CB225CCE671B31B19DF6F8D28BED4237239 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32706,6 +33136,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m81054CB22
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m6FE7336A3EAD690373E7CCD2E0898712BE16F803 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32713,6 +33144,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m6FE7336A3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mBC0FE5C799B6BB45C4B46D518523DB4A2C626B21 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32720,6 +33152,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mBC0FE5C79
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m357D0CB913531884A7E5ABDC0ADC6244F8FD578D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Quaternion rot, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32727,6 +33160,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m357D0CB91
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m949072EC339063CE412A771D16674548026FA9B4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Quaternion rot, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32734,6 +33168,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m949072EC3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m7A84917CC78474514A3E0D19385A77C9C5E4208C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Quaternion rot, float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32741,6 +33176,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m7A84917CC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m0A11F184EC0AD8C1CFDD498509104AC2E5B783B1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32748,6 +33184,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m0A11F184E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m8BAE15C54FF21BE66C8097598919B78EC1239C3F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32755,6 +33192,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m8BAE15C54
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m2E68DF71014D60E3C724FF5C07891CC2C9EB8147 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32762,6 +33200,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m2E68DF710
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m648544A87F2789F7FCC85A87E8F873112614469F (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32769,6 +33208,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m648544A87
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mF30DF29DF4EB3B701E467550EAAD8C97B245EFA6 (float ___radius0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32776,6 +33216,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_mF30DF29DF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m561176097C37B9B3451A5ED6F81467EBDF06B2F0 (float ___radius0, float ___thickness1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32783,6 +33224,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m561176097
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m6B771B6A7623D2DC51A6F6BA22944FCC44243B28 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( DashStyle dashStyle, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32790,6 +33232,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m6B771B6A7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m620CF351ED6A84BFA09F8A3B1F1901183A6E8865 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( DashStyle dashStyle, float radius, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32797,6 +33240,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m620CF351E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m1603293D0E62310011672F2C59E7158E749121D7 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_RADIAL + JOINER + OBS_DASH, true )] public static void RingGradientRadialDashed( DashStyle dashStyle, float radius, float thickness, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -32804,6 +33248,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientRadialDashed_m1603293D0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_mFDDB14CB016FC5514258C6E372FB14408E1E7E2B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( Vector3 pos, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32811,6 +33256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_mFDDB14CB016FC5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m2603B04BB6972369222D07FB05F1110FE5810FD9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( Vector3 pos, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32818,6 +33264,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m2603B04BB69723
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m10A576BAB9A976EC4C0F6C9E0C268F1266616007 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( Vector3 pos, float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32825,6 +33272,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m10A576BAB9A976
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_mFC2F5869402E5A908A247EB7091EA43EF5407AC0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( Vector3 pos, Vector3 normal, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32832,6 +33280,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_mFC2F5869402E5A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m5F836994E4F5B586998738E124103A45E84FCC76 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( Vector3 pos, Vector3 normal, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32839,6 +33288,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m5F836994E4F5B5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m26B72A7D0F1CF2AE8663340D93CF8062B8E37C40 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( Vector3 pos, Vector3 normal, float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32846,6 +33296,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m26B72A7D0F1CF2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_mB63042E4F01A342079BDB5FEDFD75D811AB5E139 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( Vector3 pos, Quaternion rot, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32853,6 +33304,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_mB63042E4F01A34
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_mCDE08ACD8F69CA5CCDE2779F2508E087EF644192 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( Vector3 pos, Quaternion rot, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32860,6 +33312,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_mCDE08ACD8F69CA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m1EACB304764E7B86D37B0E533D0E60742F3E1D00 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( Vector3 pos, Quaternion rot, float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32867,6 +33320,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m1EACB304764E7B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m0A813213D9A5B5AF4B52A54F85A590B6A77DEC9E (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32874,6 +33328,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m0A813213D9A5B5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_mDB9D80E2B07ADD7E231A1823C22439E590A2F638 (float ___radius0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32881,6 +33336,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_mDB9D80E2B07ADD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m5AF83CC4431B385905771EFD020F463130047F0F (float ___radius0, float ___thickness1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR, true )] public static void RingGradientAngular( float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32888,6 +33344,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngular_m5AF83CC4431B38
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mE68F05FA4AF3A4C4A72A551F2F7CA95B574C040B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32895,6 +33352,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mE68F05FA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m6D755FD9A6CDA1F4D1F02B3055BBD7AD04E881D0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32902,6 +33360,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m6D755FD9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m6E84DF3DEDD830FC5B366F02FEDF3DE4034521B8 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32909,6 +33368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m6E84DF3D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mBFBF69B47171641B7F64A932F2E51295554AC04F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, DashStyle dashStyle, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32916,6 +33376,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mBFBF69B4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mF83A44D9DC0EC421AE1495129B04B999FFF1D3DD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, DashStyle dashStyle, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32923,6 +33384,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mF83A44D9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m2C3AC4F24F2D30E427874818C9FF212BA7672FE7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32930,6 +33392,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m2C3AC4F2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mDFD97D097F6403DB83933FF785C37F0A832550B6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Vector3 normal, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32937,6 +33400,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mDFD97D09
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m7BD6F21D2DD664EB0BD84E4F10DDEC9760601EFE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Vector3 normal, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32944,6 +33408,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m7BD6F21D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m2D1E52132C675A558A3F666EF7984CE2B6E7F68F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Vector3 normal, float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32951,6 +33416,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m2D1E5213
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mA772E685550BE835FC191F05F472CA536BCFB3E7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32958,6 +33424,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mA772E685
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mC8125E4052B3A5F2BCD50F137FA4A3FABD78B2FC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32965,6 +33432,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mC8125E40
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mBBE7C4557840690C34466A400F9B9C65836BD60D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32972,6 +33440,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mBBE7C455
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mE9BB4B6DDEA58D8B2D33EC3862B9E42687BDE613 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Quaternion rot, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32979,6 +33448,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mE9BB4B6D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mA43497BC177D1CC6D95FD3A798FEBED5A7278F79 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Quaternion rot, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32986,6 +33456,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mA43497BC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mDD44F7B3A8300D5DE38EDA026FAFB34048974C64 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Quaternion rot, float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -32993,6 +33464,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mDD44F7B3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mD46C36FED38512C37ED5B0FAE624CDAA276EAD97 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33000,6 +33472,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mD46C36FE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mA72F10C774C61098B42D9CA731FD563CB5A1A862 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33007,6 +33480,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mA72F10C7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mDB9E380A6DA744B2ACC459D2DE434808CDB37F34 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33014,6 +33488,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mDB9E380A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m9A8842469C7851B61718C0C3F3E3C488C14B6939 (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33021,6 +33496,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m9A884246
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mD1B80E6AB47ADB1B9275EF082CE6DE525AB45366 (float ___radius0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33028,6 +33504,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mD1B80E6A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m6331E121084663C26C3FC49C714F53142DFF3092 (float ___radius0, float ___thickness1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33035,6 +33512,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m6331E121
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m39FB609401E2D371B3BF201DECE157503A72BC2E (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( DashStyle dashStyle, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33042,6 +33520,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m39FB6094
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mAF90DB4E91714D78BF152B4E545AF28FBD312D6D (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( DashStyle dashStyle, float radius, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33049,6 +33528,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_mAF90DB4E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m0AEBC1BC6E4EEF7659F8BBF2DF463E2196A0CAF6 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_ANGULAR + JOINER + OBS_DASH, true )] public static void RingGradientAngularDashed( DashStyle dashStyle, float radius, float thickness, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33056,6 +33536,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientAngularDashed_m0AEBC1BC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_mEDEBB0182BB141AE48A24A5D481DBEA6DA23060B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( Vector3 pos, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33063,6 +33544,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_mEDEBB0182BB14
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_mACD3D4F5F42C3014687CD389440CD34C0D50CA51 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( Vector3 pos, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33070,6 +33552,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_mACD3D4F5F42C3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m86CFE6566C9B635DCE1C13F7675FD3288FBEAC51 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( Vector3 pos, float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33077,6 +33560,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m86CFE6566C9B6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m098692FFDF20BC298C26315B3B8701F58FB21C5C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( Vector3 pos, Vector3 normal, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33084,6 +33568,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m098692FFDF20B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_mB30BBB96B96E19984C376336D9A0BCFD0159765C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( Vector3 pos, Vector3 normal, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33091,6 +33576,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_mB30BBB96B96E1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m8A375E177C4628BAFA9B3465954B0144445C324A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( Vector3 pos, Vector3 normal, float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33098,6 +33584,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m8A375E177C462
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m881C0DFB7976128C2F9C235DB372A024C8D947C0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( Vector3 pos, Quaternion rot, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33105,6 +33592,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m881C0DFB79761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_mB5C938D915DAB98D4A5044EE16F360B332DB39DF (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( Vector3 pos, Quaternion rot, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33112,6 +33600,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_mB5C938D915DAB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m401378B3EB7CF50A4013776BE7FFC4436577404C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( Vector3 pos, Quaternion rot, float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33119,6 +33608,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m401378B3EB7CF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m580E4DE5E06803A102D5359F7C941E948242A1F0 (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33126,6 +33616,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m580E4DE5E0680
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_mA63D8BDE12F94A8F5422FE2CDF3D1609930AB0CB (float ___radius0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33133,6 +33624,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_mA63D8BDE12F94
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m756FE78E673B8FDE5C7EA11114981B2064051FF4 (float ___radius0, float ___thickness1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR, true )] public static void RingGradientBilinear( float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33140,6 +33632,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinear_m756FE78E673B8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m96091506FF7D42B18B66E64F589952550151CD80 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33147,6 +33640,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m9609150
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m1B38B5F09375C0580361C8C02934ABE8B65CDAAC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33154,6 +33648,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m1B38B5F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m140A43F28E26CE9CF98072DB5B7A7D3CEEE0D6A0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33161,6 +33656,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m140A43F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m6E14D0BAF615E180AD06C7FB636121CC30AA0E86 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, DashStyle dashStyle, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33168,6 +33664,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m6E14D0B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mB8D47BF4F4F57301CE9887BD10622F89EF97742D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, DashStyle dashStyle, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33175,6 +33672,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mB8D47BF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mDC2BC51742257A4E474AB2BA43F36B4A928FD4E1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33182,6 +33680,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mDC2BC51
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mF0C18CA638408F91A2A023927CD1A9BF96A2236B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Vector3 normal, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33189,6 +33688,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mF0C18CA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mB991678F00FEC14471F3A7C98F03BB2311C129ED (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Vector3 normal, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33196,6 +33696,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mB991678
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m3127FF821D080F648A63092C00D7176DC1B84222 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Vector3 normal, float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33203,6 +33704,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m3127FF8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m9C9CF49E8551B3A5BF3078B50EC6999DDA240B33 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33210,6 +33712,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m9C9CF49
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m99A40433B5CB7D9A04395A58F984F07FF5DB10E8 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33217,6 +33720,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m99A4043
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m4C40747D61FD054EAAE82D8C58E749802045B39D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33224,6 +33728,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m4C40747
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m1B7E655C415837F9F67B37CD37C7DCD29E8036E0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Quaternion rot, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33231,6 +33736,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m1B7E655
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m50ECE9003450F1F97472005C74CC8426F7B7F318 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Quaternion rot, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33238,6 +33744,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m50ECE90
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m3577FA2B26B41CF06919031DA1ED9C667FD98BD0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Quaternion rot, float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33245,6 +33752,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m3577FA2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m4A4BFDA4A89EA9A4E5C9E6E1FCA8465268CDA8AB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33252,6 +33760,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m4A4BFDA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m8CCD9ACBBA6726B8E4797B894B2849944110F02C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33259,6 +33768,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m8CCD9AC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m262F08F38C4B4638445DF77375ABA4ED98CAA940 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33266,6 +33776,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m262F08F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m29F42BCF5B4F216F45BFF21973306B46A9FD587C (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33273,6 +33784,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m29F42BC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m2244ABBC1AA3AA818471EBA7AC9CBB19D0725BB1 (float ___radius0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33280,6 +33792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m2244ABB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mD26AD09AB2415E77E3255EBE7164BA160A67AB44 (float ___radius0, float ___thickness1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33287,6 +33800,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mD26AD09
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m9C61596DD3AD11A215D84B2E2F5EB9A7BA28A389 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( DashStyle dashStyle, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33294,6 +33808,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m9C61596
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mA0957D528B9951840F58F5B6B7E45A521854F921 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( DashStyle dashStyle, float radius, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33301,6 +33816,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_mA0957D5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m5709DC7568CA7CE84ED9B03D45A6C63C336C013D (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_RING_BILINEAR + JOINER + OBS_DASH, true )] public static void RingGradientBilinearDashed( DashStyle dashStyle, float radius, float thickness, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33308,6 +33824,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RingGradientBilinearDashed_m5709DC7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_mD5CEC1EE3CB457A4517E50C29DC8A8872F548C47 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_RADIAL, true )] public static void PieGradientRadial( Vector3 pos, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -33315,6 +33832,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_mD5CEC1EE3CB457A4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_m9B1CE38FEB7D699119E7764BF32A4911EF5C883D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_RADIAL, true )] public static void PieGradientRadial( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -33322,6 +33840,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_m9B1CE38FEB7D6991
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_mFEEF89CA4A1AFDB00C40FDF54F82573FA363DFD0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_RADIAL, true )] public static void PieGradientRadial( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -33329,6 +33848,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_mFEEF89CA4A1AFDB0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_mC45DF84ADA1A122C63AE3B75F77B804C0CB4FAD2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_RADIAL, true )] public static void PieGradientRadial( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -33336,6 +33856,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_mC45DF84ADA1A122C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_m7BCFE327E1F122FA7CE264561D163B069856A922 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_RADIAL, true )] public static void PieGradientRadial( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -33343,6 +33864,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_m7BCFE327E1F122FA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_m8EB705D6A679AB2C9C5235B9C7CFE92BCC2D7298 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_RADIAL, true )] public static void PieGradientRadial( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -33350,6 +33872,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_m8EB705D6A679AB2C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_m7B76C1E04823F23574EC3C7B5F6401809F8C8C53 (float ___angleRadStart0, float ___angleRadEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_RADIAL, true )] public static void PieGradientRadial( float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -33357,6 +33880,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_m7B76C1E04823F235
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_m26E9C5399BA3A0B35AE94E80C6329021E0E7FE62 (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_RADIAL, true )] public static void PieGradientRadial( float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -33364,6 +33888,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientRadial_m26E9C5399BA3A0B3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_mE47E0050D8E75EB425E1EB8D4500A406C3ED770E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_ANGULAR, true )] public static void PieGradientAngular( Vector3 pos, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33371,6 +33896,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_mE47E0050D8E75EB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_m53AF021DF6D093E6D6EF96AC32DE81688B389D95 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_ANGULAR, true )] public static void PieGradientAngular( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33378,6 +33904,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_m53AF021DF6D093E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_m3EB69245CED86945208CD6BAEDE4BD308318E765 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_ANGULAR, true )] public static void PieGradientAngular( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33385,6 +33912,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_m3EB69245CED8694
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_m1C342199F940676359B3CB1178067FA4930E284C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_ANGULAR, true )] public static void PieGradientAngular( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33392,6 +33920,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_m1C342199F940676
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_mC2F1CBFF3F289B3AB05C9944CD639610C1B1D32E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_ANGULAR, true )] public static void PieGradientAngular( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33399,6 +33928,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_mC2F1CBFF3F289B3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_m96A5E07C080FA43BA746E27602C8922E2F6C0989 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_ANGULAR, true )] public static void PieGradientAngular( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33406,6 +33936,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_m96A5E07C080FA43
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_mE2DC62047A59CFCB4E029ECF0EDD16EC9C0B981B (float ___angleRadStart0, float ___angleRadEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_ANGULAR, true )] public static void PieGradientAngular( float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33413,6 +33944,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_mE2DC62047A59CFC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_mDD5AA943EDCADB645054C0CD95F5FF9963445F4D (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_ANGULAR, true )] public static void PieGradientAngular( float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33420,6 +33952,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientAngular_mDD5AA943EDCADB6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_mA218CBF90B56E5514A4DCEA9238146D6BFF5E958 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_BILINEAR, true )] public static void PieGradientBilinear( Vector3 pos, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33427,6 +33960,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_mA218CBF90B56E5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_mB87A3A7746ED205B6A3DEAB7B397D9D6F3567485 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_BILINEAR, true )] public static void PieGradientBilinear( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33434,6 +33968,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_mB87A3A7746ED20
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_m808E0DDB590B189CCE1FA36B8B8EDB3F39E25005 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_BILINEAR, true )] public static void PieGradientBilinear( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33441,6 +33976,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_m808E0DDB590B18
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_mF486BDBFA8FBD436D0E8FCFF82FE185CFBDBD488 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_BILINEAR, true )] public static void PieGradientBilinear( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33448,6 +33984,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_mF486BDBFA8FBD4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_m389F1F3A495A34725D4A234BEE2EFC8EDCB2317C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_BILINEAR, true )] public static void PieGradientBilinear( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33455,6 +33992,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_m389F1F3A495A34
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_m4211D2E5C19F7DAC234795376D1A0111384839A0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_BILINEAR, true )] public static void PieGradientBilinear( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33462,6 +34000,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_m4211D2E5C19F7D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_m335B608C4A3A0EE5EF271713B16770AE894FE75F (float ___angleRadStart0, float ___angleRadEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_BILINEAR, true )] public static void PieGradientBilinear( float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33469,6 +34008,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_m335B608C4A3A0E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_m8137711F54BA4ABEC697E1CDC897EE93C033B19E (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_PIE_BILINEAR, true )] public static void PieGradientBilinear( float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33476,6 +34016,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_PieGradientBilinear_m8137711F54BA4A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mBED7C7C111DFABE0AF1B00C8AB013E0AD1754927 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33483,6 +34024,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mBED7C7C111DFABE0AF1B00C8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mD951961925B1240F08F9197152E660270BB90993 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33490,6 +34032,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mD951961925B1240F08F91971
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m7F6997056E7A0B6F7F6EAC286D2AC3A438919FFA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33497,6 +34040,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m7F6997056E7A0B6F7F6EAC28
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m34DF4D04ED3DF78B01FE4587CF887A9110760BEA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33504,6 +34048,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m34DF4D04ED3DF78B01FE4587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF5F4C57FE0467E4C286B3BD27D0259BEBB966BC5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float radius, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33511,6 +34056,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF5F4C57FE0467E4C286B3BD2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mCD6BCC5499E428A94B4F5F6AF2CA38E758679FEC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33518,6 +34064,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mCD6BCC5499E428A94B4F5F6A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB37E4C68E182CD65DDF1892079B2ED643277D409 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33525,6 +34072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB37E4C68E182CD65DDF18920
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mDD71806B715D115CCF90CAAC9F9A710F9F34925D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33532,6 +34080,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mDD71806B715D115CCF90CAAC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB3CD0FAB197900DB3D82AC08BDBCC96BAA87F739 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33539,6 +34088,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB3CD0FAB197900DB3D82AC08
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mDA7F49F3521E939B1B1C587F3DE66E09EA4AEFDE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33546,6 +34096,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mDA7F49F3521E939B1B1C587F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF32F52C060017A773DB020A0ED050773DE9BFD40 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33553,6 +34104,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF32F52C060017A773DB020A0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mA1F327CE9AC3285D4DF6FB505961B41ADB23ECE4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33560,6 +34112,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mA1F327CE9AC3285D4DF6FB50
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mC29773F4D3747745C6C1BB52384A1C5909E0A6EB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___angleRadStart2, float ___angleRadEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33567,6 +34120,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mC29773F4D3747745C6C1BB52
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m2515A8CA6559A5BBB0C3AA4A375BF31CF0B49BC8 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33574,6 +34128,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m2515A8CA6559A5BBB0C3AA4A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m89ACC96C2D99856940801E4F378B61A8FF2409EC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33581,6 +34136,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m89ACC96C2D99856940801E4F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF0759F26CF71E49FD1DA5BE13C5C2CB58081906C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33588,6 +34144,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF0759F26CF71E49FD1DA5BE1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mE5FD6B604FFE23ABA8B6EE25227E9810AEB4F804 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33595,6 +34152,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mE5FD6B604FFE23ABA8B6EE25
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1CE0793516DF53E0FB53D3E4E5EB1B7D7981F4DB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33602,6 +34160,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1CE0793516DF53E0FB53D3E4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF68D5B786768D69DAFBFBEAB9C83885026A86008 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33609,6 +34168,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF68D5B786768D69DAFBFBEAB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m453221BE6928FD0251BD0AFEA1A29D721BF88B12 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33616,6 +34176,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m453221BE6928FD0251BD0AFE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mFE2F99F258BC4B19AFAB729301DBF14E4E5C15B6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33623,6 +34184,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mFE2F99F258BC4B19AFAB7293
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1043A8ED250688BE4426116815AD6A5E7181A635 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33630,6 +34192,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1043A8ED250688BE44261168
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mA317F26C6EB06E5BC6F4960F830443C4C0F3D310 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33637,6 +34200,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mA317F26C6EB06E5BC6F4960F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB7CF5D0D022649EC672899647B0DF483B6D98A0A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33644,6 +34208,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB7CF5D0D022649EC67289964
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m5C5ED4E9E4F6CB03F765AC6669145117A09B829B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33651,6 +34216,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m5C5ED4E9E4F6CB03F765AC66
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m91B2345B36CD36B2E97651ADB30973B62B1CA5C9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33658,6 +34224,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m91B2345B36CD36B2E97651AD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1AFAD70798AED8526D316D044B65F716446C5E59 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33665,6 +34232,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1AFAD70798AED8526D316D04
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m5239F29B95C2F162F1A3C73B69104B4345709E2E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33672,6 +34240,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m5239F29B95C2F162F1A3C73B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1D381DF1613747CA91F5B9F535BA13640AD9D476 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33679,6 +34248,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1D381DF1613747CA91F5B9F5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m770AD9549ACA8F48BBA5AABE7DF9BA2D228F5202 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33686,6 +34256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m770AD9549ACA8F48BBA5AABE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m8CAF21FD40D4DDE4D9940B4B15605B9DD86C57F9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33693,6 +34264,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m8CAF21FD40D4DDE4D9940B4B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mD87B295ADF38AE6BCD9FDDB027DF9BC6EA578E19 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33700,6 +34272,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mD87B295ADF38AE6BCD9FDDB0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m108B61266BFC645D93EAD3D7290B8E621D06354E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33707,6 +34280,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m108B61266BFC645D93EAD3D7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mCA0A73929BF5C51D88CD703D8874ED48D67FCD51 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33714,6 +34288,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mCA0A73929BF5C51D88CD703D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m15EF02A1B71B0B292F8F6AA4E458ED7AB2F64EF9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33721,6 +34296,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m15EF02A1B71B0B292F8F6AA4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB263701823102F6ACB08D1921E9C4509B8C34E54 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33728,6 +34304,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB263701823102F6ACB08D192
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9D2D860CFAFB11C153B2285813FA970EC8DD45F7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33735,6 +34312,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9D2D860CFAFB11C153B22858
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m2514C69418530F8C0EF9491D476E24D423109DA7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33742,6 +34320,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m2514C69418530F8C0EF9491D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m803D74DF2C6B5FE8D5A57F7ED614B1C7B701885B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33749,6 +34328,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m803D74DF2C6B5FE8D5A57F7E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mCE97F4686A93F885559843F37B928A560842511B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33756,6 +34336,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mCE97F4686A93F885559843F3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m25C54CFFCF70638762C0D44E074FF9E06D1B4E9B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33763,6 +34344,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m25C54CFFCF70638762C0D44E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m564C3C959596F954A40A906A686D50267FCE3D2D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33770,6 +34352,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m564C3C959596F954A40A906A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mC01F0BBDEDCE0B4B4C181BF02360469BB4EFF75A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33777,6 +34360,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mC01F0BBDEDCE0B4B4C181BF0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mC4883148E7B6020E976B809E80B75D6BAEF17882 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33784,6 +34368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mC4883148E7B6020E976B809E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9494F5049FB67BFD50C7BFA97EFE1142C9680340 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33791,6 +34376,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9494F5049FB67BFD50C7BFA9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m581C0232687537B4C7DACF1B1F6755A0644D1F04 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33798,6 +34384,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m581C0232687537B4C7DACF1B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m69721ECE156291B7225EF037F3E009E11A8BBE36 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, int32_t ___endCaps7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33805,6 +34392,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m69721ECE156291B7225EF037
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m46A43CBCC531C7212BD79E4DA6C8132B40BDB4A3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, int32_t ___endCaps7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33812,6 +34400,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m46A43CBCC531C7212BD79E4D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m4A0D5677DCFA91F1295578C21B721D9124FD5C89 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33819,6 +34408,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m4A0D5677DCFA91F1295578C2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m2770C5EAF406C3DBD62E57578D66E9D57FA47A6F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33826,6 +34416,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m2770C5EAF406C3DBD62E5757
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m47F467C528CED3D48CFECFA787FD2C30281F1662 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33833,6 +34424,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m47F467C528CED3D48CFECFA7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mDBDF41782BDC34C2B1F8D84567792898129B1B40 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33840,6 +34432,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mDBDF41782BDC34C2B1F8D845
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m65526B2316F93D23EE0C51B5F692B2451385246C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33847,6 +34440,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m65526B2316F93D23EE0C51B5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mC65F9C8B3C0D3DCB2ED630E95B614C33E9B0C9BC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33854,6 +34448,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mC65F9C8B3C0D3DCB2ED630E9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m4C7DBF922ABB24F7BF9CA42964D3AB2BFC478B3E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33861,6 +34456,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m4C7DBF922ABB24F7BF9CA429
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mCC5ACBCF8D50FCCD50B905B6579C4BC21DC4709A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33868,6 +34464,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mCC5ACBCF8D50FCCD50B905B6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m6191A115CAC8881AEEC5BA12AAFDDCA7138E8C2B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33875,6 +34472,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m6191A115CAC8881AEEC5BA12
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m8D34F033DBC8816F6CA8EF97DB4C90B3A9AE59F2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33882,6 +34480,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m8D34F033DBC8816F6CA8EF97
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m80304817AC3AFB0C8E1818A5B2DDE537F63EFB3A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33889,6 +34488,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m80304817AC3AFB0C8E1818A5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mEF3BC576C0BCFBA3A46918C748B1275A92236F99 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33896,6 +34496,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mEF3BC576C0BCFBA3A46918C7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m88A90F089D0E87AD2A63BF57B18DFB216C9EE742 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33903,6 +34504,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m88A90F089D0E87AD2A63BF57
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mC5F99D903D675FBB483566DF809A79D910266CA8 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33910,6 +34512,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mC5F99D903D675FBB483566DF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9196F754E92E9E0A4E43D015562648EA4B3F9653 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33917,6 +34520,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9196F754E92E9E0A4E43D015
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1F62A86AA839653CBE504A966BA694D42B34195C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33924,6 +34528,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1F62A86AA839653CBE504A96
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m2F0E365469709D7A926FDA687361FAD1C82FB3DA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33931,6 +34536,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m2F0E365469709D7A926FDA68
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1B80B605E3470F6BCEA086588C0A88636E871F5C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33938,6 +34544,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1B80B605E3470F6BCEA08658
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m10114738FFEC1DA8AD888F388A46382FF8410630 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33945,6 +34552,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m10114738FFEC1DA8AD888F38
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mBE9FD09E7B808B0478A1037A777CE1D442424D1C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33952,6 +34560,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mBE9FD09E7B808B0478A1037A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m44118C3F123762056EEE80D113BC343E2261E82D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33959,6 +34568,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m44118C3F123762056EEE80D1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1C26B1ABD85190AF156845DFD70345EA2471B65B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33966,6 +34576,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1C26B1ABD85190AF156845DF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m8A54075954522D89DEE024D3265B7233921D759E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, int32_t ___endCaps7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -33973,6 +34584,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m8A54075954522D89DEE024D3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB9EDA256546CA198F2B92F6EBA57788A1302D7DF (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, int32_t ___endCaps7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33980,6 +34592,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB9EDA256546CA198F2B92F6E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF06FDA61E1DC55DFE9B50C68829E6CE54BC0174C (float ___angleRadStart0, float ___angleRadEnd1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -33987,6 +34600,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF06FDA61E1DC55DFE9B50C68
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m25E53467C24F420400C94AA7E14414D4131E0C69 (float ___angleRadStart0, float ___angleRadEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -33994,6 +34608,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m25E53467C24F420400C94AA7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m0ED42B52D337A8D83D05BC283B126CF8862FBA5A (float ___angleRadStart0, float ___angleRadEnd1, int32_t ___endCaps2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -34001,6 +34616,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m0ED42B52D337A8D83D05BC28
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF630F036958E29226EC90A82F1B7C747C380DF74 (float ___angleRadStart0, float ___angleRadEnd1, int32_t ___endCaps2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -34008,6 +34624,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF630F036958E29226EC90A82
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9F8E63388544862D79ADF89BD51DA74FE021A4AB (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float radius, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34015,6 +34632,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9F8E63388544862D79ADF89B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1B5F7C20A5BD8033C4DC371EA0A9AC449A2EFDF6 (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float radius, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -34022,6 +34640,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m1B5F7C20A5BD8033C4DC371E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m515776E858BD32809B013824AF84DA07F3FD105A (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -34029,6 +34648,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m515776E858BD32809B013824
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m91283D71937294DB791082268642E3D3D9C42A34 (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -34036,6 +34656,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m91283D71937294DB79108226
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m19C6108F73FA6EFD9F99E4CD3BF32858E6B9B62C (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float radius, float thickness, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34043,6 +34664,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m19C6108F73FA6EFD9F99E4CD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m40F9E35978998786E9C9F1A1853A710943E59A89 (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float radius, float thickness, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -34050,6 +34672,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m40F9E35978998786E9C9F1A1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF817A49D0ADE15F84704B063194544DF190C94DC (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -34057,6 +34680,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF817A49D0ADE15F84704B063
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m89ECEC251E2F61A24860B2492F1D91196BEBC55A (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -34064,6 +34688,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m89ECEC251E2F61A24860B249
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m29A5A8E8BE2675EB84136917555E06C5F3235B60 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___angleRadStart1, float ___angleRadEnd2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34071,6 +34696,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m29A5A8E8BE2675EB84136917
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m16EDA11175C2620BD68864CAF76C01D091055279 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -34078,6 +34704,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m16EDA11175C2620BD68864CA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mD6A4FEC39C394FF99FBE37D3BF579E712CA57EEF (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -34085,6 +34712,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mD6A4FEC39C394FF99FBE37D3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9C6459B54EC49B9102559DA9D8D5673BA71A287E (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -34092,6 +34720,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9C6459B54EC49B9102559DA9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m2ECF1B1B2742B3A894532C411B1851468885E36A (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34099,6 +34728,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m2ECF1B1B2742B3A894532C41
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9527D000C92CE04E98C6436FEC18FEB22DDCD73C (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -34106,6 +34736,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m9527D000C92CE04E98C6436F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m8C31C65D5F31CF9E4DE4A8F42FD289A7F1CEF2D8 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -34113,6 +34744,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m8C31C65D5F31CF9E4DE4A8F4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB946BEE6BFD6D569A169D0054E2E1F4FFB028324 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -34120,6 +34752,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mB946BEE6BFD6D569A169D005
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mBDC5E0A9C7A403DFF2F088A1515DFF99E9636FA2 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34127,6 +34760,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mBDC5E0A9C7A403DFF2F088A1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m13CF6F29D7E47FB1F32113B14171E4E9EE95087C (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -34134,6 +34768,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m13CF6F29D7E47FB1F32113B1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m758A0C335DF7404DE6D07454041A3B366DB55283 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps ) => _ = 0;
 		return;
 	}
 }
@@ -34141,6 +34776,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_m758A0C335DF7404DE6D07454
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF63113BCD472816BC96B7BBC60BE6CA2DD718A81 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DASH, true )] public static void ArcDashed( DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -34148,6 +34784,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcDashed_mF63113BCD472816BC96B7BBC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m01751399B1C0407C38221AF8144C861CF6918CF7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34155,6 +34792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m01751399B1C0407C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m593236F0F320C0A7111DDFC8FA322D252FF34E95 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34162,6 +34800,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m593236F0F320C0A7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mB51EF0B9342225CC956EB364A3CBE38120930666 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34169,6 +34808,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mB51EF0B9342225CC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m7E2B091BC75635080A8F1B0EEB81818234F95334 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34176,6 +34816,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m7E2B091BC7563508
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m8B25DC79C8FE7825F50BCF2F4AED74047066F62A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34183,6 +34824,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m8B25DC79C8FE7825
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m26FE48B9237515D63CE52D62A1D92CA08FAB286E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34190,6 +34832,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m26FE48B9237515D6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mA09E0E267DDDE7B3769A21EE19CACC8A43C4EA18 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34197,6 +34840,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mA09E0E267DDDE7B3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mE6C0B83BD9E0E7E8E375045DD7F180C8AB50F663 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34204,6 +34848,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mE6C0B83BD9E0E7E8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mF62409584E6DD29348438DE74A8CA7C6B6353EDF (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34211,6 +34856,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mF62409584E6DD293
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mD27350280D27687F1B00F8A99C8FCAB97250D4D5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34218,6 +34864,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mD27350280D27687F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m765F86924FD941BE7D8746D0370D539F8611888C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34225,6 +34872,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m765F86924FD941BE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m75A7EE1B74110A5C51419FEF1F56F5BF7F78617E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34232,6 +34880,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m75A7EE1B74110A5C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m78E54C820451D5B0EE347E273F080733666D6D80 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34239,6 +34888,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m78E54C820451D5B0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mBA9372874FCE8BDA6B18C8FB2AD7A1159C4E78E6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34246,6 +34896,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mBA9372874FCE8BDA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m2736B4B72E73C4EDD793DA36F175E4AE079081BC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34253,6 +34904,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m2736B4B72E73C4ED
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mE22A215CF4C7FF71EFF528B522A32B618C640562 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34260,6 +34912,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mE22A215CF4C7FF71
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m2B4BC9102C8AB4D5C70B5B2A9FD67DE3193699D1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34267,6 +34920,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m2B4BC9102C8AB4D5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m2307F63DC53A330F91B837EE241D4CF55F676B8A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34274,6 +34928,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m2307F63DC53A330F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m85531297C583FC987C5A7E39F90C0840D33E8B09 (float ___angleRadStart0, float ___angleRadEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34281,6 +34936,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m85531297C583FC98
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m8BD2A18924D835941B739B698506D1504E1EC2B9 (float ___angleRadStart0, float ___angleRadEnd1, int32_t ___endCaps2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34288,6 +34944,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m8BD2A18924D83594
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m56BE1DEC528C7ECFAEAEECEB41F33A1EFCD8FC9C (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34295,6 +34952,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m56BE1DEC528C7ECF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mD2EA0B132D3BDA43973F6D086C8E3ABB61B76A17 (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34302,6 +34960,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_mD2EA0B132D3BDA43
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m45FADEDE224C0898E1FA5D0CB0C0207931EA6881 (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34309,6 +34968,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m45FADEDE224C0898
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m2C95559CFB428AAB30E8120BACB8DBBC90DEF01B (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL, true )] public static void ArcGradientRadial( float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34316,6 +34976,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadial_m2C95559CFB428AAB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m8FC624D25018FB2518F5F84B373501E94081C28E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34323,6 +34984,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m8FC624D250
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mBFFD76AD26D23D3989E447EBF3A9B52E51AD3347 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34330,6 +34992,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mBFFD76AD26
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mB22193FD26357ECBBAE2229455FFB37394318BAD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34337,6 +35000,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mB22193FD26
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mFD6C604BC35E5404A4B95E503E609C850C7D3E70 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34344,6 +35008,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mFD6C604BC3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m647CB1D09FE74DB80C33456C9615B140DC392267 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34351,6 +35016,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m647CB1D09F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m64224BA050CCE3C66685D978CD72447FC397E046 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34358,6 +35024,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m64224BA050
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mCB33AFD5EC7DCA4EA4E0FA2FFD4EFBE03B2E9039 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34365,6 +35032,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mCB33AFD5EC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m187D4AFB2CEB4FAD532F9670DF2C025184C15545 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34372,6 +35040,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m187D4AFB2C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m5E97EC01C28FC470FF262F3FCD0AC8B51F96E4D6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34379,6 +35048,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m5E97EC01C2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mC1A8CB25D809DBC4BE1C7749D84C33674E9EA65B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34386,6 +35056,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mC1A8CB25D8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mD78EAD6EB831896C1722CF7D578E00DBC5FDB4D5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34393,6 +35064,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mD78EAD6EB8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mD32CDD2786F77E0FFBC7013D0A3FEB41DF87355D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34400,6 +35072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mD32CDD2786
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m56C90BE9733EA4A33AA704E7CC138EF634FD59D7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34407,6 +35080,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m56C90BE973
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m5609B46265D6D7886C36184BDE58CE27A0F6093E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34414,6 +35088,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m5609B46265
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m59A81D6E9BD3E505C2047BCC430126AB53C8B1A6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34421,6 +35096,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m59A81D6E9B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m5587F7E57643489966ABC50C26DD530E2D6F7DC5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34428,6 +35104,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m5587F7E576
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m0AB746C1F595A94250222758EC9A4C780CF70467 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34435,6 +35112,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m0AB746C1F5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mB1090ADBFE896D7025FE2F1942BE3E85A463BD99 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34442,6 +35120,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mB1090ADBFE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m58FC31609754C988B1C0529AEEB4855348277449 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34449,6 +35128,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m58FC316097
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m172F7BBA5DF8028EE255ED0D39A11055968BEBD9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34456,6 +35136,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m172F7BBA5D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mA2B4AB76625A54F6D465DE5B364A0DF181BA2501 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34463,6 +35144,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mA2B4AB7662
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m024E75629E91D37F1F412F256889EF5F939E93D7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34470,6 +35152,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m024E75629E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m655DA51FC3BBF0B185994CCCDF028F6ED22C77B4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34477,6 +35160,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m655DA51FC3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m187D0CA5FCC5CB770398038DD121C7878145366C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, int32_t ___endCaps7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34484,6 +35168,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m187D0CA5FC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m5CEDAC16D20EB76890956F4B0CC888F67988ECEF (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34491,6 +35176,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m5CEDAC16D2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m7926D2016578A66FD60E097ED2D587FABBDF114F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34498,6 +35184,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m7926D20165
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m6F075AC94CEB66283D93C03D348CF13BD6FF30F0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34505,6 +35192,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m6F075AC94C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mD5171037B1FB9FC767A932E5CF87EA7E4C87E79C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34512,6 +35200,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mD5171037B1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mE740E3532B4CEA9C4B48E1FC48526D50DDD396E0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34519,6 +35208,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mE740E3532B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m3E9E8AA7C22C5A3805AB771E15AED1069A764F81 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34526,6 +35216,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m3E9E8AA7C2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m3A6FF581BC7B3866A982D00A50A0E77A913A2EC0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34533,6 +35224,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m3A6FF581BC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mF68D0A037C0A5E71DBC1A9D0FF1652846121563A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34540,6 +35232,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mF68D0A037C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mE7DFC01194FB826ED971983E10657C810568DAFD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34547,6 +35240,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mE7DFC01194
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mF593826FD89C1639BD822AD36A8492CB87486DC3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34554,6 +35248,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mF593826FD8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mBD1847C275CA7388594EB28AF19E201ACB6C4450 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34561,6 +35256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mBD1847C275
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m8842DD73DE77DA78E034FC11FFE567DEB635290D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, int32_t ___endCaps7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34568,6 +35264,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m8842DD73DE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m93EEFCAE148AC6AF52DEF027F7C0DF474FD91A81 (float ___angleRadStart0, float ___angleRadEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34575,6 +35272,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m93EEFCAE14
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m3195643EE87AE8466EBDF8E01D4B9806C1D38BDD (float ___angleRadStart0, float ___angleRadEnd1, int32_t ___endCaps2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34582,6 +35280,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m3195643EE8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m9A6F8A30E2DB2A727C283687C5B33CEB9D7E93FF (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34589,6 +35288,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m9A6F8A30E2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mAA9D208934567E546E782AA9ED2AC9A511533249 (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34596,6 +35296,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mAA9D208934
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mF8BA5611F95CCBFB5E617F921C366F2103141345 (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34603,6 +35304,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mF8BA5611F9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m8BED446B6CAB53482CBBD9F10B0938DF31C3ABA0 (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34610,6 +35312,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m8BED446B6C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m998842CA9F2E7E8D86EF3D21F1050FAE01CE9CC4 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34617,6 +35320,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m998842CA9F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m749A8AA41CC73CDFB6A8487D1E5C3F0928B6AB5A (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34624,6 +35328,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m749A8AA41C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mE4722737B168FC53852B2C5BFF051ED811DA1498 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34631,6 +35336,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_mE4722737B1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m9B870D3055BEBA291DA1A31B11530F3FB5551461 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34638,6 +35344,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m9B870D3055
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m6E09032FAEC93EA7A20A1BC5456B434F4DA91F58 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34645,6 +35352,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m6E09032FAE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m46428C01A110FF4D92678B4164E51F99504D0BCD (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInner6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuter7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_RADIAL + JOINER + OBS_DASH, true )] public static void ArcGradientRadialDashed( DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInner, Color colorOuter ) => _ = 0;
 		return;
 	}
 }
@@ -34652,6 +35360,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientRadialDashed_m46428C01A1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m77F6CC75405C34FB0522FF7727426E151CCFB272 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34659,6 +35368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m77F6CC75405C34F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m08A3171336196E85889D5A6B8EB850EFE77116DE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34666,6 +35376,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m08A3171336196E8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m7C9F1E01C2B7D105B17DAAFA711D30E8D99A6B0E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34673,6 +35384,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m7C9F1E01C2B7D10
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m6C6222776632D1D2C7C7F500E5FB311F146A677C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34680,6 +35392,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m6C6222776632D1D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m973FCAB7D1AE9A3382635A1B769E816D191F3A75 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34687,6 +35400,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m973FCAB7D1AE9A3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mAF895BB188D4D0B1056C59A3CB4F0E0CA5459641 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34694,6 +35408,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mAF895BB188D4D0B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m912A9E2904D4F65D6BA594B5EC2258CE27DE33A1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34701,6 +35416,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m912A9E2904D4F65
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m5D1761B300A7F578720495CCC99B0ABD0774407C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34708,6 +35424,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m5D1761B300A7F57
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mED108A19FBB37E0516991984A9535A4627175013 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34715,6 +35432,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mED108A19FBB37E0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m53BB33628B0B4D727C90424C48AE7C411D957C4A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34722,6 +35440,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m53BB33628B0B4D7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m8DDB67E35B9664467352581FA30F0B49F3E52F46 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34729,6 +35448,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m8DDB67E35B96644
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mDCB54606F81E42306825511E4F9C16B2486CC038 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34736,6 +35456,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mDCB54606F81E423
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m99684E871A7D4F01881B90C45A0AB13C4253129B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34743,6 +35464,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m99684E871A7D4F0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mCD5633BDDA8C1B6CBA8E336E5D3F35C239222539 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34750,6 +35472,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mCD5633BDDA8C1B6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m0DF12866472EEC3513C7896C39EA797AE74F1895 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34757,6 +35480,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m0DF12866472EEC3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mAD335338B9089E960A12EA360D40922BCE2F81CA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34764,6 +35488,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mAD335338B9089E9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m46710CC73C31FE6573F02DCFA405C32C6FE2E728 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34771,6 +35496,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m46710CC73C31FE6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mD194B28C32ACE83AD1021A160512A83465379EC4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34778,6 +35504,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mD194B28C32ACE83
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mE7070663E37E44468213254FE543B63EA67DBED8 (float ___angleRadStart0, float ___angleRadEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34785,6 +35512,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mE7070663E37E444
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mE124C5040FCC327433F1C3353774F1F357120FA8 (float ___angleRadStart0, float ___angleRadEnd1, int32_t ___endCaps2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34792,6 +35520,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mE124C5040FCC327
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mEE5123DF6E34CF701C0F2C1F8CF64BA53C3F5AD3 (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34799,6 +35528,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_mEE5123DF6E34CF7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m9BD3D2011FB7B0168EBE271C16CC13792454095E (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34806,6 +35536,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m9BD3D2011FB7B01
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m07131FBC069C93B8E9E3AD25B2F622223D58F570 (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34813,6 +35544,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m07131FBC069C93B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m205E4DD7BC262ADBCE74B58465575C5DD78C5C7C (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR, true )] public static void ArcGradientAngular( float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34820,6 +35552,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngular_m205E4DD7BC262AD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m36F5083915DD16B49D10166D8A4F4F80E31DC75E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34827,6 +35560,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m36F508391
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mA57A20D3BCF408F51ADBAE2A1C468E1A472763EE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34834,6 +35568,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mA57A20D3B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m5F39448B3D50B1F85DAC131C7DD3AFF5AA2B37E7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34841,6 +35576,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m5F39448B3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m6BE3B1711B50266EB38F8A07F095E124084D00AA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34848,6 +35584,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m6BE3B1711
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m20C27FDF6A3A5B3A3302E7CB7B08674376AE1803 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34855,6 +35592,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m20C27FDF6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mE524FB43BD09941BF0A9D6F949E98D628259467D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34862,6 +35600,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mE524FB43B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m278B5E6FE837D97ECDB84734065D9BF4B4039BA0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34869,6 +35608,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m278B5E6FE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m2E690775FE88BFD0B41CC6ECEB174276DA4B3BDA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34876,6 +35616,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m2E690775F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m718C485903DF8E4D4094722F8A43C19AFE6E7292 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34883,6 +35624,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m718C48590
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mA0A12D8F0486B2F47C850A9FD1C35D1DCACC97DA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34890,6 +35632,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mA0A12D8F0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m1AC1BC67D35ED7501A063D54774D4E68BB2DB285 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34897,6 +35640,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m1AC1BC67D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mF1688DC5A67C909841ECC78F5DDFE87690336CF8 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34904,6 +35648,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mF1688DC5A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mDD8267C66C47C565B1DAFE1972AA1C3367C5E00B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34911,6 +35656,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mDD8267C66
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m60A0DCE9688B3CCCCDD26DA3B38B7F8D48A9CB00 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34918,6 +35664,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m60A0DCE96
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mDCEA5F1E05D969DE8EFF40220B07A7EE42AB6FFA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34925,6 +35672,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mDCEA5F1E0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m72BC8C6906DB6C94B2D39F5637E824D09588A03E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34932,6 +35680,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m72BC8C690
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m30EA2F0CA16113DDB2EE68568C6075C632C8E525 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34939,6 +35688,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m30EA2F0CA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mBB51E4506155B266FB8EFCF46ED40C8D1BD7E50C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34946,6 +35696,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mBB51E4506
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m37CB57D87552783D86768CB6C24321DAE24D6301 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34953,6 +35704,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m37CB57D87
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mADA469A306A3AD097B117F2E920498AB01F1FD2E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34960,6 +35712,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mADA469A30
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m4A9A9B95451FA6208248E91DE0F6EE9B4EA0E5ED (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34967,6 +35720,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m4A9A9B954
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m97B7CB58476DA314673A3F647DF6A683382B4A6A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34974,6 +35728,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m97B7CB584
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mF987BAE25ABCC6DEED1079E6274AC449F3E095D4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34981,6 +35736,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mF987BAE25
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m906E9F4F3654909751B09A92A04CC7819082987F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, int32_t ___endCaps7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34988,6 +35744,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m906E9F4F3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m1E53F53AFFBA6CB81100705D834FCD7855AA1670 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -34995,6 +35752,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m1E53F53AF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mC707B938FE68FBD2EC5C2BA7B8AD39EE7B297AA6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35002,6 +35760,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mC707B938F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m55D349E397D0D3341626C9EC2C825B574DCC8FFA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35009,6 +35768,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m55D349E39
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m34A3640CF0D1A9CE677DA8D48E85F9F563CC1608 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35016,6 +35776,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m34A3640CF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m93EEFA969239A556D9D106202C8954DEC2296BEC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35023,6 +35784,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m93EEFA969
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m7B30C3379D04E1327C83819007C3C1769877C3D3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35030,6 +35792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m7B30C3379
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mC0CEE99C9BA7F3FFE448508918898F71EC41300A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35037,6 +35800,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mC0CEE99C9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mA1F1DEC7B13D6DB956B7BBAEB3AAC5C82544AE49 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35044,6 +35808,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mA1F1DEC7B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m708CE5E1984470C61E88C456A7C382FB76641737 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35051,6 +35816,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m708CE5E19
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mD12DEC071F415C9B33759F44AD28AB61B84E3CDE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35058,6 +35824,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mD12DEC071
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m3EF0C0DFD26AAA87EA6CEF5B9C362DB23859CAD9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35065,6 +35832,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m3EF0C0DFD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m3CBC2028F6C2DE517370ED6CBAF706AE35657DC5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, int32_t ___endCaps7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35072,6 +35840,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m3CBC2028F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m0A3A2F7D163DD66B0AD11F726F74A92224296B90 (float ___angleRadStart0, float ___angleRadEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35079,6 +35848,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m0A3A2F7D1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m0DECF9E243A9281AA4FF8BBC9C5A4E9D893CDDA0 (float ___angleRadStart0, float ___angleRadEnd1, int32_t ___endCaps2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35086,6 +35856,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m0DECF9E24
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m5E7CB4B2C26A89365B2937F083BB86D19322FCD5 (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35093,6 +35864,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m5E7CB4B2C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m9AE7F60E352F43D324217E2D068B52CE1FCAFDF8 (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35100,6 +35872,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m9AE7F60E3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m70960B71DB5EF70A78B408091987B4FC2D57AFD6 (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35107,6 +35880,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m70960B71D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mE6828445160C1C91D75467BAB801806363443346 (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35114,6 +35888,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mE68284451
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m76079BB5F54D3E33A3756D6B3A5F8E4C719F99F0 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35121,6 +35896,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m76079BB5F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m228528AAC02578ABC9539EAF03B98DE37BF5363B (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35128,6 +35904,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m228528AAC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m08973C0F045220B4BDF36F1DE28F00B31F05496D (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35135,6 +35912,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m08973C0F0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m9232745F44EDAB9908A67C8AC616265B061CF914 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35142,6 +35920,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m9232745F4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m0561E47D344684A315D05A7EC0468FD8956788A8 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35149,6 +35928,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_m0561E47D3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mB71686AB120D19FF633BF3B047045B80DF908655 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_ANGULAR + JOINER + OBS_DASH, true )] public static void ArcGradientAngularDashed( DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorStart, Color colorEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35156,6 +35936,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientAngularDashed_mB71686AB1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mEEEE158249F310672B542535127F30EECFAF8727 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35163,6 +35944,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mEEEE158249F310
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m2C0F2ACC6F0A9B8AB4CC0DD77F15409CFE479DF2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35170,6 +35952,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m2C0F2ACC6F0A9B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mE3FBCC980D8887DFCD5525E60048B6C971D347B4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35177,6 +35960,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mE3FBCC980D8887
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m7940F53EE3FBD519B8066ABD1A2D03FBD9B1A4FA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35184,6 +35968,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m7940F53EE3FBD5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m3B815D3A55A341FEEE24AC8FB53B1C8C2DDC6713 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35191,6 +35976,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m3B815D3A55A341
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m3F92C8CFAE76A165C07061A192746F1FCE6B01EA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35198,6 +35984,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m3F92C8CFAE76A1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m6A5BE87F138F4465F596FF69EEACAC7224B7718E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35205,6 +35992,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m6A5BE87F138F44
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m1D1D6A8FA852AA16316A91753EA1A2A4062D8758 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35212,6 +36000,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m1D1D6A8FA852AA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m1A4D71BD7C65882B44C492676EE5EDB9E265B3DD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35219,6 +36008,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m1A4D71BD7C6588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m43271F9960612B9A5995297283F311F9046C6899 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35226,6 +36016,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m43271F9960612B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mC1C93CFC31DF3A3360417C709EFA7474AB1C47C9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35233,6 +36024,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mC1C93CFC31DF3A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m066C0B39636C2789E21C48DD5DFE3D6888106B76 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35240,6 +36032,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m066C0B39636C27
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m867258E2AA19808AD067D6DB24E26768378E9C71 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35247,6 +36040,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m867258E2AA1980
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m87D8C85248A29581881BD5CCF3A23CB59935B102 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35254,6 +36048,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m87D8C85248A295
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m4B3CD44326AEF360CA67782D2A7DB50971E38DF5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35261,6 +36056,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m4B3CD44326AEF3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mC95382814029702C2BF74C855B6B937A781CD14F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35268,6 +36064,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mC9538281402970
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m4410EF912E91161FEBC73D5A7EDD850506A4F145 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35275,6 +36072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m4410EF912E9116
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mBDA987B5247CCE635D30C4E7DCDEC983C28A9750 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35282,6 +36080,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mBDA987B5247CCE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mD755C5C570E35AAC1D39C82A4E3764BAFB4D2519 (float ___angleRadStart0, float ___angleRadEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35289,6 +36088,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mD755C5C570E35A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m68E28D63248B21C61CD38CEA8A326D6B339D443D (float ___angleRadStart0, float ___angleRadEnd1, int32_t ___endCaps2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35296,6 +36096,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m68E28D63248B21
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mB91472CEE9052F924D4FEECAB00924BB68059165 (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35303,6 +36104,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mB91472CEE9052F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m4582AFBE489D0D2AD706E8E81A64BD52C86AB710 (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35310,6 +36112,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m4582AFBE489D0D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mCCA3C34FEA9BCCF0E28F76F97B8BBF17240DDCEB (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35317,6 +36120,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_mCCA3C34FEA9BCC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m3B2586B63E54403076E2FB592B1D0E087567D35D (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR, true )] public static void ArcGradientBilinear( float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35324,6 +36128,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinear_m3B2586B63E5440
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mDEA413FEAD293BD0815A9198883B8F3CD8C479AB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35331,6 +36136,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mDEA413FE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mCB77D3D010442570550573AD52954D98B55ECF62 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35338,6 +36144,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mCB77D3D0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mBC7DDC2B41CFC3FFB09D08305651B9101D2CEB2F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35345,6 +36152,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mBC7DDC2B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m4420ED0571B534D87367178CCB20DE67D1F84CC2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35352,6 +36160,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m4420ED05
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m2E8776D9D855CA925F692F99BD37BC505FFB20A5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35359,6 +36168,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m2E8776D9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m965F8E12BC9F7495972679110D2883869066D53E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35366,6 +36176,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m965F8E12
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m7BEAD5E4ED89708D908CA4A7C2E350ACE29109C2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35373,6 +36184,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m7BEAD5E4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m99F6D6572293B225BCB24BEE8344FA237C945C8E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35380,6 +36192,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m99F6D657
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m9CD4249F751139D45D7E10AD232C0E19257A11B0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35387,6 +36200,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m9CD4249F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mBB093AA78A2F85E629E11D75A83BFDFA1A934312 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35394,6 +36208,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mBB093AA7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m376D6CC5809630F8E27A649C4C81CA85F2FA25C1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35401,6 +36216,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m376D6CC5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mA79DD072141F18CC9C14F8229D392A79C268E4A3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35408,6 +36224,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mA79DD072
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mC71AFC79CEF2266C50E5B5E042D910A5FC95D747 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35415,6 +36232,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mC71AFC79
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mEAB70BCF97000AE85E1370A91D920AA47C36430D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35422,6 +36240,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mEAB70BCF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mFFD06CC79574FFBA134ED2573CCB54CCE5041246 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35429,6 +36248,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mFFD06CC7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mF7AD2D2836E2C86F3AE61699DE3B91446C8ECF59 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35436,6 +36256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mF7AD2D28
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m69C2F345DB49EC1E3FF5218C2A059FFF7F5C61C4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35443,6 +36264,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m69C2F345
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m3D47F0F05BD5D811FA16D937AB866B5A51BBF200 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35450,6 +36272,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m3D47F0F0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mF99966445530A42756A502C756B4905A23AF489B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35457,6 +36280,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mF9996644
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m9521C477186BAF8E52D437DD42F19648E2C65444 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35464,6 +36288,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m9521C477
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m6498CD047310C4A77AA4407AF639CDDE4DE5B063 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35471,6 +36296,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m6498CD04
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m409B12038185687A054C20FDF676556094DEF064 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35478,6 +36304,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m409B1203
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m2FB3E5447D2D3ECB436C9BF21B333C19AED7461F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35485,6 +36312,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m2FB3E544
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m382A993C0378242F26AD9BCEED6479B9309AA1ED (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, int32_t ___endCaps7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd10, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd11, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Vector3 normal, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35492,6 +36320,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m382A993C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mDD273F8AFCAC6D73937C0461610E870AC2528E8E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35499,6 +36328,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mDD273F8A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mFC985673C6925A25752775A8124DCB056CE0396A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35506,6 +36336,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mFC985673
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m1FF4CAE1CCBABC72139CEFFE88B4A219F9DDA95A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35513,6 +36344,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m1FF4CAE1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mD787697B74C758D5B423E7E06FB8EA6C9FACBC60 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35520,6 +36352,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mD787697B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mB4ABDAFA0A954EA2320C3ECA7B7CECA5CA9A8D16 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35527,6 +36360,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mB4ABDAFA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mFB80E44FB889697562A46850EC2586478ABC852F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___radius2, float ___thickness3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35534,6 +36368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mFB80E44F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mD1CEF4055DB4E190D1D4F130524532A4E7BFA65E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35541,6 +36376,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mD1CEF405
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mCEC5ACF06CA6359E66ABBBED74A7D20DF8F91A8B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35548,6 +36384,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mCEC5ACF0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m6DCF91003FF6DADE2E4436C72C22265EA0D586EF (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35555,6 +36392,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m6DCF9100
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mE5845A31A208C023AFFCE0FC11BF5B0F61784B68 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___angleRadStart4, float ___angleRadEnd5, int32_t ___endCaps6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35562,6 +36400,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mE5845A31
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m3F23D8B959814FD9A44616C91E570A1313A3451D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd10, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35569,6 +36408,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m3F23D8B9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m20933ECFEE3702D0161F3B76B87DED4EE9A3A4F4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle2, float ___radius3, float ___thickness4, float ___angleRadStart5, float ___angleRadEnd6, int32_t ___endCaps7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart9, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd10, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd11, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( Vector3 pos, Quaternion rot, DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35576,6 +36416,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m20933ECF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m1203C0BEE7215E64AA94E9D493F4F0C774BCFCA0 (float ___angleRadStart0, float ___angleRadEnd1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35583,6 +36424,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m1203C0BE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m3E3C56F5FAB059D306C1AAA59CA3F428F5285303 (float ___angleRadStart0, float ___angleRadEnd1, int32_t ___endCaps2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35590,6 +36432,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m3E3C56F5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mDEA24604F383B0E00DE24FBEBDBC8C6885E0AD64 (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35597,6 +36440,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mDEA24604
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m874429F182B8C34766DEB919F788034667703E6F (float ___radius0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35604,6 +36448,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m874429F1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mC07CD4A9F00DBABA358E0E27F3507CFC93C2FD03 (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35611,6 +36456,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mC07CD4A9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mC3050C0827362C7BA85670F41EFBD9CF77556473 (float ___radius0, float ___thickness1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35618,6 +36464,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_mC3050C08
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m68B3BBABE37F00DE71130103109B21CA7AFF3E11 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___angleRadStart1, float ___angleRadEnd2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( DashStyle dashStyle, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35625,6 +36472,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m68B3BBAB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m618C70BC4DD44F63F251E196A3BD022B945AF47E (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___angleRadStart1, float ___angleRadEnd2, int32_t ___endCaps3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( DashStyle dashStyle, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35632,6 +36480,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m618C70BC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m1107890689DEA01DED5284C5058B42ABEA31DDEC (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35639,6 +36488,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m11078906
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m08076565931C4B2956BBFA8A3E9C0CBDBD64C178 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___angleRadStart2, float ___angleRadEnd3, int32_t ___endCaps4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( DashStyle dashStyle, float radius, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35646,6 +36496,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m08076565
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m047383696F1DD0C1C166CA15072D4AB128AB485A (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd8, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35653,6 +36504,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m04738369
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m2F6D6268FD8A6D66A8CC57C85846B3814B15F395 (DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 ___dashStyle0, float ___radius1, float ___thickness2, float ___angleRadStart3, float ___angleRadEnd4, int32_t ___endCaps5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerStart6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterStart7, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorInnerEnd8, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorOuterEnd9, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_DISC_GRADIENT_ARC_BILINEAR + JOINER + OBS_DASH, true )] public static void ArcGradientBilinearDashed( DashStyle dashStyle, float radius, float thickness, float angleRadStart, float angleRadEnd, ArcEndCap endCaps, Color colorInnerStart, Color colorOuterStart, Color colorInnerEnd, Color colorOuterEnd ) => _ = 0;
 		return;
 	}
 }
@@ -35660,6 +36512,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_ArcGradientBilinearDashed_m2F6D6268
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m8A428FEBAAA63E543C8C339AA4AFDAAD5067D003 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Rect rect ) => _ = 0;
 		return;
 	}
 }
@@ -35667,6 +36520,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m8A428FEBAAA63E543C8C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB78A33CA5C7A69D3BC375737D68865D54DBF9B72 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Rect rect, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35674,6 +36528,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB78A33CA5C7A69D3BC37
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mA59A8D3CBF6E39C14EBDB31EBF44FFE9237B5E0B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, float ___cornerRadius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Rect rect, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -35681,6 +36536,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mA59A8D3CBF6E39C14EBD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mA2124F2E7EC41D281B5BFECD229C106DED77DF5A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, float ___cornerRadius2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Rect rect, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35688,6 +36544,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mA2124F2E7EC41D281B5B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m52DCFCB0A8994E1E86875DB1930C1B49F7CBDF90 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Rect rect, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -35695,6 +36552,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m52DCFCB0A8994E1E8687
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m2DE243312FCEDB7742051AF866283C9B92324602 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Rect rect, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35702,6 +36560,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m2DE243312FCEDB774205
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mC61E16D592C4F41C7E7B48D709631EABED764B71 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Rect rect ) => _ = 0;
 		return;
 	}
 }
@@ -35709,6 +36568,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mC61E16D592C4F41C7E7B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m60B4737B2A7C47288572ACA8DADF244675DF475F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Rect rect, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35716,6 +36576,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m60B4737B2A7C47288572
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m43DC7FC333A97B07E073BCD48A048B49C3E7B4E5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___cornerRadius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Rect rect, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -35723,6 +36584,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m43DC7FC333A97B07E073
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m9F97FF36DDFF361979C02260DD45AF267806E695 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___cornerRadius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Rect rect, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35730,6 +36592,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m9F97FF36DDFF361979C0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m6AFF71C2B41E61075BFB59A61344AAD4EB45347E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Rect rect, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -35737,6 +36600,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m6AFF71C2B41E61075BFB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mEFE7480DCA7719FD2DEA0F4AAE2BF1FDD7B5CD67 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Rect rect, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35744,6 +36608,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mEFE7480DCA7719FD2DEA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mBF1B14B162DA4D0F06CBFA94135D6D6CDC49E2CD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Rect rect ) => _ = 0;
 		return;
 	}
 }
@@ -35751,6 +36616,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mBF1B14B162DA4D0F06CB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m66900E13856EB265D36F925887E7F75007487160 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Rect rect, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35758,6 +36624,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m66900E13856EB265D36F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m369C3E78E8D9544C00D9F7E97D0593BD18503FFC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___cornerRadius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Rect rect, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -35765,6 +36632,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m369C3E78E8D9544C00D9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m7CBD3BDA2C3365F5660A46FCDA752061BD719D95 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___cornerRadius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Rect rect, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35772,6 +36640,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m7CBD3BDA2C3365F5660A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m6883C9F6CF913A44A501E850B0CA37168024B6E4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Rect rect, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -35779,6 +36648,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m6883C9F6CF913A44A501
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB8E1FA5C31D5694974719A0741769B6C76FE65B4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Rect rect, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35786,6 +36656,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB8E1FA5C31D569497471
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m608C7FB40793ECC41C9F8C2A36E955130699DB35 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size ) => _ = 0;
 		return;
 	}
 }
@@ -35793,6 +36664,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m608C7FB40793ECC41C9F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m3A19FAD284E4B537EB1C283F1AC248E72C94E773 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35800,6 +36672,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m3A19FAD284E4B537EB1C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m460C1BDD7A667FC5FB8A94B39031E6249C1A0620 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, float ___cornerRadius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -35807,6 +36680,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m460C1BDD7A667FC5FB8A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m65F52623B53BA7F3E421AC43A393F642465CC9E5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, float ___cornerRadius2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35814,6 +36688,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m65F52623B53BA7F3E421
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mAAE6E947E73C389FFF1FD9C5A0EA1232CC030685 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -35821,6 +36696,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mAAE6E947E73C389FFF1F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mE5E3BD051D506AC0967BBA1C523BDD678802E87E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35828,6 +36704,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mE5E3BD051D506AC0967B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mFEF4356189BBD4C6195AD6DE89F70868303F5552 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height ) => _ = 0;
 		return;
 	}
 }
@@ -35835,6 +36712,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mFEF4356189BBD4C6195A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mD6FD298EE6A27602303FA7D48484D8D3B9770F1C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35842,6 +36720,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mD6FD298EE6A27602303F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mBC57FDEB8ED596CC919AB215D14AD27AFE628A1A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, float ___cornerRadius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -35849,6 +36728,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mBC57FDEB8ED596CC919A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mCD2C24A4EA69957B2EBF741F0C82D9251199AB52 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, float ___cornerRadius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35856,6 +36736,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mCD2C24A4EA69957B2EBF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mD4667D33ADD31EBE4A426E5E81E348045FFD4428 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -35863,6 +36744,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mD4667D33ADD31EBE4A42
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mD676406FD498434B5BF81050217D52911AF8312B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35870,6 +36752,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mD676406FD498434B5BF8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m2B9853AEB17327E2599DAEC641CA7B13011A02B2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size ) => _ = 0;
 		return;
 	}
 }
@@ -35877,6 +36760,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m2B9853AEB17327E2599D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m821D1C80E5B56267E07C57156ACD39F95D8CFFB2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35884,6 +36768,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m821D1C80E5B56267E07C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mF24547B6490CA6A3A29EE915A29A85936C7B2D1A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___cornerRadius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -35891,6 +36776,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mF24547B6490CA6A3A29E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m3249F7B14A09C0187EE037FCFBAAC4EDAF314E3E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___cornerRadius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35898,6 +36784,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m3249F7B14A09C0187EE0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m149EEF49C40C7A3A4E7CB1ECBB9B596B7A783520 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -35905,6 +36792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m149EEF49C40C7A3A4E7C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m11102D771B9B0CCFD47BD46F7E4618E3B036C31D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35912,6 +36800,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m11102D771B9B0CCFD47B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m4A3A943048BA57BCB02E8503C3A287F1F1C26677 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height ) => _ = 0;
 		return;
 	}
 }
@@ -35919,6 +36808,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m4A3A943048BA57BCB02E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mDA581A9DA5C68C870AF9AB514E9184FD213737F4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35926,6 +36816,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mDA581A9DA5C68C870AF9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m5879C79E79050D3DE8FE0C47D0094DF87C3963A1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, float ___cornerRadius4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -35933,6 +36824,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m5879C79E79050D3DE8FE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m2FBBB0289E19EADB71E298B24FBC36EF6CC935F5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, float ___cornerRadius4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35940,6 +36832,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m2FBBB0289E19EADB71E2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m0A89A7A0627EEDF572575997079DE5471019760D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -35947,6 +36840,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m0A89A7A0627EEDF57257
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mF726DC0E2D0A2C8E1812D4BC1869D3D9905E9ECC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35954,6 +36848,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mF726DC0E2D0A2C8E1812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mC70FC1A2453BC65184E195C850BEA406741B6482 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size ) => _ = 0;
 		return;
 	}
 }
@@ -35961,6 +36856,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mC70FC1A2453BC65184E1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mC52F5FBD929494053262F99349E41A563DCBEE19 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35968,6 +36864,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mC52F5FBD929494053262
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB19C346602EC2062579E65F4803C50387715EC7E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___cornerRadius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -35975,6 +36872,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB19C346602EC2062579E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m742515546360E8137F9D7A24013E709465DF2A63 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___cornerRadius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35982,6 +36880,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m742515546360E8137F9D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB2A3EEF542103D0AE6448E6EFD7ADBA1AD2DB107 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -35989,6 +36888,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB2A3EEF542103D0AE644
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m40F3B3D274D48B31C72E3ECE559231CE16FA5AA9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -35996,6 +36896,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m40F3B3D274D48B31C72E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m31FB1BA6F678D6A10DEFF02D771F65FCC225EECB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height ) => _ = 0;
 		return;
 	}
 }
@@ -36003,6 +36904,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m31FB1BA6F678D6A10DEF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m4F0D683DA2F1B989C1765F17BF26732E73FE4E8C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36010,6 +36912,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m4F0D683DA2F1B989C176
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m67DDFDA7D1C05B6BE444ECC0E00F99E9346D5662 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, float ___cornerRadius4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36017,6 +36920,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m67DDFDA7D1C05B6BE444
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mC8F0B4A533C8BC91CD3DF9E456C42BE0573144C4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, float ___cornerRadius4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36024,6 +36928,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mC8F0B4A533C8BC91CD3D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mD31E3E8244316C11743B423F61044361AF4DA84E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36031,6 +36936,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mD31E3E8244316C11743B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m1205B7DF896FF2E74DC03773C9B4746B9BFDB68A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36038,6 +36944,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m1205B7DF896FF2E74DC0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m37D2A509A55BC4D8F0F85C3B784D79B9A9F71CFE (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Rect rect ) => _ = 0;
 		return;
 	}
 }
@@ -36045,6 +36952,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m37D2A509A55BC4D8F0F8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB2ED8C461E068F68D06FEC0053BB1FA2AB987E33 (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Rect rect, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36052,6 +36960,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB2ED8C461E068F68D06F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m0D74A1D4564A2AECA8A52202AE3DD3B3520FC963 (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, float ___cornerRadius1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Rect rect, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36059,6 +36968,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m0D74A1D4564A2AECA8A5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m4234E336C58FFA94370DD3380A7DADC2181521B2 (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, float ___cornerRadius1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Rect rect, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36066,6 +36976,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m4234E336C58FFA94370D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m708F56E9350F1780848DF1FC122CB83CE64A21BE (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Rect rect, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36073,6 +36984,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m708F56E9350F1780848D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mA954A879C82E3409860A7BFD145DB1311CCABD31 (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Rect rect, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36080,6 +36992,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mA954A879C82E3409860A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mFAD0B006E8FF73A31C8F67930EFA102393B1F898 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size, RectPivot pivot ) => _ = 0;
 		return;
 	}
 }
@@ -36087,6 +37000,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mFAD0B006E8FF73A31C8F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m357A2B69DDE2B36E54AD4355527845CF18CF9130 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size, RectPivot pivot, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36094,6 +37008,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m357A2B69DDE2B36E54AD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m2C39E85F09BF315E86D3B6075A555515FB31D045 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, float ___cornerRadius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size, RectPivot pivot, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36101,6 +37016,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m2C39E85F09BF315E86D3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m18172166F74F31836E39E8A90D6BE409DD5A4DC7 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, float ___cornerRadius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size, RectPivot pivot, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36108,6 +37024,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m18172166F74F31836E39
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m153474CFD346F9C2857C21C23342943113252CD3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size, RectPivot pivot, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36115,6 +37032,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m153474CFD346F9C2857C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m958E4D50D8B853B797D889EE355C16FDE3D9B172 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector2 size, RectPivot pivot, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36122,6 +37040,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m958E4D50D8B853B797D8
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m0A3DE957E1CAACDFD402E28260CD63521EC11480 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height, RectPivot pivot ) => _ = 0;
 		return;
 	}
 }
@@ -36129,6 +37048,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m0A3DE957E1CAACDFD402
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m39F5B83B68DE7586F17E3ECFC041CDF43192B150 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height, RectPivot pivot, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36136,6 +37056,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m39F5B83B68DE7586F17E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m4DBAC61B06F105136FDE90C1E6ACB62053BA63C2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, float ___cornerRadius4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height, RectPivot pivot, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36143,6 +37064,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m4DBAC61B06F105136FDE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m91367AE7189B31461865F667FCF7D305737AEBCB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, float ___cornerRadius4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height, RectPivot pivot, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36150,6 +37072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m91367AE7189B31461865
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mA87CA4F9A3B4721D1643F4E2D2583B85DC79FE17 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height, RectPivot pivot, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36157,6 +37080,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mA87CA4F9A3B4721D1643
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m28808651282386294E0B7C120B9828CAEA2993F4 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, float width, float height, RectPivot pivot, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36164,6 +37088,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m28808651282386294E0B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB481DD6A8B5E7D9D1D3DEFEAE16B11F503C4FCE5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot ) => _ = 0;
 		return;
 	}
 }
@@ -36171,6 +37096,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB481DD6A8B5E7D9D1D3D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m83FDDA949161432FB332166D08554DE45367759E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36178,6 +37104,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m83FDDA949161432FB332
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m49F01E5911D3016A4119F8C1B2F14412E0A8DD67 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___cornerRadius4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36185,6 +37112,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m49F01E5911D3016A4119
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m7E4497C7C1C80ACEC269A50D3365761F20E6A379 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___cornerRadius4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36192,6 +37120,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m7E4497C7C1C80ACEC269
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m86EC7C2A8163B11218ACF563CA4D91728C1899C3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36199,6 +37128,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m86EC7C2A8163B11218AC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m8B1C3965A7D3DDEDD17EA2F91B54F3D551AD0524 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36206,6 +37136,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m8B1C3965A7D3DDEDD17E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m11A9CDAD03FDD4281DE94B30DFEB60A4FD768244 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot ) => _ = 0;
 		return;
 	}
 }
@@ -36213,6 +37144,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m11A9CDAD03FDD4281DE9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m76881D81ED803E90C58BC4485325B030FB32B585 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36220,6 +37152,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m76881D81ED803E90C58B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m4BA6E9E36A1A80C508252C6AD2D43EBE61F06EA0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, float ___cornerRadius5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36227,6 +37160,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m4BA6E9E36A1A80C50825
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m9C009273A4202953B359918C0B27F7ED3D3D9674 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, float ___cornerRadius5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36234,6 +37168,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m9C009273A4202953B359
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mE637838FAF46C1EA9A608F8DDB9087DAB946F75D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36241,6 +37176,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mE637838FAF46C1EA9A60
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m1A9453B0BD609EE243FCE7CC8A17FF6F62F25DE0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36248,6 +37184,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m1A9453B0BD609EE243FC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m779724A26B57DB21381DB06E799F00420EBBBD2B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot ) => _ = 0;
 		return;
 	}
 }
@@ -36255,6 +37192,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m779724A26B57DB21381D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m585CA06784FFE9CA012684AC5DD496FCA0445F9B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36262,6 +37200,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m585CA06784FFE9CA0126
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mF365A50C91024ECA7D302289B9F438FCD0BE60E3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___cornerRadius4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36269,6 +37208,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mF365A50C91024ECA7D30
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m57FBA6F35414F430AF1951EED0A95E6E0998C46A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___cornerRadius4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36276,6 +37216,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m57FBA6F35414F430AF19
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m427D707FE25617D0C0C7AD989A7DEE880B591DD6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36283,6 +37224,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m427D707FE25617D0C0C7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m408A9D5FA913EDF9B6AA1545CF5C701E9DD76307 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36290,6 +37232,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m408A9D5FA913EDF9B6AA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m5E4D1E26EFFBC08E89050A098EC3E65C49A75847 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot ) => _ = 0;
 		return;
 	}
 }
@@ -36297,6 +37240,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m5E4D1E26EFFBC08E8905
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m3D72792959DC650663D4CB4D757CC94F90E43E19 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36304,6 +37248,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m3D72792959DC650663D4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mCFD8AD3E08E7F8EA9910B2589EFE45BBDCC404BC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, float ___cornerRadius5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36311,6 +37256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mCFD8AD3E08E7F8EA9910
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m9972644919A24773EA0109CC9C9C24A94720714F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, float ___cornerRadius5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36318,6 +37264,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m9972644919A24773EA01
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB45070903161DEC73250EC5DCEC85A89FD4B3694 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36325,6 +37272,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_mB45070903161DEC73250
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m39084D8BF5C3C910CC2B2A5F31A562627CBFCF1B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36332,6 +37280,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleFill_m39084D8BF5C3C910CC2B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m3E9688315AC60CFCE67378CC1BD22C9DAEB85820 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, float ___thickness2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Rect rect, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36339,6 +37288,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m3E9688315AC60C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m81FD29FADD32F61C831D81DD846C379CEE1A0362 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, float ___thickness2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Rect rect, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36346,6 +37296,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m81FD29FADD32F6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m6C43B66ABBD0E769B82919D25AA90C54BC648B93 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, float ___thickness2, float ___cornerRadius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Rect rect, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36353,6 +37304,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m6C43B66ABBD0E7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mCAEA02933DFE71606F889D1C7205FA25373E657E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, float ___thickness2, float ___cornerRadius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Rect rect, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36360,6 +37312,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mCAEA02933DFE71
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mCEE567F00A30D0AB3DAE746B17905AE50BA10738 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, float ___thickness2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Rect rect, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36367,6 +37320,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mCEE567F00A30D0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m815E6A844445C6E32D9B27E8BCCB6F80CF90DF14 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect1, float ___thickness2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Rect rect, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36374,6 +37328,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m815E6A844445C6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mED3255FE3975602AF23FC7C174E7E10837C9C9D5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Rect rect, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36381,6 +37336,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mED3255FE397560
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m564CF9C21BF6BD635CDFF1C53B43496B88A79D91 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Rect rect, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36388,6 +37344,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m564CF9C21BF6BD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mE77841D319B3AA66EB80BFEE3C129ED6CD059DE8 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, float ___cornerRadius4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Rect rect, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36395,6 +37352,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mE77841D319B3AA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m83A2B805BF359B579738763A87EF3B7DBF0F142D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, float ___cornerRadius4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Rect rect, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36402,6 +37360,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m83A2B805BF359B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m1F50D36D372E5ECA492C8770A8C3D71FD730CF70 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Rect rect, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36409,6 +37368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m1F50D36D372E5E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mB706FAD551ECD06A51FD581E1467D4D13CFB11B2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Rect rect, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36416,6 +37376,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mB706FAD551ECD0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mDDBEB96B3F4177ABF271CCE1BCC68EF78847B990 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Rect rect, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36423,6 +37384,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mDDBEB96B3F4177
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m007C4C7BC4F6A059C4F0289F9F8F688A9F4A42C0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Rect rect, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36430,6 +37392,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m007C4C7BC4F6A0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0DE62FA41CDDAF8E778A8AAA3F7097A5DE2BE1C2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, float ___cornerRadius4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Rect rect, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36437,6 +37400,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0DE62FA41CDDAF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m70746FD86CDD0FA7CE3A9CD887818947788F9DF5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, float ___cornerRadius4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Rect rect, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36444,6 +37408,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m70746FD86CDD0F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mA5E3E84C01E895E119E7D44BE74D9AF21E322ECF (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Rect rect, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36451,6 +37416,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mA5E3E84C01E895
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m89DACCDA05C6B36F7FFBE1ED92F225D6CF622E21 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Rect rect, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36458,6 +37424,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m89DACCDA05C6B3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m3DEE9FB980EFFA760EB2AB030E99E0186A80F0E6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, float ___thickness2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36465,6 +37432,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m3DEE9FB980EFFA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mDB6FD2BB9B1B2E71348B7F5FDFD2857B0FCE275D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, float ___thickness2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36472,6 +37440,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mDB6FD2BB9B1B2E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m59B1BC78BE3505D7661B79199904D20C831CF697 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, float ___thickness2, float ___cornerRadius3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36479,6 +37448,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m59B1BC78BE3505
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m89E07D0FD708DF45051F26CF9971D76E474BC141 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, float ___thickness2, float ___cornerRadius3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36486,6 +37456,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m89E07D0FD708DF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m540147C19DF1675B186C30F59E686DC25B2590FF (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, float ___thickness2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36493,6 +37464,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m540147C19DF167
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m497FBECD2001AD112BD90966C9F4DEE9DE226B7B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, float ___thickness2, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36500,6 +37472,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m497FBECD2001AD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mCF29D03388A35CDCEF99AF695FFA6CE17F1771F3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36507,6 +37480,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mCF29D03388A35C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m855D8694EB238317706912C3A2F64E5894C9E057 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, float ___thickness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36514,6 +37488,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m855D8694EB2383
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m9A0CF71B0C08C07840A7CC6E33C0154192E8CF0F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, float ___thickness3, float ___cornerRadius4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36521,6 +37496,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m9A0CF71B0C08C0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mB5433F2FF3C1748F21469838E8AD178B6C898863 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, float ___thickness3, float ___cornerRadius4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36528,6 +37504,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mB5433F2FF3C174
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mAB112711B500A79F7851AFC6635FC3FCD535C6FC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36535,6 +37512,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mAB112711B500A7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mBC191D356A5E10ACEC2567043C1FD679A56B4924 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36542,6 +37520,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mBC191D356A5E10
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mA9EAB4D906CE904F1A50B0B005E19ED772ECD083 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36549,6 +37528,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mA9EAB4D906CE90
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mBF1DA12FCFDB9FA479FBB608A70B2F3C41F3CC0D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36556,6 +37536,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mBF1DA12FCFDB9F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m10EFB9234075EA9EFFABA7AB21B9F21ED77354F5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, float ___cornerRadius4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36563,6 +37544,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m10EFB9234075EA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m015CFAA913B605BF56A091C8120144FB702D1A6A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, float ___cornerRadius4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36570,6 +37552,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m015CFAA913B605
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m6BDA0F702141300FA90A7C0731CCB2DB4A293D3B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36577,6 +37560,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m6BDA0F70214130
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m8F79663572FA6138A90437FBE6F77DC96240FF07 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36584,6 +37568,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m8F79663572FA61
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m38707A62153F6C52830084771612C00C82F654E0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, float ___thickness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36591,6 +37576,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m38707A62153F6C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mC609C54B1892B168B850A425F0CBCE259179CC2A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, float ___thickness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36598,6 +37584,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mC609C54B1892B1
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m8C44CA389429EBE9AF9BD1D699F2DAFE64524118 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, float ___thickness4, float ___cornerRadius5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36605,6 +37592,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m8C44CA389429EB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m6B1CCEEF1408C4EAA19F4E87046B23308932A8A8 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, float ___thickness4, float ___cornerRadius5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36612,6 +37600,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m6B1CCEEF1408C4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m19AD0CCE131F1EA06B664F276EFA08B25F9DFCCE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, float ___thickness4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36619,6 +37608,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m19AD0CCE131F1E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m766DA934665DC386CCA55EC67FEAB9F05E6249AC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, float ___thickness4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36626,6 +37616,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m766DA934665DC3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m65A4537F17F55925E3EECA6F063C2200066F3032 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36633,6 +37624,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m65A4537F17F559
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mC0172B832A69050DC71987BF419A39B8C325E43F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36640,6 +37632,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mC0172B832A6905
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mC5ABC1A90D2D62BC6218F1A545866977030481F1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, float ___cornerRadius4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36647,6 +37640,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mC5ABC1A90D2D62
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mEB123C838BC1593BF8DC3CBAEFF01C16A5DD3128 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, float ___cornerRadius4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36654,6 +37648,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mEB123C838BC159
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0EFF1EFAA9D66C6D9C3FB64C0EAA60E1A7C6609A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36661,6 +37656,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0EFF1EFAA9D66C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0DDB61C14CED50F54DD1437F3750F58EA67A76B0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36668,6 +37664,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0DDB61C14CED50
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m5F32967E069AB576FC1E3715486C65ED590F4D26 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, float ___thickness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36675,6 +37672,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m5F32967E069AB5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mAF03E9666057E57910631500BDB5AFA528521153 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, float ___thickness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36682,6 +37680,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mAF03E9666057E5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mB75C3AC20B5D9F6F50985E533FF8793AD50A525F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, float ___thickness4, float ___cornerRadius5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36689,6 +37688,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mB75C3AC20B5D9F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mC7D05380BB01CD12EADED219746DE02346D511A6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, float ___thickness4, float ___cornerRadius5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36696,6 +37696,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mC7D05380BB01CD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mBDD90141AAD6261D2566EB64FA2FAC018656EC1B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, float ___thickness4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36703,6 +37704,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mBDD90141AAD626
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m8EC952956A2888CEAB40989464731319333FFCD6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, float ___thickness4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36710,6 +37712,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m8EC952956A2888
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m26E88DBEAFF4A9ACE00B943E9DA1C0977CA2FA58 (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, float ___thickness1, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Rect rect, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36717,6 +37720,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m26E88DBEAFF4A9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m4FE6F95B6D32387140E036016A24172EBA18B5DD (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, float ___thickness1, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Rect rect, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36724,6 +37728,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m4FE6F95B6D3238
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m1BBE951B7D202E0AB8712152C42E36F556DCC023 (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, float ___thickness1, float ___cornerRadius2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Rect rect, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36731,6 +37736,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m1BBE951B7D202E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mA29B8CFC8B079BCF3AB3B6872222A7D990182850 (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, float ___thickness1, float ___cornerRadius2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Rect rect, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36738,6 +37744,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mA29B8CFC8B079B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0E45515D4523ABBE54A5B078A191B1C288F393CB (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, float ___thickness1, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Rect rect, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36745,6 +37752,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0E45515D4523AB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m93B9EDB3CE9B7B461520043E240312F972F94E05 (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___rect0, float ___thickness1, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii2, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Rect rect, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36752,6 +37760,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m93B9EDB3CE9B7B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m70E4166565636B73581D40D98F27D2E19141976A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, RectPivot pivot, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36759,6 +37768,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m70E4166565636B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mA47C86EDF421C2CADA486C57C0B45A7C534F18BB (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, float ___thickness3, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, RectPivot pivot, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36766,6 +37776,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mA47C86EDF421C2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mCD3C399E865D1C3243A05276647106E5277CA69E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, float ___thickness3, float ___cornerRadius4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, RectPivot pivot, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36773,6 +37784,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mCD3C399E865D1C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0056A4E45D3650ED4E8269C30333BA64A3A169CC (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, float ___thickness3, float ___cornerRadius4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, RectPivot pivot, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36780,6 +37792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0056A4E45D3650
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m2D706FD3673F5A514F1D756B70E89BEDB51E16F9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, RectPivot pivot, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36787,6 +37800,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m2D706FD3673F5A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mB6260BA4156C5E9497BB1CC907A68202D51A4E14 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size1, int32_t ___pivot2, float ___thickness3, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector2 size, RectPivot pivot, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36794,6 +37808,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mB6260BA4156C5E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mDB13CF024F8EFA5839B252DE3EC9E74242E78A48 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, float ___thickness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, RectPivot pivot, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36801,6 +37816,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mDB13CF024F8EFA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m85575C81799FAA3EBD7BBE3CA7813FFD19946C0F (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, float ___thickness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, RectPivot pivot, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36808,6 +37824,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m85575C81799FAA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m7691D6129C0FCC04D731C72BF5176D2512518B68 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, float ___thickness4, float ___cornerRadius5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, RectPivot pivot, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36815,6 +37832,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m7691D6129C0FCC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m05B78237F5B274C25DAF7F5DE4090A14FCE68CE1 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, float ___thickness4, float ___cornerRadius5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, RectPivot pivot, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36822,6 +37840,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m05B78237F5B274
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m21D5EAC1B0A0454B7B229E728E5952D257AE8DEE (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, float ___thickness4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, RectPivot pivot, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36829,6 +37848,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m21D5EAC1B0A045
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m3390BC80E9E8FD075F9451BBE80FF8A8F377D916 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, float ___width1, float ___height2, int32_t ___pivot3, float ___thickness4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, float width, float height, RectPivot pivot, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36836,6 +37856,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m3390BC80E9E8FD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0A2A529EB816F08FD43FDCA5231BC83E5AE37F03 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36843,6 +37864,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0A2A529EB816F0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m02CF1E27EE66E513E29D0553DB901C2CEE75D82A (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36850,6 +37872,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m02CF1E27EE66E5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m8BDEB299EB32A2C628F5E5180CA921F913C11D13 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, float ___cornerRadius5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36857,6 +37880,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m8BDEB299EB32A2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m72AEF31B30BF6072D0AA88C72C2BC8047B49C6C2 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, float ___cornerRadius5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36864,6 +37888,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m72AEF31B30BF60
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m43D9F4C6BD5367452068D0D3E57139562532A7A5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36871,6 +37896,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m43D9F4C6BD5367
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m4EA1B3CE5FC6D757266D418A7A18625C289570D5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, Vector2 size, RectPivot pivot, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36878,6 +37904,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m4EA1B3CE5FC6D7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m7D516441D12C51072C4C49FA78FF0D2CF0BC547D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36885,6 +37912,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m7D516441D12C51
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m328A6A17B44E6008BEA0394FF3582F70EDBB3541 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36892,6 +37920,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m328A6A17B44E60
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m01639B6B410769F33C32833350312FB642A905B0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, float ___cornerRadius6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36899,6 +37928,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m01639B6B410769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m147BE6795224E21E70BF3054B01391074F134986 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, float ___cornerRadius6, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36906,6 +37936,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m147BE6795224E2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m64E4C9D8401B5444400D36C6ECDEC738E0D4AB4D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36913,6 +37944,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m64E4C9D8401B54
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m4DE272DA26D075DDEC03B39F48474A0D351ED24C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___normal1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii6, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Vector3 normal, float width, float height, RectPivot pivot, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36920,6 +37952,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m4DE272DA26D075
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m7F767760596E3B992328F8EF39A0A94F372E2923 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36927,6 +37960,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m7F767760596E3B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m8044ED69071E9233DB46F7E69F7FDC7F5451A381 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36934,6 +37968,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m8044ED69071E92
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m2DAE768C899D617D2386E9A5B03A2EA5A36D6353 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, float ___cornerRadius5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36941,6 +37976,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m2DAE768C899D61
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mD6A8370B13501606C7F963AB375E4611428516C3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, float ___cornerRadius5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36948,6 +37984,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mD6A8370B135016
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mEEF2F076FBCC7D8045E5D2FFAC48990F09705505 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36955,6 +37992,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mEEF2F076FBCC7D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m6098768AEE03EBECFC450755039A2F4FC6CFE203 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___size2, int32_t ___pivot3, float ___thickness4, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, Vector2 size, RectPivot pivot, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36962,6 +38000,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m6098768AEE03EB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m3CD785DA049B06EC1471E94BB8F8F6FB9257DFD3 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -36969,6 +38008,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m3CD785DA049B06
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0FAAD1270C660091EB8FAD64D7E78B1ADA1674F5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot, float thickness, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36976,6 +38016,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m0FAAD1270C6600
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mFF0CE98A852548FB9BB8001B7B1C4F898737C854 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, float ___cornerRadius6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot, float thickness, float cornerRadius ) => _ = 0;
 		return;
 	}
 }
@@ -36983,6 +38024,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mFF0CE98A852548
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m62BBEF4309C8840228B9C231FFB89B1E6CCAA331 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, float ___cornerRadius6, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot, float thickness, float cornerRadius, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -36990,6 +38032,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m62BBEF4309C884
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mE3EC637FB39D94B7DC77908E0FC0103B03F680AA (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot, float thickness, Vector4 cornerRadii ) => _ = 0;
 		return;
 	}
 }
@@ -36997,6 +38040,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_mE3EC637FB39D94
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m6357A2AD41B00486B1C2817F48EFA2A48699C111 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___rot1, float ___width2, float ___height3, int32_t ___pivot4, float ___thickness5, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___cornerRadii6, GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 ___fill7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_FILL, true )] public static void RectangleBorderFill( Vector3 pos, Quaternion rot, float width, float height, RectPivot pivot, float thickness, Vector4 cornerRadii, GradientFill fill ) => _ = 0;
 		return;
 	}
 }
@@ -37004,6 +38048,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_RectangleBorderFill_m6357A2AD41B004
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_m2BB3F145D8BC863E90DAA967E751457F4304970C (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___a0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___b1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___c2, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_TRIRENAME, true )] public static void TriangleHollow( Vector3 a, Vector3 b, Vector3 c ) => _ = 0;
 		return;
 	}
 }
@@ -37011,6 +38056,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_m2BB3F145D8BC863E90D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_m21A1B0FDEA316160F5DBD263F1851D155D6C3C04 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___a0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___b1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___c2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_TRIRENAME, true )] public static void TriangleHollow( Vector3 a, Vector3 b, Vector3 c, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -37018,6 +38064,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_m21A1B0FDEA316160F5D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_mD2828F0147E5577C1734C85FD62D41AA66DFD19D (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___a0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___b1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___c2, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorA3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorB4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorC5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_TRIRENAME, true )] public static void TriangleHollow( Vector3 a, Vector3 b, Vector3 c, Color colorA, Color colorB, Color colorC ) => _ = 0;
 		return;
 	}
 }
@@ -37025,6 +38072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_mD2828F0147E5577C173
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_mF8CEDB3C4867EC176980E4DA5C7F983F13792818 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___a0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___b1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___c2, float ___thickness3, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_TRIRENAME, true )] public static void TriangleHollow( Vector3 a, Vector3 b, Vector3 c, float thickness ) => _ = 0;
 		return;
 	}
 }
@@ -37032,6 +38080,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_mF8CEDB3C4867EC17698
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_mD1616633656F4BB77B79DADD1BDE3D3F8A092480 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___a0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___b1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___c2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_TRIRENAME, true )] public static void TriangleHollow( Vector3 a, Vector3 b, Vector3 c, float thickness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -37039,6 +38088,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_mD1616633656F4BB77B7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_m5BC3A8A5D7C6A466AE94B3FB21A268B5B72FBC48 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___a0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___b1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___c2, float ___thickness3, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorA4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorB5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorC6, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_TRIRENAME, true )] public static void TriangleHollow( Vector3 a, Vector3 b, Vector3 c, float thickness, Color colorA, Color colorB, Color colorC ) => _ = 0;
 		return;
 	}
 }
@@ -37046,6 +38096,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_m5BC3A8A5D7C6A466AE9
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_mFC07961A73C93438B3DC9DE97EA6CDAD7F9F3FF6 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___a0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___b1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___c2, float ___thickness3, float ___roundness4, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_TRIRENAME, true )] public static void TriangleHollow( Vector3 a, Vector3 b, Vector3 c, float thickness, float roundness ) => _ = 0;
 		return;
 	}
 }
@@ -37053,6 +38104,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_mFC07961A73C93438B3D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_m87B2E352719E3FAA35021E030D311F6792C3FB2E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___a0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___b1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___c2, float ___thickness3, float ___roundness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color5, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_TRIRENAME, true )] public static void TriangleHollow( Vector3 a, Vector3 b, Vector3 c, float thickness, float roundness, Color color ) => _ = 0;
 		return;
 	}
 }
@@ -37060,6 +38112,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_m87B2E352719E3FAA350
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_TriangleHollow_m32D6B491221C40A0BF72B3FE3137B6A9DE1E1BB0 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___a0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___b1, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___c2, float ___thickness3, float ___roundness4, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorA5, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorB6, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___colorC7, const RuntimeMethod* method) 
 {
 	{
+		// [Obsolete( OBS_TRIRENAME, true )] public static void TriangleHollow( Vector3 a, Vector3 b, Vector3 c, float thickness, float roundness, Color colorA, Color colorB, Color colorC ) => _ = 0;
 		return;
 	}
 }
@@ -37782,9 +38835,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_set_LocalScale_mAED32D7AF2B0C5DE55E
 	}
 	float V_0 = 0.0f;
 	float V_1 = 0.0f;
-	float V_2 = 0.0f;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_3;
-	memset((&V_3), 0, sizeof(V_3));
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_2;
+	memset((&V_2), 0, sizeof(V_2));
 	{
 		// float xScale = value.x / RightBasis.magnitude;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0 = ___value0;
@@ -37792,33 +38844,31 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_set_LocalScale_mAED32D7AF2B0C5DE55E
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_2;
 		L_2 = Draw_get_RightBasis_m7C0BD45F206CD1640BCDA4BD0AD19DC2B31D3CC8(NULL);
-		V_3 = L_2;
+		V_2 = L_2;
 		float L_3;
-		L_3 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_3), NULL);
-		V_0 = ((float)(L_1/L_3));
+		L_3 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_2), NULL);
 		// float yScale = value.y / UpBasis.magnitude;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4 = ___value0;
 		float L_5 = L_4.___y_3;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6;
 		L_6 = Draw_get_UpBasis_m6335678F06895B00BE3CBA7D3068E34727D08E0F(NULL);
-		V_3 = L_6;
+		V_2 = L_6;
 		float L_7;
-		L_7 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_3), NULL);
-		V_1 = ((float)(L_5/L_7));
+		L_7 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_2), NULL);
+		V_0 = ((float)(L_5/L_7));
 		// float zScale = value.z / ForwardBasis.magnitude;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8 = ___value0;
 		float L_9 = L_8.___z_4;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10;
 		L_10 = Draw_get_ForwardBasis_m063B1E7346B554D695E1E19BEF6393164EE3D33B(NULL);
-		V_3 = L_10;
+		V_2 = L_10;
 		float L_11;
-		L_11 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_3), NULL);
-		V_2 = ((float)(L_9/L_11));
+		L_11 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_2), NULL);
+		V_1 = ((float)(L_9/L_11));
 		// Scale( xScale, yScale, zScale );
 		float L_12 = V_0;
 		float L_13 = V_1;
-		float L_14 = V_2;
-		Draw_Scale_m67D0747E9C262F188B1A56CB50B69ACE4DAAA48C_inline(L_12, L_13, L_14, NULL);
+		Draw_Scale_m67D0747E9C262F188B1A56CB50B69ACE4DAAA48C_inline(((float)(L_1/L_3)), L_12, L_13, NULL);
 		// }
 		return;
 	}
@@ -38982,10 +40032,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DashStack_t831E881318FF125CABB021A111E04EDE9A
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DashStack_t831E881318FF125CABB021A111E04EDE9A84BA36 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	DashStack_t831E881318FF125CABB021A111E04EDE9A84BA36 V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// DashStack stack = new DashStack( Draw.UseDashes, Draw.DashStyle );
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
@@ -38993,20 +40039,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DashStack_t831E881318FF125CABB021A111E04EDE9A
 		L_0 = Draw_get_UseDashes_mE7B096A99BB41163684B211CCB90875CFD149BD2_inline(NULL);
 		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_1;
 		L_1 = Draw_get_DashStyle_mF37B6F27C8012F6214C353F8C70F4B074BC4E05B_inline(NULL);
-		DashStack__ctor_m4015B3D01693A69F0AD15836E699FA89C0192C5C((&V_0), L_0, L_1, NULL);
+		DashStack_t831E881318FF125CABB021A111E04EDE9A84BA36 L_2;
+		memset((&L_2), 0, sizeof(L_2));
+		DashStack__ctor_m4015B3D01693A69F0AD15836E699FA89C0192C5C((&L_2), L_0, L_1, /*hidden argument*/NULL);
 		// Draw.UseDashes = true;
 		Draw_set_UseDashes_m0AE2187FB17BDE77152AFF5AC5B2C9D8964293C3_inline((bool)1, NULL);
 		// return stack;
-		DashStack_t831E881318FF125CABB021A111E04EDE9A84BA36 L_2 = V_0;
-		V_1 = L_2;
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		// }
-		DashStack_t831E881318FF125CABB021A111E04EDE9A84BA36 L_3 = V_1;
-		return L_3;
+		return L_2;
 	}
 }
 // Shapes.DashStack Shapes.Draw::DashedScope(Shapes.DashStyle)
@@ -39018,10 +40057,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DashStack_t831E881318FF125CABB021A111E04EDE9A
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DashStack_t831E881318FF125CABB021A111E04EDE9A84BA36 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	DashStack_t831E881318FF125CABB021A111E04EDE9A84BA36 V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// DashStack stack = new DashStack( Draw.UseDashes, Draw.DashStyle );
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
@@ -39029,23 +40064,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DashStack_t831E881318FF125CABB021A111E04EDE9A
 		L_0 = Draw_get_UseDashes_mE7B096A99BB41163684B211CCB90875CFD149BD2_inline(NULL);
 		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_1;
 		L_1 = Draw_get_DashStyle_mF37B6F27C8012F6214C353F8C70F4B074BC4E05B_inline(NULL);
-		DashStack__ctor_m4015B3D01693A69F0AD15836E699FA89C0192C5C((&V_0), L_0, L_1, NULL);
+		DashStack_t831E881318FF125CABB021A111E04EDE9A84BA36 L_2;
+		memset((&L_2), 0, sizeof(L_2));
+		DashStack__ctor_m4015B3D01693A69F0AD15836E699FA89C0192C5C((&L_2), L_0, L_1, /*hidden argument*/NULL);
 		// Draw.UseDashes = true;
 		Draw_set_UseDashes_m0AE2187FB17BDE77152AFF5AC5B2C9D8964293C3_inline((bool)1, NULL);
 		// Draw.DashStyle = dashStyle;
-		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_2 = ___dashStyle0;
-		Draw_set_DashStyle_m1F071CE02599101AC1A747908F957C637A94C9FB_inline(L_2, NULL);
+		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_3 = ___dashStyle0;
+		Draw_set_DashStyle_m1F071CE02599101AC1A747908F957C637A94C9FB_inline(L_3, NULL);
 		// return stack;
-		DashStack_t831E881318FF125CABB021A111E04EDE9A84BA36 L_3 = V_0;
-		V_1 = L_3;
-		goto IL_0024;
-	}
-
-IL_0024:
-	{
-		// }
-		DashStack_t831E881318FF125CABB021A111E04EDE9A84BA36 L_4 = V_1;
-		return L_4;
+		return L_2;
 	}
 }
 // Shapes.GradientFillStack Shapes.Draw::GradientFillScope()
@@ -39057,10 +40085,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GradientFillStack_tAFA563B12658E1F2B63789D406
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	GradientFillStack_tAFA563B12658E1F2B63789D406E813780824B40D V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	GradientFillStack_tAFA563B12658E1F2B63789D406E813780824B40D V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// GradientFillStack stack = new GradientFillStack( Draw.UseGradientFill, Draw.GradientFill );
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
@@ -39068,20 +40092,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GradientFillStack_tAFA563B12658E1F2B63789D406
 		L_0 = Draw_get_UseGradientFill_m51273470E0AAD0011647AB51B23FC9240C04734B_inline(NULL);
 		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_1;
 		L_1 = Draw_get_GradientFill_m95FC9B5C960F198A9D66B80B3A75590A2F9B9E50_inline(NULL);
-		GradientFillStack__ctor_mB92C852B6C9C5B2C2FF25FAC23491F8CF19B1F08((&V_0), L_0, L_1, NULL);
+		GradientFillStack_tAFA563B12658E1F2B63789D406E813780824B40D L_2;
+		memset((&L_2), 0, sizeof(L_2));
+		GradientFillStack__ctor_mB92C852B6C9C5B2C2FF25FAC23491F8CF19B1F08((&L_2), L_0, L_1, /*hidden argument*/NULL);
 		// Draw.UseGradientFill = true;
 		Draw_set_UseGradientFill_mDD44F350093C2EFC38C1E54C3838F7ACEF0ECC52_inline((bool)1, NULL);
 		// return stack;
-		GradientFillStack_tAFA563B12658E1F2B63789D406E813780824B40D L_2 = V_0;
-		V_1 = L_2;
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		// }
-		GradientFillStack_tAFA563B12658E1F2B63789D406E813780824B40D L_3 = V_1;
-		return L_3;
+		return L_2;
 	}
 }
 // Shapes.GradientFillStack Shapes.Draw::GradientFillScope(Shapes.GradientFill)
@@ -39093,10 +40110,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GradientFillStack_tAFA563B12658E1F2B63789D406
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	GradientFillStack_tAFA563B12658E1F2B63789D406E813780824B40D V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	GradientFillStack_tAFA563B12658E1F2B63789D406E813780824B40D V_1;
-	memset((&V_1), 0, sizeof(V_1));
 	{
 		// GradientFillStack stack = new GradientFillStack( Draw.UseGradientFill, Draw.GradientFill ); // pushes
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
@@ -39104,23 +40117,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GradientFillStack_tAFA563B12658E1F2B63789D406
 		L_0 = Draw_get_UseGradientFill_m51273470E0AAD0011647AB51B23FC9240C04734B_inline(NULL);
 		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_1;
 		L_1 = Draw_get_GradientFill_m95FC9B5C960F198A9D66B80B3A75590A2F9B9E50_inline(NULL);
-		GradientFillStack__ctor_mB92C852B6C9C5B2C2FF25FAC23491F8CF19B1F08((&V_0), L_0, L_1, NULL);
+		GradientFillStack_tAFA563B12658E1F2B63789D406E813780824B40D L_2;
+		memset((&L_2), 0, sizeof(L_2));
+		GradientFillStack__ctor_mB92C852B6C9C5B2C2FF25FAC23491F8CF19B1F08((&L_2), L_0, L_1, /*hidden argument*/NULL);
 		// Draw.UseGradientFill = true;
 		Draw_set_UseGradientFill_mDD44F350093C2EFC38C1E54C3838F7ACEF0ECC52_inline((bool)1, NULL);
 		// Draw.GradientFill = fill;
-		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_2 = ___fill0;
-		Draw_set_GradientFill_m32C143BDD1BE85673EC34F0EBDBC9B98AA156857_inline(L_2, NULL);
+		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_3 = ___fill0;
+		Draw_set_GradientFill_m32C143BDD1BE85673EC34F0EBDBC9B98AA156857_inline(L_3, NULL);
 		// return stack;
-		GradientFillStack_tAFA563B12658E1F2B63789D406E813780824B40D L_3 = V_0;
-		V_1 = L_3;
-		goto IL_0024;
-	}
-
-IL_0024:
-	{
-		// }
-		GradientFillStack_tAFA563B12658E1F2B63789D406E813780824B40D L_4 = V_1;
-		return L_4;
+		return L_2;
 	}
 }
 // UnityEngine.Rendering.CompareFunction Shapes.Draw::get_ZTest()
@@ -40341,23 +41347,23 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Draw_set_DashSizeUniform_mBCB9B4082D35C0
 		if ((((int32_t)L_4) == ((int32_t)((int32_t)-2))))
 		{
 			G_B2_0 = L_2;
-			goto IL_0031;
+			goto IL_0030;
 		}
 	}
 	{
 		float L_5 = ___value0;
 		G_B3_0 = L_5;
 		G_B3_1 = G_B1_0;
-		goto IL_0036;
+		goto IL_0035;
 	}
 
-IL_0031:
+IL_0030:
 	{
 		G_B3_0 = (0.5f);
 		G_B3_1 = G_B2_0;
 	}
 
-IL_0036:
+IL_0035:
 	{
 		G_B3_1->___spacing_7 = G_B3_0;
 		// }
@@ -42090,82 +43096,55 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR ShapesMaterials_t1F099664FF3C9800
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	bool V_0 = false;
-	ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* V_1 = NULL;
-	ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* G_B4_0 = NULL;
-	ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* G_B8_0 = NULL;
 	{
 		// if( hollow )
 		bool L_0 = ___hollow0;
-		V_0 = L_0;
-		bool L_1 = V_0;
-		if (!L_1)
+		if (!L_0)
 		{
-			goto IL_0018;
+			goto IL_0012;
 		}
 	}
 	{
 		// return sector ? matRingSector : matRing;
-		bool L_2 = ___sector1;
-		if (L_2)
+		bool L_1 = ___sector1;
+		if (L_1)
 		{
-			goto IL_0010;
+			goto IL_000c;
 		}
 	}
 	{
 		il2cpp_codegen_runtime_class_init_inline(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
-		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_3 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matRing_58;
-		G_B4_0 = L_3;
-		goto IL_0015;
+		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_2 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matRing_58;
+		return L_2;
 	}
 
-IL_0010:
+IL_000c:
 	{
 		il2cpp_codegen_runtime_class_init_inline(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
-		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_4 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matRingSector_59;
-		G_B4_0 = L_4;
+		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_3 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matRingSector_59;
+		return L_3;
 	}
 
-IL_0015:
-	{
-		V_1 = G_B4_0;
-		goto IL_002a;
-	}
-
-IL_0018:
+IL_0012:
 	{
 		// return sector ? matCircleSector : matDisc;
-		bool L_5 = ___sector1;
-		if (L_5)
+		bool L_4 = ___sector1;
+		if (L_4)
 		{
-			goto IL_0022;
+			goto IL_001b;
 		}
 	}
 	{
 		il2cpp_codegen_runtime_class_init_inline(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
-		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_6 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matDisc_56;
-		G_B8_0 = L_6;
-		goto IL_0027;
+		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_5 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matDisc_56;
+		return L_5;
 	}
 
-IL_0022:
+IL_001b:
 	{
 		il2cpp_codegen_runtime_class_init_inline(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var);
-		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_7 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matCircleSector_57;
-		G_B8_0 = L_7;
-	}
-
-IL_0027:
-	{
-		V_1 = G_B8_0;
-		goto IL_002a;
-	}
-
-IL_002a:
-	{
-		// }
-		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_8 = V_1;
-		return L_8;
+		ShapesMaterials_t1F099664FF3C980099DEAB4DDD06933781D13115* L_6 = ((ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_StaticFields*)il2cpp_codegen_static_fields_for(ShapesMaterialUtils_t74943C97543FB2FBD6A62BEBB354A5E739BFCD1C_il2cpp_TypeInfo_var))->___matCircleSector_57;
+		return L_6;
 	}
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t Draw_get_RadiusSpace_m60A8A3DFC174DCD6A8DE955D1972E115DC06A5AD_inline (const RuntimeMethod* method) 
@@ -42466,6 +43445,14 @@ IL_001b:
 	{
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7 = V_0;
 		return L_7;
+	}
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E_inline (TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* __this, const RuntimeMethod* method) 
+{
+	{
+		// get { return m_textInfo; }
+		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_0 = __this->___m_textInfo_152;
+		return L_0;
 	}
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Draw_Texture_Placement_Internal_m53F1F1B162951DF9B7336C5BBB79F6D7CF93680A_inline (Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* ___texture0, ValueTuple_2_t1E81BECF35B3785842E1000B244B99DB6D98786D ___placement1, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___color2, const RuntimeMethod* method) 
@@ -44060,10 +45047,8 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void MetaMpb_ApplyDashSettings_Ti
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	bool V_0 = false;
-	DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	int32_t G_B3_0 = 0;
+	DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 V_0;
+	memset((&V_0), 0, sizeof(V_0));
 	{
 		// if( Draw.UseDashes && Draw.DashStyle.size > 0f ) {
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
@@ -44071,7 +45056,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void MetaMpb_ApplyDashSettings_Ti
 		L_0 = Draw_get_UseDashes_mE7B096A99BB41163684B211CCB90875CFD149BD2_inline(NULL);
 		if (!L_0)
 		{
-			goto IL_001b;
+			goto IL_00c8;
 		}
 	}
 	{
@@ -44079,153 +45064,136 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void MetaMpb_ApplyDashSettings_Ti
 		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_1;
 		L_1 = Draw_get_DashStyle_mF37B6F27C8012F6214C353F8C70F4B074BC4E05B_inline(NULL);
 		float L_2 = (float)L_1.___size_6;
-		G_B3_0 = ((((float)L_2) > ((float)(0.0f)))? 1 : 0);
-		goto IL_001c;
-	}
-
-IL_001b:
-	{
-		G_B3_0 = 0;
-	}
-
-IL_001c:
-	{
-		V_0 = (bool)G_B3_0;
-		bool L_3 = V_0;
-		if (!L_3)
+		if ((!(((float)L_2) > ((float)(0.0f)))))
 		{
-			goto IL_00da;
+			goto IL_00c8;
 		}
 	}
 	{
 		// DashStyle style = Draw.DashStyle;
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_4;
-		L_4 = Draw_get_DashStyle_mF37B6F27C8012F6214C353F8C70F4B074BC4E05B_inline(NULL);
-		V_1 = L_4;
+		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_3;
+		L_3 = Draw_get_DashStyle_mF37B6F27C8012F6214C353F8C70F4B074BC4E05B_inline(NULL);
+		V_0 = L_3;
 		// dashable.dashSize.Add( style.GetNetAbsoluteSize( true, thickness ) );
-		RuntimeObject* L_5 = ___dashable0;
-		NullCheck((RuntimeObject*)L_5);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_6;
-		L_6 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(0 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSize() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_5);
-		float L_7 = ___thickness1;
-		float L_8;
-		L_8 = DashStyle_GetNetAbsoluteSize_mA4E66EB9817D9B823C0AFA9F58DC2AE6E1681EBF((&V_1), (bool)1, L_7, NULL);
-		NullCheck(L_6);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_6, L_8, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_4 = ___dashable0;
+		NullCheck((RuntimeObject*)L_4);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_5;
+		L_5 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(0 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSize() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_4);
+		float L_6 = ___thickness1;
+		float L_7;
+		L_7 = DashStyle_GetNetAbsoluteSize_mA4E66EB9817D9B823C0AFA9F58DC2AE6E1681EBF((&V_0), (bool)1, L_6, NULL);
+		NullCheck(L_5);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_5, L_7, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashType.Add( (float)style.type );
-		RuntimeObject* L_9 = ___dashable0;
-		NullCheck((RuntimeObject*)L_9);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_10;
-		L_10 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(1 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashType() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_9);
-		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_11 = V_1;
-		int32_t L_12 = (int32_t)L_11.___type_3;
-		NullCheck(L_10);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_10, ((float)L_12), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_8 = ___dashable0;
+		NullCheck((RuntimeObject*)L_8);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_9;
+		L_9 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(1 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashType() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_8);
+		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_10 = V_0;
+		int32_t L_11 = (int32_t)L_10.___type_3;
+		NullCheck(L_9);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_9, ((float)L_11), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashShapeModifier.Add( style.shapeModifier );
-		RuntimeObject* L_13 = ___dashable0;
-		NullCheck((RuntimeObject*)L_13);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_14;
-		L_14 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(2 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashShapeModifier() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_13);
-		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_15 = V_1;
-		float L_16 = (float)L_15.___shapeModifier_9;
-		NullCheck(L_14);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_14, L_16, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_12 = ___dashable0;
+		NullCheck((RuntimeObject*)L_12);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_13;
+		L_13 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(2 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashShapeModifier() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_12);
+		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_14 = V_0;
+		float L_15 = (float)L_14.___shapeModifier_9;
+		NullCheck(L_13);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_13, L_15, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashSpace.Add( (float)style.space );
-		RuntimeObject* L_17 = ___dashable0;
-		NullCheck((RuntimeObject*)L_17);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_18;
-		L_18 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(3 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSpace() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_17);
-		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_19 = V_1;
-		int32_t L_20 = (int32_t)L_19.___space_4;
-		NullCheck(L_18);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_18, ((float)L_20), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_16 = ___dashable0;
+		NullCheck((RuntimeObject*)L_16);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_17;
+		L_17 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(3 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSpace() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_16);
+		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_18 = V_0;
+		int32_t L_19 = (int32_t)L_18.___space_4;
+		NullCheck(L_17);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_17, ((float)L_19), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashSnap.Add( (int)style.snap );
-		RuntimeObject* L_21 = ___dashable0;
-		NullCheck((RuntimeObject*)L_21);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_22;
-		L_22 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(4 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSnap() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_21);
-		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_23 = V_1;
-		int32_t L_24 = (int32_t)L_23.___snap_5;
-		NullCheck(L_22);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_22, ((float)L_24), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_20 = ___dashable0;
+		NullCheck((RuntimeObject*)L_20);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_21;
+		L_21 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(4 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSnap() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_20);
+		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_22 = V_0;
+		int32_t L_23 = (int32_t)L_22.___snap_5;
+		NullCheck(L_21);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_21, ((float)L_23), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashOffset.Add( style.offset );
-		RuntimeObject* L_25 = ___dashable0;
-		NullCheck((RuntimeObject*)L_25);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_26;
-		L_26 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(5 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashOffset() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_25);
-		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_27 = V_1;
-		float L_28 = (float)L_27.___offset_8;
-		NullCheck(L_26);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_26, L_28, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_24 = ___dashable0;
+		NullCheck((RuntimeObject*)L_24);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_25;
+		L_25 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(5 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashOffset() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_24);
+		DashStyle_tD1775001EE9C0ED337E882B58D7898DBA4E56CC6 L_26 = V_0;
+		float L_27 = (float)L_26.___offset_8;
+		NullCheck(L_25);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_25, L_27, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashSpacing.Add( style.GetNetAbsoluteSpacing( true, thickness ) );
-		RuntimeObject* L_29 = ___dashable0;
-		NullCheck((RuntimeObject*)L_29);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_30;
-		L_30 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(6 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSpacing() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_29);
-		float L_31 = ___thickness1;
-		float L_32;
-		L_32 = DashStyle_GetNetAbsoluteSpacing_m74FBADA449A866E44109BB13CB9826917C4E10CA((&V_1), (bool)1, L_31, NULL);
-		NullCheck(L_30);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_30, L_32, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-		goto IL_0176;
+		RuntimeObject* L_28 = ___dashable0;
+		NullCheck((RuntimeObject*)L_28);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_29;
+		L_29 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(6 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSpacing() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_28);
+		float L_30 = ___thickness1;
+		float L_31;
+		L_31 = DashStyle_GetNetAbsoluteSpacing_m74FBADA449A866E44109BB13CB9826917C4E10CA((&V_0), (bool)1, L_30, NULL);
+		NullCheck(L_29);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_29, L_31, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		return;
 	}
 
-IL_00da:
+IL_00c8:
 	{
 		// dashable.dashSize.Add( 0 );
-		RuntimeObject* L_33 = ___dashable0;
-		NullCheck((RuntimeObject*)L_33);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_34;
-		L_34 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(0 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSize() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_33);
-		NullCheck(L_34);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_34, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_32 = ___dashable0;
+		NullCheck((RuntimeObject*)L_32);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_33;
+		L_33 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(0 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSize() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_32);
+		NullCheck(L_33);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_33, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashType.Add( default );
-		RuntimeObject* L_35 = ___dashable0;
-		NullCheck((RuntimeObject*)L_35);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_36;
-		L_36 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(1 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashType() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_35);
-		NullCheck(L_36);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_36, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_34 = ___dashable0;
+		NullCheck((RuntimeObject*)L_34);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_35;
+		L_35 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(1 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashType() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_34);
+		NullCheck(L_35);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_35, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashShapeModifier.Add( 0 );
-		RuntimeObject* L_37 = ___dashable0;
-		NullCheck((RuntimeObject*)L_37);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_38;
-		L_38 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(2 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashShapeModifier() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_37);
-		NullCheck(L_38);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_38, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_36 = ___dashable0;
+		NullCheck((RuntimeObject*)L_36);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_37;
+		L_37 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(2 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashShapeModifier() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_36);
+		NullCheck(L_37);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_37, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashSpace.Add( 0 );
-		RuntimeObject* L_39 = ___dashable0;
-		NullCheck((RuntimeObject*)L_39);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_40;
-		L_40 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(3 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSpace() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_39);
-		NullCheck(L_40);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_40, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_38 = ___dashable0;
+		NullCheck((RuntimeObject*)L_38);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_39;
+		L_39 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(3 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSpace() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_38);
+		NullCheck(L_39);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_39, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashSnap.Add( 0 );
-		RuntimeObject* L_41 = ___dashable0;
-		NullCheck((RuntimeObject*)L_41);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_42;
-		L_42 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(4 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSnap() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_41);
-		NullCheck(L_42);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_42, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_40 = ___dashable0;
+		NullCheck((RuntimeObject*)L_40);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_41;
+		L_41 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(4 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSnap() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_40);
+		NullCheck(L_41);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_41, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashOffset.Add( 0 );
-		RuntimeObject* L_43 = ___dashable0;
-		NullCheck((RuntimeObject*)L_43);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_44;
-		L_44 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(5 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashOffset() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_43);
-		NullCheck(L_44);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_44, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_42 = ___dashable0;
+		NullCheck((RuntimeObject*)L_42);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_43;
+		L_43 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(5 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashOffset() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_42);
+		NullCheck(L_43);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_43, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// dashable.dashSpacing.Add( 0 );
-		RuntimeObject* L_45 = ___dashable0;
-		NullCheck((RuntimeObject*)L_45);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_46;
-		L_46 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(6 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSpacing() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_45);
-		NullCheck(L_46);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_46, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-	}
-
-IL_0176:
-	{
+		RuntimeObject* L_44 = ___dashable0;
+		NullCheck((RuntimeObject*)L_44);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_45;
+		L_45 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(6 /* System.Collections.Generic.List`1<System.Single> Shapes.IDashableMpb::get_dashSpacing() */, IDashableMpb_t8A366FFA215B5774449CD0C8532355000CD7146A_il2cpp_TypeInfo_var, (RuntimeObject*)L_44);
+		NullCheck(L_45);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_45, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// }
 		return;
 	}
@@ -44315,151 +45283,144 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void MetaMpb_ApplyColorOrFill_Tis
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	bool V_0 = false;
-	GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 V_1;
+	GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 V_1;
 	memset((&V_1), 0, sizeof(V_1));
-	Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 V_2;
-	memset((&V_2), 0, sizeof(V_2));
 	{
 		// if( Draw.style.useGradients ) {
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
 		bool L_0 = (bool)(&((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___style_36)->___useGradients_10;
-		V_0 = L_0;
-		bool L_1 = V_0;
-		if (!L_1)
+		if (!L_0)
 		{
-			goto IL_00ca;
+			goto IL_00bb;
 		}
 	}
 	{
 		// GradientFill fill = Draw.style.gradientFill;
 		il2cpp_codegen_runtime_class_init_inline(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var);
-		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_2 = (GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381)(&((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___style_36)->___gradientFill_11;
-		V_1 = L_2;
+		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_1 = (GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381)(&((Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_StaticFields*)il2cpp_codegen_static_fields_for(Draw_tDAB912BDA4922BFA8BEBBDF08E3277F00F3F2D20_il2cpp_TypeInfo_var))->___style_36)->___gradientFill_11;
+		V_0 = L_1;
 		// fillable.color.Add( fill.colorStart.ColorSpaceAdjusted() );
-		RuntimeObject* L_3 = ___fillable0;
+		RuntimeObject* L_2 = ___fillable0;
+		NullCheck(L_2);
+		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_3 = (List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317*)((MetaMpb_tB792FE03D70B982D5388C535A9956B333BC2D4E4*)L_2)->___color_5;
+		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_4 = V_0;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_5 = (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_4.___colorStart_4;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6;
+		L_6 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_5, NULL);
+		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_7;
+		L_7 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_6, NULL);
 		NullCheck(L_3);
-		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_4 = (List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317*)((MetaMpb_tB792FE03D70B982D5388C535A9956B333BC2D4E4*)L_3)->___color_5;
-		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_5 = V_1;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6 = (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_5.___colorStart_4;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7;
-		L_7 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_6, NULL);
-		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_8;
-		L_8 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_7, NULL);
-		NullCheck(L_4);
-		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_4, L_8, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_3, L_7, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 		// fillable.fillType.Add( (int)fill.type );
-		RuntimeObject* L_9 = ___fillable0;
-		NullCheck((RuntimeObject*)L_9);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_10;
-		L_10 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(0 /* System.Collections.Generic.List`1<System.Single> Shapes.IFillableMpb::get_fillType() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_9);
-		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_11 = V_1;
-		int32_t L_12 = (int32_t)L_11.___type_2;
-		NullCheck(L_10);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_10, ((float)L_12), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_8 = ___fillable0;
+		NullCheck((RuntimeObject*)L_8);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_9;
+		L_9 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(0 /* System.Collections.Generic.List`1<System.Single> Shapes.IFillableMpb::get_fillType() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_8);
+		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_10 = V_0;
+		int32_t L_11 = (int32_t)L_10.___type_2;
+		NullCheck(L_9);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_9, ((float)L_11), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// fillable.fillSpace.Add( (float)fill.space );
-		RuntimeObject* L_13 = ___fillable0;
-		NullCheck((RuntimeObject*)L_13);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_14;
-		L_14 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(1 /* System.Collections.Generic.List`1<System.Single> Shapes.IFillableMpb::get_fillSpace() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_13);
-		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_15 = V_1;
-		int32_t L_16 = (int32_t)L_15.___space_3;
-		NullCheck(L_14);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_14, ((float)L_16), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_12 = ___fillable0;
+		NullCheck((RuntimeObject*)L_12);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_13;
+		L_13 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(1 /* System.Collections.Generic.List`1<System.Single> Shapes.IFillableMpb::get_fillSpace() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_12);
+		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_14 = V_0;
+		int32_t L_15 = (int32_t)L_14.___space_3;
+		NullCheck(L_13);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_13, ((float)L_15), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// fillable.fillStart.Add( fill.GetShaderStartVector() );
-		RuntimeObject* L_17 = ___fillable0;
-		NullCheck((RuntimeObject*)L_17);
-		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_18;
-		L_18 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(2 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillStart() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_17);
-		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_19;
-		L_19 = GradientFill_GetShaderStartVector_mA7C4E16CC398B45DA32F09FEDCD636760B3A1237((&V_1), NULL);
-		NullCheck(L_18);
-		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_18, L_19, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+		RuntimeObject* L_16 = ___fillable0;
+		NullCheck((RuntimeObject*)L_16);
+		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_17;
+		L_17 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(2 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillStart() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_16);
+		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_18;
+		L_18 = GradientFill_GetShaderStartVector_mA7C4E16CC398B45DA32F09FEDCD636760B3A1237((&V_0), NULL);
+		NullCheck(L_17);
+		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_17, L_18, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 		// fillable.fillColorEnd.Add( fill.colorEnd.ColorSpaceAdjusted() );
-		RuntimeObject* L_20 = ___fillable0;
-		NullCheck((RuntimeObject*)L_20);
-		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_21;
-		L_21 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(4 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillColorEnd() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_20);
-		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_22 = V_1;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_23 = (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_22.___colorEnd_5;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_24;
-		L_24 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_23, NULL);
-		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_25;
-		L_25 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_24, NULL);
-		NullCheck(L_21);
-		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_21, L_25, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+		RuntimeObject* L_19 = ___fillable0;
+		NullCheck((RuntimeObject*)L_19);
+		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_20;
+		L_20 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(4 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillColorEnd() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_19);
+		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_21 = V_0;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_22 = (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_21.___colorEnd_5;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_23;
+		L_23 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_22, NULL);
+		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_24;
+		L_24 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_23, NULL);
+		NullCheck(L_20);
+		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_20, L_24, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 		// fillable.fillEnd.Add( fill.linearEnd );
-		RuntimeObject* L_26 = ___fillable0;
-		NullCheck((RuntimeObject*)L_26);
-		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_27;
-		L_27 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(3 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillEnd() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_26);
-		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_28 = V_1;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_29 = (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_28.___linearEnd_7;
-		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_30;
-		L_30 = Vector4_op_Implicit_mB05287DC52FC87A756AB80E837E1EC22FEEB3937_inline(L_29, NULL);
-		NullCheck(L_27);
-		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_27, L_30, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
-		goto IL_0162;
+		RuntimeObject* L_25 = ___fillable0;
+		NullCheck((RuntimeObject*)L_25);
+		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_26;
+		L_26 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(3 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillEnd() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_25);
+		GradientFill_t24C2C5B00FB8499F1468DDCF58D3D49767EF5381 L_27 = V_0;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_28 = (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_27.___linearEnd_7;
+		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_29;
+		L_29 = Vector4_op_Implicit_mB05287DC52FC87A756AB80E837E1EC22FEEB3937_inline(L_28, NULL);
+		NullCheck(L_26);
+		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_26, L_29, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+		return;
 	}
 
-IL_00ca:
+IL_00bb:
 	{
 		// fillable.color.Add( baseColor.ColorSpaceAdjusted() );
-		RuntimeObject* L_31 = ___fillable0;
+		RuntimeObject* L_30 = ___fillable0;
+		NullCheck(L_30);
+		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_31 = (List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317*)((MetaMpb_tB792FE03D70B982D5388C535A9956B333BC2D4E4*)L_30)->___color_5;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_32 = ___baseColor1;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_33;
+		L_33 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_32, NULL);
+		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_34;
+		L_34 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_33, NULL);
 		NullCheck(L_31);
-		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_32 = (List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317*)((MetaMpb_tB792FE03D70B982D5388C535A9956B333BC2D4E4*)L_31)->___color_5;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_33 = ___baseColor1;
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_34;
-		L_34 = ShapesExtensions_ColorSpaceAdjusted_m01C90CC3FF8BED4A76DD92E9A9C89E90302509FD(L_33, NULL);
-		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_35;
-		L_35 = Color_op_Implicit_m6D1353534AD23E43DFD104850D55C469CFCEF340_inline(L_34, NULL);
-		NullCheck(L_32);
-		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_32, L_35, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_31, L_34, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 		// fillable.fillType.Add( GradientFill.FILL_NONE );
-		RuntimeObject* L_36 = ___fillable0;
-		NullCheck((RuntimeObject*)L_36);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_37;
-		L_37 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(0 /* System.Collections.Generic.List`1<System.Single> Shapes.IFillableMpb::get_fillType() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_36);
-		NullCheck(L_37);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_37, (-1.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_35 = ___fillable0;
+		NullCheck((RuntimeObject*)L_35);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_36;
+		L_36 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(0 /* System.Collections.Generic.List`1<System.Single> Shapes.IFillableMpb::get_fillType() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_35);
+		NullCheck(L_36);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_36, (-1.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// fillable.fillSpace.Add( default );
-		RuntimeObject* L_38 = ___fillable0;
-		NullCheck((RuntimeObject*)L_38);
-		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_39;
-		L_39 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(1 /* System.Collections.Generic.List`1<System.Single> Shapes.IFillableMpb::get_fillSpace() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_38);
-		NullCheck(L_39);
-		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_39, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
+		RuntimeObject* L_37 = ___fillable0;
+		NullCheck((RuntimeObject*)L_37);
+		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_38;
+		L_38 = InterfaceFuncInvoker0< List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* >::Invoke(1 /* System.Collections.Generic.List`1<System.Single> Shapes.IFillableMpb::get_fillSpace() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_37);
+		NullCheck(L_38);
+		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_38, (0.0f), List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
 		// fillable.fillStart.Add( default );
-		RuntimeObject* L_40 = ___fillable0;
-		NullCheck((RuntimeObject*)L_40);
-		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_41;
-		L_41 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(2 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillStart() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_40);
-		il2cpp_codegen_initobj((&V_2), sizeof(Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3));
-		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_42 = V_2;
-		NullCheck(L_41);
-		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_41, L_42, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+		RuntimeObject* L_39 = ___fillable0;
+		NullCheck((RuntimeObject*)L_39);
+		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_40;
+		L_40 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(2 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillStart() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_39);
+		il2cpp_codegen_initobj((&V_1), sizeof(Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3));
+		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_41 = V_1;
+		NullCheck(L_40);
+		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_40, L_41, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 		// fillable.fillColorEnd.Add( default );
-		RuntimeObject* L_43 = ___fillable0;
-		NullCheck((RuntimeObject*)L_43);
-		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_44;
-		L_44 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(4 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillColorEnd() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_43);
-		il2cpp_codegen_initobj((&V_2), sizeof(Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3));
-		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_45 = V_2;
-		NullCheck(L_44);
-		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_44, L_45, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
+		RuntimeObject* L_42 = ___fillable0;
+		NullCheck((RuntimeObject*)L_42);
+		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_43;
+		L_43 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(4 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillColorEnd() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_42);
+		il2cpp_codegen_initobj((&V_1), sizeof(Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3));
+		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_44 = V_1;
+		NullCheck(L_43);
+		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_43, L_44, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 		// fillable.fillEnd.Add( default );
-		RuntimeObject* L_46 = ___fillable0;
-		NullCheck((RuntimeObject*)L_46);
-		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_47;
-		L_47 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(3 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillEnd() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_46);
-		il2cpp_codegen_initobj((&V_2), sizeof(Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3));
-		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_48 = V_2;
-		NullCheck(L_47);
-		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_47, L_48, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
-	}
-
-IL_0162:
-	{
+		RuntimeObject* L_45 = ___fillable0;
+		NullCheck((RuntimeObject*)L_45);
+		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_46;
+		L_46 = InterfaceFuncInvoker0< List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* >::Invoke(3 /* System.Collections.Generic.List`1<UnityEngine.Vector4> Shapes.IFillableMpb::get_fillEnd() */, IFillableMpb_tA86AB11CD4EF857C25A428D03FD8FA64B4A8A80A_il2cpp_TypeInfo_var, (RuntimeObject*)L_45);
+		il2cpp_codegen_initobj((&V_1), sizeof(Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3));
+		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_47 = V_1;
+		NullCheck(L_46);
+		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_46, L_47, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
 		// }
 		return;
 	}

@@ -9,6 +9,12 @@ public class Item : MonoBehaviour
     protected Ball playerBall;
     public AudioClip useSound;
     public AudioClip removeSound;
+    public bool isInvisible = true;
+
+    private void Start()
+    {
+        GameManager.OnGameReady.AddListener(Clear);
+    }
 
     public virtual void Init()
     {
@@ -18,6 +24,11 @@ public class Item : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX(useSound);
         OnUse.Invoke();
+    }
+
+    public virtual void Clear()
+    {
+
     }
 
     public virtual void Remove()
@@ -32,5 +43,15 @@ public class Item : MonoBehaviour
             playerBall = GameManager.MainBall;
             Use();
         }
+    }
+
+    protected virtual void OnBecameInvisible()
+    {
+        isInvisible = true;
+    }
+
+    protected virtual void OnBecameVisible()
+    {
+        isInvisible = false;
     }
 }

@@ -90,6 +90,11 @@ public class Ball : DamageableObject
         BouncinessUpdate();
     }
 
+    public override void Init()
+    {
+        IsPainting = false;
+    }
+
 
     public override void Die()
     {

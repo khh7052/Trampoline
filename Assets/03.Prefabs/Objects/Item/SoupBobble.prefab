@@ -126,7 +126,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 4
 --- !u!114 &2701653890161845561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,10 +193,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  useSound: {fileID: 0}
+  useSound: {fileID: 8300000, guid: 450bf2d2ec5ed44409461a9da0b765dd, type: 3}
+  removeSound: {fileID: 8300000, guid: 20a11e93bc3ad9442b7fd262635ad24e, type: 3}
   rigd: {fileID: 2701653890161845540}
   scaleOffset: {x: 0.5, y: 0.5}
-  removeSound: {fileID: 8300000, guid: 20a11e93bc3ad9442b7fd262635ad24e, type: 3}
 --- !u!114 &2701653890161845563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,12 +225,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLobby: 0
-  onAwake: 0
+  onReady: 0
   onStart: 0
   onPause: 0
   onContinue: 0
   onOver: 0
   onActive: 0
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
   OnDie:
     m_PersistentCalls:
       m_Calls:

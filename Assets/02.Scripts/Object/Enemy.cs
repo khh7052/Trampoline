@@ -8,6 +8,7 @@ public class Enemy : DamageableObject
     public float attackRate = 3f;
     protected float nextAttackTime = 0;
 
+
     public virtual void Attack()
     {
         if(attackSound != null) SoundManager.Instance.PlaySFX(attackSound);

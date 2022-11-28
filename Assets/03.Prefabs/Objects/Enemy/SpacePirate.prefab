@@ -18,9 +18,11 @@ GameObject:
   - component: {fileID: 7375385570078192778}
   - component: {fileID: -8217747684633237626}
   - component: {fileID: 2635667376072806254}
+  - component: {fileID: 878490573}
+  - component: {fileID: 878490574}
   m_Layer: 7
   m_Name: SpacePirate
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +63,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 311b1ae1bb80adf4c8dc5fcec94372c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -246,9 +248,13 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  animator: {fileID: 878490573}
   spawn: {fileID: 8525158974198438331}
   hp: {fileID: -8217747684633237626}
-  hitSounds: []
+  hitSound:
+  - {fileID: 8300000, guid: c5ee98532ea71914a94a3d9956161ac0, type: 3}
+  - {fileID: 8300000, guid: 928f271c66f129a4cbd03ca2a591531d, type: 3}
+  - {fileID: 8300000, guid: 529d882881c6b6e4bac9b51ac3d663dd, type: 3}
   dieSound: []
   isInvisible: 1
   attackSound: {fileID: 8300000, guid: 5b04a5d8bc39471469a3067442797fcb, type: 3}
@@ -274,6 +280,21 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7375385570078192778}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: Damage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDie:
     m_PersistentCalls:
       m_Calls:
@@ -336,6 +357,42 @@ MonoBehaviour:
   - Ball
   checkCollision: 1
   checkTrigger: 0
+--- !u!95 &878490573
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831551851284699038}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c41bc2d7c241c0740b88e6d2c2976b68, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &878490574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831551851284699038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &3373616182254630572
 GameObject:
   m_ObjectHideFlags: 0

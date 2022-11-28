@@ -126,8 +126,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
-  m_Size: {x: 4, y: 5}
+  m_Offset: {x: 0, y: 0.2}
+  m_Size: {x: 8, y: 10}
   m_Direction: 0
 --- !u!114 &1479242327
 MonoBehaviour:
@@ -148,11 +148,14 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  animator: {fileID: 0}
   spawn: {fileID: 0}
   hp: {fileID: 0}
-  hitSounds: []
+  hitSound: []
   dieSound:
   - {fileID: 8300000, guid: 20a11e93bc3ad9442b7fd262635ad24e, type: 3}
+  - {fileID: 8300000, guid: 184084aba3e15a04a937881592b72bc7, type: 3}
+  - {fileID: 8300000, guid: a58a7231fbc12cf4db59cf66f82fb565, type: 3}
   isInvisible: 1
   items:
   - {fileID: 2701653890161845560, guid: a95725eabe200a0479bf667919acff3c, type: 3}
@@ -176,6 +179,9 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
   OnDie:
     m_PersistentCalls:
       m_Calls:
@@ -321,9 +327,23 @@ MonoBehaviour:
         m_CallState: 2
   OnTriggerHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5745142118758387953}
+        m_TargetAssemblyTypeName: HP, Assembly-CSharp
+        m_MethodName: Damage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   checkTags:
   - Ball
   - Line
+  - Enemy
+  - Damage
   checkCollision: 1
-  checkTrigger: 0
+  checkTrigger: 1

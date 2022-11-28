@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: -4776757091283186441}
   m_Layer: 7
   m_Name: Crow
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,9 +245,10 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  animator: {fileID: 0}
   spawn: {fileID: 0}
   hp: {fileID: 91740071170913158}
-  hitSounds: []
+  hitSound: []
   dieSound:
   - {fileID: 8300000, guid: 672dda00f3d8a9e4eb274ad4b08514de, type: 3}
   - {fileID: 8300000, guid: fb6f78859d5c4b3459b2858501b4ff62, type: 3}
@@ -269,7 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChasing: 1
   moveDirection: 0
-  moveSpeed: 5
+  moveSpeed: 3
 --- !u!114 &7871829926425507102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +303,9 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
   OnDie:
     m_PersistentCalls:
       m_Calls:

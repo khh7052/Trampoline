@@ -7,11 +7,9 @@ public class Soupbobble : Item
     public Rigidbody2D rigd;
     public Vector2 scaleOffset;
     private Transform previousParent;
-    
 
     public override void Init()
     {
-        ScaleUpdate();
         BallUpdate();
     }
 
@@ -30,15 +28,20 @@ public class Soupbobble : Item
         playerBall.transform.parent = transform;
     }
 
+    public override void Clear()
+    {
+        if (playerBall != null) playerBall.transform.parent = previousParent;
+        Destroy(gameObject);
+    }
+
     public override void Remove()
     {
-        if(playerBall != null)
+        if (playerBall != null)
         {
             playerBall.transform.parent = previousParent;
             playerBall.rigd.simulated = true;
         }
-        SoundManager.Instance.PlaySFX(removeSound);
-
+        if (isInvisible == false) SoundManager.Instance.PlaySFX(removeSound);
         Destroy(gameObject);
     }
 

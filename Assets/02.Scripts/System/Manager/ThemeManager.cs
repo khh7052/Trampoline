@@ -48,7 +48,7 @@ public class ThemeManager : BaseInit
 
             ThemeUpdate();
             BackgroundUpdate();
-            SoundManager.Instance.PlayBGM(Theme.bgm);
+            BgmUpdate();
             print(Theme.name);
         }
     }
@@ -90,6 +90,11 @@ public class ThemeManager : BaseInit
     private void BackgroundInit()
     {
         cam.backgroundColor = Theme.backgroundColor;
+    }
+
+    private void BgmUpdate()
+    {
+        SoundManager.Instance.PlayBGM(Theme.bgm);
     }
 
     private void BackgroundUpdate()

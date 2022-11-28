@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 7824387358188991334}
   m_Layer: 7
   m_Name: Drone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,13 +253,14 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  animator: {fileID: 0}
   spawn: {fileID: 5069206475287934250}
   hp: {fileID: 4873603956497409345}
-  hitSounds: []
+  hitSound: []
   dieSound:
-  - {fileID: 8300000, guid: 9f5163ffb0f5cb1409b6feb18a9d5b51, type: 3}
-  - {fileID: 8300000, guid: f2f25ed8864f6d447aac76e66a91ca4f, type: 3}
-  - {fileID: 8300000, guid: aba18b83fc0ba6e4cb5bde299b980ad9, type: 3}
+  - {fileID: 8300000, guid: c3ac12be8b4071c49bdd4881930fd54e, type: 3}
+  - {fileID: 8300000, guid: a36bdd5441d192146bb8beab19792a66, type: 3}
+  - {fileID: 8300000, guid: 878f92ceb4e8c7f448563c6515946914, type: 3}
   isInvisible: 1
   attackSound: {fileID: 0}
   attackRate: 3
@@ -282,6 +283,9 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
   OnDie:
     m_PersistentCalls:
       m_Calls:

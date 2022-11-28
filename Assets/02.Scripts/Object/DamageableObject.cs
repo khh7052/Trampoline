@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class DamageableObject : BaseInit
 {
+    public Animator animator;
     public RandomSpawn spawn;
     public HP hp;
-    public List<AudioClip> hitSounds;
+    public List<AudioClip> hitSound;
     public List<AudioClip> dieSound;
     public bool isInvisible = true;
 
@@ -19,7 +20,11 @@ public class DamageableObject : BaseInit
 
     public virtual void Damage()
     {
+        if (hp.IsDead) return;
+        if (isInvisible == false) SoundManager.Instance.PlaySFX(hitSound);
 
+        if (animator == null) return;
+        animator.SetTrigger("Hit");
     }
 
     public virtual void Die()

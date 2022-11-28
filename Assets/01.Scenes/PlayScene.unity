@@ -8656,7 +8656,7 @@ GameObject:
   - component: {fileID: 1791552580}
   - component: {fileID: 1791552579}
   - component: {fileID: 1791552578}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background_Beach
   m_TagString: Untagged
   m_Icon: {fileID: 0}

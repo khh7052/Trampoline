@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class HP : BaseInit
 {
+    public UnityEvent OnDamage;
     public UnityEvent OnDie;
 
     public int maxHp = 1;
@@ -34,9 +35,14 @@ public class HP : BaseInit
     {
         currentHp--;
 
+        
         if (IsDead)
         {
             Die();
+        }
+        else
+        {
+            OnDamage.Invoke();
         }
     }
 

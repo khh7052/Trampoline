@@ -13,11 +13,11 @@ public class GPGSManager : MonoBehaviour
 
     public void OnOpenRanking()
     {
-        GPGSBinder.Inst.ShowTargetLeaderboardUI(GPGSIds.leaderboard_maxheight);
+        GPGSBinder.Inst.ShowTargetLeaderboardUI(GPGSIds.leaderboard_height);
     }
 
     private void MaxHeightUpdate()
     {
-        GPGSBinder.Inst.ReportLeaderboard(GPGSIds.leaderboard_maxheight, GameManager.MaxHeight);
+        GPGSBinder.Inst.ReportLeaderboard(GPGSIds.leaderboard_height, GameManager.MaxHeight);
     }
 }
