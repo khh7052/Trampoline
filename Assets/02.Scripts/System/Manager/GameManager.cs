@@ -103,6 +103,8 @@ public class GameManager : Singleton<GameManager>
 
         OnGameReady.AddListener(HeightTextInit);
         OnGameReady.AddListener(MainBallUpdate);
+        OnGameReady.AddListener(HeightUpdate);
+
     }
 
     private void MainBallUpdate()

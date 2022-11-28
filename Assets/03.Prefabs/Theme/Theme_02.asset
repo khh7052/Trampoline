@@ -14,28 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   themeManagerData: {fileID: 11400000, guid: 33c38408195fc9546b4d0a1dafe8ae7c, type: 2}
   _name: Sky
-  backgroundColor: {r: 0.63529414, g: 0.8000001, b: 0.9058824, a: 1}
+  backgroundColor: {r: 0.60267, g: 0.70282817, b: 0.9339623, a: 1}
   range: 1000
   startHeight: 1000
   endHeight: 2000
-  bgm: {fileID: 8300000, guid: 95a1e63016b35d54db3d5cc3d814ea9d, type: 3}
+  bgm: {fileID: 8300000, guid: 4a0c904694743c542bf1f0a3d4480034, type: 3}
   obstacles:
-  - spawnObject: {fileID: 4582891103694860661, guid: 706982d09e94f404b8903d957bf29d47, type: 3}
+  - spawnObject: {fileID: 3656994241601731570, guid: 7e50a6cbd823c8a4aab9e1e87df20e76, type: 3}
     spawnHeightPercent: 20
     spawnHeight: 1200
     limitHeightPercent: 100
     limitHeight: 2000
-  - spawnObject: {fileID: 4582891103694860661, guid: 706982d09e94f404b8903d957bf29d47, type: 3}
+  - spawnObject: {fileID: 3656994241601731570, guid: 7e50a6cbd823c8a4aab9e1e87df20e76, type: 3}
     spawnHeightPercent: 25
     spawnHeight: 1250
     limitHeightPercent: 100
     limitHeight: 2000
-  - spawnObject: {fileID: 4582891103694860661, guid: 706982d09e94f404b8903d957bf29d47, type: 3}
+  - spawnObject: {fileID: 3656994241601731570, guid: 7e50a6cbd823c8a4aab9e1e87df20e76, type: 3}
     spawnHeightPercent: 30
     spawnHeight: 1300
     limitHeightPercent: 100
     limitHeight: 2000
-  - spawnObject: {fileID: 4582891103694860661, guid: 706982d09e94f404b8903d957bf29d47, type: 3}
+  - spawnObject: {fileID: 3656994241601731570, guid: 7e50a6cbd823c8a4aab9e1e87df20e76, type: 3}
     spawnHeightPercent: 50
     spawnHeight: 1500
     limitHeightPercent: 100

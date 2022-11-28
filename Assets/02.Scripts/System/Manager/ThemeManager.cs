@@ -72,9 +72,10 @@ public class ThemeManager : BaseInit
     public override void Init()
     {
         Index = 0;
+        BackgroundInit();
     }
 
-    void IndexUpdate()
+    private void IndexUpdate()
     {
         if (GameManager.BallHeight >= Theme.EndHeight)
         {
@@ -86,7 +87,12 @@ public class ThemeManager : BaseInit
         }
     }
 
-    void BackgroundUpdate()
+    private void BackgroundInit()
+    {
+        cam.backgroundColor = Theme.backgroundColor;
+    }
+
+    private void BackgroundUpdate()
     {
         if (Themes.Count <= index + 1) return;
         cam.backgroundColor = Color.Lerp(Themes[index].backgroundColor, Themes[index + 1].backgroundColor, (float)(GameManager.BallHeight - Theme.StartHeight) / Theme.range);

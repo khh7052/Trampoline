@@ -18,7 +18,7 @@ MonoBehaviour:
   range: 1000
   startHeight: 5000
   endHeight: 6000
-  bgm: {fileID: 8300000, guid: d20430f6f23535e44a6ae02a94259879, type: 3}
+  bgm: {fileID: 0}
   obstacles: []
   enemies: []
   items: []

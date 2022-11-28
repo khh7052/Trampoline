@@ -142,7 +142,6 @@ public class PlayerLine : BaseInit
 
         if (ballHit)
         {
-            print(ballHit.transform.name);
             SoundManager.Instance.PlaySFX(GameManager.MainBall.bounceSound);
         }
 

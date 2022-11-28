@@ -239,13 +239,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb744fc5d68e86a4ea574275586459ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onAwake: 0
+  onLobby: 0
+  onReady: 0
   onStart: 1
+  onPause: 0
+  onContinue: 0
   onOver: 0
+  onActive: 0
   spawn: {fileID: 8525158974198438331}
   hp: {fileID: -8217747684633237626}
   hitSounds: []
   dieSound: []
+  isInvisible: 1
   attackSound: {fileID: 8300000, guid: 5b04a5d8bc39471469a3067442797fcb, type: 3}
   attackRate: 5
   gunPoint: {fileID: 4054469128592494147}
@@ -262,12 +267,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cbb927f012f0746b2717764f9d352b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onAwake: 0
+  onLobby: 0
+  onReady: 0
   onStart: 1
+  onPause: 0
+  onContinue: 0
   onOver: 0
+  onActive: 0
   OnDie:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 7375385570078192778}
+        m_TargetAssemblyTypeName: DamageableObject, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 8525158974198438331}
         m_TargetAssemblyTypeName: RandomSpawn, Assembly-CSharp
         m_MethodName: Spawn

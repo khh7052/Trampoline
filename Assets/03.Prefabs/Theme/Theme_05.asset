@@ -18,7 +18,7 @@ MonoBehaviour:
   range: 1000
   startHeight: 4000
   endHeight: 5000
-  bgm: {fileID: 8300000, guid: d20430f6f23535e44a6ae02a94259879, type: 3}
+  bgm: {fileID: 8300000, guid: dc1f848bd88c28e42b836f361289aef7, type: 3}
   obstacles:
   - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
     spawnHeightPercent: 0
@@ -38,11 +38,6 @@ MonoBehaviour:
   - spawnObject: {fileID: 4504330563259516347, guid: 3236ab7b1b3cb4f428a78fabaa05551a, type: 3}
     spawnHeightPercent: 40
     spawnHeight: 4400
-    limitHeightPercent: 100
-    limitHeight: 5000
-  - spawnObject: {fileID: 5153617640522803749, guid: 06e1750748d9ee54aa11b1162ae4b45b, type: 3}
-    spawnHeightPercent: 0
-    spawnHeight: 4000
     limitHeightPercent: 100
     limitHeight: 5000
   - spawnObject: {fileID: 7438746244893719956, guid: 91a6cee707cf07a45bc7e2f9ea4353e9, type: 3}
