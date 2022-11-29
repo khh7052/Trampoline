@@ -89,6 +89,7 @@ public class GameManager : Singleton<GameManager>
     {
         Application.targetFrameRate = frame;
         HeightTextInit();
+        MainBallUpdate();
 
         inGameUI.SetActive(true);
         overUI.SetActive(true);
@@ -102,7 +103,6 @@ public class GameManager : Singleton<GameManager>
         OnGameOver.AddListener(TimeScaleUpdate);
 
         OnGameReady.AddListener(HeightTextInit);
-        OnGameReady.AddListener(MainBallUpdate);
         OnGameReady.AddListener(HeightUpdate);
 
     }
@@ -128,6 +128,7 @@ public class GameManager : Singleton<GameManager>
             selectNum = 0;
         }
 
+        MainBallUpdate();
         balls[selectNum].gameObject.SetActive(true);
     }
 
@@ -140,6 +141,7 @@ public class GameManager : Singleton<GameManager>
             selectNum = balls.Count-1;
         }
 
+        MainBallUpdate();
         balls[selectNum].gameObject.SetActive(true);
     }
 

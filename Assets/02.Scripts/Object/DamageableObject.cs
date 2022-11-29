@@ -10,6 +10,8 @@ public class DamageableObject : BaseInit
     public List<AudioClip> hitSound;
     public List<AudioClip> dieSound;
     public bool isInvisible = true;
+    public GameObject hitEffect;
+    public GameObject dieEffect;
 
     public override void OneInit()
     {
@@ -21,7 +23,12 @@ public class DamageableObject : BaseInit
     public virtual void Damage()
     {
         if (hp.IsDead) return;
-        if (isInvisible == false) SoundManager.Instance.PlaySFX(hitSound);
+        if (isInvisible == false)
+        {
+            if(hitEffect != null)  Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
+            SoundManager.Instance.PlaySFX(hitSound);
+        }
+        
 
         if (animator == null) return;
         animator.SetTrigger("Hit");
@@ -29,7 +36,11 @@ public class DamageableObject : BaseInit
 
     public virtual void Die()
     {
-        if(isInvisible == false) SoundManager.Instance.PlaySFX(dieSound);
+        if(isInvisible == false)
+        {
+            if (dieEffect != null) Instantiate(dieEffect, transform.position, dieEffect.transform.rotation);
+            SoundManager.Instance.PlaySFX(dieSound);
+        }
         gameObject.SetActive(false);
     }
 

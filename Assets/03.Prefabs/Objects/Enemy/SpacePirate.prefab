@@ -257,6 +257,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 529d882881c6b6e4bac9b51ac3d663dd, type: 3}
   dieSound: []
   isInvisible: 1
+  hitEffect: {fileID: 904700422170233198, guid: d6e38761b3107c147aab10c2bda17b94, type: 3}
+  dieEffect: {fileID: 873139184859951802, guid: 0048b0a577735744592992313eca175b, type: 3}
   attackSound: {fileID: 8300000, guid: 5b04a5d8bc39471469a3067442797fcb, type: 3}
   attackRate: 5
   gunPoint: {fileID: 4054469128592494147}

@@ -357,6 +357,7 @@ MonoBehaviour:
   spawnType: 0
   spawnDistance: 60
   removeDistance: 50
+  limitHeight: 50
   spawnDealy: 10
   isSpowning: 0
   onRemove: 0
@@ -372,16 +373,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05137e5b4faf51045a23bb474fd1855a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onAwake: 0
+  onLobby: 0
+  onReady: 0
   onStart: 1
+  onPause: 0
+  onContinue: 0
   onOver: 0
+  onActive: 0
+  animator: {fileID: 0}
   spawn: {fileID: 5661846133827186521}
   hp: {fileID: -6102448745156204287}
-  hitSounds: []
+  hitSound: []
   dieSound:
   - {fileID: 8300000, guid: ef879e3baba10354993a3d3feb130e4a, type: 3}
   - {fileID: 8300000, guid: 113a0e259e3d7cd4e9e4edac55ee9e7a, type: 3}
   - {fileID: 8300000, guid: 0f27b6c7b47d65b478282f369055396f, type: 3}
+  isInvisible: 1
+  hitEffect: {fileID: 0}
+  dieEffect: {fileID: 873139184859951802, guid: 0048b0a577735744592992313eca175b, type: 3}
   reduceScale: {x: 0.15, y: 0.15, z: 0.15}
 --- !u!114 &5661846133827186525
 MonoBehaviour:
@@ -445,9 +454,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cbb927f012f0746b2717764f9d352b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onAwake: 0
+  onLobby: 0
+  onReady: 0
   onStart: 1
+  onPause: 0
+  onContinue: 0
   onOver: 0
+  onActive: 0
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
   OnDie:
     m_PersistentCalls:
       m_Calls:

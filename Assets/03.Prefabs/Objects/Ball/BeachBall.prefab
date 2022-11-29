@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4077919169582958154}
   - component: {fileID: 4077919169582958155}
   - component: {fileID: 4077919169582958165}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BeachBall
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -151,12 +151,15 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  animator: {fileID: 0}
   spawn: {fileID: 0}
   hp: {fileID: 0}
-  hitSounds: []
+  hitSound: []
   dieSound:
   - {fileID: 8300000, guid: 20a11e93bc3ad9442b7fd262635ad24e, type: 3}
   isInvisible: 1
+  hitEffect: {fileID: 904700422170233198, guid: d6e38761b3107c147aab10c2bda17b94, type: 3}
+  dieEffect: {fileID: 3752094304263363134, guid: 3f3f9577ce6af9d4e9b986d566f140ad, type: 3}
   rigd: {fileID: 0}
   bounceSound: {fileID: 8300000, guid: 1e25e74b48cf56c4ba52d9266589c1b1, type: 3}
   maxForce: 100
@@ -222,6 +225,9 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
   OnDie:
     m_PersistentCalls:
       m_Calls:

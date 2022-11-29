@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 9072674089084991763}
   - component: {fileID: 9072674089084991755}
   - component: {fileID: 9072674089084991756}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SoccerBall
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 6711841851913642886}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: c335f040833123d4789192fd2970b116, type: 2}
+  m_Material: {fileID: 6200000, guid: 47270e5e128557042b6e3f2a40f56c5c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -150,12 +150,15 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  animator: {fileID: 0}
   spawn: {fileID: 0}
   hp: {fileID: 0}
-  hitSounds: []
+  hitSound: []
   dieSound:
   - {fileID: 8300000, guid: 20a11e93bc3ad9442b7fd262635ad24e, type: 3}
   isInvisible: 1
+  hitEffect: {fileID: 904700422170233198, guid: d6e38761b3107c147aab10c2bda17b94, type: 3}
+  dieEffect: {fileID: 3752094304263363134, guid: 3f3f9577ce6af9d4e9b986d566f140ad, type: 3}
   rigd: {fileID: 0}
   bounceSound: {fileID: 8300000, guid: 1e25e74b48cf56c4ba52d9266589c1b1, type: 3}
   maxForce: 150
@@ -221,6 +224,9 @@ MonoBehaviour:
   onContinue: 0
   onOver: 0
   onActive: 0
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
   OnDie:
     m_PersistentCalls:
       m_Calls:

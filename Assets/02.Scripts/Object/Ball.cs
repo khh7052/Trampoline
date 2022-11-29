@@ -95,12 +95,12 @@ public class Ball : DamageableObject
         IsPainting = false;
     }
 
-
     public override void Die()
     {
         if (invincibility) return;
 
         SoundManager.Instance.PlaySFX(dieSound);
+        Instantiate(dieEffect, transform.position, dieEffect.transform.rotation);
         gameObject.SetActive(false);
         GameManager.Instance.GameOver();
     }
@@ -180,6 +180,7 @@ public class Ball : DamageableObject
 
         if (hp.IsDead == false)
         {
+            Instantiate(hitEffect, collision.contacts[0].point, hitEffect.transform.rotation);
             SoundManager.Instance.PlaySFX(bounceSound);
             Spin();
             ForceLimit();

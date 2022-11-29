@@ -254,6 +254,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fb6f78859d5c4b3459b2858501b4ff62, type: 3}
   - {fileID: 8300000, guid: 807055f9ec051c84196646d9fb13ccf3, type: 3}
   isInvisible: 1
+  hitEffect: {fileID: 0}
+  dieEffect: {fileID: 873139184859951802, guid: 0048b0a577735744592992313eca175b, type: 3}
   attackSound: {fileID: 0}
   attackRate: 3
 --- !u!114 &7279942823016442886
