@@ -6,7 +6,7 @@ public class InitTransform : BaseInit
 {
     private Vector3 originPosition;
     private Quaternion originRotation;
-    private Vector3 originScale;
+    private Vector3 originScale = Vector3.one;
 
     public override void OneInit()
     {

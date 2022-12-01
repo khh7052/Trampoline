@@ -15,10 +15,10 @@ MonoBehaviour:
   themeManagerData: {fileID: 11400000, guid: 33c38408195fc9546b4d0a1dafe8ae7c, type: 2}
   _name: BlackHole
   backgroundColor: {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
-  range: 1000
+  range: 500
   startHeight: 5000
-  endHeight: 6000
-  bgm: {fileID: 0}
+  endHeight: 5500
+  bgm: {fileID: 8300000, guid: 4661fd01d5c739b4a9e87a2b58ac4721, type: 3}
   obstacles: []
   enemies: []
   items: []

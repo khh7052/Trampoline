@@ -15,10 +15,20 @@ MonoBehaviour:
   themeManagerData: {fileID: 11400000, guid: 33c38408195fc9546b4d0a1dafe8ae7c, type: 2}
   _name: Empty
   backgroundColor: {r: 1, g: 1, b: 1, a: 1}
-  range: 500
-  startHeight: 6000
-  endHeight: 6500
-  bgm: {fileID: 0}
+  range: 100000
+  startHeight: 5500
+  endHeight: 105500
+  bgm: {fileID: 8300000, guid: 732580538e2b16c48a61c0a8941a6111, type: 3}
   obstacles: []
-  enemies: []
+  enemies:
+  - spawnObject: {fileID: 3064576461962470530, guid: 73f6208666b419346962aeec5de42035, type: 3}
+    spawnHeightPercent: 1
+    spawnHeight: 6500
+    limitHeightPercent: 100
+    limitHeight: 105500
+  - spawnObject: {fileID: 4650863473136981692, guid: 1043aefcf5cbbd4418e99dcb44042841, type: 3}
+    spawnHeightPercent: 0
+    spawnHeight: 5500
+    limitHeightPercent: 100
+    limitHeight: 105500
   items: []

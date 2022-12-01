@@ -26,6 +26,11 @@ MonoBehaviour:
     limitHeightPercent: 100
     limitHeight: 3000
   - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
+    spawnHeightPercent: 50
+    spawnHeight: 2500
+    limitHeightPercent: 100
+    limitHeight: 3000
+  - spawnObject: {fileID: 5661846133827186523, guid: 70121eadb447d224ab9151cc32cd9ed4, type: 3}
     spawnHeightPercent: 75
     spawnHeight: 2750
     limitHeightPercent: 100

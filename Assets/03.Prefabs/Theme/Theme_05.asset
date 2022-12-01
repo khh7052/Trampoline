@@ -47,6 +47,11 @@ MonoBehaviour:
     limitHeight: 5000
   enemies:
   - spawnObject: {fileID: 1831551851284699038, guid: af41c373479cc524c949717ab6cf511a, type: 3}
+    spawnHeightPercent: 25
+    spawnHeight: 4250
+    limitHeightPercent: 100
+    limitHeight: 5000
+  - spawnObject: {fileID: 1831551851284699038, guid: af41c373479cc524c949717ab6cf511a, type: 3}
     spawnHeightPercent: 50
     spawnHeight: 4500
     limitHeightPercent: 100

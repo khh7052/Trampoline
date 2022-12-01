@@ -49,7 +49,6 @@ public class ThemeManager : BaseInit
             ThemeUpdate();
             BackgroundUpdate();
             BgmUpdate();
-            print(Theme.name);
         }
     }
 

@@ -8,7 +8,8 @@ public class InitTrailRenderer : BaseInit
 
     public override void Init()
     {
-        trailRenderer.enabled = false;
+        if (trailRenderer == null) return;
+        if (trailRenderer.enabled) trailRenderer.enabled = false;
         trailRenderer.Clear();
         trailRenderer.enabled = true;
     }

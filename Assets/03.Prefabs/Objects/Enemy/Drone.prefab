@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8533228463545150938}
   - component: {fileID: 8533228463545150941}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Props
   m_TagString: Damage
   m_Icon: {fileID: 0}

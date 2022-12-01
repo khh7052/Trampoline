@@ -16,6 +16,7 @@ public class InitVelocity : BaseInit
 
     public override void Init()
     {
+        if (rigd == null) return;
         rigd.velocity = velocity;
         rigd.angularVelocity = angularVelocity;
     }

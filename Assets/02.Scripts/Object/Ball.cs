@@ -19,7 +19,6 @@ public class Ball : DamageableObject
     private CircleCollider2D circleCollider;
     private PhysicsMaterial2D physicMaterial;
     public Color paintingColor;
-    private bool isQuiting = false;
 
     int myLayer;
     int jumpLayer;
@@ -110,10 +109,7 @@ public class Ball : DamageableObject
         VelocityCheck();
     }
 
-    private void OnApplicationQuit()
-    {
-        isQuiting = true;
-    }
+    
 
     public void BouncinessUpdate()
     {
@@ -137,20 +133,12 @@ public class Ball : DamageableObject
 
     protected override void OnBecameInvisible() // 화면밖으로 나가면 사망
     {
-        if (isQuiting) return;
+        if (GameManager.IsQuiting) return;
         base.OnBecameInvisible();
         if (GameManager.Instance.state != GameState.PLAY) return;
         if(Height < Camera.main.transform.position.y) Die();
     }
 
-    private void Spin()
-    {
-        int rand = Random.Range(-1, 2);
-        if (rand > 0) rand = 1;
-        else rand = -1;
-
-        rigd.angularVelocity += rigd.velocity.magnitude * rand;
-    }
 
     private void ForceLimit()
     {
@@ -182,7 +170,10 @@ public class Ball : DamageableObject
         {
             Instantiate(hitEffect, collision.contacts[0].point, hitEffect.transform.rotation);
             SoundManager.Instance.PlaySFX(bounceSound);
-            Spin();
+            int dir = 0;
+            if (collision.contacts[0].point.x > transform.position.x) dir = 1;
+            else if (collision.contacts[0].point.x < transform.position.x) dir = -1;
+            rigd.angularVelocity += rigd.velocity.magnitude * dir;
             ForceLimit();
         }
     }

@@ -23,8 +23,10 @@ public class GameManager : Singleton<GameManager>
     public static UnityEvent OnGamePause = new();
     public static UnityEvent OnGameContinue = new();
     public static UnityEvent OnGameOver = new();
-
+    public static bool IsQuiting = false;
+    public static bool IsGameAwake = true;
     public static Ball MainBall;
+    
 
     [Header("UI")]
     [SerializeField] private GameObject inGameUI;
@@ -75,6 +77,7 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         GameLobby();
+        IsGameAwake = false;
     }
 
     private void Update()
@@ -85,12 +88,18 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-     void OneInit()
+    private void OnApplicationQuit()
+    {
+        IsGameAwake = true;
+        IsQuiting = true;
+    }
+
+    void OneInit()
     {
         Application.targetFrameRate = frame;
         HeightTextInit();
         MainBallUpdate();
-
+        IsQuiting = false;
         inGameUI.SetActive(true);
         overUI.SetActive(true);
         settingUI.SetActive(true);

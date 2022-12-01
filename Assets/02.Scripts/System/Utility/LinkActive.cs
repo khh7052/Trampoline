@@ -13,6 +13,7 @@ public class LinkActive : MonoBehaviour
 
     private void OnDisable()
     {
+        if (GameManager.IsQuiting) return;
         target.SetActive(false);
     }
 

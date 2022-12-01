@@ -255,12 +255,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c5ee98532ea71914a94a3d9956161ac0, type: 3}
   - {fileID: 8300000, guid: 928f271c66f129a4cbd03ca2a591531d, type: 3}
   - {fileID: 8300000, guid: 529d882881c6b6e4bac9b51ac3d663dd, type: 3}
-  dieSound: []
+  dieSound:
+  - {fileID: 8300000, guid: 0bec8a6d158b17c4090f01db26a9ce6c, type: 3}
   isInvisible: 1
   hitEffect: {fileID: 904700422170233198, guid: d6e38761b3107c147aab10c2bda17b94, type: 3}
   dieEffect: {fileID: 873139184859951802, guid: 0048b0a577735744592992313eca175b, type: 3}
   attackSound: {fileID: 8300000, guid: 5b04a5d8bc39471469a3067442797fcb, type: 3}
-  attackRate: 5
+  attackRate: 3
   gunPoint: {fileID: 4054469128592494147}
   laser: {fileID: 6578684277434227920, guid: 0e735d868053c3d40b30c724e0365c24, type: 3}
 --- !u!114 &-8217747684633237626

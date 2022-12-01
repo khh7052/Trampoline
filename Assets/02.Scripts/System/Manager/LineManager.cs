@@ -17,6 +17,7 @@ public class LineManager : BaseInit
 
     private void Update()
     {
+        if (GameManager.Instance.state == GameState.PAUSE || GameManager.Instance.state == GameState.OVER) return;
         LineMake();
     }
 
@@ -24,7 +25,6 @@ public class LineManager : BaseInit
     {
         if (Input.touchCount == 0) return;
         if (EventSystem.current.currentSelectedGameObject != null) return;
-        // if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
 
         Touch touch = Input.GetTouch(0);
         Vector2 pos = ScreenToWorld(touch.position);

@@ -738,8 +738,6 @@ struct UnhandledExceptionEventArgs_tA03BC4C11522215795EF708F89F187AD312310C0;
 struct UnhandledExceptionEventHandler_tB13FF21A6201A59BB462E68CD10C5B5BEE54941C;
 // System.Text.UnicodeEncoding
 struct UnicodeEncoding_t2C90D9E1E55C16081FACA57B229053C1EF05DAF0;
-// UnityEngine.UnityAPICompatibilityVersionAttribute
-struct UnityAPICompatibilityVersionAttribute_tFA71FECBEBF7940222FE24368BC83DAA0C28A3D0;
 // UnityEngine.Events.UnityAction
 struct UnityAction_t11A1F3B953B365C072A5DCC32677EE1796A962A7;
 // UnityEngine.Events.UnityEvent
@@ -3720,15 +3718,6 @@ struct UnicodeEncoding_t2C90D9E1E55C16081FACA57B229053C1EF05DAF0_StaticFields
 	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___s_littleEndianPreamble_19;
 	// System.UInt64 System.Text.UnicodeEncoding::highLowPatternMask
 	uint64_t ___highLowPatternMask_23;
-};
-
-// UnityEngine.UnityAPICompatibilityVersionAttribute
-struct UnityAPICompatibilityVersionAttribute_tFA71FECBEBF7940222FE24368BC83DAA0C28A3D0  : public Attribute_tFDA8EFEFB0711976D22474794576DAF28F7440AA
-{
-	// System.String UnityEngine.UnityAPICompatibilityVersionAttribute::_version
-	String_t* ____version_0;
-	// System.String[] UnityEngine.UnityAPICompatibilityVersionAttribute::_configurationAssembliesHashes
-	StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* ____configurationAssembliesHashes_1;
 };
 
 // UnityEngine.Events.UnityEvent
@@ -19116,28 +19105,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CRegisterUECatcherU3Eb__0_0_mD
 		L_1 = UnhandledExceptionEventArgs_get_ExceptionObject_m8DC2648F45071BF54F6EF908704224A805032F33_inline(L_0, NULL);
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogException_m82E44FEC6B03BC34AFC2CAF6583051570C60CB9E(((Exception_t*)IsInstClass((RuntimeObject*)L_1, Exception_t_il2cpp_TypeInfo_var)), NULL);
-		return;
-	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void UnityEngine.UnityAPICompatibilityVersionAttribute::.ctor(System.String,System.String[])
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnityAPICompatibilityVersionAttribute__ctor_mA03FAB23DD9EBEFAB67062051F114D4900806723 (UnityAPICompatibilityVersionAttribute_tFA71FECBEBF7940222FE24368BC83DAA0C28A3D0* __this, String_t* ___version0, StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* ___configurationAssembliesHashes1, const RuntimeMethod* method) 
-{
-	{
-		Attribute__ctor_m79ED1BF1EE36D1E417BA89A0D9F91F8AAD8D19E2(__this, NULL);
-		String_t* L_0 = ___version0;
-		__this->____version_0 = L_0;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->____version_0), (void*)L_0);
-		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_1 = ___configurationAssembliesHashes1;
-		__this->____configurationAssembliesHashes_1 = L_1;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->____configurationAssembliesHashes_1), (void*)L_1);
 		return;
 	}
 }
