@@ -1905,7 +1905,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 2040582611}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -2601,7 +2601,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2015
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -7105,6 +7105,7 @@ MonoBehaviour:
   onOver: 0
   onActive: 0
   data: {fileID: 11400000, guid: 33c38408195fc9546b4d0a1dafe8ae7c, type: 2}
+  isUp: 0
 --- !u!1 &1414401795
 GameObject:
   m_ObjectHideFlags: 0
@@ -11038,7 +11039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &2040582611
 Camera:
   m_ObjectHideFlags: 0

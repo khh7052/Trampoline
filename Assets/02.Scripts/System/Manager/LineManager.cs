@@ -17,7 +17,9 @@ public class LineManager : BaseInit
 
     private void Update()
     {
+        
         if (GameManager.Instance.state == GameState.PAUSE || GameManager.Instance.state == GameState.OVER) return;
+        if (Input.GetMouseButtonDown(0)) GameManager.Instance.GameStart();
         LineMake();
     }
 

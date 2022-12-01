@@ -9,6 +9,7 @@ public class ThemeManager : BaseInit
     public static UnityEvent OnThemeUpdate = new();
     private static ThemeManager instance;
     [SerializeField] private ThemeManagerData data;
+    public bool isUp = false;
 
     public static ThemeManager Instance
     {
@@ -43,12 +44,12 @@ public class ThemeManager : BaseInit
         {
             if (value < 0 || value >= Themes.Count) return;
             if (index == value) return;
-
             index = value;
 
             ThemeUpdate();
             BackgroundUpdate();
-            BgmUpdate();
+            if(isUp)
+                BgmUpdate();
         }
     }
 
@@ -70,6 +71,7 @@ public class ThemeManager : BaseInit
 
     public override void Init()
     {
+        isUp = true;
         Index = 0;
         BackgroundInit();
     }
@@ -78,10 +80,12 @@ public class ThemeManager : BaseInit
     {
         if (GameManager.BallHeight >= Theme.EndHeight)
         {
+            isUp = true;
             Index++;
         }
         else if (GameManager.BallHeight < Theme.StartHeight)
         {
+            isUp = false;
             Index--;
         }
     }
